@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LqBase">
+  <DataContextMoniker Name="/LqBaseDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c78b8225-39c3-4f5e-ab98-c246ac686568" absoluteBounds="0.5, 0.5, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/LqBaseDataContext/ChavesInterno" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f03b6b18-7de5-4162-8669-d5ee9bd52846" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EstoqueDistribuidorOnLine" Class="LqEstoqueIaraDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=&quot;152.254.236.69\sqlexpress, 14333&quot;;Initial Catalog=EstoqueDistribuidorOnLine;Persist Security Info=True;User ID=sqlsystem" SettingsObjectName="CRM_BASE.My.MySettings" SettingsPropertyName="EstoqueDistribuidorOnLineConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CardapioIProdutosARA" Member="CardapioIProdutosARA">
+    <Type Name="CardapioIProdutosARA">
+      <Column Name="IdItemEstoqueIARA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdClienteIARA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdCodProdInterno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DataPublicacao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraPublicacao" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="PartNumber" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ValorUnitario" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="QtdadePublicada" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="MInimoPorVenda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaximoPorVenda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrazoEntrega" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Altura" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Largura" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Profundidade" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Peso" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="UnidadeVenda" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TTEstoque" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CaracteristicasProdutoCardapio" Member="CaracteristicasProdutoCardapio">
+    <Type Name="CaracteristicasProdutoCardapio">
+      <Column Name="IdCaracteristica" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IditemCardapio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ImagensProdutosIara" Member="ImagensProdutosIara">
+    <Type Name="ImagensProdutosIara">
+      <Column Name="IdImagem" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Idproduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Imagem" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Function Name="dbo.InsereProdutoBaseIara" Method="InsereProdutoBaseIara">
+    <Parameter Name="IdClienteIARA" Parameter="idClienteIARA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdCodProdInterno" Parameter="idCodProdInterno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="DataPublicacao" Parameter="dataPublicacao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraPublicacao" Parameter="horaPublicacao" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="PartNumber" Parameter="partNumber" Type="System.String" DbType="NText" />
+    <Parameter Name="ValorUnitario" Parameter="valorUnitario" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="QtdadePublicada" Parameter="qtdadePublicada" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="MInimoPorVenda" Parameter="mInimoPorVenda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaximoPorVenda" Parameter="maximoPorVenda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PrazoEntrega" Parameter="prazoEntrega" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Altura" Parameter="altura" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Largura" Parameter="largura" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Profundidade" Parameter="profundidade" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Peso" Parameter="peso" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="UnidadeVenda" Parameter="unidadeVenda" Type="System.String" DbType="NText" />
+    <Parameter Name="Status" Parameter="status" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="TTEstoque" Parameter="tTEstoque" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaDadosProdutoIara" Method="AtualizaDadosProdutoIara">
+    <Parameter Name="IdItemEstoqueIara" Parameter="idItemEstoqueIara" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Altura" Parameter="altura" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Largura" Parameter="largura" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Profundidade" Parameter="profundidade" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Peso" Parameter="peso" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Status" Parameter="status" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="TTEstoque" Parameter="tTEstoque" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaDadosQtdadeProdutoIara" Method="AtualizaDadosQtdadeProdutoIara">
+    <Parameter Name="IdItemEstoqueIara" Parameter="idItemEstoqueIara" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Qtdade" Parameter="qtdade" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereCaracteristicaProdutoBaseIara" Method="InsereCaracteristicaProdutoBaseIara">
+    <Parameter Name="IdItemProdtoIara" Parameter="idItemProdtoIara" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereImagemProdutoBaseIara" Method="InsereImagemProdutoBaseIara">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Imagem" Parameter="imagem" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereCaracteristicaProdutoBaseIara" Method="InsereCaracteristicaProdutoBaseIara1">
+    <Parameter Name="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="IdItemCardapio" Parameter="idItemCardapio" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

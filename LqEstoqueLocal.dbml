@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EstoqueLocal" Class="LqEstoqueLocalDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-K3M64OB;Initial Catalog=EstoqueLocal;Persist Security Info=True;User ID=Sqlsystem" SettingsObjectName="CRM_BASE.My.MySettings" SettingsPropertyName="EstoqueLocalConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AndarEstoqueLocal" Member="AndarEstoqueLocal">
+    <Type Name="AndarEstoqueLocal">
+      <Column Name="IdAndar" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdPredio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdEstoque" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeAndar" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuadrasEstoqueLocal" Member="QuadrasEstoqueLocal">
+    <Type Name="QuadrasEstoqueLocal">
+      <Column Name="IdQuadra" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdEstoque" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeQuadra" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PredioEstoqueLocal" Member="PredioEstoqueLocal">
+    <Type Name="PredioEstoqueLocal">
+      <Column Name="IdPredio" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdRua" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdEstoque" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomePredio" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RuasEstoqueLocal" Member="RuasEstoqueLocal">
+    <Type Name="RuasEstoqueLocal">
+      <Column Name="IdRua" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdQuadra" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdEstoque" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeRua" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstoquesLocais" Member="EstoquesLocais">
+    <Type Name="EstoquesLocais">
+      <Column Name="IdEstoque" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NomeEstoque" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TipoEstoque" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EnderecoEstoqueLocal" Member="EnderecoEstoqueLocal">
+    <Type Name="EnderecoEstoqueLocal">
+      <Column Name="IdEndereco" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdAndar" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdEstoque" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeEndereco" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Usado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Altura" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Largura" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Profundidade" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Peso" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Armazenagem" Member="Armazenagem">
+    <Type Name="Armazenagem">
+      <Column Name="IdArmazenagem" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Validade" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Endereco" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NF" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdFornecedor" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Qt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataEntrada" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraEntrada" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="ValorUnit" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Markup" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ValorRevenda" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="IdArmazenador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataRetirada" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraRetirada" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IdRetirador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TipoProduto" Type="System.Int32" DbType="Int" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SolicitacaoProdutosEstoque" Member="SolicitacaoProdutosEstoque">
+    <Type Name="SolicitacaoProdutosEstoque">
+      <Column Name="IdSolicitacao" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qtdade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Destino" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DataSol" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraSol" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IdSolicitante" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataLiberacao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraLiberacao" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IdLiberador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Ret" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdSolicitacaoCad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataRetirada" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraRetirada" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IdCodExterno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BaixaEndereco" Member="BaixaEndereco">
+    <Type Name="BaixaEndereco">
+      <Column Name="IdEnderecoBaixa" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdEndereco" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdSolicitacao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdUsuarioBaixa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataBaixa" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraBaixa" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="NumNf" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.InsereNovoQuadraEstoqueLocal" Method="InsereNovoQuadraEstoqueLocal">
+    <Parameter Name="IdEstoque" Parameter="idEstoque" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeQuadra" Parameter="nomeQuadra" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoEstoqueLocal" Method="InsereNovoEstoqueLocal">
+    <Parameter Name="NomeEstoque" Parameter="nomeEstoque" Type="System.String" DbType="NText" />
+    <Parameter Name="Status" Parameter="status" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="TipoArmazengaem" Parameter="tipoArmazengaem" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaRuaEstoqueLocal" Method="InsereNovaRuaEstoqueLocal">
+    <Parameter Name="IdQuadra" Parameter="idQuadra" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdEstoque" Parameter="idEstoque" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeRua" Parameter="nomeRua" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoPredioEstoqueLocal" Method="InsereNovoPredioEstoqueLocal">
+    <Parameter Name="IdRua" Parameter="idRua" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdEstoque" Parameter="idEstoque" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomePredio" Parameter="nomePredio" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaAndarEstoqueLocal" Method="InsereNovaAndarEstoqueLocal">
+    <Parameter Name="IdPredio" Parameter="idPredio" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdEstoque" Parameter="idEstoque" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeAndar" Parameter="nomeAndar" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaEndereoEstoqueLocal" Method="InsereNovaEndereoEstoqueLocal">
+    <Parameter Name="IdAndar" Parameter="idAndar" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdEstoque" Parameter="idEstoque" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeEndereco" Parameter="nomeEndereco" Type="System.String" DbType="NText" />
+    <Parameter Name="Usado" Parameter="usado" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Altura" Parameter="altura" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Largura" Parameter="largura" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Profundidade" Parameter="profundidade" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Peso" Parameter="peso" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaSolicitacaoProdutosEstoque" Method="AtualizaSolicitacaoProdutosEstoque">
+    <Parameter Name="IdSolicitacao" Parameter="idSolicitacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Status" Parameter="status" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Idliberador" Parameter="idliberador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataLiberacao" Parameter="dataLiberacao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraLiberacao" Parameter="horaLiberacao" Type="System.TimeSpan" DbType="Time" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaStatusEndereco" Method="AtualizaStatusEndereco">
+    <Parameter Name="IdEndereco" Parameter="idEndereco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Usado" Parameter="usado" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaRetiradaProdutosEstoque" Method="AtualizaRetiradaProdutosEstoque">
+    <Parameter Name="IdSolicitacao" Parameter="idSolicitacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Qtdade" Parameter="qtdade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ret" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DataRetirada" Parameter="dataRetirada" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraRetirada" Parameter="horaRetirada" Type="System.TimeSpan" DbType="Time" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaRetiradaarmazenagem" Method="AtualizaRetiradaarmazenagem">
+    <Parameter Name="IdArmazenagem" Parameter="idArmazenagem" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataRetirada" Parameter="dataRetirada" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraRetirada" Parameter="horaRetirada" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="Qtdade" Parameter="qtdade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdRetirador" Parameter="idRetirador" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovArmazenagem" Method="InsereNovArmazenagem">
+    <Parameter Name="Validade" Parameter="validade" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Endereco" Parameter="endereco" Type="System.String" DbType="NText" />
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nf" Parameter="nf" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdFornecedor" Parameter="idFornecedor" Type="System.String" DbType="NText" />
+    <Parameter Name="Qt" Parameter="qt" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataEntrada" Parameter="dataEntrada" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraEntrada" Parameter="horaEntrada" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="ValorUnit" Parameter="valorUnit" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Markup" Parameter="markup" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ValorRevenda" Parameter="valorRevenda" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="IdArmazenador" Parameter="idArmazenador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataRetirada" Parameter="dataRetirada" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraRetirada" Parameter="horaRetirada" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="TipoProduto" Parameter="tipoProduto" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizavalorRevendaArmaz" Method="AtualizavalorRevendaArmaz">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ValorRevenda" Parameter="valorRevenda" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaSolicitacaoProdutoEstoque" Method="InsereNovaSolicitacaoProdutoEstoque">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Qtdade" Parameter="qtdade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Destino" Parameter="destino" Type="System.String" DbType="NText" />
+    <Parameter Name="DataSol" Parameter="dataSol" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraSol" Parameter="horaSol" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdSolicitante" Parameter="idSolicitante" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataLiberacao" Parameter="dataLiberacao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraLiberacao" Parameter="horaLiberacao" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdLiberador" Parameter="idLiberador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Status" Parameter="status" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Ret" Parameter="ret" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IdSolicitacaoCad" Parameter="idSolicitacaoCad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataRetirada" Parameter="dataRetirada" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraRetirada" Parameter="horaRetirada" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdCodExterno" Parameter="idCodExterno" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaSolicitacoesEstoque" Method="DeletaSolicitacoesEstoque">
+    <Parameter Name="Destino" Parameter="destino" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereBaixaEstoque" Method="InsereBaixaEstoque">
+    <Parameter Name="IdEndereco" Parameter="idEndereco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Qt" Parameter="qt" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdSolicitacao" Parameter="idSolicitacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdUsuarioBaixa" Parameter="idUsuarioBaixa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataBaixa" Parameter="dataBaixa" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraBaixa" Parameter="horaBaixa" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="NumNf" Parameter="numNf" Type="System.String" DbType="NText" />
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaSolicitacaoEstoque_cadProd" Method="AtualizaSolicitacaoEstoque_cadProd">
+    <Parameter Name="IdSolicitacaoCad" Parameter="idSolicitacaoCad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

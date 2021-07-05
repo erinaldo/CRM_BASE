@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Trabalhista" Class="LqTrabalhistaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-K3M64OB;Initial Catalog=Trabalhista;Persist Security Info=True;User ID=SqlSystem" SettingsObjectName="CRM_BASE.My.MySettings" SettingsPropertyName="TrabalhistaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.SetoresClientes" Member="SetoresClientes">
+    <Type Name="SetoresClientes">
+      <Column Name="IdSetorCliente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeSetor" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CorSetor" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="SetoresClientes_FuncoesClientesSetores" Member="FuncoesClientesSetores" ThisKey="IdSetorCliente" OtherKey="IdSetorCliente" Type="FuncoesClientesSetores" />
+      <Association Name="SetoresClientes_RiscosSetores" Member="RiscosSetores" ThisKey="IdSetorCliente" OtherKey="IdSetor" Type="RiscosSetores" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FuncoesClientesSetores" Member="FuncoesClientesSetores">
+    <Type Name="FuncoesClientesSetores">
+      <Column Name="IdFuncaoClienteSetor" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdFuncao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdSetorCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="SetoresClientes_FuncoesClientesSetores" Member="SetoresClientes" ThisKey="IdSetorCliente" OtherKey="IdSetorCliente" Type="SetoresClientes" IsForeignKey="true" />
+      <Association Name="FuncoesClientes_FuncoesClientesSetores" Member="FuncoesClientes" ThisKey="IdFuncao" OtherKey="IdFuncaoCliente" Type="FuncoesClientes" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FuncoesClientes" Member="FuncoesClientes">
+    <Type Name="FuncoesClientes">
+      <Column Name="IdFuncaoCliente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="FuncoesClientes_FuncoesClientesSetores" Member="FuncoesClientesSetores" ThisKey="IdFuncaoCliente" OtherKey="IdFuncao" Type="FuncoesClientesSetores" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RiscosSetores" Member="RiscosSetores">
+    <Type Name="RiscosSetores">
+      <Column Name="IdRiscoSetor" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdRisco" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdSetor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SetoresClientes_RiscosSetores" Member="SetoresClientes" ThisKey="IdSetor" OtherKey="IdSetorCliente" Type="SetoresClientes" IsForeignKey="true" />
+      <Association Name="Riscos_RiscosSetores" Member="Riscos" ThisKey="IdRisco" OtherKey="IdRisco" Type="Riscos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Riscos" Member="Riscos">
+    <Type Name="Riscos">
+      <Column Name="IdRisco" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Red" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Green" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Blue" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Riscos_RiscosSetores" Member="RiscosSetores" ThisKey="IdRisco" OtherKey="IdRisco" Type="RiscosSetores" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ESocial" Member="ESocial">
+    <Type Name="ESocial">
+      <Column Name="IdESocial" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdColaborador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Evento" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DataSolicitacao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraSolicitacao" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DataResposta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraResposta" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Association Name="Eventos_ESocial_ESocial" Member="Eventos_ESocial" ThisKey="Evento" OtherKey="Descricao" Type="Eventos_ESocial" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Eventos_ESocial" Member="Eventos_ESocial">
+    <Type Name="Eventos_ESocial">
+      <Column Name="IdEvento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GrupoPerfil" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NomePerfil" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Numero" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ativo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Subs" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Eventos_ESocial_ESocial" Member="ESocial" ThisKey="Descricao" OtherKey="Evento" Type="ESocial" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CategoriasTrabalhadores" Member="CategoriasTrabalhadores">
+    <Type Name="CategoriasTrabalhadores">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Grupo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ColaboradoresCliente" Member="ColaboradoresCliente">
+    <Type Name="ColaboradoresCliente">
+      <Column Name="IdColaboradorCliente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeColaborador" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NomeFantasia" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Personalidade" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DocColaborador" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RG_IE" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CEP" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cmpl" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Telefone" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Celular" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Email" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdFuncao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DescricaoFuncao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Remuneracao" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DataAdmissao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DataDesligamento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GrupoTrab" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CatTrab" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Function Name="dbo.AtualizaSetorCliente" Method="AtualizaSetorCliente">
+    <Parameter Name="IdSetorCliente" Parameter="idSetorCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeSetor" Parameter="nomeSetor" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereSetorCliente" Method="InsereSetorCliente">
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeSetor" Parameter="nomeSetor" Type="System.String" DbType="NText" />
+    <Parameter Name="CorSetor" Parameter="corSetor" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaSetorIdClientetodos" Method="AtualizaSetorIdClientetodos">
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaFuncoesSetor" Method="DeletaFuncoesSetor">
+    <Parameter Name="IdSetorCliente" Parameter="idSetorCliente" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaSetorCliente" Method="DeletaSetorCliente">
+    <Parameter Name="IdSetorCliente" Parameter="idSetorCliente" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereFuncaoCliente" Method="InsereFuncaoCliente">
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereFuncaoSetorCliente" Method="InsereFuncaoSetorCliente">
+    <Parameter Name="IdFuncao" Parameter="idFuncao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdSetorCliente" Parameter="idSetorCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereRiscoSetor" Method="InsereRiscoSetor">
+    <Parameter Name="IdRisco" Parameter="idRisco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdSetor" Parameter="idSetor" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereRisco" Method="InsereRisco">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="Red" Parameter="red" Type="System.String" DbType="NText" />
+    <Parameter Name="Green" Parameter="green" Type="System.String" DbType="NText" />
+    <Parameter Name="Blue" Parameter="blue" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaRiscoSetor" Method="DeletaRiscoSetor">
+    <Parameter Name="IdSetor" Parameter="idSetor" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaColaboradorCliente" Method="DeletaColaboradorCliente">
+    <Parameter Name="IdColaborador" Parameter="idColaborador" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereESocial" Method="InsereESocial">
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdColaborador" Parameter="idColaborador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Evento" Parameter="evento" Type="System.String" DbType="NText" />
+    <Parameter Name="DataSolicitacao" Parameter="dataSolicitacao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraSolicitacao" Parameter="horaSolicitacao" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="DataResposta" Parameter="dataResposta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraResposta" Parameter="horaResposta" Type="System.TimeSpan" DbType="Time" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EditaColaboradorCliente" Method="EditaColaboradorCliente">
+    <Parameter Name="IdColaboradorCliente" Parameter="idColaboradorCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeColaborador" Parameter="nomeColaborador" Type="System.String" DbType="NText" />
+    <Parameter Name="NomeFantasia" Parameter="nomeFantasia" Type="System.String" DbType="NText" />
+    <Parameter Name="Personalidade" Parameter="personalidade" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DocColaborador" Parameter="docColaborador" Type="System.String" DbType="NText" />
+    <Parameter Name="RG_IE" Parameter="rG_IE" Type="System.String" DbType="NText" />
+    <Parameter Name="CEP" Parameter="cEP" Type="System.String" DbType="NText" />
+    <Parameter Name="Num" Parameter="num" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cmpl" Parameter="cmpl" Type="System.String" DbType="NText" />
+    <Parameter Name="Telefone" Parameter="telefone" Type="System.String" DbType="NText" />
+    <Parameter Name="Celular" Parameter="celular" Type="System.String" DbType="NText" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NText" />
+    <Parameter Name="IdFuncao" Parameter="idFuncao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DescricaoFuncao" Parameter="descricaoFuncao" Type="System.String" DbType="NText" />
+    <Parameter Name="Remuneracao" Parameter="remuneracao" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="DataAdmissao" Parameter="dataAdmissao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="DataDesligamento" Parameter="dataDesligamento" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="GrupoTrab" Parameter="grupoTrab" Type="System.String" DbType="NText" />
+    <Parameter Name="CatTrab" Parameter="catTrab" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereColaboradorCliente" Method="InsereColaboradorCliente">
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeColaborador" Parameter="nomeColaborador" Type="System.String" DbType="NText" />
+    <Parameter Name="NomeFantasia" Parameter="nomeFantasia" Type="System.String" DbType="NText" />
+    <Parameter Name="Personalidade" Parameter="personalidade" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DocColaborador" Parameter="docColaborador" Type="System.String" DbType="NText" />
+    <Parameter Name="RG_IE" Parameter="rG_IE" Type="System.String" DbType="NText" />
+    <Parameter Name="CEP" Parameter="cEP" Type="System.String" DbType="NText" />
+    <Parameter Name="Num" Parameter="num" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cmpl" Parameter="cmpl" Type="System.String" DbType="NText" />
+    <Parameter Name="Telefone" Parameter="telefone" Type="System.String" DbType="NText" />
+    <Parameter Name="Celular" Parameter="celular" Type="System.String" DbType="NText" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NText" />
+    <Parameter Name="IdFuncao" Parameter="idFuncao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DescricaoFuncao" Parameter="descricaoFuncao" Type="System.String" DbType="NText" />
+    <Parameter Name="Remuneracao" Parameter="remuneracao" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="DataAdmissao" Parameter="dataAdmissao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="DataDesligamento" Parameter="dataDesligamento" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="GrupoTrab" Parameter="grupoTrab" Type="System.String" DbType="NText" />
+    <Parameter Name="CatTrab" Parameter="catTrab" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

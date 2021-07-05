@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="IARA" Class="LqIaraDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=AMI-NOTEBOOK;Initial Catalog=IARA;Persist Security Info=True;User ID=sqlsystem" SettingsObjectName="Instalador_IARA.My.MySettings" SettingsPropertyName="IARAConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ChavesIara" Member="ChavesIara">
+    <Type Name="ChavesIara">
+      <Column Name="IdChaveIara" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdClienteIara" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdProdutoIara" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumeroDaChaveIara" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ValidadeDiasIara" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataLiberacaoIara" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraLiberacaoIara" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DataAtivacaoIara" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraAtivacaoIara" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IpAtivacaoIara" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClientesJv" Member="ClientesJv">
+    <Type Name="ClientesJv">
+      <Column Name="IdClienteJv" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NomeCompletoJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoDocJv" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DOCJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RG_IEJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EnderecoJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BairroJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CidadeJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EstadoJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PaisJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CepJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TelefoneJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CelularJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WhattsappJv" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ContatoJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CelularContatoJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EmailJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProdutosJV" Member="ProdutosJV">
+    <Type Name="ProdutosJV">
+      <Column Name="IdProdutoJV" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DescricaoJV" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="StatusJv" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Modulo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="VlrDesk" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="VlrMobile" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LicensasIara" Member="LicensasIara">
+    <Type Name="LicensasIara">
+      <Column Name="IdDispositivoIARA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDChaveIARA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DispositivoClienteIARA" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLicencaIARA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MacAddressIARA" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IpInt" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Ipext" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Modulo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Function Name="dbo.InsereNovaChaveIara" Method="InsereNovaChaveIara">
+    <Parameter Name="IdClienteIara" Parameter="idClienteIara" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdProdutoIara" Parameter="idProdutoIara" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumeroDaChaveIara" Parameter="numeroDaChaveIara" Type="System.String" DbType="NText" />
+    <Parameter Name="ValidadeDiasIara" Parameter="validadeDiasIara" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataLiberacaoIara" Parameter="dataLiberacaoIara" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraLiberacaoIara" Parameter="horaLiberacaoIara" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="DataAtivacaoIara" Parameter="dataAtivacaoIara" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraAtivacaoIara" Parameter="horaAtivacaoIara" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IpAtivacaoIara" Parameter="ipAtivacaoIara" Type="System.String" DbType="NText" />
+    <Parameter Name="Status" Parameter="status" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoClienteIara" Method="InsereNovoClienteIara">
+    <Parameter Name="NomeCompletoJv" Parameter="nomeCompletoJv" Type="System.String" DbType="NText" />
+    <Parameter Name="TipoDocJv" Parameter="tipoDocJv" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DOCJv" Parameter="dOCJv" Type="System.String" DbType="NText" />
+    <Parameter Name="RG_IEJv" Parameter="rG_IEJv" Type="System.String" DbType="NText" />
+    <Parameter Name="EnderecoJv" Parameter="enderecoJv" Type="System.String" DbType="NText" />
+    <Parameter Name="BairroJv" Parameter="bairroJv" Type="System.String" DbType="NText" />
+    <Parameter Name="CidadeJv" Parameter="cidadeJv" Type="System.String" DbType="NText" />
+    <Parameter Name="EstadoJv" Parameter="estadoJv" Type="System.String" DbType="NText" />
+    <Parameter Name="PaisJv" Parameter="paisJv" Type="System.String" DbType="NText" />
+    <Parameter Name="CEpJv" Parameter="cEpJv" Type="System.String" DbType="NText" />
+    <Parameter Name="telefoneJv" Type="System.String" DbType="NText" />
+    <Parameter Name="CelularJv" Parameter="celularJv" Type="System.String" DbType="NText" />
+    <Parameter Name="WhattsappJv" Parameter="whattsappJv" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ContatoJv" Parameter="contatoJv" Type="System.String" DbType="NText" />
+    <Parameter Name="celularContatoJv" Type="System.String" DbType="NText" />
+    <Parameter Name="EmailJv" Parameter="emailJv" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaLicensaChaveIara" Method="InsereNovaLicensaChaveIara">
+    <Parameter Name="IdChaveIara" Parameter="idChaveIara" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DispositivoClienteIara" Parameter="dispositivoClienteIara" Type="System.String" DbType="NText" />
+    <Parameter Name="TipoLicensaIara" Parameter="tipoLicensaIara" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="MACAdressIara" Parameter="mACAdressIara" Type="System.String" DbType="NText" />
+    <Parameter Name="IpInt" Parameter="ipInt" Type="System.String" DbType="NText" />
+    <Parameter Name="IpExt" Parameter="ipExt" Type="System.String" DbType="NText" />
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="modulo" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

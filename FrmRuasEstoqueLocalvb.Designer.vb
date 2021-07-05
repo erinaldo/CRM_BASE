@@ -1,0 +1,269 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class FrmRuasEstoqueLocalvb
+    Inherits System.Windows.Forms.Form
+
+    'Descartar substituições de formulário para limpar a lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Exigido pelo Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'OBSERVAÇÃO: o procedimento a seguir é exigido pelo Windows Form Designer
+    'Pode ser modificado usando o Windows Form Designer.  
+    'Não o modifique usando o editor de códigos.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmRuasEstoqueLocalvb))
+        Me.PnnInferior = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Panel12 = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.TrEstoque = New System.Windows.Forms.TreeView()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.ListView2 = New System.Windows.Forms.ListView()
+        Me.ChQuardas = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ImageList2 = New System.Windows.Forms.ImageList(Me.components)
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.BtnNovaQuadra = New System.Windows.Forms.Button()
+        Me.BttBuscarCliente = New System.Windows.Forms.Button()
+        Me.BttFechar = New System.Windows.Forms.Button()
+        Me.PnnInferior.SuspendLayout()
+        Me.Panel12.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        CType(Me.ChQuardas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'PnnInferior
+        '
+        Me.PnnInferior.BackColor = System.Drawing.Color.SlateGray
+        Me.PnnInferior.Controls.Add(Me.Panel5)
+        Me.PnnInferior.Controls.Add(Me.Panel12)
+        Me.PnnInferior.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PnnInferior.Location = New System.Drawing.Point(1, 790)
+        Me.PnnInferior.Name = "PnnInferior"
+        Me.PnnInferior.Size = New System.Drawing.Size(1079, 38)
+        Me.PnnInferior.TabIndex = 170
+        '
+        'Panel5
+        '
+        Me.Panel5.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel5.Location = New System.Drawing.Point(0, 0)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(997, 5)
+        Me.Panel5.TabIndex = 27
+        '
+        'Panel12
+        '
+        Me.Panel12.BackColor = System.Drawing.Color.SlateGray
+        Me.Panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel12.Controls.Add(Me.BttBuscarCliente)
+        Me.Panel12.Controls.Add(Me.BttFechar)
+        Me.Panel12.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel12.Location = New System.Drawing.Point(997, 0)
+        Me.Panel12.Name = "Panel12"
+        Me.Panel12.Size = New System.Drawing.Size(82, 38)
+        Me.Panel12.TabIndex = 29
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.SlateGray
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1, 828)
+        Me.Panel1.TabIndex = 171
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.SlateGray
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel2.Location = New System.Drawing.Point(1080, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1, 828)
+        Me.Panel2.TabIndex = 172
+        '
+        'TrEstoque
+        '
+        Me.TrEstoque.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.TrEstoque.Location = New System.Drawing.Point(1, 527)
+        Me.TrEstoque.Name = "TrEstoque"
+        Me.TrEstoque.Size = New System.Drawing.Size(1079, 219)
+        Me.TrEstoque.TabIndex = 174
+        Me.TrEstoque.Visible = False
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.BtnNovaQuadra)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel3.Location = New System.Drawing.Point(1, 746)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1079, 44)
+        Me.Panel3.TabIndex = 173
+        '
+        'ListView2
+        '
+        Me.ListView2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ListView2.HideSelection = False
+        Me.ListView2.LargeImageList = Me.ImageList1
+        Me.ListView2.Location = New System.Drawing.Point(12, 275)
+        Me.ListView2.Name = "ListView2"
+        Me.ListView2.Size = New System.Drawing.Size(1051, 465)
+        Me.ListView2.TabIndex = 175
+        Me.ListView2.UseCompatibleStateImageBehavior = False
+        '
+        'ChQuardas
+        '
+        Me.ChQuardas.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.ChQuardas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ChQuardas.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center
+        Me.ChQuardas.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Scaled
+        Me.ChQuardas.BorderlineColor = System.Drawing.Color.WhiteSmoke
+        Me.ChQuardas.BorderlineWidth = 0
+        ChartArea2.AlignmentOrientation = CType((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical Or System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal), System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)
+        ChartArea2.BackColor = System.Drawing.Color.Gainsboro
+        ChartArea2.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center
+        ChartArea2.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Scaled
+        ChartArea2.BorderColor = System.Drawing.Color.Transparent
+        ChartArea2.Name = "ChartArea1"
+        Me.ChQuardas.ChartAreas.Add(ChartArea2)
+        Legend2.Alignment = System.Drawing.StringAlignment.Far
+        Legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom
+        Legend2.Name = "Legend1"
+        Me.ChQuardas.Legends.Add(Legend2)
+        Me.ChQuardas.Location = New System.Drawing.Point(12, 31)
+        Me.ChQuardas.Name = "ChQuardas"
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Stock
+        Series2.Legend = "Legend1"
+        Series2.MarkerImageTransparentColor = System.Drawing.Color.Red
+        Series2.Name = "Series1"
+        Series2.YValuesPerPoint = 4
+        Me.ChQuardas.Series.Add(Series2)
+        Me.ChQuardas.Size = New System.Drawing.Size(1051, 238)
+        Me.ChQuardas.TabIndex = 176
+        Me.ChQuardas.Text = "Chart3"
+        '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.SlateGray
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label1.Font = New System.Drawing.Font("Calibri", 10.0!)
+        Me.Label1.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label1.Location = New System.Drawing.Point(1, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(1079, 28)
+        Me.Label1.TabIndex = 177
+        Me.Label1.Text = "Ruas para a quadra"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'ImageList2
+        '
+        Me.ImageList2.ImageStream = CType(resources.GetObject("ImageList2.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList2.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList2.Images.SetKeyName(0, "add_1_icon.png")
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "estoque.png")
+        '
+        'BtnNovaQuadra
+        '
+        Me.BtnNovaQuadra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BtnNovaQuadra.Dock = System.Windows.Forms.DockStyle.Right
+        Me.BtnNovaQuadra.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.BtnNovaQuadra.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnNovaQuadra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnNovaQuadra.ImageIndex = 0
+        Me.BtnNovaQuadra.ImageList = Me.ImageList2
+        Me.BtnNovaQuadra.Location = New System.Drawing.Point(896, 0)
+        Me.BtnNovaQuadra.Name = "BtnNovaQuadra"
+        Me.BtnNovaQuadra.Size = New System.Drawing.Size(183, 44)
+        Me.BtnNovaQuadra.TabIndex = 29
+        Me.BtnNovaQuadra.Text = "Nova rua"
+        Me.BtnNovaQuadra.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnNovaQuadra.UseVisualStyleBackColor = True
+        '
+        'BttBuscarCliente
+        '
+        Me.BttBuscarCliente.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.check_ok_accept_apply_1582
+        Me.BttBuscarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BttBuscarCliente.FlatAppearance.BorderSize = 0
+        Me.BttBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BttBuscarCliente.Location = New System.Drawing.Point(12, 8)
+        Me.BttBuscarCliente.Name = "BttBuscarCliente"
+        Me.BttBuscarCliente.Size = New System.Drawing.Size(20, 23)
+        Me.BttBuscarCliente.TabIndex = 25
+        Me.BttBuscarCliente.UseVisualStyleBackColor = True
+        '
+        'BttFechar
+        '
+        Me.BttFechar.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.Delete_80_icon_icons_com_57340
+        Me.BttFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BttFechar.FlatAppearance.BorderSize = 0
+        Me.BttFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BttFechar.Location = New System.Drawing.Point(53, 8)
+        Me.BttFechar.Name = "BttFechar"
+        Me.BttFechar.Size = New System.Drawing.Size(20, 23)
+        Me.BttFechar.TabIndex = 26
+        Me.BttFechar.UseVisualStyleBackColor = True
+        '
+        'FrmRuasEstoqueLocalvb
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(1081, 828)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.ChQuardas)
+        Me.Controls.Add(Me.ListView2)
+        Me.Controls.Add(Me.TrEstoque)
+        Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.PnnInferior)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Name = "FrmRuasEstoqueLocalvb"
+        Me.Opacity = 0.95R
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "FrmRuasEstoqueLocalvb"
+        Me.PnnInferior.ResumeLayout(False)
+        Me.Panel12.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
+        CType(Me.ChQuardas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+
+    Friend WithEvents PnnInferior As Panel
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Panel12 As Panel
+    Friend WithEvents BttBuscarCliente As Button
+    Friend WithEvents BttFechar As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents TrEstoque As TreeView
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents BtnNovaQuadra As Button
+    Friend WithEvents ListView2 As ListView
+    Friend WithEvents ChQuardas As DataVisualization.Charting.Chart
+    Friend WithEvents Label1 As Label
+    Friend WithEvents ImageList2 As ImageList
+    Friend WithEvents ImageList1 As ImageList
+End Class

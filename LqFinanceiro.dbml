@@ -1,0 +1,653 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Financeiro" Class="LqFinanceiroDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-K3M64OB;Initial Catalog=Financeiro;Persist Security Info=True;User ID=SqlSystem" SettingsObjectName="CRM_BASE.My.MySettings" SettingsPropertyName="FinanceiroConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Cotacoes" Member="Cotacoes">
+    <Type Name="Cotacoes">
+      <Column Name="IdCotacao" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdSolicitante" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataSolicitacao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraSolicitacao" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdSolicitacaoCad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdCotador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataCotacao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraCotacao" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IdFornecedor" Type="System.String" DbType="ntext" CanBeNull="true" />
+      <Column Name="ValorCotado" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="PrazoEntrega" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Frete" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Comprado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdComprador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataCompra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraCompra" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Qt" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="Markup" Type="System.Decimal" DbType="money" CanBeNull="false" />
+      <Column Name="CodReferencia" Type="System.String" DbType="Ntext" CanBeNull="false" />
+      <Association Name="Cotacoes_SolicitacoesCompraFinanceiro" Member="SolicitacoesCompraFinanceiro" ThisKey="IdCotacao" OtherKey="IdCotacao" Type="SolicitacoesCompraFinanceiro" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Carteira" Member="Carteira">
+    <Type Name="Carteira">
+      <Column Name="IdCarteira" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Storage="_Descrição" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Cofre" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Ag" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Conta" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Tipo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdBanco" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeBanco" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SolicitacoesCompraFinanceiro" Member="SolicitacoesCompraFinanceiro">
+    <Type Name="SolicitacoesCompraFinanceiro">
+      <Column Name="IdSolicitacaoCompra" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdCotacao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataSol" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraSol" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IdSolicitante" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataAutorizacao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraAutorizacao" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IdAutorizador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NF" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Recebido" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DataPg" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NumPagamento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdSolicitacaoCad" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Association Name="Cotacoes_SolicitacoesCompraFinanceiro" Member="Cotacoes" ThisKey="IdCotacao" OtherKey="IdCotacao" Type="Cotacoes" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NF_Entrada" Member="NF_Entrada">
+    <Type Name="NF_Entrada">
+      <Column Name="IdNF" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NumNF" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Fiscal" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdFornecedor" Type="System.String" DbType="ntext" CanBeNull="true" />
+      <Column Name="DataEntrada" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraEntrada" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="UsuarioEntrada" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocXML" Type="System.String" DbType="ntext" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SolicitacoesMarkup" Member="SolicitacoesMarkup">
+    <Type Name="SolicitacoesMarkup">
+      <Column Name="IdSolicitacaoPreco" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdSolicitante" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataSolicitacao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraSolicitacao" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IdCadastrado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataCadastro" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraCadastro" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="SolicitCad" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FormaRecebimentoBalancete" Member="FormaRecebimentoBalancete">
+    <Type Name="FormaRecebimentoBalancete">
+      <Column Name="IdFormaRecebimentoValor" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdOrcamento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdFormaOrcamento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Valor" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ValorREcebido" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ValorTroco" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DataRecebido" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraRecebido" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BandeirasFormaPG" Member="BandeirasFormaPG">
+    <Type Name="BandeirasFormaPG">
+      <Column Name="IdBandeira" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdForma" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TaxaTransacao" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TaxaAntecipacao" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ValorTransacao" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Parcelas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdentificaOpe" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CategoriaPlanoContas" Member="CategoriaPlanoContas">
+    <Type Name="CategoriaPlanoContas">
+      <Column Name="IdCategoriaPlano" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Categoria" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Tipo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BalanceteFinanceiro" Member="BalanceteFinanceiro">
+    <Type Name="BalanceteFinanceiro">
+      <Column Name="IdItemBalancete" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdOrcamento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Valor" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Desconto" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Acrescimo" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Vencimento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DataEntradaBalanco" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraEntradaBalanco" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IdUsuarioEntrada" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataBaixa" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraBaixa" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IdUsuarioBaixa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdVinculo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Identificador" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Categoria" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdFormaPg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AferirPagamentos" Member="AferirPagamentos">
+    <Type Name="AferirPagamentos">
+      <Column Name="IdAferir" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdBalanecete" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Aferido" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataInicioAlerta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DataAferido" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Bancos" Member="Bancos">
+    <Type Name="Bancos">
+      <Column Name="IdBanco" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="value" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="label" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FormasPgEntrada" Member="FormasPgEntrada">
+    <Type Name="FormasPgEntrada">
+      <Column Name="IdFormasPgEntrada" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="A_Vista" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NecessitaAut" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Intervalo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Parcelas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdCarteira" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TipoIntervalo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ExigeCoprovante" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UsoInterno" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FormasPgSaida" Member="FormasPgSaida">
+    <Type Name="FormasPgSaida">
+      <Column Name="IdFormasPgSaida" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="A_Vista" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdVinculo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Intervalo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TipoIntervalo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Parcelas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdCarteira" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsoInterno" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Bandeira" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Cvv" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeTitular" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DiaFechamentoFatura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiaVencimentoFatura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumCartao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Validade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Limite" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Cartao" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TipoCartao" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BandeirasFormaPgSaida" Member="BandeirasFormaPgSaida">
+    <Type Name="BandeirasFormaPgSaida">
+      <Column Name="IdBandeiraSaida" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Image" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CFOP" Member="CFOP">
+    <Type Name="CFOP">
+      <Column Name="idCFOP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Aplicacao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CST" Member="CST">
+    <Type Name="CST">
+      <Column Name="IdCST" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CSTPISCOFINS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CFOP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NF_Saida" Member="NF_Saida">
+    <Type Name="NF_Saida">
+      <Column Name="NumNF" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Serie" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Tipo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ChaveValida" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="NaturezaOPE" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Protocolo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="InscricaoEstadual" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="InscricaoEstadual_subs" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CNPJ" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Nome_Razao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DataEmissao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraEmissao" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DataAutSefaz" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraAutSefaz" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Endereco" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Bairro" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CEP" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DataSaida" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Municipio" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Telefone" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UF" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IndicadorIE" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RG_IE" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="HoraSaida" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="FormaPg" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BC_ICMS" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="VlrICMS" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BCICMS_ST" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ValorICMS_ST" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BCPIS" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ValorTotalProdutos" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ValorFrete" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ValorSeguro" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Desconto" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="OutrasDespesas" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ValorIPI" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ValorCofins" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ValorNF" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="NomeRazao_Transp" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoFrete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ANTT" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PlacaVeiculo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UF_Veiculo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CPF_CNPJ_Transp" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Endereco_Transp" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Municipio_Transp" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UF_Transp" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="InscricaoEstadual_Transp" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Qtdade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Especie" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Marca" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Numeracao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PesoBruto" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PesoLiquido" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="InscricaoMunicipal" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="VlrServicos" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BC_ISSQN" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Vlr_ISSQN" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Observacoes" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Vinculo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CFOP_PDR" Member="CFOP_PDR">
+    <Type Name="CFOP_PDR">
+      <Column Name="IdTrib" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CFOP" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Tipo" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ICMS" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="IPI" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Padrao" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.InsereNovaNf_Entrada" Method="InsereNovaNf_Entrada">
+    <Parameter Name="NumNF" Parameter="numNF" Type="System.String" DbType="NText" />
+    <Parameter Name="Fiscal" Parameter="fiscal" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IdFornecedor" Parameter="idFornecedor" Type="System.String" DbType="NText" />
+    <Parameter Name="DataEntrada" Parameter="dataEntrada" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraEntrada" Parameter="horaEntrada" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="UsuarioEntrada" Parameter="usuarioEntrada" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DocXML" Parameter="docXML" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaSolicitacaoCompraFinanceiro" Method="InsereNovaSolicitacaoCompraFinanceiro">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Qt" Parameter="qt" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdCotacao" Parameter="idCotacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataSol" Parameter="dataSol" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraSol" Parameter="horaSol" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdSolicitante" Parameter="idSolicitante" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataAutorizacao" Parameter="dataAutorizacao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraAutorizacao" Parameter="horaAutorizacao" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdAutorizador" Parameter="idAutorizador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NF" Parameter="nF" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Recebido" Parameter="recebido" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DataPg" Parameter="dataPg" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="NumPagamento" Parameter="numPagamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdSolicitacaoCad" Parameter="idSolicitacaoCad" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaSolicitacaoCompraProdutosSol" Method="AtualizaSolicitacaoCompraProdutosSol">
+    <Parameter Name="IdCadSolicitacao" Parameter="idCadSolicitacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdAutorizador" Parameter="idAutorizador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataAutorizacao" Parameter="dataAutorizacao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraAutorizacao" Parameter="horaAutorizacao" Type="System.TimeSpan" DbType="Time" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaCompraCotacaoProdutos" Method="AtualizaCompraCotacaoProdutos">
+    <Parameter Name="Idcotacao" Parameter="idcotacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdComprador" Parameter="idComprador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataCompra" Parameter="dataCompra" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraCompra" Parameter="horaCompra" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="Comprado" Parameter="comprado" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaSolicitacaoCompraProdutos" Method="AtualizaSolicitacaoCompraProdutos">
+    <Parameter Name="IdAutorizador" Parameter="idAutorizador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataAutorizacao" Parameter="dataAutorizacao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraAutorizacao" Parameter="horaAutorizacao" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdSolicitacaoCompra" Parameter="idSolicitacaoCompra" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaSolicitacaoCad_SolicitacaoCompra" Method="AtualizaSolicitacaoCad_SolicitacaoCompra">
+    <Parameter Name="IdSolicitacaoCad" Parameter="idSolicitacaoCad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdSProduto" Parameter="idSProduto" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaRecebimentoCompraProdutos" Method="AtualizaRecebimentoCompraProdutos">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Recebido" Parameter="recebido" Type="System.Int32" DbType="Int" />
+    <Parameter Name="qt" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NF" Parameter="nF" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaSolicitacaoMarkup" Method="InsereNovaSolicitacaoMarkup">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Tipo" Parameter="tipo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IdSolicitante" Parameter="idSolicitante" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataSolicitacao" Parameter="dataSolicitacao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraSolicitacao" Parameter="horaSolicitacao" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdCadastrado" Parameter="idCadastrado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataCadastro" Parameter="dataCadastro" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraCadastro" Parameter="horaCadastro" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="SolicitCad" Parameter="solicitCad" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaSolicitacaoProdutoIara" Method="AtualizaSolicitacaoProdutoIara">
+    <Parameter Name="IdCotacao" Parameter="idCotacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Idproduto" Parameter="idproduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Idsolicitacao" Parameter="idsolicitacao" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaMarkupCotacaoProdutos" Method="AtualizaMarkupCotacaoProdutos">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdSolicitaoCot" Parameter="idSolicitaoCot" Type="System.Int32" DbType="Int" />
+    <Parameter Name="markup" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaFormaEntradaBalancete" Method="InsereNovaFormaEntradaBalancete">
+    <Parameter Name="IdOrcamento" Parameter="idOrcamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdFormaOrcamento" Parameter="idFormaOrcamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Valor" Parameter="valor" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ValorREcebido" Parameter="valorREcebido" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ValorTroco" Parameter="valorTroco" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="DataRecebido" Parameter="dataRecebido" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraRecebido" Parameter="horaRecebido" Type="System.TimeSpan" DbType="Time" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaPosicaoBalancete" Method="AtualizaPosicaoBalancete">
+    <Parameter Name="IdOrcamento" Parameter="idOrcamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdFormaPg" Parameter="idFormaPg" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Status" Parameter="status" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DataBaixa" Parameter="dataBaixa" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraBaixa" Parameter="horaBaixa" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.RemoveComensacaoBalancete" Method="RemoveComensacaoBalancete">
+    <Parameter Name="IdFormaPg" Parameter="idFormaPg" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaSolicitacaoCompraProdutosSol_Cotacao" Method="AtualizaSolicitacaoCompraProdutosSol_Cotacao">
+    <Parameter Name="IdCotacao" Parameter="idCotacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdSolicitacaoCad" Parameter="idSolicitacaoCad" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaSolicitacaoCompraProdutos_cotacao" Method="AtualizaSolicitacaoCompraProdutos_cotacao">
+    <Parameter Name="IdCotacao" Parameter="idCotacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaSolicitacaoQtCompraProdutos" Method="AtualizaSolicitacaoQtCompraProdutos">
+    <Parameter Name="IdSolicitacaoCompra" Parameter="idSolicitacaoCompra" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Qt" Parameter="qt" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaCotacao" Method="InsereNovaCotacao">
+    <Parameter Name="IdSolicitante" Parameter="idSolicitante" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataSolicitacao" Parameter="dataSolicitacao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraSolicitacao" Parameter="horaSolicitacao" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdSolicitacaoCad" Parameter="idSolicitacaoCad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdCotador" Parameter="idCotador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataCotacao" Parameter="dataCotacao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraCotacao" Parameter="horaCotacao" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdFornecedor" Parameter="idFornecedor" Type="System.String" DbType="NText" />
+    <Parameter Name="ValorCotado" Parameter="valorCotado" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="PrazoEntrega" Parameter="prazoEntrega" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Frete" Parameter="frete" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Comprado" Parameter="comprado" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IdComprador" Parameter="idComprador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataCompra" Parameter="dataCompra" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraCompra" Parameter="horaCompra" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="qt" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Markup" Parameter="markup" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="CodReferencia" Parameter="codReferencia" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaCotacaoProdutos" Method="AtualizaCotacaoProdutos">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdSolicitaoCot" Parameter="idSolicitaoCot" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdCotador" Parameter="idCotador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataCotacao" Parameter="dataCotacao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraCotacao" Parameter="horaCotacao" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdFornecedor" Parameter="idFornecedor" Type="System.String" DbType="NText" />
+    <Parameter Name="ValorCotado" Parameter="valorCotado" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="markup" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Qt" Parameter="qt" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PrazoEntrega" Parameter="prazoEntrega" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CodReferencia" Parameter="codReferencia" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaBandeira" Method="InsereNovaBandeira">
+    <Parameter Name="IdForma" Parameter="idForma" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TaxaTransacao" Parameter="taxaTransacao" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="TaxaAntecipacao" Parameter="taxaAntecipacao" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ValorTransacao" Parameter="valorTransacao" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Parcelas" Parameter="parcelas" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="IdentificaOpe" Parameter="identificaOpe" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaEntradaBalancete" Method="InsereNovaEntradaBalancete">
+    <Parameter Name="IdOrcamento" Parameter="idOrcamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Valor" Parameter="valor" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Desconto" Parameter="desconto" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Acrescimo" Parameter="acrescimo" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Vencimento" Parameter="vencimento" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Status" Parameter="status" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DataEntradaBalanco" Parameter="dataEntradaBalanco" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraEntradaBalanco" Parameter="horaEntradaBalanco" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdUsuarioEntrada" Parameter="idUsuarioEntrada" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataBaixa" Parameter="dataBaixa" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraBaixa" Parameter="horaBaixa" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdUsuarioBaixa" Parameter="idUsuarioBaixa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdVinculo" Parameter="idVinculo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Tipo" Parameter="tipo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IdFormaPg" Parameter="idFormaPg" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Identificador" Parameter="identificador" Type="System.String" DbType="NText" />
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="Categoria" Parameter="categoria" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereCategoriaPlanoContas" Method="InsereCategoriaPlanoContas">
+    <Parameter Name="Categoria" Parameter="categoria" Type="System.String" DbType="NText" />
+    <Parameter Name="Tipo" Parameter="tipo" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaAfericao" Method="InsereNovaAfericao">
+    <Parameter Name="IdBalanecete" Parameter="idBalanecete" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Aferido" Parameter="aferido" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataInicioAlerta" Parameter="dataInicioAlerta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="DataAferido" Parameter="dataAferido" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaBaixaBalancete" Method="AtualizaBaixaBalancete">
+    <Parameter Name="IdItemBalancete" Parameter="idItemBalancete" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataBaixa" Parameter="dataBaixa" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraBaixa" Parameter="horaBaixa" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="acrescimo" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="desconto" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaValorBalancete" Method="AtualizaValorBalancete">
+    <Parameter Name="IdItemBalancete" Parameter="idItemBalancete" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdFormaPg" Parameter="idFormaPg" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Valor" Parameter="valor" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Identificador" Parameter="identificador" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoBanco" Method="InsereNovoBanco">
+    <Parameter Name="value" Type="System.String" DbType="NText" />
+    <Parameter Name="Label" Parameter="label" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaCarteira" Method="InsereNovaCarteira">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="Cofre" Parameter="cofre" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Ag" Parameter="ag" Type="System.String" DbType="NText" />
+    <Parameter Name="Conta" Parameter="conta" Type="System.String" DbType="NText" />
+    <Parameter Name="Tipo" Parameter="tipo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IdBanco" Parameter="idBanco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeBanco" Parameter="nomeBanco" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaFormaPgEntrada" Method="InsereNovaFormaPgEntrada">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="A_Vista" Parameter="a_Vista" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NecessitaAut" Parameter="necessitaAut" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Intervalo" Parameter="intervalo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Parcelas" Parameter="parcelas" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdCarteira" Parameter="idCarteira" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TipoIntervalo" Parameter="tipoIntervalo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ExigeComprovante" Parameter="exigeComprovante" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="UsoInterno" Parameter="usoInterno" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaPosicaoBalanceteSaida" Method="AtualizaPosicaoBalanceteSaida">
+    <Parameter Name="IditemBalancete" Parameter="iditemBalancete" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdFormaPg" Parameter="idFormaPg" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Status" Parameter="status" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DataBaixa" Parameter="dataBaixa" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraBaixa" Parameter="horaBaixa" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaFormaPgSaida" Method="InsereNovaFormaPgSaida">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="A_Vista" Parameter="a_Vista" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IdVinculo" Parameter="idVinculo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Intervalo" Parameter="intervalo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TipoIntervalo" Parameter="tipoIntervalo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Parcelas" Parameter="parcelas" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdCarteira" Parameter="idCarteira" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UsoInterno" Parameter="usoInterno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Bandeira" Parameter="bandeira" Type="System.String" DbType="NText" />
+    <Parameter Name="Cvv" Parameter="cvv" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeTitular" Parameter="nomeTitular" Type="System.String" DbType="NText" />
+    <Parameter Name="DiaFechamentoFatura" Parameter="diaFechamentoFatura" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DiaVencimentoFatura" Parameter="diaVencimentoFatura" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumCartao" Parameter="numCartao" Type="System.String" DbType="NText" />
+    <Parameter Name="Validade" Parameter="validade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Limite" Parameter="limite" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Cartao" Parameter="cartao" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="TipoCartao" Parameter="tipoCartao" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaBandeiraSaida" Method="InsereNovaBandeiraSaida">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="Image" Parameter="image" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaCotacaoProdutosOrdemCompra" Method="AtualizaCotacaoProdutosOrdemCompra">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdSolicitaoCad" Parameter="idSolicitaoCad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdSolicitacaoCompra" Parameter="idSolicitacaoCompra" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdCotacao" Parameter="idCotacao" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Insere_nf_saida" Method="Insere_nf_saida">
+    <Parameter Name="NumNF" Parameter="numNF" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Serie" Parameter="serie" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Tipo" Parameter="tipo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ChaveValida" Parameter="chaveValida" Type="System.String" DbType="NText" />
+    <Parameter Name="NaturezaOPE" Parameter="naturezaOPE" Type="System.String" DbType="NText" />
+    <Parameter Name="Protocolo" Parameter="protocolo" Type="System.String" DbType="NText" />
+    <Parameter Name="InscricaoEstadual" Parameter="inscricaoEstadual" Type="System.String" DbType="NText" />
+    <Parameter Name="InscricaoEstadual_subs" Parameter="inscricaoEstadual_subs" Type="System.String" DbType="NText" />
+    <Parameter Name="Cnpj" Parameter="cnpj" Type="System.String" DbType="NText" />
+    <Parameter Name="Nome_Razao" Parameter="nome_Razao" Type="System.String" DbType="NText" />
+    <Parameter Name="DataEmissao" Parameter="dataEmissao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraEmissao" Parameter="horaEmissao" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="DataAutSefaz" Parameter="dataAutSefaz" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraAutSefaz" Parameter="horaAutSefaz" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="Endereco" Parameter="endereco" Type="System.String" DbType="NText" />
+    <Parameter Name="Bairro" Parameter="bairro" Type="System.String" DbType="NText" />
+    <Parameter Name="CEP" Parameter="cEP" Type="System.String" DbType="NText" />
+    <Parameter Name="DataSaida" Parameter="dataSaida" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Municipio" Parameter="municipio" Type="System.String" DbType="NText" />
+    <Parameter Name="Telefone" Parameter="telefone" Type="System.String" DbType="NText" />
+    <Parameter Name="Uf" Parameter="uf" Type="System.String" DbType="NText" />
+    <Parameter Name="IndicadorIE" Parameter="indicadorIE" Type="System.String" DbType="NText" />
+    <Parameter Name="RG_IE" Parameter="rG_IE" Type="System.String" DbType="NText" />
+    <Parameter Name="HoraSaida" Parameter="horaSaida" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="FormaPg" Parameter="formaPg" Type="System.String" DbType="NText" />
+    <Parameter Name="BC_ICMS" Parameter="bC_ICMS" Type="System.String" DbType="NText" />
+    <Parameter Name="VlrICMS" Parameter="vlrICMS" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="BCICMS_ST" Parameter="bCICMS_ST" Type="System.String" DbType="NText" />
+    <Parameter Name="ValorICMS_ST" Parameter="valorICMS_ST" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="BCPIS" Parameter="bCPIS" Type="System.String" DbType="NText" />
+    <Parameter Name="ValorTotalProdutos" Parameter="valorTotalProdutos" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ValorFrete" Parameter="valorFrete" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ValorSeguro" Parameter="valorSeguro" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Desconto" Parameter="desconto" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="OutrasDespesas" Parameter="outrasDespesas" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ValorIPI" Parameter="valorIPI" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ValorCofins" Parameter="valorCofins" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ValorNF" Parameter="valorNF" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="NomeRazao_Transp" Parameter="nomeRazao_Transp" Type="System.String" DbType="NText" />
+    <Parameter Name="TipoFrete" Parameter="tipoFrete" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="ANTT" Parameter="aNTT" Type="System.String" DbType="NText" />
+    <Parameter Name="PlacaVeiculo" Parameter="placaVeiculo" Type="System.String" DbType="NText" />
+    <Parameter Name="Uf_Veiculo" Parameter="uf_Veiculo" Type="System.String" DbType="NText" />
+    <Parameter Name="CPF_CNPJ_Transp" Parameter="cPF_CNPJ_Transp" Type="System.String" DbType="NText" />
+    <Parameter Name="Endereco_Transp" Parameter="endereco_Transp" Type="System.String" DbType="NText" />
+    <Parameter Name="Municipio_Transp" Parameter="municipio_Transp" Type="System.String" DbType="NText" />
+    <Parameter Name="Uf_Transp" Parameter="uf_Transp" Type="System.String" DbType="NText" />
+    <Parameter Name="InscricaoEstadual_Transp" Parameter="inscricaoEstadual_Transp" Type="System.String" DbType="NText" />
+    <Parameter Name="Qtdade" Parameter="qtdade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Especie" Parameter="especie" Type="System.String" DbType="NText" />
+    <Parameter Name="Marca" Parameter="marca" Type="System.String" DbType="NText" />
+    <Parameter Name="Numeracao" Parameter="numeracao" Type="System.String" DbType="NText" />
+    <Parameter Name="PesoBruto" Parameter="pesoBruto" Type="System.String" DbType="NText" />
+    <Parameter Name="PesoLiquido" Parameter="pesoLiquido" Type="System.String" DbType="NText" />
+    <Parameter Name="InscricaoMunicipal" Parameter="inscricaoMunicipal" Type="System.String" DbType="NText" />
+    <Parameter Name="VlrServicos" Parameter="vlrServicos" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="BC_ISSQN" Parameter="bC_ISSQN" Type="System.String" DbType="NText" />
+    <Parameter Name="Vlr_ISSQN" Parameter="vlr_ISSQN" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Observacoes" Parameter="observacoes" Type="System.String" DbType="NText" />
+    <Parameter Name="Vinculo" Parameter="vinculo" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaCFOP_PDR" Method="InsereNovaCFOP_PDR">
+    <Parameter Name="CFOP" Parameter="cFOP" Type="System.String" DbType="NText" />
+    <Parameter Name="Tipo" Parameter="tipo" Type="System.String" DbType="NText" />
+    <Parameter Name="ICMS" Parameter="iCMS" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="IPI" Parameter="iPI" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Padrao" Parameter="padrao" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteCFOP_PDR" Method="DeleteCFOP_PDR">
+    <Parameter Name="IdTrib" Parameter="idTrib" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

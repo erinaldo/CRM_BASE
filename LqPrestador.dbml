@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TransportePrestadorOnline" Class="LqPrestadorDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.0.7;Initial Catalog=TransportePrestadorOnline;Persist Security Info=True;User ID=SqlSystem" SettingsObjectName="CRM_BASE.My.MySettings" SettingsPropertyName="TransportePrestadorOnlineConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AcessoriosVeiculos" Member="AcessoriosVeiculos">
+    <Type Name="AcessoriosVeiculos">
+      <Column Name="IdAcessorio" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tipo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdVeiculo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PesoMax" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="AlturaMax" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LarguraMax" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ProfundidadeMax" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="VeiculosPrest_AcessoriosVeiculos" Member="VeiculosPrest" ThisKey="IdVeiculo" OtherKey="IdVeiculoPrest" Type="VeiculosPrest" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PedidosTransp" Member="PedidosTransp">
+    <Type Name="PedidosTransp">
+      <Column Name="IdPedido" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdPrestador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdVeiculo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HoraPedido" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DataPedido" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraRetirado" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DataRetirado" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraEntrega" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DataEntrega" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IdSolicitante" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeCompletoSolicitante" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RGSoliitante" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ValidaçãoPorSenhaSolicitante" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DistânciaPercorrida" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TempoPercorrido" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="EsperaTotal" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IdClienteEntrega" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdFuncRecebido" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeCompletoReebido" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RGRecebido" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ValidaçãoPorSenha" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="PedidosTransp_ItemsTransportados" Member="ItemsTransportados" ThisKey="IdPedido" OtherKey="IdPedido" Type="ItemsTransportados" />
+      <Association Name="VeiculosPrest_PedidosTransp" Member="VeiculosPrest" ThisKey="IdVeiculo" OtherKey="IdVeiculoPrest" Type="VeiculosPrest" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VeiculosPrest" Member="VeiculosPrest">
+    <Type Name="VeiculosPrest">
+      <Column Name="IdVeiculoPrest" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdPrestador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PlacaPrest" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ModeloPrest" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FabricantePrest" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AnoFabPrest" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="AnoModPrest" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ChassiPrest" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RenavanPrest" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PesoMaxPrest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="AlturaMaxPrest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LarguraMaxPrest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ProfundidadeMaxPrest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="VeiculosPrest_AcessoriosVeiculos" Member="AcessoriosVeiculos" ThisKey="IdVeiculoPrest" OtherKey="IdVeiculo" Type="AcessoriosVeiculos" />
+      <Association Name="VeiculosPrest_PedidosTransp" Member="PedidosTransp" ThisKey="IdVeiculoPrest" OtherKey="IdVeiculo" Type="PedidosTransp" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemsTransportados" Member="ItemsTransportados">
+    <Type Name="ItemsTransportados">
+      <Column Name="IdItemTransp" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdPedido" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NF" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="PedidosTransp_ItemsTransportados" Member="PedidosTransp" ThisKey="IdPedido" OtherKey="IdPedido" Type="PedidosTransp" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Logins" Member="Logins">
+    <Type Name="Logins">
+      <Column Name="IdLogin" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HoraLogin" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DataLogin" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IdPrestador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdVeiculo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HoraLogoff" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DataLofogoff" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.LiberaPrestador" Method="LiberaPrestador">
+    <Parameter Name="IdPrestador" Parameter="idPrestador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RgRecebido" Parameter="rgRecebido" Type="System.String" DbType="NText" />
+    <Parameter Name="NomeCompletoRecebido" Parameter="nomeCompletoRecebido" Type="System.String" DbType="NText" />
+    <Parameter Name="ValidacaoPorSenha" Parameter="validacaoPorSenha" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IdFuncRecebido" Parameter="idFuncRecebido" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

@@ -1,0 +1,1312 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Base" Class="DtCadastroDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-K3M64OB;Initial Catalog=Base;Persist Security Info=True;User ID=SqlSystem" SettingsObjectName="CRM_BASE.My.MySettings" SettingsPropertyName="BaseConnectionString3" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Login" Member="Login">
+    <Type Name="Login">
+      <Column Name="IdLogin" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nick" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Pass" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdColaborador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdPermissoes" Member="IdPermissses" Storage="_IdPermissões" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Login_PermissoesUsuarios" Member="PermissoesUsuarios" ThisKey="IdLogin" OtherKey="IdUsuario" Type="PermissoesUsuarios" />
+      <Association Name="Funcionarios_Login" Member="Funcionarios" ThisKey="IdColaborador" OtherKey="IdFuncionario" Type="Funcionarios" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PermissoesLogin" Member="PermissoesLogin">
+    <Type Name="PermissoesLogin">
+      <Column Name="IdPermissao" Storage="_IdPermissão" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Descricao" Storage="_Descrição" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="PermissoesLogin_PermissoesUsuarios" Member="PermissoesUsuarios" ThisKey="IdPermissao" OtherKey="IdPermissao" Type="PermissoesUsuarios" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PermissoesUsuarios" Member="PermissoesUsuarios">
+    <Type Name="PermissoesUsuarios">
+      <Column Name="IdPermissao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Login_PermissoesUsuarios" Member="Login" ThisKey="IdUsuario" OtherKey="IdLogin" Type="Login" IsForeignKey="true" />
+      <Association Name="PermissoesLogin_PermissoesUsuarios" Member="PermissoesLogin" ThisKey="IdPermissao" OtherKey="IdPermissao" Type="PermissoesLogin" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Paises" Member="Paises">
+    <Type Name="Paises">
+      <Column Name="IdPais" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Storage="_Descrição" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Sigla" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CodTel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Paises_Nacionalidades" Member="Nacionalidades" ThisKey="IdPais" OtherKey="IdPais" Type="Nacionalidades" />
+      <Association Name="Paises_Estados" Member="Estados" ThisKey="IdPais" OtherKey="IdPais" Type="Estados" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Nacionalidades" Member="Nacionalidades">
+    <Type Name="Nacionalidades">
+      <Column Name="IdNacionalidade" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nacionalidade" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdPais" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Pais" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Nacionalidades_Funcionarios" Member="Funcionarios" ThisKey="IdNacionalidade" OtherKey="IdNacionalidade" Type="Funcionarios" />
+      <Association Name="Paises_Nacionalidades" Member="Paises" ThisKey="IdPais" OtherKey="IdPais" Type="Paises" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Estados" Member="Estados">
+    <Type Name="Estados">
+      <Column Name="IdEstado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdPais" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descricao" Storage="_Descrição" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Sigla" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CodTel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Estados_Cidade" Member="Cidade" ThisKey="IdEstado" OtherKey="IdEstado" Type="Cidade" />
+      <Association Name="Paises_Estados" Member="Paises" ThisKey="IdPais" OtherKey="IdPais" Type="Paises" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cidade" Member="Cidade">
+    <Type Name="Cidade">
+      <Column Name="IdCidade" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdEstado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descricao" Storage="_Descrição" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Cidade_Bairro" Member="Bairro" ThisKey="IdCidade" OtherKey="IdCidade" Type="Bairro" />
+      <Association Name="Estados_Cidade" Member="Estados" ThisKey="IdEstado" OtherKey="IdEstado" Type="Estados" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Bairro" Member="Bairro">
+    <Type Name="Bairro">
+      <Column Name="IdBairro" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdCidade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descricao" Storage="_Descrição" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Bairro_Enderecos" Member="Enderecos" Storage="_Endereços" ThisKey="IdBairro" OtherKey="IdBairro" Type="Enderecos" />
+      <Association Name="Cidade_Bairro" Member="Cidade" ThisKey="IdCidade" OtherKey="IdCidade" Type="Cidade" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DescricaoLogradouros" Member="DescricaoLogradouros">
+    <Type Name="DescricaoLogradouros">
+      <Column Name="IdDescricaoLog" Storage="_IdDescriçãoLog" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Storage="_Descrição" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Abreviacao" Storage="_Abreviação" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="DescricaoLogradouros_Enderecos" Member="Enderecos" Storage="_Endereços" ThisKey="IdDescricaoLog" OtherKey="IdAbreviacao" Type="Enderecos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Enderecos" Member="Enderecos">
+    <Type Name="Enderecos">
+      <Column Name="IdEndereco" Storage="_IdEndereço" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdBairro" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descricao" Storage="_Descrição" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CEP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdAbreviacao" Storage="_IdAbreviação" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Bairro_Enderecos" Member="Bairro" ThisKey="IdBairro" OtherKey="IdBairro" Type="Bairro" IsForeignKey="true" />
+      <Association Name="DescricaoLogradouros_Enderecos" Member="DescricaoLogradouros" Storage="_DescriçãoLogradouros" ThisKey="IdAbreviacao" OtherKey="IdDescricaoLog" Type="DescricaoLogradouros" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Funcionarios" Member="Funcionarios">
+    <Type Name="Funcionarios">
+      <Column Name="IdFuncionario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NomeCompleto" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CPF" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RG" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NomePai" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NomeMae" Storage="_NomeMãe" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CEP" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdEndereco" Storage="_IdEndereço" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Endereço" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Numero" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Complemento" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Bairro" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CIdade" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Estado" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Pais" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Telefone" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Celular" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Email" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TelefoneCont1" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NomeCont1" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="telefoneCont2" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NomeCont2" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="telefoneCont3" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NomeCont3" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Foto" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdCargo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cargo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdNacionalidade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nacionalidade" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdExterno" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="NumBanco" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="NomeBanco" Type="System.String" DbType="ntext" CanBeNull="false" />
+      <Column Name="IdBanco" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="Ag" Type="System.String" DbType="ntext" CanBeNull="false" />
+      <Column Name="Conta" Type="System.String" DbType="ntext" CanBeNull="false" />
+      <Column Name="Op" Type="System.String" DbType="Ntext" CanBeNull="false" />
+      <Column Name="TipoConta" Type="System.Boolean" DbType="bit" CanBeNull="false" />
+      <Column Name="TipoDocEspec" Type="System.String" DbType="ntext" CanBeNull="false" />
+      <Column Name="NUmeroDoDOC" Type="System.String" DbType="ntext" CanBeNull="false" />
+      <Association Name="Funcionarios_Login" Member="Login" ThisKey="IdFuncionario" OtherKey="IdColaborador" Type="Login" />
+      <Association Name="Funcionarios_DependentesFuncionarios" Member="DependentesFuncionarios" ThisKey="IdFuncionario" OtherKey="IdFuncionario" Type="DependentesFuncionarios" />
+      <Association Name="Nacionalidades_Funcionarios" Member="Nacionalidades" ThisKey="IdNacionalidade" OtherKey="IdNacionalidade" Type="Nacionalidades" IsForeignKey="true" />
+      <Association Name="Cargos_Funcionarios" Member="Cargos" ThisKey="IdCargo" OtherKey="IdCargo" Type="Cargos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DependentesFuncionarios" Member="DependentesFuncionarios">
+    <Type Name="DependentesFuncionarios">
+      <Column Name="IdDependente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdFuncionario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nome" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdVinculo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Vinculo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Funcionarios_DependentesFuncionarios" Member="Funcionarios" ThisKey="IdFuncionario" OtherKey="IdFuncionario" Type="Funcionarios" IsForeignKey="true" />
+      <Association Name="VinculosParentais_DependentesFuncionarios" Member="VinculosParentais" ThisKey="IdVinculo" OtherKey="IDVinculoParentesco" Type="VinculosParentais" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VinculosParentais" Member="VinculosParentais">
+    <Type Name="VinculosParentais">
+      <Column Name="IDVinculoParentesco" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Storage="_Descrição" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="VinculosParentais_DependentesFuncionarios" Member="DependentesFuncionarios" ThisKey="IDVinculoParentesco" OtherKey="IdVinculo" Type="DependentesFuncionarios" />
+      <Association Name="VinculosParentais_VinculosDocumentos" Member="VinculosDocumentos" ThisKey="IDVinculoParentesco" OtherKey="IdVinculo" Type="VinculosDocumentos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VinculosDocumentos" Member="VinculosDocumentos">
+    <Type Name="VinculosDocumentos">
+      <Column Name="IdVinculo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdDocumento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="VinculosParentais_VinculosDocumentos" Member="VinculosParentais" ThisKey="IdVinculo" OtherKey="IDVinculoParentesco" Type="VinculosParentais" IsForeignKey="true" />
+      <Association Name="Documentos_VinculosDocumentos" Member="Documentos" ThisKey="IdDocumento" OtherKey="IdDocumento" Type="Documentos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Documentos" Member="Documentos">
+    <Type Name="Documentos">
+      <Column Name="IdDocumento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Storage="_Descrição" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Sigla" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Mascara" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Documentos_VinculosDocumentos" Member="VinculosDocumentos" ThisKey="IdDocumento" OtherKey="IdDocumento" Type="VinculosDocumentos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Clientes" Member="Clientes">
+    <Type Name="Clientes">
+      <Column Name="IdCliente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RazaoSocial_nome" Storage="_RazãoSocial_nome" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CPF_CNPJ" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RG_IE" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoPersonalidade" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CEP" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdEndereco" Storage="_IdEndereço" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Endereco" Storage="_Endereço" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Numero" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Complemento" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Bairro" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CIdade" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Estado" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Pais" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Telefone" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Celular" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Email" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdClienteExt" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="Apelido" Type="System.String" DbType="Ntext" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CategoriasProdutos" Member="CategoriasProdutos">
+    <Type Name="CategoriasProdutos">
+      <Column Name="IdCategoriaProduto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Storage="_Descrição" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="CategoriasProdutos_SubCategoriasProduto" Member="SubCategoriasProduto" ThisKey="IdCategoriaProduto" OtherKey="IdCategoria" Type="SubCategoriasProduto" />
+      <Association Name="CategoriasProdutos_Produtos" Member="Produtos" ThisKey="IdCategoriaProduto" OtherKey="IdCategoria" Type="Produtos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SubCategoriasProduto" Member="SubCategoriasProduto">
+    <Type Name="SubCategoriasProduto">
+      <Column Name="IdSubCategoria" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdCategoria" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descricao" Storage="_Descrição" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MarkupSugerido" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="SubCategoriasProduto_Produtos" Member="Produtos" ThisKey="IdSubCategoria" OtherKey="IDSubCategoria" Type="Produtos" />
+      <Association Name="CategoriasProdutos_SubCategoriasProduto" Member="CategoriasProdutos" ThisKey="IdCategoria" OtherKey="IdCategoriaProduto" Type="CategoriasProdutos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UnidadeParametro" Member="UnidadeParametro">
+    <Type Name="UnidadeParametro">
+      <Column Name="IdUnidade" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Storage="_Descrição" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Sigla" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="UnidadeParametro_UnidadesGeral" Member="UnidadesGeral" ThisKey="IdUnidade" OtherKey="IdUnidade" Type="UnidadesGeral" />
+      <Association Name="UnidadeParametro_Produtos" Member="Produtos" ThisKey="IdUnidade" OtherKey="IdUnComp" Type="Produtos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UnidadesGeral" Member="UnidadesGeral">
+    <Type Name="UnidadesGeral">
+      <Column Name="IdUnidadeX" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdUnidade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ft_X" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ChaveValidada" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Operacao" Storage="_Operação" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="UnidadesGeral_Produtos" Member="Produtos" ThisKey="ChaveValidada" OtherKey="IdUnVenda" Type="Produtos" />
+      <Association Name="UnidadeParametro_UnidadesGeral" Member="UnidadeParametro" ThisKey="IdUnidade" OtherKey="IdUnidade" Type="UnidadeParametro" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Produtos" Member="Produtos">
+    <Type Name="Produtos">
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CodFabricante" Type="System.String" DbType="ntext" CanBeNull="true" />
+      <Column Name="CodBarras" Type="System.String" DbType="ntext" CanBeNull="true" />
+      <Column Name="IdCategoria" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Categoria" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IDSubCategoria" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubCategoria" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NCM" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdUnComp" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UnCompra" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdUnVenda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UnVenda" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="VendaDireta" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Insumo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UsoInterno" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Reaproveitamento" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Descricao" Storage="_Descrição" Type="System.String" DbType="Ntext" CanBeNull="false" />
+      <Column Name="IdFabricante" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="Fabricante" Type="System.String" DbType="ntext" CanBeNull="false" />
+      <Column Name="Altura" Type="System.Decimal" DbType="money" CanBeNull="false" />
+      <Column Name="Largura" Type="System.Decimal" DbType="money" CanBeNull="false" />
+      <Column Name="Profundidade" Type="System.Decimal" DbType="money" CanBeNull="false" />
+      <Column Name="Peso" Type="System.Decimal" DbType="money" CanBeNull="false" />
+      <Column Name="validade" Member="Validade" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="Markup" Type="System.Decimal" DbType="money" CanBeNull="false" />
+      <Column Name="ControleValidade" Type="System.Boolean" DbType="bit" CanBeNull="false" />
+      <Column Name="DisponivelOnLine" Type="System.Boolean" DbType="Bit" CanBeNull="false" />
+      <Column Name="Pctge" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="QtMin" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="QtMax" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="IdProdutoExt" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="IdTrib" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Association Name="Produtos_ImagemProduto" Member="ImagemProduto" ThisKey="IdProduto" OtherKey="IdProduto" Type="ImagemProduto" />
+      <Association Name="Produtos_VinculoProdutoFornecedor" Member="VinculoProdutoFornecedor" ThisKey="IdProduto" OtherKey="IdProduto" Type="VinculoProdutoFornecedor" />
+      <Association Name="Produtos_VinculoProdutoServico" Member="VinculoProdutoServico" ThisKey="IdProduto" OtherKey="IdProduto" Type="VinculoProdutoServico" />
+      <Association Name="Produtos_VinculoProdutoProduto" Member="VinculoProdutoProduto" ThisKey="IdProduto" OtherKey="IdProduto" Type="VinculoProdutoProduto" />
+      <Association Name="Produtos_VinculoProdutoProduto1" Member="VinculoProdutoProduto1" ThisKey="IdProduto" OtherKey="IdProdutoFinal" Type="VinculoProdutoProduto" />
+      <Association Name="CategoriasProdutos_Produtos" Member="CategoriasProdutos" ThisKey="IdCategoria" OtherKey="IdCategoriaProduto" Type="CategoriasProdutos" IsForeignKey="true" />
+      <Association Name="SubCategoriasProduto_Produtos" Member="SubCategoriasProduto" ThisKey="IDSubCategoria" OtherKey="IdSubCategoria" Type="SubCategoriasProduto" IsForeignKey="true" />
+      <Association Name="UnidadeParametro_Produtos" Member="UnidadeParametro" ThisKey="IdUnComp" OtherKey="IdUnidade" Type="UnidadeParametro" IsForeignKey="true" />
+      <Association Name="UnidadesGeral_Produtos" Member="UnidadesGeral" ThisKey="IdUnVenda" OtherKey="ChaveValidada" Type="UnidadesGeral" IsForeignKey="true" />
+      <Association Name="Fabricantes_Produtos" Member="Fabricantes" ThisKey="IdFabricante" OtherKey="IdFabricante" Type="Fabricantes" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ImagemProduto" Member="ImagemProduto">
+    <Type Name="ImagemProduto">
+      <Column Name="IdImagem" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Imagem" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Produtos_ImagemProduto" Member="Produtos" ThisKey="IdProduto" OtherKey="IdProduto" Type="Produtos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Fabricantes" Member="Fabricantes">
+    <Type Name="Fabricantes">
+      <Column Name="IdFabricante" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Fabricante" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Fabricantes_Produtos" Member="Produtos" ThisKey="IdFabricante" OtherKey="IdFabricante" Type="Produtos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AndarEstoque" Member="AndarEstoque">
+    <Type Name="AndarEstoque">
+      <Column Name="IdAndarEstoque" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdPredioEstoqeu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeMatriz" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="AndarEstoque_EnderecoEstoque" Member="EnderecoEstoque" Storage="_EndereçoEstoque" ThisKey="IdAndarEstoque" OtherKey="IdAndarEstoque" Type="EnderecoEstoque" />
+      <Association Name="PredioEstoque_AndarEstoque" Member="PredioEstoque" ThisKey="IdPredioEstoqeu" OtherKey="IdPredioEstoque" Type="PredioEstoque" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EnderecoEstoque" Member="EnderecoEstoque">
+    <Type Name="EnderecoEstoque">
+      <Column Name="IdEndereçoEstoque" Member="IdEnderecoEstoque" Storage="_IdEndereçoEstoque" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdAndarEstoque" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeMatriz" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="AndarEstoque_EnderecoEstoque" Member="AndarEstoque" ThisKey="IdAndarEstoque" OtherKey="IdAndarEstoque" Type="AndarEstoque" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Estoques" Member="Estoques">
+    <Type Name="Estoques">
+      <Column Name="IdEstoque" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NomeEstoque" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CepEstoque" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdEndereco" Storage="_IdEndereço" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Endereco" Storage="_Endereço" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Bairro" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Cidade" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Estado" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Pais" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Numero" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Complemento" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Estoques_QuadraEstoque" Member="QuadraEstoque" ThisKey="IdEstoque" OtherKey="IdEstoque" Type="QuadraEstoque" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuadraEstoque" Member="QuadraEstoque">
+    <Type Name="QuadraEstoque">
+      <Column Name="IdQuadraEstoque" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdEstoque" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeMatriz" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="QuadraEstoque_RuaEstoque" Member="RuaEstoque" ThisKey="IdQuadraEstoque" OtherKey="IdQuadra" Type="RuaEstoque" />
+      <Association Name="Estoques_QuadraEstoque" Member="Estoques" ThisKey="IdEstoque" OtherKey="IdEstoque" Type="Estoques" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RuaEstoque" Member="RuaEstoque">
+    <Type Name="RuaEstoque">
+      <Column Name="IdRuaEstoque" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdQuadra" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeMatriz" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="RuaEstoque_PredioEstoque" Member="PredioEstoque" ThisKey="IdRuaEstoque" OtherKey="IdRuaEstoque" Type="PredioEstoque" />
+      <Association Name="QuadraEstoque_RuaEstoque" Member="QuadraEstoque" ThisKey="IdQuadra" OtherKey="IdQuadraEstoque" Type="QuadraEstoque" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PredioEstoque" Member="PredioEstoque">
+    <Type Name="PredioEstoque">
+      <Column Name="IdPredioEstoque" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdRuaEstoque" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeMatriz" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="PredioEstoque_AndarEstoque" Member="AndarEstoque" ThisKey="IdPredioEstoque" OtherKey="IdPredioEstoqeu" Type="AndarEstoque" />
+      <Association Name="RuaEstoque_PredioEstoque" Member="RuaEstoque" ThisKey="IdRuaEstoque" OtherKey="IdRuaEstoque" Type="RuaEstoque" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ParceirosComerciais" Member="ParceirosComerciais">
+    <Type Name="ParceirosComerciais">
+      <Column Name="IdParceiro" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RazaoSocial_nome" Storage="_RazãoSocial_nome" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CPF_CNPJ" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RG_IE" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoPersonalidade" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CEP" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdEndereco" Storage="_IdEndereço" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Endereco" Storage="_Endereço" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Numero" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Complemento" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Bairro" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CIdade" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Estado" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Pais" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Telefone" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Celular" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Email" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoParceiro" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FormasPgFornecedores" Member="FormasPgFornecedores">
+    <Type Name="FormasPgFornecedores">
+      <Column Name="IdFormaPgFornec" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdFornecedor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaximoPc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Intervalo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="D_M" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdFormaPgSaida" Member="IdFormaPgSaída" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VinculoProdutoFornecedor" Member="VinculoProdutoFornecedor">
+    <Type Name="VinculoProdutoFornecedor">
+      <Column Name="IdVinculoProdutoFornecedor" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdForncedor" Type="System.String" DbType="ntext" CanBeNull="true" />
+      <Column Name="CodFornecedor" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Produtos_VinculoProdutoFornecedor" Member="Produtos" ThisKey="IdProduto" OtherKey="IdProduto" Type="Produtos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Beneficios" Member="Beneficios">
+    <Type Name="Beneficios">
+      <Column Name="IdBeneficio" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Beneficios_BeneficiosCargo" Member="BeneficiosCargo" ThisKey="IdBeneficio" OtherKey="IdBeneficio" Type="BeneficiosCargo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cargos" Member="Cargos">
+    <Type Name="Cargos">
+      <Column Name="IdCargo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RemuneracaoBase" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ComVenda" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="RemMensal" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RemHR" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Fechamento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdExterno" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Association Name="Cargos_Funcionarios" Member="Funcionarios" ThisKey="IdCargo" OtherKey="IdCargo" Type="Funcionarios" />
+      <Association Name="Cargos_BeneficiosCargo" Member="BeneficiosCargo" ThisKey="IdCargo" OtherKey="IdCargo" Type="BeneficiosCargo" />
+      <Association Name="Cargos_EscalaCargos" Member="EscalaCargos" ThisKey="IdCargo" OtherKey="IdCargo" Type="EscalaCargos" />
+      <Association Name="Cargos_VinculoFerramentasCargos" Member="VinculoFerramentasCargos" ThisKey="IdCargo" OtherKey="IdCargo" Type="VinculoFerramentasCargos" />
+      <Association Name="Cargos_ProfissionalServico" Member="ProfissionalServico" ThisKey="IdCargo" OtherKey="IdProfissional" Type="ProfissionalServico" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BeneficiosCargo" Member="BeneficiosCargo">
+    <Type Name="BeneficiosCargo">
+      <Column Name="IdBeneficioCargo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdCargo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdBeneficio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Desconto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Valor" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Atribuicao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Cargos_BeneficiosCargo" Member="Cargos" ThisKey="IdCargo" OtherKey="IdCargo" Type="Cargos" IsForeignKey="true" />
+      <Association Name="Beneficios_BeneficiosCargo" Member="Beneficios" ThisKey="IdBeneficio" OtherKey="IdBeneficio" Type="Beneficios" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EscalaCargos" Member="EscalaCargos">
+    <Type Name="EscalaCargos">
+      <Column Name="IdEscalaCargo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdCargo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiaDaSemana" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HrEntrada" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="HrSaida" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Intervalo" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="FolgaEscalaEquipe" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Cargos_EscalaCargos" Member="Cargos" ThisKey="IdCargo" OtherKey="IdCargo" Type="Cargos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ferramentas" Member="Ferramentas">
+    <Type Name="Ferramentas">
+      <Column Name="IdFerramenta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NVinculado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Modulo" Type="System.String" DbType="Ntext" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Ferramentas_VinculoFerramentasCargos" Member="VinculoFerramentasCargos" ThisKey="IdFerramenta" OtherKey="IdFerramenta" Type="VinculoFerramentasCargos" />
+      <Association Name="Ferramentas_Insumos" Member="Insumos" ThisKey="IdFerramenta" OtherKey="IdInsumo" Type="Insumos" />
+      <Association Name="Ferramentas_EPI" Member="EPI" ThisKey="IdFerramenta" OtherKey="IdFerramenta" Type="EPI" />
+      <Association Name="Ferramentas_FerramentasServico" Member="FerramentasServico" ThisKey="IdFerramenta" OtherKey="IdFerramenta" Type="FerramentasServico" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VinculoFerramentasCargos" Member="VinculoFerramentasCargos">
+    <Type Name="VinculoFerramentasCargos">
+      <Column Name="IdFerramentaCargo" AutoSync="OnInsert" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdCargo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdFerramenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Ferramentas_VinculoFerramentasCargos" Member="Ferramentas" ThisKey="IdFerramenta" OtherKey="IdFerramenta" Type="Ferramentas" IsForeignKey="true" />
+      <Association Name="Cargos_VinculoFerramentasCargos" Member="Cargos" ThisKey="IdCargo" OtherKey="IdCargo" Type="Cargos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Insumos" Member="Insumos">
+    <Type Name="Insumos">
+      <Column Name="IdInsumo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdFerramenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsoComum" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Insumos_InsumosServiços" Member="InsumosServiços" ThisKey="IdInsumo" OtherKey="IdInsumo" Type="InsumosServiços" />
+      <Association Name="Ferramentas_Insumos" Member="Ferramentas" ThisKey="IdInsumo" OtherKey="IdFerramenta" Type="Ferramentas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EPI" Member="EPI">
+    <Type Name="EPI">
+      <Column Name="IdEpi" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdFerramenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UsoComum" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="EPI_EPIServico" Member="EPIServico" ThisKey="IdEpi" OtherKey="IdEpi" Type="EPIServico" />
+      <Association Name="Ferramentas_EPI" Member="Ferramentas" ThisKey="IdFerramenta" OtherKey="IdFerramenta" Type="Ferramentas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EPIServico" Member="EPIServico">
+    <Type Name="EPIServico">
+      <Column Name="IIdEPIServico" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdEpi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdServico" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="EPI_EPIServico" Member="EPI" ThisKey="IdEpi" OtherKey="IdEpi" Type="EPI" IsForeignKey="true" />
+      <Association Name="Servicos_EPIServico" Member="Servicos" ThisKey="IdServico" OtherKey="IdServico" Type="Servicos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InsumosServiços" Member="InsumosServiços">
+    <Type Name="InsumosServiços">
+      <Column Name="IdInsumoServico" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdInsumo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdServico" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qtdade" Type="System.Int32" DbType="int" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Servicos_InsumosServiços" Member="Servicos" ThisKey="IdServico" OtherKey="IdServico" Type="Servicos" IsForeignKey="true" />
+      <Association Name="Insumos_InsumosServiços" Member="Insumos" ThisKey="IdInsumo" OtherKey="IdInsumo" Type="Insumos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Servicos" Member="Servicos">
+    <Type Name="Servicos">
+      <Column Name="IdServico" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TME" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Markup" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="VlrCusto" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="VlrVeda" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Ferramenta" Type="System.String" DbType="Ntext" CanBeNull="true" />
+      <Column Name="IdCategoria" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Column Name="IdSubCategoria" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Column Name="IdServicoInt" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Association Name="Servicos_EPIServico" Member="EPIServico" ThisKey="IdServico" OtherKey="IdServico" Type="EPIServico" />
+      <Association Name="Servicos_InsumosServiços" Member="InsumosServiços" ThisKey="IdServico" OtherKey="IdServico" Type="InsumosServiços" />
+      <Association Name="Servicos_FerramentasServico" Member="FerramentasServico" ThisKey="IdServico" OtherKey="IdServico" Type="FerramentasServico" />
+      <Association Name="Servicos_ProfissionalServico" Member="ProfissionalServico" ThisKey="IdServico" OtherKey="IdServico" Type="ProfissionalServico" />
+      <Association Name="Servicos_VinculoProdutoServico" Member="VinculoProdutoServico" ThisKey="IdServico" OtherKey="IdServico" Type="VinculoProdutoServico" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FerramentasServico" Member="FerramentasServico">
+    <Type Name="FerramentasServico">
+      <Column Name="IdFerramentaServico" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdFerramenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdServico" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qtdade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Servicos_FerramentasServico" Member="Servicos" ThisKey="IdServico" OtherKey="IdServico" Type="Servicos" IsForeignKey="true" />
+      <Association Name="Ferramentas_FerramentasServico" Member="Ferramentas" ThisKey="IdFerramenta" OtherKey="IdFerramenta" Type="Ferramentas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProfissionalServico" Member="ProfissionalServico">
+    <Type Name="ProfissionalServico">
+      <Column Name="IdProfissionalServico" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdProfissional" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdServico" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qtdade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Cargos_ProfissionalServico" Member="Cargos" ThisKey="IdProfissional" OtherKey="IdCargo" Type="Cargos" IsForeignKey="true" />
+      <Association Name="Servicos_ProfissionalServico" Member="Servicos" ThisKey="IdServico" OtherKey="IdServico" Type="Servicos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ChavesInterno" Member="ChavesInterno">
+    <Type Name="ChavesInterno">
+      <Column Name="IdChave" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdProduto" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NumeroDaChave" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ValidadeDias" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataLiberacaoo" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraLiberacao" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DataAtivacao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraAtivacao" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="CNPJ_CPF" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdClienteIARA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IPInt" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAC" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IpExt" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrcamentoRapido" Member="OrcamentoRapido">
+    <Type Name="OrcamentoRapido">
+      <Column Name="IdOrcRapido" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DataORc" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HrHorc" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IdVeiculo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdOrcamento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Concluido" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Fornecedores" Member="Fornecedores">
+    <Type Name="Fornecedores">
+      <Column Name="IdFornecedor" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Doc" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Nome" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Cep" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdEndereco" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Numero" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Compl" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdBairro" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Bairro" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdCidade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cidade" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdEstado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Estado" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdPais" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Pais" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Telefone" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Apelido" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Fornecedor" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Prestador" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Comissionado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Beneficiario" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Ie" Member="IE" Type="System.String" DbType="ntext" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Equipes" Member="Equipes">
+    <Type Name="Equipes">
+      <Column Name="IdEquipe" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdLider" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeLider" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CargoLider" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UrlImagemLider" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ColaboradoEquipe" Member="ColaboradoEquipe">
+    <Type Name="ColaboradoEquipe">
+      <Column Name="IdColaboradorEquipe" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdLider" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeLider" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CargoLider" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UrlImagemLider" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdFuncionario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeFuncionario" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CargoFuncionario" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UrlImagemFuncionario" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VinculoProdutoServico" Member="VinculoProdutoServico">
+    <Type Name="VinculoProdutoServico">
+      <Column Name="IdVinculoProdutoServico" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdServico" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Produtos_VinculoProdutoServico" Member="Produtos" ThisKey="IdProduto" OtherKey="IdProduto" Type="Produtos" IsForeignKey="true" />
+      <Association Name="Servicos_VinculoProdutoServico" Member="Servicos" ThisKey="IdServico" OtherKey="IdServico" Type="Servicos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VinculoProdutoProduto" Member="VinculoProdutoProduto">
+    <Type Name="VinculoProdutoProduto">
+      <Column Name="IdVinculoProdutoProduto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdProdutoFinal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qt" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Association Name="Produtos_VinculoProdutoProduto" Member="Produtos" ThisKey="IdProduto" OtherKey="IdProduto" Type="Produtos" IsForeignKey="true" />
+      <Association Name="Produtos_VinculoProdutoProduto1" Member="Produtos1" ThisKey="IdProdutoFinal" OtherKey="IdProduto" Type="Produtos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.AtualizaBairroEndereco" Method="AtualizaBairroEndereco">
+    <Parameter Name="IdBairro" Parameter="idBairro" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdEndereco" Parameter="idEndereco" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereVinculoProdutoFornecedor" Method="InsereVinculoProdutoFornecedor">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdFornecedor" Parameter="idFornecedor" Type="System.String" DbType="NText" />
+    <Parameter Name="CodFornecedor" Parameter="codFornecedor" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaCliente" Method="AtualizaCliente">
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RazaoSocial_nome" Parameter="razaoSocial_nome" Type="System.String" DbType="NText" />
+    <Parameter Name="CPF_CNPJ" Parameter="cPF_CNPJ" Type="System.String" DbType="NText" />
+    <Parameter Name="RG_IE" Parameter="rG_IE" Type="System.String" DbType="NText" />
+    <Parameter Name="TipoPersonalidade" Parameter="tipoPersonalidade" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CEP" Parameter="cEP" Type="System.String" DbType="NText" />
+    <Parameter Name="IdEndereco" Parameter="idEndereco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Endereco" Parameter="endereco" Type="System.String" DbType="NText" />
+    <Parameter Name="Numero" Parameter="numero" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Complemento" Parameter="complemento" Type="System.String" DbType="NText" />
+    <Parameter Name="Bairro" Parameter="bairro" Type="System.String" DbType="NText" />
+    <Parameter Name="Cidade" Parameter="cidade" Type="System.String" DbType="NText" />
+    <Parameter Name="Estado" Parameter="estado" Type="System.String" DbType="NText" />
+    <Parameter Name="Pais" Parameter="pais" Type="System.String" DbType="NText" />
+    <Parameter Name="Telefone" Parameter="telefone" Type="System.String" DbType="NText" />
+    <Parameter Name="CElular" Parameter="cElular" Type="System.String" DbType="NText" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaDadosNFProduto" Method="AtualizaDadosNFProduto">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CodBarras" Parameter="codBarras" Type="System.String" DbType="NText" />
+    <Parameter Name="NCM" Parameter="nCM" Type="System.String" DbType="NText" />
+    <Parameter Name="Altura" Parameter="altura" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Largura" Parameter="largura" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Profundidade" Parameter="profundidade" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Peso" Parameter="peso" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaIdDependenteFuncionario" Method="AtualizaIdDependenteFuncionario">
+    <Parameter Name="IdFuncionario" Parameter="idFuncionario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdDependente" Parameter="idDependente" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaLogin" Method="AtualizaLogin">
+    <Parameter Name="IdLogin" Parameter="idLogin" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NICK" Parameter="nICK" Type="System.String" DbType="NText" />
+    <Parameter Name="Pass" Parameter="pass" Type="System.String" DbType="NText" />
+    <Parameter Name="IdColaborador" Parameter="idColaborador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idpermissoes" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaParceiro" Method="AtualizaParceiro">
+    <Parameter Name="IdParceiro" Parameter="idParceiro" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RazaoSocial_nome" Parameter="razaoSocial_nome" Type="System.String" DbType="NText" />
+    <Parameter Name="CPF_CNPJ" Parameter="cPF_CNPJ" Type="System.String" DbType="NText" />
+    <Parameter Name="RG_IE" Parameter="rG_IE" Type="System.String" DbType="NText" />
+    <Parameter Name="TipoPersonalidade" Parameter="tipoPersonalidade" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CEP" Parameter="cEP" Type="System.String" DbType="NText" />
+    <Parameter Name="IdEndereco" Parameter="idEndereco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Endereco" Parameter="endereco" Type="System.String" DbType="NText" />
+    <Parameter Name="Numero" Parameter="numero" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Complemento" Parameter="complemento" Type="System.String" DbType="NText" />
+    <Parameter Name="Bairro" Parameter="bairro" Type="System.String" DbType="NText" />
+    <Parameter Name="Cidade" Parameter="cidade" Type="System.String" DbType="NText" />
+    <Parameter Name="Estado" Parameter="estado" Type="System.String" DbType="NText" />
+    <Parameter Name="Pais" Parameter="pais" Type="System.String" DbType="NText" />
+    <Parameter Name="Telefone" Parameter="telefone" Type="System.String" DbType="NText" />
+    <Parameter Name="CElular" Parameter="cElular" Type="System.String" DbType="NText" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NText" />
+    <Parameter Name="TipoParceiro" Parameter="tipoParceiro" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereAndarEstoque" Method="InsereAndarEstoque">
+    <Parameter Name="IdPredioEstoque" Parameter="idPredioEstoque" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeMatriz" Parameter="nomeMatriz" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereBairro" Method="InsereBairro">
+    <Parameter Name="IdCidade" Parameter="idCidade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereCategoriaProduto" Method="InsereCategoriaProduto">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereCidade" Method="InsereCidade">
+    <Parameter Name="IdEstado" Parameter="idEstado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereDependenteFuncionario" Method="InsereDependenteFuncionario">
+    <Parameter Name="IdFuncionario" Parameter="idFuncionario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nome" Parameter="nome" Type="System.String" DbType="NText" />
+    <Parameter Name="IdVinculo" Parameter="idVinculo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Vinculo" Parameter="vinculo" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereDescricaoEndereco" Method="InsereDescricaoEndereco">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="Abreviacao" Parameter="abreviacao" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereDocumento" Method="InsereDocumento">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="Sigla" Parameter="sigla" Type="System.String" DbType="NText" />
+    <Parameter Name="Mascara" Parameter="mascara" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereEndereco" Method="InsereEndereco">
+    <Parameter Name="IdBairro" Parameter="idBairro" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="CEP" Parameter="cEP" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdAbreviacao" Parameter="idAbreviacao" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereEnderecoEstoque" Method="InsereEnderecoEstoque">
+    <Parameter Name="IdAndarEstoque" Parameter="idAndarEstoque" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeMatriz" Parameter="nomeMatriz" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereEstado" Method="InsereEstado">
+    <Parameter Name="IdPais" Parameter="idPais" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="Sigla" Parameter="sigla" Type="System.String" DbType="NText" />
+    <Parameter Name="CodTel" Parameter="codTel" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereEstoque" Method="InsereEstoque">
+    <Parameter Name="NomeEstoque" Parameter="nomeEstoque" Type="System.String" DbType="NText" />
+    <Parameter Name="CepEstoque" Parameter="cepEstoque" Type="System.String" DbType="NText" />
+    <Parameter Name="Idendereco" Parameter="idendereco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Endereco" Parameter="endereco" Type="System.String" DbType="NText" />
+    <Parameter Name="bairro" Type="System.String" DbType="NText" />
+    <Parameter Name="cidade" Type="System.String" DbType="NText" />
+    <Parameter Name="estado" Type="System.String" DbType="NText" />
+    <Parameter Name="pais" Type="System.String" DbType="NText" />
+    <Parameter Name="numero" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Complemento" Parameter="complemento" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Inserefabricante" Method="Inserefabricante">
+    <Parameter Name="Fabricante" Parameter="fabricante" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereImagemProduto" Method="InsereImagemProduto">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Imagem" Parameter="imagem" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereLogin" Method="InsereLogin">
+    <Parameter Name="NICK" Parameter="nICK" Type="System.String" DbType="NText" />
+    <Parameter Name="Pass" Parameter="pass" Type="System.String" DbType="NText" />
+    <Parameter Name="IdColaborador" Parameter="idColaborador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idpermissoes" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNacionalidade" Method="InsereNacionalidade">
+    <Parameter Name="Nacionalidade" Parameter="nacionalidade" Type="System.String" DbType="NText" />
+    <Parameter Name="IdPais" Parameter="idPais" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Pais" Parameter="pais" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaEscalaCargo" Method="InsereNovaEscalaCargo">
+    <Parameter Name="IdCargo" Parameter="idCargo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DiaDaSemana" Parameter="diaDaSemana" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HrEntrada" Parameter="hrEntrada" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="HrSaida" Parameter="hrSaida" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="Intervalo" Parameter="intervalo" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="FolgaEscalaEquipe" Parameter="folgaEscalaEquipe" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaFerramenta" Method="InsereNovaFerramenta">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="NVinculado" Parameter="nVinculado" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Modulo" Parameter="modulo" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaFerramentaCargo" Method="InsereNovaFerramentaCargo">
+    <Parameter Name="IdCargo" Parameter="idCargo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdFerramenta" Parameter="idFerramenta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaFormaPgFornecedor" Method="InsereNovaFormaPgFornecedor">
+    <Parameter Name="IdFornecedor" Parameter="idFornecedor" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaximoPc" Parameter="maximoPc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Intervalo" Parameter="intervalo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="D_M" Parameter="d_M" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="idforma" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaUnidade" Method="InsereNovaUnidade">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="Sigla" Parameter="sigla" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaUnidadeFt_X" Method="InsereNovaUnidadeFt_X">
+    <Parameter Name="IdUnidade" Parameter="idUnidade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ft_X" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ChaveValidada" Parameter="chaveValidada" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Operacao" Parameter="operacao" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoBeneficio" Method="InsereNovoBeneficio">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoBeneficioCargo" Method="InsereNovoBeneficioCargo">
+    <Parameter Name="IdCargo" Parameter="idCargo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdBeneficio" Parameter="idBeneficio" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="Desconto" Parameter="desconto" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Valor" Parameter="valor" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Atribuicao" Parameter="atribuicao" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoEPI" Method="InsereNovoEPI">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="IdFerramenta" Parameter="idFerramenta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UsoComum" Parameter="usoComum" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoEPIServico" Method="InsereNovoEPIServico">
+    <Parameter Name="IdEPI" Parameter="idEPI" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdServico" Parameter="idServico" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoFerramentaServico" Method="InsereNovoFerramentaServico">
+    <Parameter Name="IdFerramenta" Parameter="idFerramenta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdServico" Parameter="idServico" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Qtdade" Parameter="qtdade" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoInsumo" Method="InsereNovoInsumo">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="IdFerramenta" Parameter="idFerramenta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UsoComum" Parameter="usoComum" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoInsumoServico" Method="InsereNovoInsumoServico">
+    <Parameter Name="IdInsumo" Parameter="idInsumo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdServico" Parameter="idServico" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Qtdade" Parameter="qtdade" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoProfissionalServico" Method="InsereNovoProfissionalServico">
+    <Parameter Name="Idprofissional" Parameter="idprofissional" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdServico" Parameter="idServico" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Qtdade" Parameter="qtdade" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InserePais" Method="InserePais">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="Sigla" Parameter="sigla" Type="System.String" DbType="NText" />
+    <Parameter Name="CodTel" Parameter="codTel" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereParceiroComercial" Method="InsereParceiroComercial">
+    <Parameter Name="RazaoSocial_nome" Parameter="razaoSocial_nome" Type="System.String" DbType="NText" />
+    <Parameter Name="CPF_CNPJ" Parameter="cPF_CNPJ" Type="System.String" DbType="NText" />
+    <Parameter Name="RG_IE" Parameter="rG_IE" Type="System.String" DbType="NText" />
+    <Parameter Name="TipoPersonalidade" Parameter="tipoPersonalidade" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CEP" Parameter="cEP" Type="System.String" DbType="NText" />
+    <Parameter Name="IdEndereco" Parameter="idEndereco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Endereco" Parameter="endereco" Type="System.String" DbType="NText" />
+    <Parameter Name="Numero" Parameter="numero" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Complemento" Parameter="complemento" Type="System.String" DbType="NText" />
+    <Parameter Name="Bairro" Parameter="bairro" Type="System.String" DbType="NText" />
+    <Parameter Name="Cidade" Parameter="cidade" Type="System.String" DbType="NText" />
+    <Parameter Name="Estado" Parameter="estado" Type="System.String" DbType="NText" />
+    <Parameter Name="Pais" Parameter="pais" Type="System.String" DbType="NText" />
+    <Parameter Name="Telefone" Parameter="telefone" Type="System.String" DbType="NText" />
+    <Parameter Name="CElular" Parameter="cElular" Type="System.String" DbType="NText" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NText" />
+    <Parameter Name="TipoParceiro" Parameter="tipoParceiro" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InserePredioEstoque" Method="InserePredioEstoque">
+    <Parameter Name="IdRuaEstoque" Parameter="idRuaEstoque" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeMatriz" Parameter="nomeMatriz" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereQuadraEstoque" Method="InsereQuadraEstoque">
+    <Parameter Name="Idestoque" Parameter="idestoque" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeMatriz" Parameter="nomeMatriz" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereRuaEstoque" Method="InsereRuaEstoque">
+    <Parameter Name="IdQuadra" Parameter="idQuadra" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeMatriz" Parameter="nomeMatriz" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereSubcategoriaProduto" Method="InsereSubcategoriaProduto">
+    <Parameter Name="Idcategoria" Parameter="idcategoria" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereVinculoParental" Method="InsereVinculoParental">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereVinculoParental_Documento" Method="InsereVinculoParental_Documento">
+    <Parameter Name="IdVinculo" Parameter="idVinculo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdDocumento" Parameter="idDocumento" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaDadosChaveInterno" Method="AtualizaDadosChaveInterno">
+    <Parameter Name="IdChave" Parameter="idChave" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdIPInt" Parameter="idIPInt" Type="System.String" DbType="NText" />
+    <Parameter Name="MAC" Parameter="mAC" Type="System.String" DbType="NText" />
+    <Parameter Name="IpExt" Parameter="ipExt" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaMarkupProduto" Method="AtualizaMarkupProduto">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Markup" Parameter="markup" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaMarkupServico" Method="AtualizaMarkupServico">
+    <Parameter Name="IdServico" Parameter="idServico" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Markup" Parameter="markup" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="VlrCusto" Parameter="vlrCusto" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="VlrRevenda" Parameter="vlrRevenda" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereOrcamentoRapido" Method="InsereOrcamentoRapido">
+    <Parameter Name="DataORc" Parameter="dataORc" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HrHorc" Parameter="hrHorc" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdVeiculo" Parameter="idVeiculo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdOrcamento" Parameter="idOrcamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Concluido" Parameter="concluido" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoServico" Method="InsereNovoServico">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="TME" Parameter="tME" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="Status" Parameter="status" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Markup" Parameter="markup" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="VlrCusto" Parameter="vlrCusto" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="VlrVeda" Parameter="vlrVeda" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Ferramenta" Parameter="ferramenta" Type="System.String" DbType="NText" />
+    <Parameter Name="IdCAtegoria" Parameter="idCAtegoria" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdSubCategoria" Parameter="idSubCategoria" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdServicoInt" Parameter="idServicoInt" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoCargo" Method="InsereNovoCargo">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="RemuneracaoBase" Parameter="remuneracaoBase" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ComVenda" Parameter="comVenda" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="RemMensal" Parameter="remMensal" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="RemHR" Parameter="remHR" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Fechamento" Parameter="fechamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdExterno" Parameter="idExterno" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaDependenteColaborador" Method="DeletaDependenteColaborador">
+    <Parameter Name="IdDependente" Parameter="idDependente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdColaborador" Parameter="idColaborador" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaCargo" Method="AtualizaCargo">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="RemuneracaoBase" Parameter="remuneracaoBase" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ComVenda" Parameter="comVenda" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="RemMensal" Parameter="remMensal" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="RemHR" Parameter="remHR" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Fechamento" Parameter="fechamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdInterno" Parameter="idInterno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdExterno" Parameter="idExterno" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaVinculoExt_Funcionario" Method="AtualizaVinculoExt_Funcionario">
+    <Parameter Name="IdFuncionario" Parameter="idFuncionario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdExterno" Parameter="idExterno" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaEquipe" Method="InsereNovaEquipe">
+    <Parameter Name="IdLider" Parameter="idLider" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeLider" Parameter="nomeLider" Type="System.String" DbType="NText" />
+    <Parameter Name="CargoLider" Parameter="cargoLider" Type="System.String" DbType="NText" />
+    <Parameter Name="UrlImagemLider" Parameter="urlImagemLider" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoColaboradorEquipe" Method="InsereNovoColaboradorEquipe">
+    <Parameter Name="IdLider" Parameter="idLider" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeLider" Parameter="nomeLider" Type="System.String" DbType="NText" />
+    <Parameter Name="CargoLider" Parameter="cargoLider" Type="System.String" DbType="NText" />
+    <Parameter Name="UrlImagemLider" Parameter="urlImagemLider" Type="System.String" DbType="NText" />
+    <Parameter Name="IdFuncionario" Parameter="idFuncionario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeFuncionario" Parameter="nomeFuncionario" Type="System.String" DbType="NText" />
+    <Parameter Name="CargoFuncionario" Parameter="cargoFuncionario" Type="System.String" DbType="NText" />
+    <Parameter Name="UrlImagemFuncionario" Parameter="urlImagemFuncionario" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaNovoColaboradorEquipe" Method="DeletaNovoColaboradorEquipe">
+    <Parameter Name="IdLider" Parameter="idLider" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdFuncionario" Parameter="idFuncionario" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaVinculoExt_Servico" Method="AtualizaVinculoExt_Servico">
+    <Parameter Name="IdServico" Parameter="idServico" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdServicoInt" Parameter="idServicoInt" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaServico" Method="AtualizaServico">
+    <Parameter Name="IdServico" Parameter="idServico" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="TME" Parameter="tME" Type="System.TimeSpan" DbType="Time" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaProfissionalServico" Method="DeletaProfissionalServico">
+    <Parameter Name="IdServico" Parameter="idServico" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaFerramentaServico" Method="DeletaFerramentaServico">
+    <Parameter Name="IdServico" Parameter="idServico" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaIdVinculoExtCliente" Method="AtualizaIdVinculoExtCliente">
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdClienteExt" Parameter="idClienteExt" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoFornecedor" Method="InsereNovoFornecedor">
+    <Parameter Name="Doc" Parameter="doc" Type="System.String" DbType="NText" />
+    <Parameter Name="Nome" Parameter="nome" Type="System.String" DbType="NText" />
+    <Parameter Name="Cep" Parameter="cep" Type="System.String" DbType="NText" />
+    <Parameter Name="IdEndereco" Parameter="idEndereco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Numero" Parameter="numero" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Compl" Parameter="compl" Type="System.String" DbType="NText" />
+    <Parameter Name="IdBairro" Parameter="idBairro" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Bairro" Parameter="bairro" Type="System.String" DbType="NText" />
+    <Parameter Name="IdCidade" Parameter="idCidade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cidade" Parameter="cidade" Type="System.String" DbType="NText" />
+    <Parameter Name="IdEstado" Parameter="idEstado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Estado" Parameter="estado" Type="System.String" DbType="NText" />
+    <Parameter Name="IdPais" Parameter="idPais" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Pais" Parameter="pais" Type="System.String" DbType="NText" />
+    <Parameter Name="Telefone" Parameter="telefone" Type="System.String" DbType="NText" />
+    <Parameter Name="Apelido" Parameter="apelido" Type="System.String" DbType="NText" />
+    <Parameter Name="Fornecedor" Parameter="fornecedor" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Prestador" Parameter="prestador" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Comissionado" Parameter="comissionado" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Beneficiario" Parameter="beneficiario" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IE" Parameter="iE" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaNCM" Method="AtualizaNCM">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NCM" Parameter="nCM" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaEAN" Method="AtualizaEAN">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CodBarras" Parameter="codBarras" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaProduto" Method="AtualizaProduto">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="IdFabricante" Parameter="idFabricante" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Fabricante" Parameter="fabricante" Type="System.String" DbType="NText" />
+    <Parameter Name="CodFabricante" Parameter="codFabricante" Type="System.String" DbType="NText" />
+    <Parameter Name="CodBarras" Parameter="codBarras" Type="System.String" DbType="NText" />
+    <Parameter Name="IdCategoria" Parameter="idCategoria" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Categoria" Parameter="categoria" Type="System.String" DbType="NText" />
+    <Parameter Name="IDSubCategoria" Parameter="iDSubCategoria" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SubCategoria" Parameter="subCategoria" Type="System.String" DbType="NText" />
+    <Parameter Name="NCM" Parameter="nCM" Type="System.String" DbType="NText" />
+    <Parameter Name="IdUnComp" Parameter="idUnComp" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UnCompra" Parameter="unCompra" Type="System.String" DbType="NText" />
+    <Parameter Name="IdUnVenda" Parameter="idUnVenda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UnVenda" Parameter="unVenda" Type="System.String" DbType="NText" />
+    <Parameter Name="VendaDireta" Parameter="vendaDireta" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Insumo" Parameter="insumo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="UsoInterno" Parameter="usoInterno" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Reaproveitamento" Parameter="reaproveitamento" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Altura" Parameter="altura" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Largura" Parameter="largura" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Profundidade" Parameter="profundidade" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Peso" Parameter="peso" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ControleValidade" Parameter="controleValidade" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Validade" Parameter="validade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Markup" Parameter="markup" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="DisponvelOnLine" Parameter="disponvelOnLine" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Pctge" Parameter="pctge" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QtMin" Parameter="qtMin" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QtMax" Parameter="qtMax" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdProdutoExt" Parameter="idProdutoExt" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdTrib" Parameter="idTrib" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoProduto" Method="InsereNovoProduto">
+    <Parameter Name="Descricao" Parameter="descricao" Type="System.String" DbType="NText" />
+    <Parameter Name="IdFabricante" Parameter="idFabricante" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Fabricante" Parameter="fabricante" Type="System.String" DbType="NText" />
+    <Parameter Name="CodFabricante" Parameter="codFabricante" Type="System.String" DbType="NText" />
+    <Parameter Name="CodBarras" Parameter="codBarras" Type="System.String" DbType="NText" />
+    <Parameter Name="IdCategoria" Parameter="idCategoria" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Categoria" Parameter="categoria" Type="System.String" DbType="NText" />
+    <Parameter Name="IDSubCategoria" Parameter="iDSubCategoria" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SubCategoria" Parameter="subCategoria" Type="System.String" DbType="NText" />
+    <Parameter Name="NCM" Parameter="nCM" Type="System.String" DbType="NText" />
+    <Parameter Name="IdUnComp" Parameter="idUnComp" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UnCompra" Parameter="unCompra" Type="System.String" DbType="NText" />
+    <Parameter Name="IdUnVenda" Parameter="idUnVenda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UnVenda" Parameter="unVenda" Type="System.String" DbType="NText" />
+    <Parameter Name="VendaDireta" Parameter="vendaDireta" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Insumo" Parameter="insumo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="UsoInterno" Parameter="usoInterno" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Reaproveitamento" Parameter="reaproveitamento" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Altura" Parameter="altura" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Largura" Parameter="largura" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Profundidade" Parameter="profundidade" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Peso" Parameter="peso" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ControlaValidade" Parameter="controlaValidade" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Validade" Parameter="validade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Markup" Parameter="markup" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="DisponvelOnLine" Parameter="disponvelOnLine" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Pctge" Parameter="pctge" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QtMin" Parameter="qtMin" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QtMax" Parameter="qtMax" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdProdutoExt" Parameter="idProdutoExt" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdTrib" Parameter="idTrib" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaImagemProduto" Method="DeletaImagemProduto">
+    <Parameter Name="IdImagem" Parameter="idImagem" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaServico" Method="DeletaServico">
+    <Parameter Name="IdServico" Parameter="idServico" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoVinculoServico" Method="InsereNovoVinculoServico">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdServico" Parameter="idServico" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaVinculoServico" Method="DeletaVinculoServico">
+    <Parameter Name="IdServico" Parameter="idServico" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaVinculoProduto" Method="DeletaVinculoProduto">
+    <Parameter Name="IdServico" Parameter="idServico" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoVinculoProduto" Method="InsereNovoVinculoProduto">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdProdutoFinal" Parameter="idProdutoFinal" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Qt" Parameter="qt" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaCliente" Method="DeletaCliente">
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereCliente" Method="InsereCliente">
+    <Parameter Name="RazaoSocial_nome" Parameter="razaoSocial_nome" Type="System.String" DbType="NText" />
+    <Parameter Name="CPF_CNPJ" Parameter="cPF_CNPJ" Type="System.String" DbType="NText" />
+    <Parameter Name="RG_IE" Parameter="rG_IE" Type="System.String" DbType="NText" />
+    <Parameter Name="TipoPersonalidade" Parameter="tipoPersonalidade" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CEP" Parameter="cEP" Type="System.String" DbType="NText" />
+    <Parameter Name="IdEndereco" Parameter="idEndereco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Endereco" Parameter="endereco" Type="System.String" DbType="NText" />
+    <Parameter Name="Numero" Parameter="numero" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Complemento" Parameter="complemento" Type="System.String" DbType="NText" />
+    <Parameter Name="Bairro" Parameter="bairro" Type="System.String" DbType="NText" />
+    <Parameter Name="Cidade" Parameter="cidade" Type="System.String" DbType="NText" />
+    <Parameter Name="Estado" Parameter="estado" Type="System.String" DbType="NText" />
+    <Parameter Name="Pais" Parameter="pais" Type="System.String" DbType="NText" />
+    <Parameter Name="Telefone" Parameter="telefone" Type="System.String" DbType="NText" />
+    <Parameter Name="CElular" Parameter="cElular" Type="System.String" DbType="NText" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NText" />
+    <Parameter Name="IdClienteExt" Parameter="idClienteExt" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Apelido" Parameter="apelido" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaFuncionario" Method="AtualizaFuncionario">
+    <Parameter Name="IdFuncionario" Parameter="idFuncionario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeCompleto" Parameter="nomeCompleto" Type="System.String" DbType="NText" />
+    <Parameter Name="CPF" Parameter="cPF" Type="System.String" DbType="NText" />
+    <Parameter Name="RG" Parameter="rG" Type="System.String" DbType="NText" />
+    <Parameter Name="NomePai" Parameter="nomePai" Type="System.String" DbType="NText" />
+    <Parameter Name="NomeMae" Parameter="nomeMae" Type="System.String" DbType="NText" />
+    <Parameter Name="CEP" Parameter="cEP" Type="System.String" DbType="NText" />
+    <Parameter Name="IdEndereco" Parameter="idEndereco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Endereco" Parameter="endereco" Type="System.String" DbType="NText" />
+    <Parameter Name="Numero" Parameter="numero" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Complemento" Parameter="complemento" Type="System.String" DbType="NText" />
+    <Parameter Name="Bairro" Parameter="bairro" Type="System.String" DbType="NText" />
+    <Parameter Name="Cidade" Parameter="cidade" Type="System.String" DbType="NText" />
+    <Parameter Name="Estado" Parameter="estado" Type="System.String" DbType="NText" />
+    <Parameter Name="Pais" Parameter="pais" Type="System.String" DbType="NText" />
+    <Parameter Name="Telefone" Parameter="telefone" Type="System.String" DbType="NText" />
+    <Parameter Name="CElular" Parameter="cElular" Type="System.String" DbType="NText" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NText" />
+    <Parameter Name="TelefoneCont1" Parameter="telefoneCont1" Type="System.String" DbType="NText" />
+    <Parameter Name="NomeCont1" Parameter="nomeCont1" Type="System.String" DbType="NText" />
+    <Parameter Name="TelefoneCont2" Parameter="telefoneCont2" Type="System.String" DbType="NText" />
+    <Parameter Name="NomeCont2" Parameter="nomeCont2" Type="System.String" DbType="NText" />
+    <Parameter Name="TelefoneCont3" Parameter="telefoneCont3" Type="System.String" DbType="NText" />
+    <Parameter Name="NomeCont3" Parameter="nomeCont3" Type="System.String" DbType="NText" />
+    <Parameter Name="Foto" Parameter="foto" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="IdCargo" Parameter="idCargo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cargo" Parameter="cargo" Type="System.String" DbType="NText" />
+    <Parameter Name="IdNacionalidade" Parameter="idNacionalidade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nacionalidade" Parameter="nacionalidade" Type="System.String" DbType="NText" />
+    <Parameter Name="NumBanco" Parameter="numBanco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeBanco" Parameter="nomeBanco" Type="System.String" DbType="NText" />
+    <Parameter Name="IdBanco" Parameter="idBanco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ag" Parameter="ag" Type="System.String" DbType="NText" />
+    <Parameter Name="Conta" Parameter="conta" Type="System.String" DbType="NText" />
+    <Parameter Name="Op" Parameter="op" Type="System.String" DbType="NText" />
+    <Parameter Name="TipoConta" Parameter="tipoConta" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="TipoDocEspec" Parameter="tipoDocEspec" Type="System.String" DbType="NText" />
+    <Parameter Name="NUmeroDoDOC" Parameter="nUmeroDoDOC" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereColaborador" Method="InsereColaborador">
+    <Parameter Name="NomeCompleto" Parameter="nomeCompleto" Type="System.String" DbType="NText" />
+    <Parameter Name="CPF" Parameter="cPF" Type="System.String" DbType="NText" />
+    <Parameter Name="RG" Parameter="rG" Type="System.String" DbType="NText" />
+    <Parameter Name="NomePai" Parameter="nomePai" Type="System.String" DbType="NText" />
+    <Parameter Name="NomeMae" Parameter="nomeMae" Type="System.String" DbType="NText" />
+    <Parameter Name="CEP" Parameter="cEP" Type="System.String" DbType="NText" />
+    <Parameter Name="IdEndereco" Parameter="idEndereco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Endereco" Parameter="endereco" Type="System.String" DbType="NText" />
+    <Parameter Name="Numero" Parameter="numero" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Complemento" Parameter="complemento" Type="System.String" DbType="NText" />
+    <Parameter Name="Bairro" Parameter="bairro" Type="System.String" DbType="NText" />
+    <Parameter Name="Cidade" Parameter="cidade" Type="System.String" DbType="NText" />
+    <Parameter Name="Estado" Parameter="estado" Type="System.String" DbType="NText" />
+    <Parameter Name="Pais" Parameter="pais" Type="System.String" DbType="NText" />
+    <Parameter Name="Telefone" Parameter="telefone" Type="System.String" DbType="NText" />
+    <Parameter Name="CElular" Parameter="cElular" Type="System.String" DbType="NText" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NText" />
+    <Parameter Name="TelefoneCont1" Parameter="telefoneCont1" Type="System.String" DbType="NText" />
+    <Parameter Name="NomeCont1" Parameter="nomeCont1" Type="System.String" DbType="NText" />
+    <Parameter Name="TelefoneCont2" Parameter="telefoneCont2" Type="System.String" DbType="NText" />
+    <Parameter Name="NomeCont2" Parameter="nomeCont2" Type="System.String" DbType="NText" />
+    <Parameter Name="TelefoneCont3" Parameter="telefoneCont3" Type="System.String" DbType="NText" />
+    <Parameter Name="NomeCont3" Parameter="nomeCont3" Type="System.String" DbType="NText" />
+    <Parameter Name="Foto" Parameter="foto" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="IdCargo" Parameter="idCargo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cargo" Parameter="cargo" Type="System.String" DbType="NText" />
+    <Parameter Name="IdNacionalidade" Parameter="idNacionalidade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nacionalidade" Parameter="nacionalidade" Type="System.String" DbType="NText" />
+    <Parameter Name="IdExterno" Parameter="idExterno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumBanco" Parameter="numBanco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeBanco" Parameter="nomeBanco" Type="System.String" DbType="NText" />
+    <Parameter Name="IdBanco" Parameter="idBanco" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ag" Parameter="ag" Type="System.String" DbType="NText" />
+    <Parameter Name="Conta" Parameter="conta" Type="System.String" DbType="NText" />
+    <Parameter Name="Op" Parameter="op" Type="System.String" DbType="NText" />
+    <Parameter Name="TipoConta" Parameter="tipoConta" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="TipoDocEspec" Parameter="tipoDocEspec" Type="System.String" DbType="NText" />
+    <Parameter Name="NUmeroDoDOC" Parameter="nUmeroDoDOC" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Comercial" Class="LqComercialDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-K3M64OB;Initial Catalog=Comercial;Persist Security Info=True;User ID=SqlSystem" SettingsObjectName="CRM_BASE.My.MySettings" SettingsPropertyName="ComercialConnectionString3" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.FormasPGOrcamento" Member="FormasPGOrcamento">
+    <Type Name="FormasPGOrcamento">
+      <Column Name="IdFormPgOrc" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdForma" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdOrcamento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdVersao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Valor" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Pc" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Vencimento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orcamentos" Member="Orcamentos">
+    <Type Name="Orcamentos">
+      <Column Name="IdOrcamento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdSolicitante" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdTecOrc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataOrc" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HrOrc" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DataSol" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HorSol" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IdCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdVeiculo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Aprovado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DataAprov" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HrAprov" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IdTEcAprov" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdDesmonte" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdOrcamentoIara" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdCorOrcamentoExt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ValorRecebido" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NfEmitida" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NumNf" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataNf" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProdutosOrcamento" Member="ProdutosOrcamento">
+    <Type Name="ProdutosOrcamento">
+      <Column Name="IdProdutoOrcamento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdSolicitacao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdOrcamento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qtdade" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ValorUnit" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DescontoUnit" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Versao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataVersao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdSolucao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdImagemAval" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PedidoOnLine" Member="PedidoOnLine">
+    <Type Name="PedidoOnLine">
+      <Column Name="IdPedidoOnLine" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdProdInt" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdItemExterno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ChaveFornecedor" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ChaveOficina" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DataSol" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraSol" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Cotado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DataCotacao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IdCotacao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ValidadoEstoque" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DataValidadoEstoque" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IdfunciValidadoe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AprovadoFinanceiro" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DataAprovadoFinanceiro" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IdFuncionarioAprovaFin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Separado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DataSeparado" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IdFuncionarioSeparado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Expedido" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DataExpedido" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IdFuncionarioExpedido" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Entregue" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DataEntregue" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ChaveEntregador" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Qtdade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VlrCompra" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="VlrComissao" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="VlrFrete" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Status_posicao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdExternoPedido" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.DeletaOrcamento" Method="DeletaOrcamento">
+    <Parameter Name="IdOrcamento" Parameter="idOrcamento" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizavalorItemOrcamento" Method="AtualizavalorItemOrcamento">
+    <Parameter Name="IdItemProdutoOrcamento" Parameter="idItemProdutoOrcamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Idproduto" Parameter="idproduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdSolicitacao" Parameter="idSolicitacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ValorUnit" Parameter="valorUnit" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaItensOrcamento" Method="DeletaItensOrcamento">
+    <Parameter Name="IdOrcamento" Parameter="idOrcamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Versao" Parameter="versao" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovaFormaPgOrcamento" Method="InsereNovaFormaPgOrcamento">
+    <Parameter Name="IdForma" Parameter="idForma" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdOrcamento" Parameter="idOrcamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdVersao" Parameter="idVersao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Valor" Parameter="valor" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Pc" Parameter="pc" Type="System.String" DbType="NText" />
+    <Parameter Name="Vencimento" Parameter="vencimento" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaFormasPgOrcamentoOrcamento" Method="DeletaFormasPgOrcamentoOrcamento">
+    <Parameter Name="IdOrcamento" Parameter="idOrcamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Versao" Parameter="versao" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaAprovacaoOrçamento" Method="AtualizaAprovacaoOrçamento">
+    <Parameter Name="IdOrçamento" Parameter="idOrçamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Status" Parameter="status" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DataAprov" Parameter="dataAprov" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraAprov" Parameter="horaAprov" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdTecAprov" Parameter="idTecAprov" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaProdutoOrçamento" Method="AtualizaProdutoOrçamento">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdSolicitacao" Parameter="idSolicitacao" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaClienteOrcameto" Method="AtualizaClienteOrcameto">
+    <Parameter Name="Idorcamento" Parameter="idorcamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoOrcamento" Method="InsereNovoOrcamento">
+    <Parameter Name="IdSolicitante" Parameter="idSolicitante" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdTecOrc" Parameter="idTecOrc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataOrc" Parameter="dataOrc" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HrOrc" Parameter="hrOrc" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="DataSol" Parameter="dataSol" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HorSol" Parameter="horSol" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdVeiculo" Parameter="idVeiculo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Aprovado" Parameter="aprovado" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DataAprov" Parameter="dataAprov" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HrAprov" Parameter="hrAprov" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="IdTEcAprov" Parameter="idTEcAprov" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdDesmonte" Parameter="idDesmonte" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdOrcamentoIara" Parameter="idOrcamentoIara" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdCorOrcamentoExt" Parameter="idCorOrcamentoExt" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ValorRecebido" Parameter="valorRecebido" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NfEmitida" Parameter="nfEmitida" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NumNf" Parameter="numNf" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataNf" Parameter="dataNf" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaValorRecebidoOrcamento" Method="AtualizaValorRecebidoOrcamento">
+    <Parameter Name="IdOrçamento" Parameter="idOrçamento" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereNovoItemOrcamento" Method="InsereNovoItemOrcamento">
+    <Parameter Name="IdSolicitacao" Parameter="idSolicitacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdOrcamento" Parameter="idOrcamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Qtdade" Parameter="qtdade" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Versao" Parameter="versao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ValorUnit" Parameter="valorUnit" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="DescontoUnit" Parameter="descontoUnit" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="DataVersao" Parameter="dataVersao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Tipo" Parameter="tipo" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IdSolucao" Parameter="idSolucao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdImagemAval" Parameter="idImagemAval" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeletaPedidoOnLine" Method="DeletaPedidoOnLine">
+    <Parameter Name="IdPedidoOnLine" Parameter="idPedidoOnLine" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaStatus1_PedidoOnLine" Method="AtualizaStatus1_PedidoOnLine">
+    <Parameter Name="IdPedidoOnLine" Parameter="idPedidoOnLine" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Qtdade" Parameter="qtdade" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Status_posicao" Parameter="status_posicao" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InserePedidoOnLine" Method="InserePedidoOnLine">
+    <Parameter Name="IdProdInt" Parameter="idProdInt" Type="System.String" DbType="NText" />
+    <Parameter Name="IdItemExterno" Parameter="idItemExterno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ChaveFornecedor" Parameter="chaveFornecedor" Type="System.String" DbType="NText" />
+    <Parameter Name="ChaveOficina" Parameter="chaveOficina" Type="System.String" DbType="NText" />
+    <Parameter Name="DataSol" Parameter="dataSol" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraSol" Parameter="horaSol" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="Cotado" Parameter="cotado" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DataCotacao" Parameter="dataCotacao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="IdCotacao" Parameter="idCotacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ValidadoEstoque" Parameter="validadoEstoque" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DataValidadoEstoque" Parameter="dataValidadoEstoque" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="IdfunciValidadoe" Parameter="idfunciValidadoe" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AprovadoFinanceiro" Parameter="aprovadoFinanceiro" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DataAprovadoFinanceiro" Parameter="dataAprovadoFinanceiro" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="IdFuncionarioAprovaFin" Parameter="idFuncionarioAprovaFin" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Separado" Parameter="separado" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DataSeparado" Parameter="dataSeparado" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="IdFuncionarioSeparado" Parameter="idFuncionarioSeparado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Expedido" Parameter="expedido" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DataExpedido" Parameter="dataExpedido" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="IdFuncionarioExpedido" Parameter="idFuncionarioExpedido" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Entregue" Parameter="entregue" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DataEntregue" Parameter="dataEntregue" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ChaveEntregador" Parameter="chaveEntregador" Type="System.String" DbType="NText" />
+    <Parameter Name="Qtdade" Parameter="qtdade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="VlrCompra" Parameter="vlrCompra" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="VlrComissao" Parameter="vlrComissao" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="VlrFrete" Parameter="vlrFrete" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="Status_posicao" Parameter="status_posicao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdExternoPedido" Parameter="idExternoPedido" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaIdExterno_PedidoOnLine" Method="AtualizaIdExterno_PedidoOnLine">
+    <Parameter Name="IdPedidoOnLine" Parameter="idPedidoOnLine" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdExternoPedido" Parameter="idExternoPedido" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

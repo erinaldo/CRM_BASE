@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.625, 9.75" name="LqEstoqueLocal">
+  <DataContextMoniker Name="/LqEstoqueLocalDataContext" />
+  <nestedChildShapes>
+    <classShape Id="bb11fd1c-2d26-44ff-8863-8310e3376f20" absoluteBounds="10, 4.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LqEstoqueLocalDataContext/AndarEstoqueLocal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1cecb5b5-4a90-42b6-979b-f77bc3346847" absoluteBounds="10.015, 5.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ef2382c4-48c2-4de1-a4ce-5b8c8f23dc27" absoluteBounds="2.875, 4.75, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/LqEstoqueLocalDataContext/QuadrasEstoqueLocal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="893e77f9-7c3f-412f-8253-620e0af1dbb6" absoluteBounds="2.8899999999999997, 5.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b3fd51d1-d4c9-4364-9cf1-26236ede54b9" absoluteBounds="7.625, 4.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LqEstoqueLocalDataContext/PredioEstoqueLocal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="77bf497e-b3f4-480d-bdfa-224b086e16bd" absoluteBounds="7.6400000000000006, 5.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ae94bd7e-d422-4d63-9980-5f21dd5681ae" absoluteBounds="5.25, 4.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LqEstoqueLocalDataContext/RuasEstoqueLocal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90c0979a-6916-49f1-b30e-23f3a9e58b5a" absoluteBounds="5.265, 5.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="53eea89e-30a7-4efb-85f8-7852364ec542" absoluteBounds="0.5, 4.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LqEstoqueLocalDataContext/EstoquesLocais" />
+      <nestedChildShapes>
+        <elementListCompartment Id="20ceaf59-896d-431b-a293-aa65f66c9a03" absoluteBounds="0.51499999999999968, 5.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="085c10e2-5526-499f-acef-c50b797f88cb" absoluteBounds="12.375, 4.75, 2, 2.5401025390625">
+      <DataClassMoniker Name="/LqEstoqueLocalDataContext/EnderecoEstoqueLocal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="42ab5428-9a5f-4511-894a-5cd9aa818416" absoluteBounds="12.39, 5.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f878e91b-7703-4667-bd32-3de65a7dd748" absoluteBounds="0.5, 0.5, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/LqEstoqueLocalDataContext/Armazenagem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c17a86a3-b391-48e7-81dd-14e50d5c80c7" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="801d2183-204e-48ef-9bfb-1767b28246f4" absoluteBounds="2.875, 0.5, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/LqEstoqueLocalDataContext/SolicitacaoProdutosEstoque" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f949817e-a940-4a2a-80d0-3c1036cb641f" absoluteBounds="2.8899999999999997, 0.96, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="03093e44-9303-4d2d-8092-ee00af47dce8" absoluteBounds="0.5, 7, 2, 2.5401025390625">
+      <DataClassMoniker Name="/LqEstoqueLocalDataContext/BaixaEndereco" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1d0ef648-f0fd-4064-a472-8752b5052f12" absoluteBounds="0.51500000000000012, 7.4600000000000009, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

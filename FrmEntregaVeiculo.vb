@@ -1,0 +1,5 @@
+﻿Public Class FrmEntregaVeiculo
+    Private Sub FrmEntregaVeiculo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+End Class

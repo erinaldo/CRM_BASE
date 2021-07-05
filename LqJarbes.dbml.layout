@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LqJarbes">
+  <DataContextMoniker Name="/LqJarbesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d8d606d6-4099-4d25-93b1-ea42fec9c3f3" absoluteBounds="3.125, 0.5, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/LqJarbesDataContext/ClientesJv" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c412dcdd-1438-4907-a645-c5f42203ce5f" absoluteBounds="3.1399999999999997, 0.96, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="53faffe6-426e-4b30-9b07-01581150da49" absoluteBounds="3.125, 5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LqJarbesDataContext/ProdutosJV" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c17405ac-6a53-482f-bdf0-8404c36544cb" absoluteBounds="3.14, 5.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0cd1b4c7-5bd9-43c7-884f-9aebd2f311d7" absoluteBounds="0.5, 0.5, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/LqJarbesDataContext/ChavesIara" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d5e8d3a3-0836-4c18-95d2-38d9a9b34b67" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

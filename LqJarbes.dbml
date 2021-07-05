@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="IARA" Class="LqJarbesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=0.0.0.0;Initial Catalog=IARA;Persist Security Info=True;User ID=SqlSystem" SettingsObjectName="CRM_BASE.My.MySettings" SettingsPropertyName="IARAConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ClientesJv" Member="ClientesJv">
+    <Type Name="ClientesJv">
+      <Column Name="IdClienteJv" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NomeCompletoJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoDocJv" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DOCJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RG_IEJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EnderecoJv" Storage="_EndereçoJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BairroJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CidadeJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EstadoJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PaisJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CepJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TelefoneJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CelularJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WhattsappJv" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ContatoJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CelularContatoJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EmailJv" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProdutosJV" Member="ProdutosJV">
+    <Type Name="ProdutosJV">
+      <Column Name="IdProdutoJV" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="descricaoJV" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="StatusJv" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ChavesIara" Member="ChavesIara">
+    <Type Name="ChavesIara">
+      <Column Name="IdChaveIara" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdClienteIara" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdProdutoIara" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumeroDaChaveIara" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ValidadeDiasIara" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataLiberacaoIara" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraLiberacaoIara" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DataAtivacaoIara" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraAtivacaoIara" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IpAtivacaoIara" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,21 @@
+USE [Base]
+GO
+
+/****** Object:  Table [dbo].[ImagemProduto]    Script Date: 15/04/2020 09:42:56 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ImagemProduto](
+	[IdImagem] [int] IDENTITY(1,1) NOT NULL,
+	[IdProduto] [int] NULL,
+	[Imagem] [image] NULL,
+ CONSTRAINT [PK_ImagemProduto] PRIMARY KEY CLUSTERED 
+(
+	[IdImagem] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+

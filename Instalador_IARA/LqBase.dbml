@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Base" Class="LqBaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=AMI-NOTEBOOK;Initial Catalog=Base;Persist Security Info=True;User ID=sqlsystem" SettingsObjectName="Instalador_IARA.My.MySettings" SettingsPropertyName="BaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ChavesInterno" Member="ChavesInterno">
+    <Type Name="ChavesInterno">
+      <Column Name="IdChave" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdProduto" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NumeroDaChave" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ValidadeDias" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataLiberacaoo" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraLiberacao" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DataAtivacao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraAtivacao" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="CNPJ_CPF" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdClienteIARA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IPInt" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAC" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IpExt" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Function Name="dbo.InsereChavesInterno" Method="InsereChavesInterno">
+    <Parameter Name="IdProduto" Parameter="idProduto" Type="System.String" DbType="NText" />
+    <Parameter Name="NumeroDaChave" Parameter="numeroDaChave" Type="System.String" DbType="NText" />
+    <Parameter Name="ValidadeDias" Parameter="validadeDias" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DataLiberacao" Parameter="dataLiberacao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraLiberacao" Parameter="horaLiberacao" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="DataAtivacao" Parameter="dataAtivacao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraAtivacao" Parameter="horaAtivacao" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="CPNJ_CPF" Parameter="cPNJ_CPF" Type="System.String" DbType="NText" />
+    <Parameter Name="IdClienteIara" Parameter="idClienteIara" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IpInt" Parameter="ipInt" Type="System.String" DbType="NText" />
+    <Parameter Name="MAC" Parameter="mAC" Type="System.String" DbType="NText" />
+    <Parameter Name="IpExt" Parameter="ipExt" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.AtualizaDadosChaveInterno" Method="AtualizaDadosChaveInterno">
+    <Parameter Name="IdChave" Parameter="idChave" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdIPInt" Parameter="idIPInt" Type="System.String" DbType="NText" />
+    <Parameter Name="MAC" Parameter="mAC" Type="System.String" DbType="NText" />
+    <Parameter Name="IpExt" Parameter="ipExt" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

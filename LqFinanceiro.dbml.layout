@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.25, 23.625" name="LqFinanceiro">
+  <DataContextMoniker Name="/LqFinanceiroDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1156e6b0-945d-4127-a6e0-07133cb338c9" absoluteBounds="0.75, 0.5, 2, 4.6554182942708326">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/Cotacoes" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1051d9c2-ab69-42a5-9c33-cfec299fb79f" absoluteBounds="0.76499999999999968, 0.96, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2053b2d5-eb25-48dd-8991-e004b680454e" absoluteBounds="0.75, 5.375, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/Carteira" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7a240a0c-e4af-44ad-9c2f-6d6e66058931" absoluteBounds="0.76499999999999968, 5.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f805cc23-ff8d-4de0-83bf-f35744b223ef" absoluteBounds="3.25, 0.5, 2, 3.6939111328124996">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/SolicitacoesCompraFinanceiro" />
+      <nestedChildShapes>
+        <elementListCompartment Id="879f462c-d89b-4b49-b263-5ff478625e6b" absoluteBounds="3.2649999999999997, 0.96000000000000085, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.34695556640625); (3.25 : 2.34695556640625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LqFinanceiroDataContext/Cotacoes/Cotacoes_SolicitacoesCompraFinanceiro" />
+      <nodes>
+        <classShapeMoniker Id="1156e6b0-945d-4127-a6e0-07133cb338c9" />
+        <classShapeMoniker Id="f805cc23-ff8d-4de0-83bf-f35744b223ef" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a73255fc-b4b1-4aa7-84a3-dd2221a94cd2" absoluteBounds="7, 0.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/NF_Entrada" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7a31c2da-e285-42eb-a5bb-a74cad72ebe7" absoluteBounds="7.015, 0.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3e57cb92-63ae-4b05-abc7-1d694f0d952d" absoluteBounds="7, 3.125, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/SolicitacoesMarkup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="624e3bc3-bbf8-472a-9cfe-e50d58dc8462" absoluteBounds="7.015, 3.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="565d58cd-e713-42e7-b645-611bc6c14f88" absoluteBounds="3.25, 11, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/FormaRecebimentoBalancete" />
+      <nestedChildShapes>
+        <elementListCompartment Id="36743c79-f495-4801-bf18-57fdf7873c3a" absoluteBounds="3.2649999999999997, 11.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="55c0b3b3-b240-4bc2-ac3c-545583706bce" absoluteBounds="3.25, 5.375, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/BandeirasFormaPG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="356379c0-14b5-40fb-8f6a-4fa792139119" absoluteBounds="3.2649999999999997, 5.8350000000000009, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b71a810c-082e-47b3-b3a5-971f8de61611" absoluteBounds="5.625, 11, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/CategoriaPlanoContas" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e370405f-f945-42db-bff5-c01f3aaf7870" absoluteBounds="5.64, 11.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cdf9eb80-ce16-4138-9ad1-4540f224bce0" absoluteBounds="0.75, 11, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/BalanceteFinanceiro" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bc895370-cbfe-428b-b649-5d6e82991413" absoluteBounds="0.76499999999999968, 11.46, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="19237d04-bd42-4203-ac77-41536d11f4b5" absoluteBounds="5.625, 12.625, 2, 1.9631982421875">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/AferirPagamentos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="110eac40-b738-4adb-821b-53cb70fb2898" absoluteBounds="5.64, 13.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dfb829aa-203c-4076-a699-f81be43d2ea7" absoluteBounds="0.75, 15.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/Bancos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7639c589-2ffd-4059-9e48-fd527c0edc3d" absoluteBounds="0.76499999999999968, 16.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="42dd9f44-8d00-4e80-bad7-e3ab53529fa6" absoluteBounds="3.25, 8, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/FormasPgEntrada" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e0ef5c24-5c47-45ee-a1d0-2910b0d0f3f8" absoluteBounds="3.2649999999999997, 8.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e93f9e44-989d-4d8d-81e7-7831532fc50c" absoluteBounds="7.875, 11, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/FormasPgSaida" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e50fb42b-b229-483a-8d1b-f956a38e693c" absoluteBounds="7.89, 11.46, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="983af0cc-46f9-4fa3-90b1-e63d798ef41c" absoluteBounds="10, 11, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/BandeirasFormaPgSaida" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e943eddc-fc97-4e02-9e7f-9cec517cd372" absoluteBounds="10.015, 11.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d5b4f5d2-3d69-44d1-8a1d-b35491923008" absoluteBounds="0.75, 19.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/CFOP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ff4f5a69-9364-4c71-8e64-4ed3395b2ba7" absoluteBounds="0.76499999999999968, 19.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="22f01a44-6390-4936-b84d-cdedb0f47980" absoluteBounds="3.125, 19.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/CST" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c3f80dba-d317-4b21-b23e-bdc16803e220" absoluteBounds="3.1399999999999997, 19.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a4fb7989-05b7-4f6a-a4aa-79dff4b1ccab" absoluteBounds="9.375, 0.5, 2, 12.3474755859375">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/NF_Saida" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cf807002-8f58-4a76-9a6b-13fb99d0b2ff" absoluteBounds="9.39, 0.96, 1.9700000000000002, 11.7874755859375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e3f7ed41-f55d-47ea-ba19-df8fdf33b84a" absoluteBounds="0.75, 21.375, 2, 1.9631982421875">
+      <DataClassMoniker Name="/LqFinanceiroDataContext/CFOP_PDR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="366d9fa0-bbae-4c61-a9d3-810e274a4575" absoluteBounds="0.76499999999999968, 21.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

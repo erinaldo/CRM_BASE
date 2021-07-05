@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 29.5, 32" name="LqOficina">
+  <DataContextMoniker Name="/LqOficinaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d96e9dd3-f87f-4cf9-a195-62fd032751eb" absoluteBounds="0.5, 0.5, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/LqOficinaDataContext/Veiculos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9052ea20-2578-4731-b19e-5347d014e493" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e46d1f40-35b1-44a0-8f94-8db2fbe26089" absoluteBounds="3.125, 5.25, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/LqOficinaDataContext/Modelos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="303998e7-38fb-4531-9ba9-cfeb7d0288de" absoluteBounds="3.1399999999999997, 5.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.0937475 : 5.25); (4.0937475 : 2.44310628255208); (2.5 : 2.44310628255208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LqOficinaDataContext/Modelos/Modelos_Veiculos" />
+      <nodes>
+        <classShapeMoniker Id="e46d1f40-35b1-44a0-8f94-8db2fbe26089" />
+        <classShapeMoniker Id="d96e9dd3-f87f-4cf9-a195-62fd032751eb" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="49674487-2e4f-4826-94eb-d0d3a9a54534" absoluteBounds="8.375, 5.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LqOficinaDataContext/CorModelo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="68d03937-478c-48a6-a351-e0dbd8c125e2" absoluteBounds="8.39, 5.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 5.25); (5.5 : 4.875); (6.66666666666667 : 4.875 : JumpStart); (6.83333333333333 : 4.875 : JumpEnd); (8 : 4.875); (8.375 : 5.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/Modelos/Modelos_CorModelo" />
+      <nodes>
+        <classShapeMoniker Id="e46d1f40-35b1-44a0-8f94-8db2fbe26089" />
+        <classShapeMoniker Id="49674487-2e4f-4826-94eb-d0d3a9a54534" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="26fa0efa-76cd-4b26-adbc-300bcdf4d271" absoluteBounds="0.5, 5.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LqOficinaDataContext/FabricantesVeiculo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="86d33214-fa49-48c1-a995-b8edcee94dd1" absoluteBounds="0.51499999999999968, 5.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 5.25); (1.5 : 4.38621256510417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/FabricantesVeiculo/FabricantesVeiculo_Veiculos" />
+      <nodes>
+        <classShapeMoniker Id="26fa0efa-76cd-4b26-adbc-300bcdf4d271" />
+        <classShapeMoniker Id="d96e9dd3-f87f-4cf9-a195-62fd032751eb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 5.94314697265625); (2.54166666666667 : 5.94314697265625 : JumpStart); (2.95833333333333 : 5.94314697265625 : JumpEnd); (3.125 : 5.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LqOficinaDataContext/FabricantesVeiculo/FabricantesVeiculo_Modelos" />
+      <nodes>
+        <classShapeMoniker Id="26fa0efa-76cd-4b26-adbc-300bcdf4d271" />
+        <classShapeMoniker Id="e46d1f40-35b1-44a0-8f94-8db2fbe26089" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.375 : 5.25); (9.375 : 3.44591192382812); (6.83333333333333 : 3.44591192382812 : JumpStart); (6.66666666666667 : 3.44591192382812 : JumpEnd); (4.17708083333333 : 3.44591192382812 : JumpStart); (4.01041416666667 : 3.44591192382812 : JumpEnd); (2.83333333333333 : 3.44591192382812 : JumpStart); (2.66666666666667 : 3.44591192382812 : JumpEnd); (2.5 : 3.44591192382812)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/CorModelo/CorModelo_Veiculos" />
+      <nodes>
+        <classShapeMoniker Id="49674487-2e4f-4826-94eb-d0d3a9a54534" />
+        <classShapeMoniker Id="d96e9dd3-f87f-4cf9-a195-62fd032751eb" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8434b927-ecb9-4cd8-8e45-fd0afac5fa1f" absoluteBounds="5.75, 8.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/LqOficinaDataContext/CombustivelVeiculo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ac80cfe8-40f5-421a-8cc3-dec9f3cacea1" absoluteBounds="5.765, 9.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e0ce028d-031f-4e7d-81d8-7aaf5a57d3c5" absoluteBounds="5.75, 5.25, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/LqOficinaDataContext/VersaoModelos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d3afe947-b86b-4b9d-bc25-5363ed5a1dcd" absoluteBounds="5.765, 5.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.75 : 8.625); (6.75 : 8.17470540364583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/CombustivelVeiculo/CombustivelVeiculo_VersaoModelos" />
+      <nodes>
+        <classShapeMoniker Id="8434b927-ecb9-4cd8-8e45-fd0afac5fa1f" />
+        <classShapeMoniker Id="e0ce028d-031f-4e7d-81d8-7aaf5a57d3c5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.75 : 5.25); (6.75 : 1.44030064127604); (2.5 : 1.44030064127604)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/VersaoModelos/VersaoModelos_Veiculos" />
+      <nodes>
+        <classShapeMoniker Id="e0ce028d-031f-4e7d-81d8-7aaf5a57d3c5" />
+        <classShapeMoniker Id="d96e9dd3-f87f-4cf9-a195-62fd032751eb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.125 : 6.16670090494792); (5.75 : 6.16670090494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LqOficinaDataContext/Modelos/Modelos_VersaoModelos" />
+      <nodes>
+        <classShapeMoniker Id="e46d1f40-35b1-44a0-8f94-8db2fbe26089" />
+        <classShapeMoniker Id="e0ce028d-031f-4e7d-81d8-7aaf5a57d3c5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1f3a762d-6ff2-412f-9f03-f58500a22fdf" absoluteBounds="8.125, 8.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/LqOficinaDataContext/Cambio" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dee92832-969e-4680-8706-a234cc35d228" absoluteBounds="8.14, 9.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.125 : 8.625); (7.75 : 8.17470540364583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/Cambio/Cambio_VersaoModelos" />
+      <nodes>
+        <classShapeMoniker Id="1f3a762d-6ff2-412f-9f03-f58500a22fdf" />
+        <classShapeMoniker Id="e0ce028d-031f-4e7d-81d8-7aaf5a57d3c5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="008dfab9-bb7d-4057-8d2a-c51204bc44b9" absoluteBounds="13.625, 0.5, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/LqOficinaDataContext/Vistorias" />
+      <nestedChildShapes>
+        <elementListCompartment Id="936d56ec-dc5e-4251-a755-aaa0fc4715ee" absoluteBounds="13.64, 0.96, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 0.907650320638021); (13.625 : 0.907650320638021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/Veiculos/Veiculos_Vistorias" />
+      <nodes>
+        <classShapeMoniker Id="d96e9dd3-f87f-4cf9-a195-62fd032751eb" />
+        <classShapeMoniker Id="008dfab9-bb7d-4057-8d2a-c51204bc44b9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7bb765c4-3c42-4c95-bd53-8f67d083feea" absoluteBounds="13.625, 5.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/LqOficinaDataContext/Cheklist" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ead41c74-d0d4-4e82-82ae-5e8c170b8764" absoluteBounds="13.64, 5.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bd0fd5dc-b055-49d3-8be1-381813ae1b5d" absoluteBounds="16.25, 5.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LqOficinaDataContext/ItemCheklist" />
+      <nestedChildShapes>
+        <elementListCompartment Id="10f12c2d-60f5-4bc2-a4db-171280d739a7" absoluteBounds="16.265, 5.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(15.625 : 6.03929768880208); (16.25 : 6.03929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/Cheklist/Cheklist_ItemCheklist" />
+      <nodes>
+        <classShapeMoniker Id="7bb765c4-3c42-4c95-bd53-8f67d083feea" />
+        <classShapeMoniker Id="bd0fd5dc-b055-49d3-8be1-381813ae1b5d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="19acd414-c3c2-47d6-ac4b-2edcabc1f347" absoluteBounds="19, 5.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LqOficinaDataContext/ProcessosChecklist" />
+      <nestedChildShapes>
+        <elementListCompartment Id="790b0a88-051a-4b10-a45d-e22c8efbcfe4" absoluteBounds="19.015, 5.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(18.25 : 6.03929768880208); (18.4935926262097 : 6.03929768880208 : JumpStart); (18.6602592928763 : 6.03929768880208 : JumpEnd); (19 : 6.03929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/ItemCheklist/ItemCheklist_ProcessosChecklist" />
+      <nodes>
+        <classShapeMoniker Id="bd0fd5dc-b055-49d3-8be1-381813ae1b5d" />
+        <classShapeMoniker Id="19acd414-c3c2-47d6-ac4b-2edcabc1f347" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6f15fbef-8c8f-46c2-a043-18c58ba8bcfe" absoluteBounds="21.75, 5.25, 2, 1.9631982421875">
+      <DataClassMoniker Name="/LqOficinaDataContext/EtapasChecklist" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e5f370d3-d817-4abf-9564-507193226f72" absoluteBounds="21.765, 5.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(21 : 6.03929768880208); (21.75 : 6.03929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/ProcessosChecklist/ProcessosChecklist_EtapasChecklist" />
+      <nodes>
+        <classShapeMoniker Id="19acd414-c3c2-47d6-ac4b-2edcabc1f347" />
+        <classShapeMoniker Id="6f15fbef-8c8f-46c2-a043-18c58ba8bcfe" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2a98d036-8333-4582-8ed4-83c5362c002e" absoluteBounds="24.5, 5.25, 2, 2.5401025390624996">
+      <DataClassMoniker Name="/LqOficinaDataContext/PerguntasChecklist" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6415810d-be2a-40a0-bfa0-8fcc7523628f" absoluteBounds="24.515, 5.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(23.75 : 6.23159912109375); (24.5 : 6.23159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/EtapasChecklist/EtapasChecklist_PerguntasChecklist" />
+      <nodes>
+        <classShapeMoniker Id="6f15fbef-8c8f-46c2-a043-18c58ba8bcfe" />
+        <classShapeMoniker Id="2a98d036-8333-4582-8ed4-83c5362c002e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="4588f7eb-e3eb-405a-8b05-15decfd7c9ee" absoluteBounds="27.25, 5.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LqOficinaDataContext/RespostasChecklist" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7a62d5f2-e0cb-468c-9e29-aedf075590a7" absoluteBounds="27.265, 5.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(26.5 : 6.03929768880208); (27.25 : 6.03929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/PerguntasChecklist/PerguntasChecklist_RespostasChecklist" />
+      <nodes>
+        <classShapeMoniker Id="2a98d036-8333-4582-8ed4-83c5362c002e" />
+        <classShapeMoniker Id="4588f7eb-e3eb-405a-8b05-15decfd7c9ee" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c8e4e6c5-26d7-452e-8071-61f10dd00c25" absoluteBounds="24.5, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/LqOficinaDataContext/RespostasCheklistUsuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2ea96f9e-f9d3-4439-8007-deb5e0e8bb3a" absoluteBounds="24.515, 0.96000000000000085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(25.5 : 5.25); (25.5 : 2.27089680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/PerguntasChecklist/PerguntasChecklist_RespostasCheklistUsuario" />
+      <nodes>
+        <classShapeMoniker Id="2a98d036-8333-4582-8ed4-83c5362c002e" />
+        <classShapeMoniker Id="c8e4e6c5-26d7-452e-8071-61f10dd00c25" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(27.25 : 5.25); (26.875 : 4.875); (26.875 : 1.67944760190328); (26.5 : 1.67944760190328)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/RespostasChecklist/RespostasChecklist_RespostasCheklistUsuario" />
+      <nodes>
+        <classShapeMoniker Id="4588f7eb-e3eb-405a-8b05-15decfd7c9ee" />
+        <classShapeMoniker Id="c8e4e6c5-26d7-452e-8071-61f10dd00c25" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(15.625 : 1.38544840494792); (24.5 : 1.38544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/Vistorias/Vistorias_RespostasCheklistUsuario" />
+      <nodes>
+        <classShapeMoniker Id="008dfab9-bb7d-4057-8d2a-c51204bc44b9" />
+        <classShapeMoniker Id="c8e4e6c5-26d7-452e-8071-61f10dd00c25" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="79859b1b-92e4-42cb-b176-0eba9105a6f8" absoluteBounds="27.25, 0.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/LqOficinaDataContext/ImagemRespostaCklist" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8d6ac873-d1ec-441d-8774-739970024e0b" absoluteBounds="27.265, 0.96, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(26.5 : 1.02722380095164); (27.25 : 1.02722380095164)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/RespostasCheklistUsuario/RespostasCheklistUsuario_ImagemRespostaCklist" />
+      <nodes>
+        <classShapeMoniker Id="c8e4e6c5-26d7-452e-8071-61f10dd00c25" />
+        <classShapeMoniker Id="79859b1b-92e4-42cb-b176-0eba9105a6f8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6a813987-e7a9-46bc-94d1-690a6c797226" absoluteBounds="0.625, 10.125, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/LqOficinaDataContext/EntradaVeiculo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b020d695-76f5-4c74-877f-f2cc235f7624" absoluteBounds="0.64000000000000012, 10.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 4.38621256510417); (1.5 : 4.75); (2.66666666666667 : 4.75 : JumpStart); (2.83333333333333 : 4.75 : JumpEnd); (2.875 : 4.75); (2.875 : 11.4912019856771); (2.625 : 11.4912019856771)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LqOficinaDataContext/Veiculos/Veiculos_EntradaVeiculo" />
+      <nodes>
+        <classShapeMoniker Id="d96e9dd3-f87f-4cf9-a195-62fd032751eb" />
+        <classShapeMoniker Id="6a813987-e7a9-46bc-94d1-690a6c797226" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.625 : 2.9445091031901); (13.5352923727568 : 2.9445091031901 : JumpStart); (13.3686257060901 : 2.9445091031901 : JumpEnd); (6.83333333333333 : 2.9445091031901 : JumpStart); (6.66666666666667 : 2.9445091031901 : JumpEnd); (4.17708083333333 : 2.9445091031901 : JumpStart); (4.01041416666667 : 2.9445091031901 : JumpEnd); (2.75 : 2.9445091031901); (2.75 : 9.5); (2.70833333333333 : 9.5 : JumpStart); (2.54166666666667 : 9.5 : JumpEnd); (1.625 : 9.5); (1.625 : 10.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LqOficinaDataContext/Vistorias/Vistorias_EntradaVeiculo" />
+      <nodes>
+        <classShapeMoniker Id="008dfab9-bb7d-4057-8d2a-c51204bc44b9" />
+        <classShapeMoniker Id="6a813987-e7a9-46bc-94d1-690a6c797226" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5f5f54bd-5a40-4e4b-8f9b-e7779f1930a7" absoluteBounds="3.125, 10.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/LqOficinaDataContext/Prestadores_Entrega" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90fd3e83-1b9a-4767-8748-84e62006e2ca" absoluteBounds="3.14, 10.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.125 : 10.7456009928385); (2.95833333333333 : 10.7456009928385 : JumpStart); (2.79166666666667 : 10.7456009928385 : JumpEnd); (2.625 : 10.7456009928385)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/Prestadores_Entrega/Prestadores_Entrega_EntradaVeiculo" />
+      <nodes>
+        <classShapeMoniker Id="5f5f54bd-5a40-4e4b-8f9b-e7779f1930a7" />
+        <classShapeMoniker Id="6a813987-e7a9-46bc-94d1-690a6c797226" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="75502016-0030-43a7-846a-5b39faa27512" absoluteBounds="27.25, 3, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/LqOficinaDataContext/MarcasImagens" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4994eab9-3385-4ab6-a076-1411a50ac4c7" absoluteBounds="27.265, 3.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(28.25 : 2.84780110677083); (28.25 : 3)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/ImagemRespostaCklist/ImagemRespostaCklist_MarcasImagens" />
+      <nodes>
+        <classShapeMoniker Id="79859b1b-92e4-42cb-b176-0eba9105a6f8" />
+        <classShapeMoniker Id="75502016-0030-43a7-846a-5b39faa27512" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(15.625 : 3.50080485026042); (16.0416666666667 : 3.50080485026042 : JumpStart); (16.2083333333333 : 3.50080485026042 : JumpEnd); (25.4166666666667 : 3.50080485026042 : JumpStart); (25.5833333333333 : 3.50080485026042 : JumpEnd); (26.7916666666667 : 3.50080485026042 : JumpStart); (26.9583333333333 : 3.50080485026042 : JumpEnd); (27.25 : 3.50080485026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/Vistorias/Vistorias_MarcasImagens" />
+      <nodes>
+        <classShapeMoniker Id="008dfab9-bb7d-4057-8d2a-c51204bc44b9" />
+        <classShapeMoniker Id="75502016-0030-43a7-846a-5b39faa27512" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d5d073df-aac1-4d2f-81ad-af4ac6b59298" absoluteBounds="0.625, 13.125, 2, 4.2708154296875023">
+      <DataClassMoniker Name="/LqOficinaDataContext/SolicitacaoCadastroPeca" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6c4f8e3a-3c43-41f4-b296-916656dcc3a0" absoluteBounds="0.63999999999999968, 13.585, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aff35abd-051c-413f-a555-0f1430f9a7e4" absoluteBounds="0.625, 17.875, 2, 2.73240397135417">
+      <DataClassMoniker Name="/LqOficinaDataContext/SoluçõesVistoria" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c8be087d-38e0-484a-89fc-331c62eb50b5" absoluteBounds="0.63999999999999968, 18.335, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13.625 : 1.71746789863782); (13.25 : 4.37660970052083); (13.25 : 17.5); (6.83333333333333 : 17.5 : JumpStart); (6.66666666666667 : 17.5 : JumpEnd); (5.64583333333333 : 17.5 : JumpStart); (5.29166666666667 : 17.5 : JumpEnd); (4.33333333333333 : 17.5 : JumpStart); (4.16666666666667 : 17.5 : JumpEnd); (3 : 17.5); (2.625 : 17.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/Vistorias/Vistorias_SoluçõesVistoria" />
+      <nodes>
+        <classShapeMoniker Id="008dfab9-bb7d-4057-8d2a-c51204bc44b9" />
+        <classShapeMoniker Id="aff35abd-051c-413f-a555-0f1430f9a7e4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(24.5 : 1.38544840494792); (16.125 : 1.38544840494792); (16.125 : 5.125); (13.3333333333333 : 5.125 : JumpStart); (13.1666666666667 : 5.125 : JumpEnd); (9.45833333333333 : 5.125 : JumpStart); (9.29166666666667 : 5.125 : JumpEnd); (8.33333333333333 : 5.125 : JumpStart); (8.16666666666667 : 5.125 : JumpEnd); (6.83333333333333 : 5.125 : JumpStart); (6.66666666666667 : 5.125 : JumpEnd); (5.33333333333333 : 5.125 : JumpStart); (5.16666666666667 : 5.125 : JumpEnd); (4.17708083333333 : 5.125 : JumpStart); (4.01041416666667 : 5.125 : JumpEnd); (2.95833333333333 : 5.125 : JumpStart); (2.66666666666667 : 5.125 : JumpEnd); (2.625 : 5.125); (2.625 : 9.875); (1.70833333333333 : 9.875 : JumpStart); (1.54166666666667 : 9.875 : JumpEnd); (0.375 : 9.875); (0.375 : 16.7526041666667); (0.758978171748755 : 16.7526041666667 : JumpStart); (0.925644838415421 : 16.7526041666667 : JumpEnd); (1.59332739395758 : 16.7526041666667); (1.59332739395758 : 17.875)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/RespostasCheklistUsuario/RespostasCheklistUsuario_SoluçõesVistoria" />
+      <nodes>
+        <classShapeMoniker Id="c8e4e6c5-26d7-452e-8071-61f10dd00c25" />
+        <classShapeMoniker Id="aff35abd-051c-413f-a555-0f1430f9a7e4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(27.25 : 4.07774983723958); (26.9583333333333 : 4.07774983723958 : JumpStart); (26.7916666666667 : 4.07774983723958 : JumpEnd); (25.5833333333333 : 4.07774983723958 : JumpStart); (25.4166666666667 : 4.07774983723958 : JumpEnd); (18.576925959543 : 4.07774983723958); (18.576925959543 : 16.5234375); (13.3333333333333 : 16.5234375 : JumpStart); (13.1666666666667 : 16.5234375 : JumpEnd); (6.83333333333333 : 16.5234375 : JumpStart); (6.66666666666667 : 16.5234375 : JumpEnd); (5.64583333333333 : 16.5234375 : JumpStart); (5.29166666666667 : 16.5234375 : JumpEnd); (4.33333333333333 : 16.5234375 : JumpStart); (4.16666666666667 : 16.5234375 : JumpEnd); (0.842311505082088 : 16.5234375); (0.842311505082088 : 17.875)]" manuallyRouted="true" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LqOficinaDataContext/MarcasImagens/MarcasImagens_SoluçõesVistoria" />
+      <nodes>
+        <classShapeMoniker Id="75502016-0030-43a7-846a-5b39faa27512" />
+        <classShapeMoniker Id="aff35abd-051c-413f-a555-0f1430f9a7e4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6d1127c5-97f3-40d2-8ded-f9a29464ee34" absoluteBounds="3.25, 17.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/LqOficinaDataContext/ItensSoluçãoN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="440ca59c-3742-4fac-8075-22d1d2561bab" absoluteBounds="3.2649999999999997, 18.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 18.9840023372396); (2.79166666666667 : 18.9840023372396 : JumpStart); (2.95833333333333 : 18.9840023372396 : JumpEnd); (3.25 : 18.9840023372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/SoluçõesVistoria/SoluçõesVistoria_ItensSoluçãoN" />
+      <nodes>
+        <classShapeMoniker Id="aff35abd-051c-413f-a555-0f1430f9a7e4" />
+        <classShapeMoniker Id="6d1127c5-97f3-40d2-8ded-f9a29464ee34" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="545c080e-c364-4d3e-8d60-281eca9108d4" absoluteBounds="5.75, 17.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LqOficinaDataContext/AssociaçãoPeçaModelo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="78740c56-10d2-48ee-9899-fe2d7dba4a4a" absoluteBounds="5.765, 18.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.125 : 7.02089680989583); (4.125 : 9.875); (5.29166666666667 : 9.875 : JumpStart); (5.45833333333333 : 9.875 : JumpEnd); (5.5 : 9.875); (5.5 : 18.6642976888021); (5.75 : 18.6642976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LqOficinaDataContext/Modelos/Modelos_AssociaçãoPeçaModelo" />
+      <nodes>
+        <classShapeMoniker Id="e46d1f40-35b1-44a0-8f94-8db2fbe26089" />
+        <classShapeMoniker Id="545c080e-c364-4d3e-8d60-281eca9108d4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9f750848-0255-4596-b964-79817a003f1b" absoluteBounds="5.75, 19.875, 2, 2.5401025390625">
+      <DataClassMoniker Name="/LqOficinaDataContext/VinculoProdutoModelo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cac9cf77-bb8d-49f8-94b9-312837888146" absoluteBounds="5.765, 20.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.656252 : 7.02089680989583); (4.656252 : 9.625); (5.375 : 9.625); (5.375 : 21.3116206782227); (5.75 : 21.3116206782227)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LqOficinaDataContext/Modelos/Modelos_VinculoProdutoModelo" />
+      <nodes>
+        <classShapeMoniker Id="e46d1f40-35b1-44a0-8f94-8db2fbe26089" />
+        <classShapeMoniker Id="9f750848-0255-4596-b964-79817a003f1b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.593748 : 7.02089680989583); (3.593748 : 10); (5.4375 : 10); (5.4375 : 20.2289195217285); (5.47916666666667 : 20.2289195217285 : JumpStart); (5.64583333333333 : 20.2289195217285 : JumpEnd); (5.75 : 20.2289195217285)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LqOficinaDataContext/Modelos/Modelos_VinculoProdutoModelo1" />
+      <nodes>
+        <classShapeMoniker Id="e46d1f40-35b1-44a0-8f94-8db2fbe26089" />
+        <classShapeMoniker Id="9f750848-0255-4596-b964-79817a003f1b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.718748 : 8.17470540364583); (6.718748 : 8.42470540364583); (5.5625 : 8.42470540364583); (5.5625 : 20.645343043457); (5.75 : 20.645343043457)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LqOficinaDataContext/VersaoModelos/VersaoModelos_VinculoProdutoModelo" />
+      <nodes>
+        <classShapeMoniker Id="e0ce028d-031f-4e7d-81d8-7aaf5a57d3c5" />
+        <classShapeMoniker Id="9f750848-0255-4596-b964-79817a003f1b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5fb285e4-bb40-43ee-8cf7-e53f5970825d" absoluteBounds="13.625, 8.625, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/LqOficinaDataContext/Seguradoras" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dcc35289-23b8-4666-b5ea-82582bada80c" absoluteBounds="13.64, 9.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="13dfff69-055c-4fcf-84fc-867a1686f843" absoluteBounds="16.25, 8.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LqOficinaDataContext/ItemObgSeguradora" />
+      <nestedChildShapes>
+        <elementListCompartment Id="193cd689-c00f-4597-9081-2c6dff853a46" absoluteBounds="16.265, 9.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(15.625 : 9.41429768880208); (16.25 : 9.41429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/Seguradoras/Seguradoras_ItemObgSeguradora" />
+      <nodes>
+        <classShapeMoniker Id="5fb285e4-bb40-43ee-8cf7-e53f5970825d" />
+        <classShapeMoniker Id="13dfff69-055c-4fcf-84fc-867a1686f843" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ef654d5e-78a0-4424-8956-591f76d63579" absoluteBounds="19, 8.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/LqOficinaDataContext/Seguradora_Entrada" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8f5355fe-122f-43cc-9596-ee40f3f69e23" absoluteBounds="19.015, 9.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(15.625 : 10.5232975260417); (18.4935926262097 : 10.5232975260417 : JumpStart); (18.6602592928763 : 10.5232975260417 : JumpEnd); (19 : 10.5232975260417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/Seguradoras/Seguradoras_Seguradora_Entrada" />
+      <nodes>
+        <classShapeMoniker Id="5fb285e4-bb40-43ee-8cf7-e53f5970825d" />
+        <classShapeMoniker Id="ef654d5e-78a0-4424-8956-591f76d63579" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 14.312745703125); (4.25 : 14.312745703125); (4.25 : 17.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/SolicitacaoCadastroPeca/SolicitacaoCadastroPeca_ItensSoluçãoN" />
+      <nodes>
+        <classShapeMoniker Id="d5d073df-aac1-4d2f-81ad-af4ac6b59298" />
+        <classShapeMoniker Id="6d1127c5-97f3-40d2-8ded-f9a29464ee34" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 15.4493441015625); (4.16666666666667 : 15.4493441015625 : JumpStart); (4.33333333333333 : 15.4493441015625 : JumpEnd); (5.29166666666667 : 15.4493441015625 : JumpStart); (5.64583333333333 : 15.4493441015625 : JumpEnd); (6.75 : 15.4493441015625); (6.75 : 17.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/SolicitacaoCadastroPeca/SolicitacaoCadastroPeca_AssociaçãoPeçaModelo" />
+      <nodes>
+        <classShapeMoniker Id="d5d073df-aac1-4d2f-81ad-af4ac6b59298" />
+        <classShapeMoniker Id="545c080e-c364-4d3e-8d60-281eca9108d4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.10916319697879 : 17.3958154296875); (2.10916319697879 : 17.6458154296875); (2.875 : 17.6458154296875); (2.875 : 21.9778983129883); (5.75 : 21.9778983129883)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LqOficinaDataContext/SolicitacaoCadastroPeca/SolicitacaoCadastroPeca_VinculoProdutoModelo" />
+      <nodes>
+        <classShapeMoniker Id="d5d073df-aac1-4d2f-81ad-af4ac6b59298" />
+        <classShapeMoniker Id="9f750848-0255-4596-b964-79817a003f1b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="aee6b4a6-ac6b-42be-9434-3529ceaa60e5" absoluteBounds="0.625, 21.375, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/LqOficinaDataContext/ReparoVeiculo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6c44db02-1a1f-48d9-8db6-407935dd07e8" absoluteBounds="0.63999999999999968, 21.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.625 : 20.6074039713542); (1.625 : 21.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LqOficinaDataContext/SoluçõesVistoria/SoluçõesVistoria_ReparoVeiculo" />
+      <nodes>
+        <classShapeMoniker Id="aff35abd-051c-413f-a555-0f1430f9a7e4" />
+        <classShapeMoniker Id="aee6b4a6-ac6b-42be-9434-3529ceaa60e5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2d70bc6b-dee6-43c5-ad3d-07b1e6d937a3" absoluteBounds="0.625, 25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/LqOficinaDataContext/ItemsCatOficina" />
+      <nestedChildShapes>
+        <elementListCompartment Id="85e1ec33-c540-4630-bd7b-ccde41c0b37d" absoluteBounds="0.63999999999999968, 25.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa10440f-7a0b-4c41-bbd4-342ef833006e" absoluteBounds="2.875, 25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LqOficinaDataContext/SubItemCat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="60073535-4de9-43f2-97ec-d6f92b4ef298" absoluteBounds="2.8899999999999997, 25.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e866f1dc-a4f6-4aae-a894-35362f32cd57" absoluteBounds="0.625, 27.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/LqOficinaDataContext/AvariasFerramentas" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9971752f-6c46-4b8f-a010-3eb6cf4d589f" absoluteBounds="0.64000000000000012, 28.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="396313e5-75ee-4b6d-a823-101a0e0e01a2" absoluteBounds="2.875, 27.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LqOficinaDataContext/VinculoAvariaSubCat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f266ff98-1a73-4885-bbb8-f0135b23818e" absoluteBounds="2.8899999999999997, 28.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a9535dd3-9baa-46a2-8c37-e78824877cb5" absoluteBounds="5.75, 10.125, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/LqOficinaDataContext/ImagemVeiculosColetado" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fdfa1ea9-7739-455f-a71e-269ccb918bc4" absoluteBounds="5.765, 10.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="efcfe387-9f7c-40c5-907c-597f9c1a2be3" absoluteBounds="5.125, 27.875, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/LqOficinaDataContext/LaudosTecnicos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f46de8fa-bad7-4b18-a98e-b6a1e0966370" absoluteBounds="5.14, 28.335, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6d6d4cfe-4537-48e8-aa68-9aeb2b71b65b" absoluteBounds="7.375, 27.875, 2, 3.1170068359375">
+      <DataClassMoniker Name="/LqOficinaDataContext/ItemLaudosTecnicos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5918c6ac-83f8-4450-9576-37cbdcd10463" absoluteBounds="7.39, 28.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

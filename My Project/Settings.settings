@@ -1,0 +1,222 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="BaseConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=0.0.0.0;Initial Catalog=Base;User ID=sqlsystem;Password=1q2w3e4r*&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=0.0.0.0;Initial Catalog=Base;User ID=sqlsystem;Password=1q2w3e4r*</Value>
+    </Setting>
+    <Setting Name="OficinaConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=0.0.0.0;Initial Catalog=Oficina;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=0.0.0.0;Initial Catalog=Oficina;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*</Value>
+    </Setting>
+    <Setting Name="TransportePrestadorOnLineConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=0.0.0.0;Initial Catalog=TransportePrestadorOnLine;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=0.0.0.0;Initial Catalog=TransportePrestadorOnLine;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*</Value>
+    </Setting>
+    <Setting Name="JarbesConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=0.0.0.0;Initial Catalog=Jarbes;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=0.0.0.0;Initial Catalog=Jarbes;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*</Value>
+    </Setting>
+    <Setting Name="TransportePrestadorOnLineConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=0.0.0.0;Initial Catalog=TransportePrestadorOnLine;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=0.0.0.0;Initial Catalog=TransportePrestadorOnLine;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*</Value>
+    </Setting>
+    <Setting Name="ComercialConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=0.0.0.0;Initial Catalog=Comercial;User ID=sqlsystem;Password=1q2w3e4r*&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=0.0.0.0;Initial Catalog=Comercial;User ID=sqlsystem;Password=1q2w3e4r*</Value>
+    </Setting>
+    <Setting Name="FinanceiroConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=0.0.0.0;Initial Catalog=Financeiro;Persist Security Info=True;User ID=SqlSystem;Password=1q2w3e4r*&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=0.0.0.0;Initial Catalog=Financeiro;Persist Security Info=True;User ID=SqlSystem;Password=1q2w3e4r*</Value>
+    </Setting>
+    <Setting Name="EstoqueDistribuidorOnLineConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=0.0.0.0;Initial Catalog=EstoqueDistribuidorOnLine;Persist Security Info=True;User ID=sqlsystem&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=0.0.0.0;Initial Catalog=EstoqueDistribuidorOnLine;Persist Security Info=True;User ID=sqlsystem</Value>
+    </Setting>
+    <Setting Name="BaseConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=0.0.0.0;Initial Catalog=Base;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=0.0.0.0;Initial Catalog=Base;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*</Value>
+    </Setting>
+    <Setting Name="IARAConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=0.0.0.0;Initial Catalog=IARA;Persist Security Info=True;User ID=SqlSystem;Password=1q2w3e4r*&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=0.0.0.0;Initial Catalog=IARA;Persist Security Info=True;User ID=SqlSystem;Password=1q2w3e4r*</Value>
+    </Setting>
+    <Setting Name="ComercialConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=0.0.0.0;Initial Catalog=Comercial;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=0.0.0.0;Initial Catalog=Comercial;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*</Value>
+    </Setting>
+    <Setting Name="EstoqueLocalConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=0.0.0.0;Initial Catalog=EstoqueLocal;Persist Security Info=True;User ID=SqlSystem;Password=1q2w3e4r*&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=0.0.0.0;Initial Catalog=EstoqueLocal;Persist Security Info=True;User ID=SqlSystem;Password=1q2w3e4r*</Value>
+    </Setting>
+    <Setting Name="OficinaConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=0.0.0.0;Initial Catalog=Oficina;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=0.0.0.0;Initial Catalog=Oficina;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*</Value>
+    </Setting>
+    <Setting Name="BaseConnectionString2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=AMI-NOTEBOOK;Initial Catalog=Base;Persist Security Info=True;User ID=sqlsystem&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=AMI-NOTEBOOK;Initial Catalog=Base;Persist Security Info=True;User ID=sqlsystem</Value>
+    </Setting>
+    <Setting Name="OficinaConnectionString2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=AMI-NOTEBOOK;Initial Catalog=Oficina;Persist Security Info=True;User ID=SqlSystem&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=AMI-NOTEBOOK;Initial Catalog=Oficina;Persist Security Info=True;User ID=SqlSystem</Value>
+    </Setting>
+    <Setting Name="TransportePrestadorOnlineConnectionString2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=192.168.0.7;Initial Catalog=TransportePrestadorOnline;Persist Security Info=True;User ID=SqlSystem&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=192.168.0.7;Initial Catalog=TransportePrestadorOnline;Persist Security Info=True;User ID=SqlSystem</Value>
+    </Setting>
+    <Setting Name="ComercialConnectionString2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=AMI-NOTEBOOK;Initial Catalog=Comercial;Persist Security Info=True;User ID=SqlSystem&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=AMI-NOTEBOOK;Initial Catalog=Comercial;Persist Security Info=True;User ID=SqlSystem</Value>
+    </Setting>
+    <Setting Name="FinanceiroConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=AMI-NOTEBOOK;Initial Catalog=Financeiro;Persist Security Info=True;User ID=SqlSystem&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=AMI-NOTEBOOK;Initial Catalog=Financeiro;Persist Security Info=True;User ID=SqlSystem</Value>
+    </Setting>
+    <Setting Name="EstoqueLocalConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=AMI-NOTEBOOK;Initial Catalog=EstoqueLocal;Persist Security Info=True;User ID=SqlSystem&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=AMI-NOTEBOOK;Initial Catalog=EstoqueLocal;Persist Security Info=True;User ID=SqlSystem</Value>
+    </Setting>
+    <Setting Name="EstoqueDistribuidorOnLineConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=AMI-NOTEBOOK;Initial Catalog=EstoqueDistribuidorOnLine;Persist Security Info=True;User ID=sqlsystem&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=AMI-NOTEBOOK;Initial Catalog=EstoqueDistribuidorOnLine;Persist Security Info=True;User ID=sqlsystem</Value>
+    </Setting>
+    <Setting Name="EstoqueDistribuidorOnLineConnectionString2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source="152.254.236.69\sqlexpress, 14333";Initial Catalog=EstoqueDistribuidorOnLine;Persist Security Info=True;User ID=sqlsystem&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source="152.254.236.69\sqlexpress, 14333";Initial Catalog=EstoqueDistribuidorOnLine;Persist Security Info=True;User ID=sqlsystem</Value>
+    </Setting>
+    <Setting Name="OficinaConnectionString3" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-K3M64OB;Initial Catalog=Oficina;Persist Security Info=True;User ID=sqlsystem&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=DESKTOP-K3M64OB;Initial Catalog=Oficina;Persist Security Info=True;User ID=sqlsystem</Value>
+    </Setting>
+    <Setting Name="ComercialConnectionString3" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-K3M64OB;Initial Catalog=Comercial;Persist Security Info=True;User ID=SqlSystem&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=DESKTOP-K3M64OB;Initial Catalog=Comercial;Persist Security Info=True;User ID=SqlSystem</Value>
+    </Setting>
+    <Setting Name="BaseConnectionString3" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-K3M64OB;Initial Catalog=Base;Persist Security Info=True;User ID=SqlSystem&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=DESKTOP-K3M64OB;Initial Catalog=Base;Persist Security Info=True;User ID=SqlSystem</Value>
+    </Setting>
+    <Setting Name="EstoqueLocalConnectionString2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-K3M64OB;Initial Catalog=EstoqueLocal;Persist Security Info=True;User ID=Sqlsystem&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=DESKTOP-K3M64OB;Initial Catalog=EstoqueLocal;Persist Security Info=True;User ID=Sqlsystem</Value>
+    </Setting>
+    <Setting Name="FinanceiroConnectionString2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-K3M64OB;Initial Catalog=Financeiro;Persist Security Info=True;User ID=SqlSystem&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=DESKTOP-K3M64OB;Initial Catalog=Financeiro;Persist Security Info=True;User ID=SqlSystem</Value>
+    </Setting>
+    <Setting Name="TrabalhistaConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-K3M64OB;Initial Catalog=Trabalhista;Persist Security Info=True;User ID=SqlSystem&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=DESKTOP-K3M64OB;Initial Catalog=Trabalhista;Persist Security Info=True;User ID=SqlSystem</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
