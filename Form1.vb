@@ -5790,16 +5790,6 @@ Public Class FrmPrincipal
 
     Private Sub ESocialToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ESocialToolStripMenuItem.Click
 
-        Me.Cursor = Cursors.WaitCursor
-
-        Timer1.Enabled = False
-
-        FrmListaClientes.Ori = 1
-
-        FrmListaClientes.Show(Me)
-
-        Me.Cursor = Cursors.Arrow
-
     End Sub
 
     Private Sub ToolStripMenuItem6_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem6.Click
@@ -5822,6 +5812,30 @@ Public Class FrmPrincipal
         Else
             EsperaC -= 1
         End If
+
+    End Sub
+
+    Private Sub S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem.Click
+
+        Me.Cursor = Cursors.WaitCursor
+
+        Timer1.Enabled = False
+
+        Form2210.Show(Me)
+
+        Me.Cursor = Cursors.Arrow
+
+    End Sub
+
+    Private Sub AbrirPainelEmissorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AbrirPainelEmissorToolStripMenuItem.Click
+
+        Me.Cursor = Cursors.WaitCursor
+
+        Timer1.Enabled = False
+
+        FrmESocial.Show(Me)
+
+        Me.Cursor = Cursors.Arrow
 
     End Sub
 End Class

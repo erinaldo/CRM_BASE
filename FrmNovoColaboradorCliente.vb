@@ -474,10 +474,10 @@ Public Class FrmNovoColaboradorCliente
 
                 LqTrabalhista.InsereColaboradorCliente(IdCliente, TxtNomeCompleto.Text, TxtApelido.Text, Persona, TxtCPF.Text, TxtIE.Text, TxtCep.Text, TxtNumero.Text, TxtComplemento.Text, TxtTelefone.Text, TxtCelular.Text, TxtEmail.Text, LstIdFuncao.Items(CmbFuncao.SelectedIndex).ToString, CmbFuncao.Text, TxtRemuneracao.Text, TxttAdmissao.Value, "1111-11-11", CmbGrupo.Text, CmbCategoriaTrabalhador.Text)
                 IdColaboradorCliente = LqTrabalhista.ESocial.ToList.Last.IdColaborador
-                LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2190", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
-                EmiteDocumento("S-2190")
-                LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2200", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
-                EmiteDocumento("S-2200")
+                'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2190", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
+                'EmiteDocumento("S-2190")
+                'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2200", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
+                'EmiteDocumento("S-2200")
 
             Else
 
@@ -489,8 +489,8 @@ Public Class FrmNovoColaboradorCliente
 
                 LqTrabalhista.EditaColaboradorCliente(IdColaboradorCliente, TxtNomeCompleto.Text, TxtApelido.Text, Persona, TxtCPF.Text, TxtIE.Text, TxtCep.Text, TxtNumero.Text, TxtComplemento.Text, TxtTelefone.Text, TxtCelular.Text, TxtEmail.Text, LstIdFuncao.Items(CmbFuncao.SelectedIndex).ToString, CmbFuncao.Text, TxtRemuneracao.Text, TxttAdmissao.Value, DtDesligamento, CmbGrupo.Text, CmbCategoriaTrabalhador.Text)
 
-                LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2205", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
-                EmiteDocumento("S-2205")
+                'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2205", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
+                'EmiteDocumento("S-2205")
 
             End If
 
@@ -500,17 +500,16 @@ Public Class FrmNovoColaboradorCliente
 
             If Remun <> TxtRemuneracao.Text Then
 
-                LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-1210", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
-                EmiteDocumento("S-1210")
+                'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-1210", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
+                'EmiteDocumento("S-1210")
 
             End If
 
 
             If CkVinculo.Checked = True Then
 
-
-                LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2300", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
-                EmiteDocumento("S-2300")
+                'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2300", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
+                'EmiteDocumento("S-2300")
 
             End If
 
@@ -534,9 +533,9 @@ Public Class FrmNovoColaboradorCliente
 
                 LqTrabalhista.InsereColaboradorCliente(IdCliente, TxtNomeCompleto.Text, TxtApelido.Text, Persona, TxtCPF.Text, TxtIE.Text, TxtCep.Text, TxtNumero.Text, TxtComplemento.Text, TxtTelefone.Text, TxtCelular.Text, TxtEmail.Text, LstIdFuncao.Items(CmbFuncao.SelectedIndex).ToString, CmbFuncao.Text, TxtRemuneracao.Text, TxttAdmissao.Value, "1111-11-11", CmbGrupo.Text, CmbCategoriaTrabalhador.Text)
                 IdColaboradorCliente = LqTrabalhista.ESocial.ToList.Last.IdColaborador
-                LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2190", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
+                'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2190", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
                 'EmiteDocumento("S-2190")
-                LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2200", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
+                'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2200", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
                 'EmiteDocumento("S-2200")
 
             Else
@@ -549,7 +548,7 @@ Public Class FrmNovoColaboradorCliente
 
                 LqTrabalhista.EditaColaboradorCliente(IdColaboradorCliente, TxtNomeCompleto.Text, TxtApelido.Text, Persona, TxtCPF.Text, TxtIE.Text, TxtCep.Text, TxtNumero.Text, TxtComplemento.Text, TxtTelefone.Text, TxtCelular.Text, TxtEmail.Text, LstIdFuncao.Items(CmbFuncao.SelectedIndex).ToString, CmbFuncao.Text, TxtRemuneracao.Text, TxttAdmissao.Value, DtDesligamento, CmbGrupo.Text, CmbCategoriaTrabalhador.Text)
 
-                LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2205", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
+                'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2205", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
                 'EmiteDocumento("S-2205")
 
             End If
@@ -560,14 +559,14 @@ Public Class FrmNovoColaboradorCliente
 
             If Remun <> TxtRemuneracao.Text Then
 
-                LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-1210", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
+                'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-1210", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
                 'EmiteDocumento("S-1210")
 
             End If
 
             If CkDsligamento.Checked = True Then
 
-                LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2299", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
+                'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2299", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
                 'EmiteDocumento("S-2299")
 
             End If

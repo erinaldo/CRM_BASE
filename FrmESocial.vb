@@ -133,7 +133,17 @@ Public Class FrmESocial
                                    Where col.IdColaboradorCliente = rw.IdColaborador
                                    Select col.NomeColaborador, col.DocColaborador
 
-            DtProdutos.Rows.Add(rw.IdESocial, BuscaColaborador.First.DocColaborador, BuscaColaborador.First.NomeColaborador, rw.Evento, FormatDateTime(rw.DataSolicitacao, DateFormat.ShortDate), FormatDateTime(rw.HoraSolicitacao.ToString, DateFormat.ShortTime), DtFinal, HrFinal, ImageList1.Images(1), ImageList1.Images(0))
+            Dim _NomeColaborador As String = ""
+            Dim _DocColaborador As String = ""
+
+            If BuscaColaborador.Count > 0 Then
+
+                _NomeColaborador = BuscaColaborador.First.NomeColaborador
+                _DocColaborador = BuscaColaborador.First.DocColaborador
+
+            End If
+
+            DtProdutos.Rows.Add(rw.IdESocial, _NomeColaborador, _DocColaborador, rw.Evento, FormatDateTime(rw.DataSolicitacao, DateFormat.ShortDate), FormatDateTime(rw.HoraSolicitacao.ToString, DateFormat.ShortTime), DtFinal, HrFinal, ImageList1.Images(1), ImageList1.Images(0))
 
         Next
 

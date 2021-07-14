@@ -42,7 +42,9 @@ Partial Class FrmClientes
         Me.BttSalvarColaborador = New System.Windows.Forms.Button()
         Me.BttFechar = New System.Windows.Forms.Button()
         Me.BttSetores = New System.Windows.Forms.Button()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.BttFunções = New System.Windows.Forms.Button()
+        Me.BttColaboradores = New System.Windows.Forms.Button()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Ckisento = New System.Windows.Forms.CheckBox()
         Me.RdbFisica = New System.Windows.Forms.RadioButton()
@@ -79,8 +81,6 @@ Partial Class FrmClientes
         Me.TxtCPF = New System.Windows.Forms.MaskedTextBox()
         Me.TxtCelular = New System.Windows.Forms.MaskedTextBox()
         Me.TxtTelefone = New System.Windows.Forms.MaskedTextBox()
-        Me.BttColaboradores = New System.Windows.Forms.Button()
-        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.PnnColaboradores.SuspendLayout()
         Me.PnnInferior.SuspendLayout()
@@ -298,6 +298,17 @@ Partial Class FrmClientes
         Me.BttSetores.UseVisualStyleBackColor = True
         Me.BttSetores.Visible = False
         '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "Cancel_40972.png")
+        Me.ImageList1.Images.SetKeyName(1, "DocumentEdit_40924.png")
+        Me.ImageList1.Images.SetKeyName(2, "add-1-icon.png")
+        Me.ImageList1.Images.SetKeyName(3, "avatardefault_92824.png")
+        Me.ImageList1.Images.SetKeyName(4, "capacete.png")
+        Me.ImageList1.Images.SetKeyName(5, "gestor.png")
+        '
         'BttFunções
         '
         Me.BttFunções.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
@@ -318,6 +329,26 @@ Partial Class FrmClientes
         Me.BttFunções.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BttFunções.UseVisualStyleBackColor = True
         Me.BttFunções.Visible = False
+        '
+        'BttColaboradores
+        '
+        Me.BttColaboradores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BttColaboradores.Dock = System.Windows.Forms.DockStyle.Left
+        Me.BttColaboradores.FlatAppearance.BorderColor = System.Drawing.Color.DimGray
+        Me.BttColaboradores.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BttColaboradores.Font = New System.Drawing.Font("Calibri", 8.25!)
+        Me.BttColaboradores.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.BttColaboradores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BttColaboradores.ImageKey = "avatardefault_92824.png"
+        Me.BttColaboradores.ImageList = Me.ImageList1
+        Me.BttColaboradores.Location = New System.Drawing.Point(0, 0)
+        Me.BttColaboradores.Name = "BttColaboradores"
+        Me.BttColaboradores.Size = New System.Drawing.Size(173, 38)
+        Me.BttColaboradores.TabIndex = 51
+        Me.BttColaboradores.Text = "Colaboradores"
+        Me.BttColaboradores.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BttColaboradores.UseVisualStyleBackColor = True
+        Me.BttColaboradores.Visible = False
         '
         'Label29
         '
@@ -681,37 +712,6 @@ Partial Class FrmClientes
         Me.TxtTelefone.Size = New System.Drawing.Size(149, 21)
         Me.TxtTelefone.TabIndex = 186
         Me.TxtTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
-        '
-        'BttColaboradores
-        '
-        Me.BttColaboradores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BttColaboradores.Dock = System.Windows.Forms.DockStyle.Left
-        Me.BttColaboradores.FlatAppearance.BorderColor = System.Drawing.Color.DimGray
-        Me.BttColaboradores.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BttColaboradores.Font = New System.Drawing.Font("Calibri", 8.25!)
-        Me.BttColaboradores.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.BttColaboradores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BttColaboradores.ImageKey = "avatardefault_92824.png"
-        Me.BttColaboradores.ImageList = Me.ImageList1
-        Me.BttColaboradores.Location = New System.Drawing.Point(0, 0)
-        Me.BttColaboradores.Name = "BttColaboradores"
-        Me.BttColaboradores.Size = New System.Drawing.Size(173, 38)
-        Me.BttColaboradores.TabIndex = 51
-        Me.BttColaboradores.Text = "Colaboradores"
-        Me.BttColaboradores.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BttColaboradores.UseVisualStyleBackColor = True
-        Me.BttColaboradores.Visible = False
-        '
-        'ImageList1
-        '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "Cancel_40972.png")
-        Me.ImageList1.Images.SetKeyName(1, "DocumentEdit_40924.png")
-        Me.ImageList1.Images.SetKeyName(2, "add-1-icon.png")
-        Me.ImageList1.Images.SetKeyName(3, "avatardefault_92824.png")
-        Me.ImageList1.Images.SetKeyName(4, "capacete.png")
-        Me.ImageList1.Images.SetKeyName(5, "gestor.png")
         '
         'FrmClientes
         '

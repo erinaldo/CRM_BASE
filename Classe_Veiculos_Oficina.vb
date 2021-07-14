@@ -1,4 +1,6 @@
-﻿Public Class Classe_Veiculos_Oficina
+﻿Imports Newtonsoft.Json
+
+Public Class Classe_Veiculos_Oficina
 
     Public Class Telefone
         Protected Property Numero As Integer
@@ -240,190 +242,190 @@
 
     Public Class OrcamentoAprovado
 
-            Public Property IdItemOrcamento As Object
-            Public Property IdItem As Object
-            Public Property Qt As Object
+        Public Property IdItemOrcamento As Object
+        Public Property IdItem As Object
+        Public Property Qt As Object
 
-        End Class
+    End Class
 
-        Public Class Bancos
+    Public Class Bancos
 
-            Public Property value As Object
-            Public Property label As Object
+        Public Property value As Object
+        Public Property label As Object
 
-        End Class
-        Public Class Clientes
-            Public Property NomeCliente As String
-            Public Property IdClienteN As String
-            Public Property email As String
-            Public Property celular As String
-            Public Property cep As String
-            Public Property numero As String
-            Public Property complemento As String
-            Public Property Doc As String
+    End Class
+    Public Class Clientes
+        Public Property NomeCliente As String
+        Public Property IdClienteN As String
+        Public Property email As String
+        Public Property celular As String
+        Public Property cep As String
+        Public Property numero As String
+        Public Property complemento As String
+        Public Property Doc As String
 
-        End Class
+    End Class
 
-        Public Class Servicos
-            Public Property IdServico As String
-            Public Property Descricao As String
-            Public Property TMA As String
-            Public Property Ativo As String
-            Public Property VlrSugerido As String
+    Public Class Servicos
+        Public Property IdServico As String
+        Public Property Descricao As String
+        Public Property TMA As String
+        Public Property Ativo As String
+        Public Property VlrSugerido As String
 
-        End Class
+    End Class
 
-        Public Class ImagensVeiculo
-            Public Property Placa As String
-            Public Property Fabricante As String
-            Public Property Modelo As String
-            Public Property Versao As String
-            Public Property Chassi As String
-            Public Property AnoMod As String
-            Public Property Cor As String
-            Public Property IdVeiculo As String
-            Public Property IdImagemVeiculo As String
-            Public Property Categoria As String
-            Public Property Subcateogira As String
-            Public Property IdCliente As String
-            Public Property lcl_arq As String
-            Public Property ImgFim As String
-            Public Property IdSolicitacao As String
+    Public Class ImagensVeiculo
+        Public Property Placa As String
+        Public Property Fabricante As String
+        Public Property Modelo As String
+        Public Property Versao As String
+        Public Property Chassi As String
+        Public Property AnoMod As String
+        Public Property Cor As String
+        Public Property IdVeiculo As String
+        Public Property IdImagemVeiculo As String
+        Public Property Categoria As String
+        Public Property Subcateogira As String
+        Public Property IdCliente As String
+        Public Property lcl_arq As String
+        Public Property ImgFim As String
+        Public Property IdSolicitacao As String
 
-        End Class
+    End Class
 
-        Public Class Laudos
+    Public Class Laudos
 
-            Public Property IdLaudo As String
-            Public Property NomeCliente As String
-            Public Property Doc As String
-            Public Property DataSolicitacao As String
-            Public Property HoraSolicitacao As String
-            Public Property ChaveOficina As String
-            Public Property PlacaVeiculo As String
-            Public Property ModeloVeiculo As String
+        Public Property IdLaudo As String
+        Public Property NomeCliente As String
+        Public Property Doc As String
+        Public Property DataSolicitacao As String
+        Public Property HoraSolicitacao As String
+        Public Property ChaveOficina As String
+        Public Property PlacaVeiculo As String
+        Public Property ModeloVeiculo As String
 
-        End Class
+    End Class
 
-        Public Class ItemsLaudos
+    Public Class ItemsLaudos
 
-            Public Property DescricaoItem As String
-            Public Property ImgPcUsadaUrl As String
-            Public Property ImgPcNovaUrl As String
-            Public Property NumNf As String
-            Public Property ItemNF As String
-            Public Property IdItemLaudo As String
-            Public Property IdFornecedor As String
+        Public Property DescricaoItem As String
+        Public Property ImgPcUsadaUrl As String
+        Public Property ImgPcNovaUrl As String
+        Public Property NumNf As String
+        Public Property ItemNF As String
+        Public Property IdItemLaudo As String
+        Public Property IdFornecedor As String
 
-        End Class
+    End Class
 
-        Public Class LaudosEncontrados
+    Public Class LaudosEncontrados
 
-            Public Property IdLaudo As String
-            Public Property Status As String
-            Public Property ChaveOficina As String
-            Public Property ChavePrestador As String
+        Public Property IdLaudo As String
+        Public Property Status As String
+        Public Property ChaveOficina As String
+        Public Property ChavePrestador As String
 
-        End Class
+    End Class
 
-        Public Class ImagemNF
+    Public Class ImagemNF
 
-            Public Property ImagemNF As String
+        Public Property ImagemNF As String
 
-        End Class
+    End Class
 
-        Public Class Review
+    Public Class Review
 
-            Public Property DataSolicitacao As String
-            Public Property HoraSolicitacao As String
+        Public Property DataSolicitacao As String
+        Public Property HoraSolicitacao As String
 
-        End Class
+    End Class
 
-        Public Class DadosUsuario
+    Public Class DadosUsuario
 
-            Public Property NomeCompleto As String
-            Public Property UrlImagem As String
-            Public Property Cargo As String
+        Public Property NomeCompleto As String
+        Public Property UrlImagem As String
+        Public Property Cargo As String
 
-        End Class
+    End Class
 
-        Public Class Funcoes
+    Public Class Funcoes
 
-            Public Property DescricaoFuncao As String
-            Public Property RemuneracaoPaga As String
-            Public Property IdFuncao As String
-            Public Property IdVinculoFuncao As String
+        Public Property DescricaoFuncao As String
+        Public Property RemuneracaoPaga As String
+        Public Property IdFuncao As String
+        Public Property IdVinculoFuncao As String
 
-        End Class
+    End Class
 
-        Public Class Colaboradores
-            Public Property IdUsuario As String
-            Public Property ChaveOficina As String
-            Public Property NomeCompleto As String
-            Public Property Celular As String
-            Public Property email As String
-            Public Property Cargo As String
-            Public Property IdVinculoExt As String
-            Public Property Documento As String
-            Public Property UrlImagem As String
-            Public Property User As String
-            Public Property Pass As String
+    Public Class Colaboradores
+        Public Property IdUsuario As String
+        Public Property ChaveOficina As String
+        Public Property NomeCompleto As String
+        Public Property Celular As String
+        Public Property email As String
+        Public Property Cargo As String
+        Public Property IdVinculoExt As String
+        Public Property Documento As String
+        Public Property UrlImagem As String
+        Public Property User As String
+        Public Property Pass As String
 
-        End Class
+    End Class
 
-        Public Class Create
-            Public Property Create As String
-            Public Property Id As String
+    Public Class Create
+        Public Property Create As String
+        Public Property Id As String
 
-        End Class
+    End Class
 
-        Public Class UsuariosColetados
-            Public Property NomeCompleto As String
-            Public Property Documento As String
-            Public Property User As String
-            Public Property Pass As String
-            Public Property Celular As String
-            Public Property email As String
-            Public Property Cargo As String
-            Public Property IdUsuario As String
+    Public Class UsuariosColetados
+        Public Property NomeCompleto As String
+        Public Property Documento As String
+        Public Property User As String
+        Public Property Pass As String
+        Public Property Celular As String
+        Public Property email As String
+        Public Property Cargo As String
+        Public Property IdUsuario As String
 
-        End Class
+    End Class
 
-        Public Class CarMake
-            Public Property CurrentTextValue As String
-        End Class
+    Public Class CarMake
+        Public Property CurrentTextValue As String
+    End Class
 
-        Public Class DadosVeiculo
-            Public Property Modelo As String
-            Public Property Ano As String
-            Public Property Chassi As String
-            Public Property Fuel As String
-            Public Property Colour As String
-            Public Property Type As String
-            Public Property EngineCC As String
-            Public Property Power As String
+    Public Class DadosVeiculo
+        Public Property Modelo As String
+        Public Property Ano As String
+        Public Property Chassi As String
+        Public Property Fuel As String
+        Public Property Colour As String
+        Public Property Type As String
+        Public Property EngineCC As String
+        Public Property Power As String
         Public Property ImageUrl As String
         Public Property Location As String
         Public Property CarMake As CarMake
-        End Class
+    End Class
 
-        Public Class ItensEncontrados
-            Public Property IdItem As String
-            Public Property Qt As String
+    Public Class ItensEncontrados
+        Public Property IdItem As String
+        Public Property Qt As String
 
-        End Class
+    End Class
 
-        Public Class SubCategorias
-            Public Property IdSubCategoriaProduto As String
-            Public Property Descricao As String
+    Public Class SubCategorias
+        Public Property IdSubCategoriaProduto As String
+        Public Property Descricao As String
 
-        End Class
+    End Class
 
-        Public Class Fabricantes
-            Public Property IdItem As String
-            Public Property Qt As String
+    Public Class Fabricantes
+        Public Property IdItem As String
+        Public Property Qt As String
 
-        End Class
+    End Class
 
     Public Class SolicitacaoCadExt
         Public Property IdSolicitacaoCotacao As String
@@ -435,6 +437,69 @@
         Public Property IdProdutoInterno As String
         Public Property IdItem As String
 
+    End Class
+    Public Class Regiao
+        Public Property id As Integer
+        Public Property sigla As String
+        Public Property nome As String
+    End Class
+
+    Public Class UFEMIT
+        Public Property id As Integer
+        Public Property sigla As String
+        Public Property nome As String
+        Public Property regiao As RegiaoMun
+    End Class
+    Public Class RegiaoMun
+        Public Property id As Integer
+        Public Property sigla As String
+        Public Property nome As String
+    End Class
+
+    Public Class UF
+        Public Property id As Integer
+        Public Property sigla As String
+        Public Property nome As String
+        Public Property regiao As Regiao
+    End Class
+
+    Public Class Mesorregiao
+        Public Property id As Integer
+        Public Property nome As String
+        Public Property UF As UF
+    End Class
+
+    Public Class Microrregiao
+        Public Property id As Integer
+        Public Property nome As String
+        Public Property mesorregiao As Mesorregiao
+    End Class
+
+    Public Class RegiaoIntermediaria
+        Public Property id As Integer
+        Public Property nome As String
+        Public Property UF As UF
+    End Class
+
+    Public Class RegiaoImediata
+        Public Property id As Integer
+        Public Property nome As String
+        <JsonProperty("regiao-intermediaria")>
+        Public Property RegiaoIntermediaria As RegiaoIntermediaria
+    End Class
+
+    Public Class Municipio
+        Public Property id As Integer
+        Public Property nome As String
+        Public Property microrregiao As Microrregiao
+        <JsonProperty("regiao-imediata")>
+        Public Property RegiaoImediata As RegiaoImediata
+    End Class
+
+    Public Class MunRoot
+        Public Property id As Integer
+        Public Property nome As String
+        Public Property municipio As Municipio
     End Class
 
 End Class

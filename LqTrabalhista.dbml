@@ -48,19 +48,6 @@
       <Association Name="Riscos_RiscosSetores" Member="RiscosSetores" ThisKey="IdRisco" OtherKey="IdRisco" Type="RiscosSetores" />
     </Type>
   </Table>
-  <Table Name="dbo.ESocial" Member="ESocial">
-    <Type Name="ESocial">
-      <Column Name="IdESocial" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IdCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IdColaborador" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Evento" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DataSolicitacao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="HoraSolicitacao" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Column Name="DataResposta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="HoraResposta" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Association Name="Eventos_ESocial_ESocial" Member="Eventos_ESocial" ThisKey="Evento" OtherKey="Descricao" Type="Eventos_ESocial" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Eventos_ESocial" Member="Eventos_ESocial">
     <Type Name="Eventos_ESocial">
       <Column Name="IdEvento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -70,7 +57,6 @@
       <Column Name="Numero" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Ativo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Subs" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Eventos_ESocial_ESocial" Member="ESocial" ThisKey="Descricao" OtherKey="Evento" Type="ESocial" />
     </Type>
   </Table>
   <Table Name="dbo.CategoriasTrabalhadores" Member="CategoriasTrabalhadores">
@@ -103,6 +89,256 @@
       <Column Name="DataDesligamento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="GrupoTrab" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CatTrab" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela02" Member="Tabela02">
+    <Type Name="Tabela02">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela28" Member="Tabela28">
+    <Type Name="Tabela28">
+      <Column Name="Codigo" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Treinamento" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela03" Member="Tabela03">
+    <Type Name="Tabela03">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NatRub" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DataInicio" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DataTermino" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela04" Member="Tabela04">
+    <Type Name="Tabela04">
+      <Column Name="CodigoFPAS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BaseCalc" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela05" Member="Tabela05">
+    <Type Name="Tabela05">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela06" Member="Tabela06">
+    <Type Name="Tabela06">
+      <Column Name="Codigo" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DataCriacao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DataExtincao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela07" Member="Tabela07">
+    <Type Name="Tabela07">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela08" Member="Tabela08">
+    <Type Name="Tabela08">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela09" Member="Tabela09">
+    <Type Name="Tabela09">
+      <Column Name="Codigo" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DataInicio" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DataTermino" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela10" Member="Tabela10">
+    <Type Name="Tabela10">
+      <Column Name="Codigo" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Preenchimento" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela11" Member="Tabela11">
+    <Type Name="Tabela11">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClassTrib" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_01" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_02" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_03" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_04" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_05" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_06" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_07" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_08" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_09" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_10" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_21" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_24" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_90" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_91" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela12" Member="Tabela12">
+    <Type Name="Tabela12">
+      <Column Name="ClassTrib" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_01" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_02" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_03" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_04" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_06" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_07" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_08" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_09" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_10" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_11" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_13" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_14" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_21" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_22" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_60" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_70" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_80" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_85" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoLotTrib_99" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela13" Member="Tabela13">
+    <Type Name="Tabela13">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela14" Member="Tabela14">
+    <Type Name="Tabela14">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela15" Member="Tabela15">
+    <Type Name="Tabela15">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela16" Member="Tabela16">
+    <Type Name="Tabela16">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela17" Member="Tabela17">
+    <Type Name="Tabela17">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela18" Member="Tabela18">
+    <Type Name="Tabela18">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Inicio" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Termino" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CodCat" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela19" Member="Tabela19">
+    <Type Name="Tabela19">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Inicio" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Termino" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CodCat" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela20" Member="Tabela20">
+    <Type Name="Tabela20">
+      <Column Name="Codigo" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela21" Member="Tabela21">
+    <Type Name="Tabela21">
+      <Column Name="Codigo" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Inicio" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Termino" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela22" Member="Tabela22">
+    <Type Name="Tabela22">
+      <Column Name="CFPAS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClsTrib_01" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_02" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_03" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_04" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_06" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_07" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_08" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_09" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_10" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_11" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_13" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_14" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_21" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_22" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_60" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_70" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_80" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_85" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ClsTrib_99" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela23" Member="Tabela23">
+    <Type Name="Tabela23">
+      <Column Name="TpValor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codCateg" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="infoPerApur" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CodIncFGTS" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Condicao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela24" Member="Tabela24">
+    <Type Name="Tabela24">
+      <Column Name="Codigo" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="AgenteNocivo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Grupo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela25" Member="Tabela25">
+    <Type Name="Tabela25">
+      <Column Name="Codigo" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="DescricaoBeneficio" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela26" Member="Tabela26">
+    <Type Name="Tabela26">
+      <Column Name="Codigo" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabela27" Member="Tabela27">
+    <Type Name="Tabela27">
+      <Column Name="Codigo" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Descricao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ESocial" Member="ESocial">
+    <Type Name="ESocial">
+      <Column Name="IdESocial" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdColaborador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Evento" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DataSolicitacao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraSolicitacao" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="DataResposta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraResposta" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Arquivo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IDEVENTO" Type="System.String" DbType="NChar(36)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.AtualizaSetorCliente" Method="AtualizaSetorCliente">
@@ -160,16 +396,6 @@
     <Parameter Name="IdColaborador" Parameter="idColaborador" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.InsereESocial" Method="InsereESocial">
-    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
-    <Parameter Name="IdColaborador" Parameter="idColaborador" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Evento" Parameter="evento" Type="System.String" DbType="NText" />
-    <Parameter Name="DataSolicitacao" Parameter="dataSolicitacao" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="HoraSolicitacao" Parameter="horaSolicitacao" Type="System.TimeSpan" DbType="Time" />
-    <Parameter Name="DataResposta" Parameter="dataResposta" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="HoraResposta" Parameter="horaResposta" Type="System.TimeSpan" DbType="Time" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.EditaColaboradorCliente" Method="EditaColaboradorCliente">
     <Parameter Name="IdColaboradorCliente" Parameter="idColaboradorCliente" Type="System.Int32" DbType="Int" />
     <Parameter Name="NomeColaborador" Parameter="nomeColaborador" Type="System.String" DbType="NText" />
@@ -212,6 +438,18 @@
     <Parameter Name="DataDesligamento" Parameter="dataDesligamento" Type="System.DateTime" DbType="Date" />
     <Parameter Name="GrupoTrab" Parameter="grupoTrab" Type="System.String" DbType="NText" />
     <Parameter Name="CatTrab" Parameter="catTrab" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereESocial" Method="InsereESocial">
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdColaborador" Parameter="idColaborador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Evento" Parameter="evento" Type="System.String" DbType="NText" />
+    <Parameter Name="DataSolicitacao" Parameter="dataSolicitacao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraSolicitacao" Parameter="horaSolicitacao" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="DataResposta" Parameter="dataResposta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HoraResposta" Parameter="horaResposta" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="Arquivo" Parameter="arquivo" Type="System.String" DbType="NText" />
+    <Parameter Name="IDEVENTO" Parameter="iDEVENTO" Type="System.String" DbType="NChar(36)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

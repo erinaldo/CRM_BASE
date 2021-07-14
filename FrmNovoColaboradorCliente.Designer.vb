@@ -95,8 +95,8 @@ Partial Class FrmNovoColaboradorCliente
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.TxtNumeroMatricula = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
+        Me.TxtNumeroMatricula = New System.Windows.Forms.TextBox()
         Me.PnnInferior.SuspendLayout()
         Me.Panel12.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -867,6 +867,15 @@ Partial Class FrmNovoColaboradorCliente
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "E-Social"
         '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(22, 140)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(128, 17)
+        Me.Label17.TabIndex = 242
+        Me.Label17.Text = "Número da matrícula"
+        '
         'TxtNumeroMatricula
         '
         Me.TxtNumeroMatricula.BorderStyle = System.Windows.Forms.BorderStyle.None
@@ -876,15 +885,6 @@ Partial Class FrmNovoColaboradorCliente
         Me.TxtNumeroMatricula.Name = "TxtNumeroMatricula"
         Me.TxtNumeroMatricula.Size = New System.Drawing.Size(237, 21)
         Me.TxtNumeroMatricula.TabIndex = 242
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(22, 140)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(128, 17)
-        Me.Label17.TabIndex = 242
-        Me.Label17.Text = "Número da matrícula"
         '
         'FrmNovoColaboradorCliente
         '

@@ -55,12 +55,6 @@ Partial Public Class LqTrabalhistaDataContext
     End Sub
   Partial Private Sub DeleteRiscos(instance As Riscos)
     End Sub
-  Partial Private Sub InsertESocial(instance As ESocial)
-    End Sub
-  Partial Private Sub UpdateESocial(instance As ESocial)
-    End Sub
-  Partial Private Sub DeleteESocial(instance As ESocial)
-    End Sub
   Partial Private Sub InsertEventos_ESocial(instance As Eventos_ESocial)
     End Sub
   Partial Private Sub UpdateEventos_ESocial(instance As Eventos_ESocial)
@@ -72,6 +66,12 @@ Partial Public Class LqTrabalhistaDataContext
   Partial Private Sub UpdateColaboradoresCliente(instance As ColaboradoresCliente)
     End Sub
   Partial Private Sub DeleteColaboradoresCliente(instance As ColaboradoresCliente)
+    End Sub
+  Partial Private Sub InsertESocial(instance As ESocial)
+    End Sub
+  Partial Private Sub UpdateESocial(instance As ESocial)
+    End Sub
+  Partial Private Sub DeleteESocial(instance As ESocial)
     End Sub
   #End Region
 	
@@ -130,12 +130,6 @@ Partial Public Class LqTrabalhistaDataContext
 		End Get
 	End Property
 	
-	Public ReadOnly Property ESocial() As System.Data.Linq.Table(Of ESocial)
-		Get
-			Return Me.GetTable(Of ESocial)
-		End Get
-	End Property
-	
 	Public ReadOnly Property Eventos_ESocial() As System.Data.Linq.Table(Of Eventos_ESocial)
 		Get
 			Return Me.GetTable(Of Eventos_ESocial)
@@ -151,6 +145,174 @@ Partial Public Class LqTrabalhistaDataContext
 	Public ReadOnly Property ColaboradoresCliente() As System.Data.Linq.Table(Of ColaboradoresCliente)
 		Get
 			Return Me.GetTable(Of ColaboradoresCliente)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela02() As System.Data.Linq.Table(Of Tabela02)
+		Get
+			Return Me.GetTable(Of Tabela02)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela28() As System.Data.Linq.Table(Of Tabela28)
+		Get
+			Return Me.GetTable(Of Tabela28)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela03() As System.Data.Linq.Table(Of Tabela03)
+		Get
+			Return Me.GetTable(Of Tabela03)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela04() As System.Data.Linq.Table(Of Tabela04)
+		Get
+			Return Me.GetTable(Of Tabela04)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela05() As System.Data.Linq.Table(Of Tabela05)
+		Get
+			Return Me.GetTable(Of Tabela05)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela06() As System.Data.Linq.Table(Of Tabela06)
+		Get
+			Return Me.GetTable(Of Tabela06)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela07() As System.Data.Linq.Table(Of Tabela07)
+		Get
+			Return Me.GetTable(Of Tabela07)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela08() As System.Data.Linq.Table(Of Tabela08)
+		Get
+			Return Me.GetTable(Of Tabela08)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela09() As System.Data.Linq.Table(Of Tabela09)
+		Get
+			Return Me.GetTable(Of Tabela09)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela10() As System.Data.Linq.Table(Of Tabela10)
+		Get
+			Return Me.GetTable(Of Tabela10)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela11() As System.Data.Linq.Table(Of Tabela11)
+		Get
+			Return Me.GetTable(Of Tabela11)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela12() As System.Data.Linq.Table(Of Tabela12)
+		Get
+			Return Me.GetTable(Of Tabela12)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela13() As System.Data.Linq.Table(Of Tabela13)
+		Get
+			Return Me.GetTable(Of Tabela13)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela14() As System.Data.Linq.Table(Of Tabela14)
+		Get
+			Return Me.GetTable(Of Tabela14)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela15() As System.Data.Linq.Table(Of Tabela15)
+		Get
+			Return Me.GetTable(Of Tabela15)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela16() As System.Data.Linq.Table(Of Tabela16)
+		Get
+			Return Me.GetTable(Of Tabela16)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela17() As System.Data.Linq.Table(Of Tabela17)
+		Get
+			Return Me.GetTable(Of Tabela17)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela18() As System.Data.Linq.Table(Of Tabela18)
+		Get
+			Return Me.GetTable(Of Tabela18)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela19() As System.Data.Linq.Table(Of Tabela19)
+		Get
+			Return Me.GetTable(Of Tabela19)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela20() As System.Data.Linq.Table(Of Tabela20)
+		Get
+			Return Me.GetTable(Of Tabela20)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela21() As System.Data.Linq.Table(Of Tabela21)
+		Get
+			Return Me.GetTable(Of Tabela21)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela22() As System.Data.Linq.Table(Of Tabela22)
+		Get
+			Return Me.GetTable(Of Tabela22)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela23() As System.Data.Linq.Table(Of Tabela23)
+		Get
+			Return Me.GetTable(Of Tabela23)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela24() As System.Data.Linq.Table(Of Tabela24)
+		Get
+			Return Me.GetTable(Of Tabela24)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela25() As System.Data.Linq.Table(Of Tabela25)
+		Get
+			Return Me.GetTable(Of Tabela25)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela26() As System.Data.Linq.Table(Of Tabela26)
+		Get
+			Return Me.GetTable(Of Tabela26)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Tabela27() As System.Data.Linq.Table(Of Tabela27)
+		Get
+			Return Me.GetTable(Of Tabela27)
+		End Get
+	End Property
+	
+	Public ReadOnly Property ESocial() As System.Data.Linq.Table(Of ESocial)
+		Get
+			Return Me.GetTable(Of ESocial)
 		End Get
 	End Property
 	
@@ -220,12 +382,6 @@ Partial Public Class LqTrabalhistaDataContext
 		Return CType(result.ReturnValue,Integer)
 	End Function
 	
-	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.InsereESocial")>  _
-	Public Function InsereESocial(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdCliente", DbType:="Int")> ByVal idCliente As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdColaborador", DbType:="Int")> ByVal idColaborador As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Evento", DbType:="NText")> ByVal evento As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataSolicitacao", DbType:="Date")> ByVal dataSolicitacao As System.Nullable(Of Date), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="HoraSolicitacao", DbType:="Time")> ByVal horaSolicitacao As System.Nullable(Of System.TimeSpan), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataResposta", DbType:="Date")> ByVal dataResposta As System.Nullable(Of Date), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="HoraResposta", DbType:="Time")> ByVal horaResposta As System.Nullable(Of System.TimeSpan)) As Integer
-		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), idCliente, idColaborador, evento, dataSolicitacao, horaSolicitacao, dataResposta, horaResposta)
-		Return CType(result.ReturnValue,Integer)
-	End Function
-	
 	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.EditaColaboradorCliente")>  _
 	Public Function EditaColaboradorCliente( _
 				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdColaboradorCliente", DbType:="Int")> ByVal idColaboradorCliente As System.Nullable(Of Integer),  _
@@ -273,6 +429,12 @@ Partial Public Class LqTrabalhistaDataContext
 				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="GrupoTrab", DbType:="NText")> ByVal grupoTrab As String,  _
 				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="CatTrab", DbType:="NText")> ByVal catTrab As String) As Integer
 		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), idCliente, nomeColaborador, nomeFantasia, personalidade, docColaborador, rG_IE, cEP, num, cmpl, telefone, celular, email, idFuncao, descricaoFuncao, remuneracao, dataAdmissao, dataDesligamento, grupoTrab, catTrab)
+		Return CType(result.ReturnValue,Integer)
+	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.InsereESocial")>  _
+	Public Function InsereESocial(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdCliente", DbType:="Int")> ByVal idCliente As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdColaborador", DbType:="Int")> ByVal idColaborador As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Evento", DbType:="NText")> ByVal evento As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataSolicitacao", DbType:="Date")> ByVal dataSolicitacao As System.Nullable(Of Date), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="HoraSolicitacao", DbType:="Time")> ByVal horaSolicitacao As System.Nullable(Of System.TimeSpan), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataResposta", DbType:="Date")> ByVal dataResposta As System.Nullable(Of Date), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="HoraResposta", DbType:="Time")> ByVal horaResposta As System.Nullable(Of System.TimeSpan), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Arquivo", DbType:="NText")> ByVal arquivo As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IDEVENTO", DbType:="NChar(36)")> ByVal iDEVENTO As String) As Integer
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), idCliente, idColaborador, evento, dataSolicitacao, horaSolicitacao, dataResposta, horaResposta, arquivo, iDEVENTO)
 		Return CType(result.ReturnValue,Integer)
 	End Function
 End Class
@@ -976,256 +1138,6 @@ Partial Public Class Riscos
 	End Sub
 End Class
 
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.ESocial")>  _
-Partial Public Class ESocial
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _IdESocial As Integer
-	
-	Private _IdCliente As System.Nullable(Of Integer)
-	
-	Private _IdColaborador As System.Nullable(Of Integer)
-	
-	Private _Evento As String
-	
-	Private _DataSolicitacao As System.Nullable(Of Date)
-	
-	Private _HoraSolicitacao As System.Nullable(Of System.TimeSpan)
-	
-	Private _DataResposta As System.Nullable(Of Date)
-	
-	Private _HoraResposta As System.Nullable(Of System.TimeSpan)
-	
-	Private _Eventos_ESocial As EntityRef(Of Eventos_ESocial)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnIdESocialChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnIdESocialChanged()
-    End Sub
-    Partial Private Sub OnIdClienteChanging(value As System.Nullable(Of Integer))
-    End Sub
-    Partial Private Sub OnIdClienteChanged()
-    End Sub
-    Partial Private Sub OnIdColaboradorChanging(value As System.Nullable(Of Integer))
-    End Sub
-    Partial Private Sub OnIdColaboradorChanged()
-    End Sub
-    Partial Private Sub OnEventoChanging(value As String)
-    End Sub
-    Partial Private Sub OnEventoChanged()
-    End Sub
-    Partial Private Sub OnDataSolicitacaoChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub OnDataSolicitacaoChanged()
-    End Sub
-    Partial Private Sub OnHoraSolicitacaoChanging(value As System.Nullable(Of System.TimeSpan))
-    End Sub
-    Partial Private Sub OnHoraSolicitacaoChanged()
-    End Sub
-    Partial Private Sub OnDataRespostaChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub OnDataRespostaChanged()
-    End Sub
-    Partial Private Sub OnHoraRespostaChanging(value As System.Nullable(Of System.TimeSpan))
-    End Sub
-    Partial Private Sub OnHoraRespostaChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me._Eventos_ESocial = CType(Nothing, EntityRef(Of Eventos_ESocial))
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_IdESocial", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
-	Public Property IdESocial() As Integer
-		Get
-			Return Me._IdESocial
-		End Get
-		Set
-			If ((Me._IdESocial = value)  _
-						= false) Then
-				Me.OnIdESocialChanging(value)
-				Me.SendPropertyChanging
-				Me._IdESocial = value
-				Me.SendPropertyChanged("IdESocial")
-				Me.OnIdESocialChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_IdCliente", DbType:="Int")>  _
-	Public Property IdCliente() As System.Nullable(Of Integer)
-		Get
-			Return Me._IdCliente
-		End Get
-		Set
-			If (Me._IdCliente.Equals(value) = false) Then
-				Me.OnIdClienteChanging(value)
-				Me.SendPropertyChanging
-				Me._IdCliente = value
-				Me.SendPropertyChanged("IdCliente")
-				Me.OnIdClienteChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_IdColaborador", DbType:="Int")>  _
-	Public Property IdColaborador() As System.Nullable(Of Integer)
-		Get
-			Return Me._IdColaborador
-		End Get
-		Set
-			If (Me._IdColaborador.Equals(value) = false) Then
-				Me.OnIdColaboradorChanging(value)
-				Me.SendPropertyChanging
-				Me._IdColaborador = value
-				Me.SendPropertyChanged("IdColaborador")
-				Me.OnIdColaboradorChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Evento", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property Evento() As String
-		Get
-			Return Me._Evento
-		End Get
-		Set
-			If (String.Equals(Me._Evento, value) = false) Then
-				If Me._Eventos_ESocial.HasLoadedOrAssignedValue Then
-					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-				End If
-				Me.OnEventoChanging(value)
-				Me.SendPropertyChanging
-				Me._Evento = value
-				Me.SendPropertyChanged("Evento")
-				Me.OnEventoChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DataSolicitacao", DbType:="Date")>  _
-	Public Property DataSolicitacao() As System.Nullable(Of Date)
-		Get
-			Return Me._DataSolicitacao
-		End Get
-		Set
-			If (Me._DataSolicitacao.Equals(value) = false) Then
-				Me.OnDataSolicitacaoChanging(value)
-				Me.SendPropertyChanging
-				Me._DataSolicitacao = value
-				Me.SendPropertyChanged("DataSolicitacao")
-				Me.OnDataSolicitacaoChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_HoraSolicitacao", DbType:="Time")>  _
-	Public Property HoraSolicitacao() As System.Nullable(Of System.TimeSpan)
-		Get
-			Return Me._HoraSolicitacao
-		End Get
-		Set
-			If (Me._HoraSolicitacao.Equals(value) = false) Then
-				Me.OnHoraSolicitacaoChanging(value)
-				Me.SendPropertyChanging
-				Me._HoraSolicitacao = value
-				Me.SendPropertyChanged("HoraSolicitacao")
-				Me.OnHoraSolicitacaoChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DataResposta", DbType:="Date")>  _
-	Public Property DataResposta() As System.Nullable(Of Date)
-		Get
-			Return Me._DataResposta
-		End Get
-		Set
-			If (Me._DataResposta.Equals(value) = false) Then
-				Me.OnDataRespostaChanging(value)
-				Me.SendPropertyChanging
-				Me._DataResposta = value
-				Me.SendPropertyChanged("DataResposta")
-				Me.OnDataRespostaChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_HoraResposta", DbType:="Time")>  _
-	Public Property HoraResposta() As System.Nullable(Of System.TimeSpan)
-		Get
-			Return Me._HoraResposta
-		End Get
-		Set
-			If (Me._HoraResposta.Equals(value) = false) Then
-				Me.OnHoraRespostaChanging(value)
-				Me.SendPropertyChanging
-				Me._HoraResposta = value
-				Me.SendPropertyChanged("HoraResposta")
-				Me.OnHoraRespostaChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Eventos_ESocial_ESocial", Storage:="_Eventos_ESocial", ThisKey:="Evento", OtherKey:="Descricao", IsForeignKey:=true)>  _
-	Public Property Eventos_ESocial() As Eventos_ESocial
-		Get
-			Return Me._Eventos_ESocial.Entity
-		End Get
-		Set
-			Dim previousValue As Eventos_ESocial = Me._Eventos_ESocial.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._Eventos_ESocial.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._Eventos_ESocial.Entity = Nothing
-					previousValue.ESocial.Remove(Me)
-				End If
-				Me._Eventos_ESocial.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.ESocial.Add(Me)
-					Me._Evento = value.Descricao
-				Else
-					Me._Evento = CType(Nothing, String)
-				End If
-				Me.SendPropertyChanged("Eventos_ESocial")
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-End Class
-
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Eventos_ESocial")>  _
 Partial Public Class Eventos_ESocial
 	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
@@ -1245,8 +1157,6 @@ Partial Public Class Eventos_ESocial
 	Private _Ativo As System.Nullable(Of Boolean)
 	
 	Private _Subs As System.Nullable(Of Integer)
-	
-	Private _ESocial As EntitySet(Of ESocial)
 	
     #Region "Extensibility Method Definitions"
     Partial Private Sub OnLoaded()
@@ -1287,7 +1197,6 @@ Partial Public Class Eventos_ESocial
 	
 	Public Sub New()
 		MyBase.New
-		Me._ESocial = New EntitySet(Of ESocial)(AddressOf Me.attach_ESocial, AddressOf Me.detach_ESocial)
 		OnCreated
 	End Sub
 	
@@ -1404,16 +1313,6 @@ Partial Public Class Eventos_ESocial
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Eventos_ESocial_ESocial", Storage:="_ESocial", ThisKey:="Descricao", OtherKey:="Evento")>  _
-	Public Property ESocial() As EntitySet(Of ESocial)
-		Get
-			Return Me._ESocial
-		End Get
-		Set
-			Me._ESocial.Assign(value)
-		End Set
-	End Property
-	
 	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
 	
 	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
@@ -1430,16 +1329,6 @@ Partial Public Class Eventos_ESocial
 					= false) Then
 			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
 		End If
-	End Sub
-	
-	Private Sub attach_ESocial(ByVal entity As ESocial)
-		Me.SendPropertyChanging
-		entity.Eventos_ESocial = Me
-	End Sub
-	
-	Private Sub detach_ESocial(ByVal entity As ESocial)
-		Me.SendPropertyChanging
-		entity.Eventos_ESocial = Nothing
 	End Sub
 End Class
 
@@ -1965,6 +1854,2290 @@ Partial Public Class ColaboradoresCliente
 				Me._CatTrab = value
 				Me.SendPropertyChanged("CatTrab")
 				Me.OnCatTrabChanged
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela02")>  _
+Partial Public Class Tabela02
+	
+	Private _Codigo As Integer
+	
+	Private _Descricao As String
+	
+	Private _Status As System.Nullable(Of Boolean)
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="Int NOT NULL")>  _
+	Public Property Codigo() As Integer
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If ((Me._Codigo = value)  _
+						= false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Status", DbType:="Bit")>  _
+	Public Property Status() As System.Nullable(Of Boolean)
+		Get
+			Return Me._Status
+		End Get
+		Set
+			If (Me._Status.Equals(value) = false) Then
+				Me._Status = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela28")>  _
+Partial Public Class Tabela28
+	
+	Private _Codigo As String
+	
+	Private _Treinamento As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="NText NOT NULL", CanBeNull:=false, UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Codigo() As String
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If (String.Equals(Me._Codigo, value) = false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Treinamento", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Treinamento() As String
+		Get
+			Return Me._Treinamento
+		End Get
+		Set
+			If (String.Equals(Me._Treinamento, value) = false) Then
+				Me._Treinamento = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela03")>  _
+Partial Public Class Tabela03
+	
+	Private _Codigo As Integer
+	
+	Private _NatRub As String
+	
+	Private _Descricao As String
+	
+	Private _DataInicio As System.Nullable(Of Date)
+	
+	Private _DataTermino As System.Nullable(Of Date)
+	
+	Private _Status As System.Nullable(Of Boolean)
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="Int NOT NULL")>  _
+	Public Property Codigo() As Integer
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If ((Me._Codigo = value)  _
+						= false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_NatRub", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property NatRub() As String
+		Get
+			Return Me._NatRub
+		End Get
+		Set
+			If (String.Equals(Me._NatRub, value) = false) Then
+				Me._NatRub = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DataInicio", DbType:="Date")>  _
+	Public Property DataInicio() As System.Nullable(Of Date)
+		Get
+			Return Me._DataInicio
+		End Get
+		Set
+			If (Me._DataInicio.Equals(value) = false) Then
+				Me._DataInicio = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DataTermino", DbType:="Date")>  _
+	Public Property DataTermino() As System.Nullable(Of Date)
+		Get
+			Return Me._DataTermino
+		End Get
+		Set
+			If (Me._DataTermino.Equals(value) = false) Then
+				Me._DataTermino = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Status", DbType:="Bit")>  _
+	Public Property Status() As System.Nullable(Of Boolean)
+		Get
+			Return Me._Status
+		End Get
+		Set
+			If (Me._Status.Equals(value) = false) Then
+				Me._Status = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela04")>  _
+Partial Public Class Tabela04
+	
+	Private _CodigoFPAS As Integer
+	
+	Private _Descricao As String
+	
+	Private _BaseCalc As String
+	
+	Private _Status As System.Nullable(Of Boolean)
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CodigoFPAS", DbType:="Int NOT NULL")>  _
+	Public Property CodigoFPAS() As Integer
+		Get
+			Return Me._CodigoFPAS
+		End Get
+		Set
+			If ((Me._CodigoFPAS = value)  _
+						= false) Then
+				Me._CodigoFPAS = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_BaseCalc", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property BaseCalc() As String
+		Get
+			Return Me._BaseCalc
+		End Get
+		Set
+			If (String.Equals(Me._BaseCalc, value) = false) Then
+				Me._BaseCalc = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Status", DbType:="Bit")>  _
+	Public Property Status() As System.Nullable(Of Boolean)
+		Get
+			Return Me._Status
+		End Get
+		Set
+			If (Me._Status.Equals(value) = false) Then
+				Me._Status = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela05")>  _
+Partial Public Class Tabela05
+	
+	Private _Codigo As Integer
+	
+	Private _Descricao As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="Int NOT NULL")>  _
+	Public Property Codigo() As Integer
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If ((Me._Codigo = value)  _
+						= false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela06")>  _
+Partial Public Class Tabela06
+	
+	Private _Codigo As String
+	
+	Private _Nome As String
+	
+	Private _DataCriacao As String
+	
+	Private _DataExtincao As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="VarChar(3) NOT NULL", CanBeNull:=false)>  _
+	Public Property Codigo() As String
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If (String.Equals(Me._Codigo, value) = false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Nome", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Nome() As String
+		Get
+			Return Me._Nome
+		End Get
+		Set
+			If (String.Equals(Me._Nome, value) = false) Then
+				Me._Nome = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DataCriacao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property DataCriacao() As String
+		Get
+			Return Me._DataCriacao
+		End Get
+		Set
+			If (String.Equals(Me._DataCriacao, value) = false) Then
+				Me._DataCriacao = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DataExtincao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property DataExtincao() As String
+		Get
+			Return Me._DataExtincao
+		End Get
+		Set
+			If (String.Equals(Me._DataExtincao, value) = false) Then
+				Me._DataExtincao = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela07")>  _
+Partial Public Class Tabela07
+	
+	Private _Codigo As Integer
+	
+	Private _Descricao As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="Int NOT NULL")>  _
+	Public Property Codigo() As Integer
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If ((Me._Codigo = value)  _
+						= false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela08")>  _
+Partial Public Class Tabela08
+	
+	Private _Codigo As Integer
+	
+	Private _Descricao As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="Int NOT NULL")>  _
+	Public Property Codigo() As Integer
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If ((Me._Codigo = value)  _
+						= false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela09")>  _
+Partial Public Class Tabela09
+	
+	Private _Codigo As String
+	
+	Private _Descricao As String
+	
+	Private _DataInicio As String
+	
+	Private _DataTermino As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="NText NOT NULL", CanBeNull:=false, UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Codigo() As String
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If (String.Equals(Me._Codigo, value) = false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DataInicio", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property DataInicio() As String
+		Get
+			Return Me._DataInicio
+		End Get
+		Set
+			If (String.Equals(Me._DataInicio, value) = false) Then
+				Me._DataInicio = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DataTermino", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property DataTermino() As String
+		Get
+			Return Me._DataTermino
+		End Get
+		Set
+			If (String.Equals(Me._DataTermino, value) = false) Then
+				Me._DataTermino = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela10")>  _
+Partial Public Class Tabela10
+	
+	Private _Codigo As String
+	
+	Private _Descricao As String
+	
+	Private _Preenchimento As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="NText NOT NULL", CanBeNull:=false, UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Codigo() As String
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If (String.Equals(Me._Codigo, value) = false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Preenchimento", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Preenchimento() As String
+		Get
+			Return Me._Preenchimento
+		End Get
+		Set
+			If (String.Equals(Me._Preenchimento, value) = false) Then
+				Me._Preenchimento = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela11")>  _
+Partial Public Class Tabela11
+	
+	Private _Codigo As Integer
+	
+	Private _ClassTrib As String
+	
+	Private _TipoLotTrib_01 As String
+	
+	Private _TipoLotTrib_02 As String
+	
+	Private _TipoLotTrib_03 As String
+	
+	Private _TipoLotTrib_04 As String
+	
+	Private _TipoLotTrib_05 As String
+	
+	Private _TipoLotTrib_06 As String
+	
+	Private _TipoLotTrib_07 As String
+	
+	Private _TipoLotTrib_08 As String
+	
+	Private _TipoLotTrib_09 As String
+	
+	Private _TipoLotTrib_10 As String
+	
+	Private _TipoLotTrib_21 As String
+	
+	Private _TipoLotTrib_24 As String
+	
+	Private _TipoLotTrib_90 As String
+	
+	Private _TipoLotTrib_91 As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="Int NOT NULL")>  _
+	Public Property Codigo() As Integer
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If ((Me._Codigo = value)  _
+						= false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClassTrib", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClassTrib() As String
+		Get
+			Return Me._ClassTrib
+		End Get
+		Set
+			If (String.Equals(Me._ClassTrib, value) = false) Then
+				Me._ClassTrib = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_01", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_01() As String
+		Get
+			Return Me._TipoLotTrib_01
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_01, value) = false) Then
+				Me._TipoLotTrib_01 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_02", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_02() As String
+		Get
+			Return Me._TipoLotTrib_02
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_02, value) = false) Then
+				Me._TipoLotTrib_02 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_03", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_03() As String
+		Get
+			Return Me._TipoLotTrib_03
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_03, value) = false) Then
+				Me._TipoLotTrib_03 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_04", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_04() As String
+		Get
+			Return Me._TipoLotTrib_04
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_04, value) = false) Then
+				Me._TipoLotTrib_04 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_05", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_05() As String
+		Get
+			Return Me._TipoLotTrib_05
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_05, value) = false) Then
+				Me._TipoLotTrib_05 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_06", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_06() As String
+		Get
+			Return Me._TipoLotTrib_06
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_06, value) = false) Then
+				Me._TipoLotTrib_06 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_07", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_07() As String
+		Get
+			Return Me._TipoLotTrib_07
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_07, value) = false) Then
+				Me._TipoLotTrib_07 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_08", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_08() As String
+		Get
+			Return Me._TipoLotTrib_08
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_08, value) = false) Then
+				Me._TipoLotTrib_08 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_09", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_09() As String
+		Get
+			Return Me._TipoLotTrib_09
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_09, value) = false) Then
+				Me._TipoLotTrib_09 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_10", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_10() As String
+		Get
+			Return Me._TipoLotTrib_10
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_10, value) = false) Then
+				Me._TipoLotTrib_10 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_21", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_21() As String
+		Get
+			Return Me._TipoLotTrib_21
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_21, value) = false) Then
+				Me._TipoLotTrib_21 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_24", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_24() As String
+		Get
+			Return Me._TipoLotTrib_24
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_24, value) = false) Then
+				Me._TipoLotTrib_24 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_90", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_90() As String
+		Get
+			Return Me._TipoLotTrib_90
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_90, value) = false) Then
+				Me._TipoLotTrib_90 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_91", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_91() As String
+		Get
+			Return Me._TipoLotTrib_91
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_91, value) = false) Then
+				Me._TipoLotTrib_91 = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela12")>  _
+Partial Public Class Tabela12
+	
+	Private _ClassTrib As String
+	
+	Private _TipoLotTrib_01 As String
+	
+	Private _TipoLotTrib_02 As String
+	
+	Private _TipoLotTrib_03 As String
+	
+	Private _TipoLotTrib_04 As String
+	
+	Private _TipoLotTrib_06 As String
+	
+	Private _TipoLotTrib_07 As String
+	
+	Private _TipoLotTrib_08 As String
+	
+	Private _TipoLotTrib_09 As String
+	
+	Private _TipoLotTrib_10 As String
+	
+	Private _TipoLotTrib_11 As String
+	
+	Private _TipoLotTrib_13 As String
+	
+	Private _TipoLotTrib_14 As String
+	
+	Private _TipoLotTrib_21 As String
+	
+	Private _TipoLotTrib_22 As String
+	
+	Private _TipoLotTrib_60 As String
+	
+	Private _TipoLotTrib_70 As String
+	
+	Private _TipoLotTrib_80 As String
+	
+	Private _TipoLotTrib_85 As String
+	
+	Private _TipoLotTrib_99 As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClassTrib", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClassTrib() As String
+		Get
+			Return Me._ClassTrib
+		End Get
+		Set
+			If (String.Equals(Me._ClassTrib, value) = false) Then
+				Me._ClassTrib = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_01", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_01() As String
+		Get
+			Return Me._TipoLotTrib_01
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_01, value) = false) Then
+				Me._TipoLotTrib_01 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_02", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_02() As String
+		Get
+			Return Me._TipoLotTrib_02
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_02, value) = false) Then
+				Me._TipoLotTrib_02 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_03", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_03() As String
+		Get
+			Return Me._TipoLotTrib_03
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_03, value) = false) Then
+				Me._TipoLotTrib_03 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_04", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_04() As String
+		Get
+			Return Me._TipoLotTrib_04
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_04, value) = false) Then
+				Me._TipoLotTrib_04 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_06", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_06() As String
+		Get
+			Return Me._TipoLotTrib_06
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_06, value) = false) Then
+				Me._TipoLotTrib_06 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_07", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_07() As String
+		Get
+			Return Me._TipoLotTrib_07
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_07, value) = false) Then
+				Me._TipoLotTrib_07 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_08", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_08() As String
+		Get
+			Return Me._TipoLotTrib_08
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_08, value) = false) Then
+				Me._TipoLotTrib_08 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_09", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_09() As String
+		Get
+			Return Me._TipoLotTrib_09
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_09, value) = false) Then
+				Me._TipoLotTrib_09 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_10", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_10() As String
+		Get
+			Return Me._TipoLotTrib_10
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_10, value) = false) Then
+				Me._TipoLotTrib_10 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_11", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_11() As String
+		Get
+			Return Me._TipoLotTrib_11
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_11, value) = false) Then
+				Me._TipoLotTrib_11 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_13", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_13() As String
+		Get
+			Return Me._TipoLotTrib_13
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_13, value) = false) Then
+				Me._TipoLotTrib_13 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_14", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_14() As String
+		Get
+			Return Me._TipoLotTrib_14
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_14, value) = false) Then
+				Me._TipoLotTrib_14 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_21", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_21() As String
+		Get
+			Return Me._TipoLotTrib_21
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_21, value) = false) Then
+				Me._TipoLotTrib_21 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_22", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_22() As String
+		Get
+			Return Me._TipoLotTrib_22
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_22, value) = false) Then
+				Me._TipoLotTrib_22 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_60", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_60() As String
+		Get
+			Return Me._TipoLotTrib_60
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_60, value) = false) Then
+				Me._TipoLotTrib_60 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_70", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_70() As String
+		Get
+			Return Me._TipoLotTrib_70
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_70, value) = false) Then
+				Me._TipoLotTrib_70 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_80", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_80() As String
+		Get
+			Return Me._TipoLotTrib_80
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_80, value) = false) Then
+				Me._TipoLotTrib_80 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_85", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_85() As String
+		Get
+			Return Me._TipoLotTrib_85
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_85, value) = false) Then
+				Me._TipoLotTrib_85 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoLotTrib_99", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property TipoLotTrib_99() As String
+		Get
+			Return Me._TipoLotTrib_99
+		End Get
+		Set
+			If (String.Equals(Me._TipoLotTrib_99, value) = false) Then
+				Me._TipoLotTrib_99 = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela13")>  _
+Partial Public Class Tabela13
+	
+	Private _Codigo As Integer
+	
+	Private _Descricao As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="Int NOT NULL")>  _
+	Public Property Codigo() As Integer
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If ((Me._Codigo = value)  _
+						= false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela14")>  _
+Partial Public Class Tabela14
+	
+	Private _Codigo As Integer
+	
+	Private _Descricao As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="Int NOT NULL")>  _
+	Public Property Codigo() As Integer
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If ((Me._Codigo = value)  _
+						= false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela15")>  _
+Partial Public Class Tabela15
+	
+	Private _Codigo As Integer
+	
+	Private _Descricao As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="Int NOT NULL")>  _
+	Public Property Codigo() As Integer
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If ((Me._Codigo = value)  _
+						= false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela16")>  _
+Partial Public Class Tabela16
+	
+	Private _Codigo As Integer
+	
+	Private _Descricao As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="Int NOT NULL")>  _
+	Public Property Codigo() As Integer
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If ((Me._Codigo = value)  _
+						= false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela17")>  _
+Partial Public Class Tabela17
+	
+	Private _Codigo As Integer
+	
+	Private _Descricao As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="Int NOT NULL")>  _
+	Public Property Codigo() As Integer
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If ((Me._Codigo = value)  _
+						= false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela18")>  _
+Partial Public Class Tabela18
+	
+	Private _Codigo As Integer
+	
+	Private _Descricao As String
+	
+	Private _Inicio As String
+	
+	Private _Termino As String
+	
+	Private _CodCat As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="Int NOT NULL")>  _
+	Public Property Codigo() As Integer
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If ((Me._Codigo = value)  _
+						= false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Inicio", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Inicio() As String
+		Get
+			Return Me._Inicio
+		End Get
+		Set
+			If (String.Equals(Me._Inicio, value) = false) Then
+				Me._Inicio = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Termino", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Termino() As String
+		Get
+			Return Me._Termino
+		End Get
+		Set
+			If (String.Equals(Me._Termino, value) = false) Then
+				Me._Termino = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CodCat", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property CodCat() As String
+		Get
+			Return Me._CodCat
+		End Get
+		Set
+			If (String.Equals(Me._CodCat, value) = false) Then
+				Me._CodCat = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela19")>  _
+Partial Public Class Tabela19
+	
+	Private _Codigo As Integer
+	
+	Private _Descricao As String
+	
+	Private _Inicio As String
+	
+	Private _Termino As String
+	
+	Private _CodCat As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="Int NOT NULL")>  _
+	Public Property Codigo() As Integer
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If ((Me._Codigo = value)  _
+						= false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Inicio", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Inicio() As String
+		Get
+			Return Me._Inicio
+		End Get
+		Set
+			If (String.Equals(Me._Inicio, value) = false) Then
+				Me._Inicio = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Termino", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Termino() As String
+		Get
+			Return Me._Termino
+		End Get
+		Set
+			If (String.Equals(Me._Termino, value) = false) Then
+				Me._Termino = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CodCat", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property CodCat() As String
+		Get
+			Return Me._CodCat
+		End Get
+		Set
+			If (String.Equals(Me._CodCat, value) = false) Then
+				Me._CodCat = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela20")>  _
+Partial Public Class Tabela20
+	
+	Private _Codigo As String
+	
+	Private _Descricao As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="NText NOT NULL", CanBeNull:=false, UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Codigo() As String
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If (String.Equals(Me._Codigo, value) = false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela21")>  _
+Partial Public Class Tabela21
+	
+	Private _Codigo As String
+	
+	Private _Descricao As String
+	
+	Private _Inicio As String
+	
+	Private _Termino As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="NText NOT NULL", CanBeNull:=false, UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Codigo() As String
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If (String.Equals(Me._Codigo, value) = false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Inicio", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Inicio() As String
+		Get
+			Return Me._Inicio
+		End Get
+		Set
+			If (String.Equals(Me._Inicio, value) = false) Then
+				Me._Inicio = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Termino", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Termino() As String
+		Get
+			Return Me._Termino
+		End Get
+		Set
+			If (String.Equals(Me._Termino, value) = false) Then
+				Me._Termino = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela22")>  _
+Partial Public Class Tabela22
+	
+	Private _CFPAS As Integer
+	
+	Private _ClsTrib_01 As String
+	
+	Private _ClsTrib_02 As String
+	
+	Private _ClsTrib_03 As String
+	
+	Private _ClsTrib_04 As String
+	
+	Private _ClsTrib_06 As String
+	
+	Private _ClsTrib_07 As String
+	
+	Private _ClsTrib_08 As String
+	
+	Private _ClsTrib_09 As String
+	
+	Private _ClsTrib_10 As String
+	
+	Private _ClsTrib_11 As String
+	
+	Private _ClsTrib_13 As String
+	
+	Private _ClsTrib_14 As String
+	
+	Private _ClsTrib_21 As String
+	
+	Private _ClsTrib_22 As String
+	
+	Private _ClsTrib_60 As String
+	
+	Private _ClsTrib_70 As String
+	
+	Private _ClsTrib_80 As String
+	
+	Private _ClsTrib_85 As String
+	
+	Private _ClsTrib_99 As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CFPAS", DbType:="Int NOT NULL")>  _
+	Public Property CFPAS() As Integer
+		Get
+			Return Me._CFPAS
+		End Get
+		Set
+			If ((Me._CFPAS = value)  _
+						= false) Then
+				Me._CFPAS = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_01", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_01() As String
+		Get
+			Return Me._ClsTrib_01
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_01, value) = false) Then
+				Me._ClsTrib_01 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_02", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_02() As String
+		Get
+			Return Me._ClsTrib_02
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_02, value) = false) Then
+				Me._ClsTrib_02 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_03", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_03() As String
+		Get
+			Return Me._ClsTrib_03
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_03, value) = false) Then
+				Me._ClsTrib_03 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_04", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_04() As String
+		Get
+			Return Me._ClsTrib_04
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_04, value) = false) Then
+				Me._ClsTrib_04 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_06", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_06() As String
+		Get
+			Return Me._ClsTrib_06
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_06, value) = false) Then
+				Me._ClsTrib_06 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_07", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_07() As String
+		Get
+			Return Me._ClsTrib_07
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_07, value) = false) Then
+				Me._ClsTrib_07 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_08", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_08() As String
+		Get
+			Return Me._ClsTrib_08
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_08, value) = false) Then
+				Me._ClsTrib_08 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_09", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_09() As String
+		Get
+			Return Me._ClsTrib_09
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_09, value) = false) Then
+				Me._ClsTrib_09 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_10", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_10() As String
+		Get
+			Return Me._ClsTrib_10
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_10, value) = false) Then
+				Me._ClsTrib_10 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_11", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_11() As String
+		Get
+			Return Me._ClsTrib_11
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_11, value) = false) Then
+				Me._ClsTrib_11 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_13", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_13() As String
+		Get
+			Return Me._ClsTrib_13
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_13, value) = false) Then
+				Me._ClsTrib_13 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_14", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_14() As String
+		Get
+			Return Me._ClsTrib_14
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_14, value) = false) Then
+				Me._ClsTrib_14 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_21", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_21() As String
+		Get
+			Return Me._ClsTrib_21
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_21, value) = false) Then
+				Me._ClsTrib_21 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_22", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_22() As String
+		Get
+			Return Me._ClsTrib_22
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_22, value) = false) Then
+				Me._ClsTrib_22 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_60", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_60() As String
+		Get
+			Return Me._ClsTrib_60
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_60, value) = false) Then
+				Me._ClsTrib_60 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_70", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_70() As String
+		Get
+			Return Me._ClsTrib_70
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_70, value) = false) Then
+				Me._ClsTrib_70 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_80", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_80() As String
+		Get
+			Return Me._ClsTrib_80
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_80, value) = false) Then
+				Me._ClsTrib_80 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_85", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_85() As String
+		Get
+			Return Me._ClsTrib_85
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_85, value) = false) Then
+				Me._ClsTrib_85 = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ClsTrib_99", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property ClsTrib_99() As String
+		Get
+			Return Me._ClsTrib_99
+		End Get
+		Set
+			If (String.Equals(Me._ClsTrib_99, value) = false) Then
+				Me._ClsTrib_99 = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela23")>  _
+Partial Public Class Tabela23
+	
+	Private _TpValor As Integer
+	
+	Private _codCateg As String
+	
+	Private _infoPerApur As String
+	
+	Private _CodIncFGTS As String
+	
+	Private _Condicao As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TpValor", DbType:="Int NOT NULL")>  _
+	Public Property TpValor() As Integer
+		Get
+			Return Me._TpValor
+		End Get
+		Set
+			If ((Me._TpValor = value)  _
+						= false) Then
+				Me._TpValor = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_codCateg", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property codCateg() As String
+		Get
+			Return Me._codCateg
+		End Get
+		Set
+			If (String.Equals(Me._codCateg, value) = false) Then
+				Me._codCateg = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_infoPerApur", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property infoPerApur() As String
+		Get
+			Return Me._infoPerApur
+		End Get
+		Set
+			If (String.Equals(Me._infoPerApur, value) = false) Then
+				Me._infoPerApur = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CodIncFGTS", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property CodIncFGTS() As String
+		Get
+			Return Me._CodIncFGTS
+		End Get
+		Set
+			If (String.Equals(Me._CodIncFGTS, value) = false) Then
+				Me._CodIncFGTS = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Condicao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Condicao() As String
+		Get
+			Return Me._Condicao
+		End Get
+		Set
+			If (String.Equals(Me._Condicao, value) = false) Then
+				Me._Condicao = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela24")>  _
+Partial Public Class Tabela24
+	
+	Private _Codigo As String
+	
+	Private _AgenteNocivo As String
+	
+	Private _Grupo As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="NText NOT NULL", CanBeNull:=false, UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Codigo() As String
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If (String.Equals(Me._Codigo, value) = false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_AgenteNocivo", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property AgenteNocivo() As String
+		Get
+			Return Me._AgenteNocivo
+		End Get
+		Set
+			If (String.Equals(Me._AgenteNocivo, value) = false) Then
+				Me._AgenteNocivo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Grupo", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Grupo() As String
+		Get
+			Return Me._Grupo
+		End Get
+		Set
+			If (String.Equals(Me._Grupo, value) = false) Then
+				Me._Grupo = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela25")>  _
+Partial Public Class Tabela25
+	
+	Private _Codigo As String
+	
+	Private _DescricaoBeneficio As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="NText NOT NULL", CanBeNull:=false, UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Codigo() As String
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If (String.Equals(Me._Codigo, value) = false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DescricaoBeneficio", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property DescricaoBeneficio() As String
+		Get
+			Return Me._DescricaoBeneficio
+		End Get
+		Set
+			If (String.Equals(Me._DescricaoBeneficio, value) = false) Then
+				Me._DescricaoBeneficio = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela26")>  _
+Partial Public Class Tabela26
+	
+	Private _Codigo As String
+	
+	Private _Descricao As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="NText NOT NULL", CanBeNull:=false, UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Codigo() As String
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If (String.Equals(Me._Codigo, value) = false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela27")>  _
+Partial Public Class Tabela27
+	
+	Private _Codigo As String
+	
+	Private _Descricao As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Codigo", DbType:="NText NOT NULL", CanBeNull:=false, UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Codigo() As String
+		Get
+			Return Me._Codigo
+		End Get
+		Set
+			If (String.Equals(Me._Codigo, value) = false) Then
+				Me._Codigo = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Descricao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Descricao() As String
+		Get
+			Return Me._Descricao
+		End Get
+		Set
+			If (String.Equals(Me._Descricao, value) = false) Then
+				Me._Descricao = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.ESocial")>  _
+Partial Public Class ESocial
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _IdESocial As Integer
+	
+	Private _IdCliente As System.Nullable(Of Integer)
+	
+	Private _IdColaborador As System.Nullable(Of Integer)
+	
+	Private _Evento As String
+	
+	Private _DataSolicitacao As System.Nullable(Of Date)
+	
+	Private _HoraSolicitacao As System.Nullable(Of System.TimeSpan)
+	
+	Private _DataResposta As System.Nullable(Of Date)
+	
+	Private _HoraResposta As System.Nullable(Of System.TimeSpan)
+	
+	Private _Arquivo As String
+	
+	Private _IDEVENTO As String
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnIdESocialChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnIdESocialChanged()
+    End Sub
+    Partial Private Sub OnIdClienteChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnIdClienteChanged()
+    End Sub
+    Partial Private Sub OnIdColaboradorChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnIdColaboradorChanged()
+    End Sub
+    Partial Private Sub OnEventoChanging(value As String)
+    End Sub
+    Partial Private Sub OnEventoChanged()
+    End Sub
+    Partial Private Sub OnDataSolicitacaoChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnDataSolicitacaoChanged()
+    End Sub
+    Partial Private Sub OnHoraSolicitacaoChanging(value As System.Nullable(Of System.TimeSpan))
+    End Sub
+    Partial Private Sub OnHoraSolicitacaoChanged()
+    End Sub
+    Partial Private Sub OnDataRespostaChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnDataRespostaChanged()
+    End Sub
+    Partial Private Sub OnHoraRespostaChanging(value As System.Nullable(Of System.TimeSpan))
+    End Sub
+    Partial Private Sub OnHoraRespostaChanged()
+    End Sub
+    Partial Private Sub OnArquivoChanging(value As String)
+    End Sub
+    Partial Private Sub OnArquivoChanged()
+    End Sub
+    Partial Private Sub OnIDEVENTOChanging(value As String)
+    End Sub
+    Partial Private Sub OnIDEVENTOChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_IdESocial", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
+	Public Property IdESocial() As Integer
+		Get
+			Return Me._IdESocial
+		End Get
+		Set
+			If ((Me._IdESocial = value)  _
+						= false) Then
+				Me.OnIdESocialChanging(value)
+				Me.SendPropertyChanging
+				Me._IdESocial = value
+				Me.SendPropertyChanged("IdESocial")
+				Me.OnIdESocialChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_IdCliente", DbType:="Int")>  _
+	Public Property IdCliente() As System.Nullable(Of Integer)
+		Get
+			Return Me._IdCliente
+		End Get
+		Set
+			If (Me._IdCliente.Equals(value) = false) Then
+				Me.OnIdClienteChanging(value)
+				Me.SendPropertyChanging
+				Me._IdCliente = value
+				Me.SendPropertyChanged("IdCliente")
+				Me.OnIdClienteChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_IdColaborador", DbType:="Int")>  _
+	Public Property IdColaborador() As System.Nullable(Of Integer)
+		Get
+			Return Me._IdColaborador
+		End Get
+		Set
+			If (Me._IdColaborador.Equals(value) = false) Then
+				Me.OnIdColaboradorChanging(value)
+				Me.SendPropertyChanging
+				Me._IdColaborador = value
+				Me.SendPropertyChanged("IdColaborador")
+				Me.OnIdColaboradorChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Evento", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Evento() As String
+		Get
+			Return Me._Evento
+		End Get
+		Set
+			If (String.Equals(Me._Evento, value) = false) Then
+				Me.OnEventoChanging(value)
+				Me.SendPropertyChanging
+				Me._Evento = value
+				Me.SendPropertyChanged("Evento")
+				Me.OnEventoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DataSolicitacao", DbType:="Date")>  _
+	Public Property DataSolicitacao() As System.Nullable(Of Date)
+		Get
+			Return Me._DataSolicitacao
+		End Get
+		Set
+			If (Me._DataSolicitacao.Equals(value) = false) Then
+				Me.OnDataSolicitacaoChanging(value)
+				Me.SendPropertyChanging
+				Me._DataSolicitacao = value
+				Me.SendPropertyChanged("DataSolicitacao")
+				Me.OnDataSolicitacaoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_HoraSolicitacao", DbType:="Time")>  _
+	Public Property HoraSolicitacao() As System.Nullable(Of System.TimeSpan)
+		Get
+			Return Me._HoraSolicitacao
+		End Get
+		Set
+			If (Me._HoraSolicitacao.Equals(value) = false) Then
+				Me.OnHoraSolicitacaoChanging(value)
+				Me.SendPropertyChanging
+				Me._HoraSolicitacao = value
+				Me.SendPropertyChanged("HoraSolicitacao")
+				Me.OnHoraSolicitacaoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DataResposta", DbType:="Date")>  _
+	Public Property DataResposta() As System.Nullable(Of Date)
+		Get
+			Return Me._DataResposta
+		End Get
+		Set
+			If (Me._DataResposta.Equals(value) = false) Then
+				Me.OnDataRespostaChanging(value)
+				Me.SendPropertyChanging
+				Me._DataResposta = value
+				Me.SendPropertyChanged("DataResposta")
+				Me.OnDataRespostaChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_HoraResposta", DbType:="Time")>  _
+	Public Property HoraResposta() As System.Nullable(Of System.TimeSpan)
+		Get
+			Return Me._HoraResposta
+		End Get
+		Set
+			If (Me._HoraResposta.Equals(value) = false) Then
+				Me.OnHoraRespostaChanging(value)
+				Me.SendPropertyChanging
+				Me._HoraResposta = value
+				Me.SendPropertyChanged("HoraResposta")
+				Me.OnHoraRespostaChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Arquivo", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Arquivo() As String
+		Get
+			Return Me._Arquivo
+		End Get
+		Set
+			If (String.Equals(Me._Arquivo, value) = false) Then
+				Me.OnArquivoChanging(value)
+				Me.SendPropertyChanging
+				Me._Arquivo = value
+				Me.SendPropertyChanged("Arquivo")
+				Me.OnArquivoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_IDEVENTO", DbType:="NChar(36)")>  _
+	Public Property IDEVENTO() As String
+		Get
+			Return Me._IDEVENTO
+		End Get
+		Set
+			If (String.Equals(Me._IDEVENTO, value) = false) Then
+				Me.OnIDEVENTOChanging(value)
+				Me.SendPropertyChanging
+				Me._IDEVENTO = value
+				Me.SendPropertyChanged("IDEVENTO")
+				Me.OnIDEVENTOChanged
 			End If
 		End Set
 	End Property

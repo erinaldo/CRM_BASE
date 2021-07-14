@@ -23,23 +23,23 @@ Partial Class FrmPrincipal
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ChartArea13 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend13 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series13 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea14 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend14 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series14 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea15 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend15 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series15 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea16 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend16 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series16 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea7 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend7 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea8 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend8 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series8 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.LblRH = New System.Windows.Forms.Label()
         Me.PnnRH = New System.Windows.Forms.Panel()
@@ -120,14 +120,21 @@ Partial Class FrmPrincipal
         Me.OrdemDeCompraToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RiscosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExamesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TreinamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator27 = New System.Windows.Forms.ToolStripSeparator()
+        Me.CategoriasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator24 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItem9 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator22 = New System.Windows.Forms.ToolStripSeparator()
         Me.ClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator24 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator26 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator23 = New System.Windows.Forms.ToolStripSeparator()
         Me.ESocialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator25 = New System.Windows.Forms.ToolStripSeparator()
         Me.RelatóriosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TtFinanceiro = New System.Windows.Forms.ToolStripDropDownButton()
@@ -327,13 +334,9 @@ Partial Class FrmPrincipal
         Me.Label84 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.ToolStripSeparator26 = New System.Windows.Forms.ToolStripSeparator()
-        Me.RiscosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExamesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TreinamentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator27 = New System.Windows.Forms.ToolStripSeparator()
-        Me.CategoriasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.ToolStripSeparator28 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AbrirPainelEmissorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.PnnRH.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
@@ -467,32 +470,32 @@ Partial Class FrmPrincipal
         '
         'Chart1
         '
-        ChartArea13.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea13)
-        Legend13.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend13)
+        ChartArea5.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea5)
+        Legend5.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend5)
         Me.Chart1.Location = New System.Drawing.Point(3, 3)
         Me.Chart1.Name = "Chart1"
-        Series13.ChartArea = "ChartArea1"
-        Series13.Legend = "Legend1"
-        Series13.Name = "Series1"
-        Me.Chart1.Series.Add(Series13)
+        Series5.ChartArea = "ChartArea1"
+        Series5.Legend = "Legend1"
+        Series5.Name = "Series1"
+        Me.Chart1.Series.Add(Series5)
         Me.Chart1.Size = New System.Drawing.Size(591, 273)
         Me.Chart1.TabIndex = 0
         Me.Chart1.Text = "Chart1"
         '
         'Chart2
         '
-        ChartArea14.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea14)
-        Legend14.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend14)
+        ChartArea6.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea6)
+        Legend6.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend6)
         Me.Chart2.Location = New System.Drawing.Point(600, 3)
         Me.Chart2.Name = "Chart2"
-        Series14.ChartArea = "ChartArea1"
-        Series14.Legend = "Legend1"
-        Series14.Name = "Series1"
-        Me.Chart2.Series.Add(Series14)
+        Series6.ChartArea = "ChartArea1"
+        Series6.Legend = "Legend1"
+        Series6.Name = "Series1"
+        Me.Chart2.Series.Add(Series6)
         Me.Chart2.Size = New System.Drawing.Size(591, 273)
         Me.Chart2.TabIndex = 1
         Me.Chart2.Text = "Chart2"
@@ -1171,6 +1174,40 @@ Partial Class FrmPrincipal
         Me.ToolStripMenuItem6.Size = New System.Drawing.Size(224, 26)
         Me.ToolStripMenuItem6.Text = "E-social SST"
         '
+        'RiscosToolStripMenuItem
+        '
+        Me.RiscosToolStripMenuItem.Name = "RiscosToolStripMenuItem"
+        Me.RiscosToolStripMenuItem.Size = New System.Drawing.Size(297, 26)
+        Me.RiscosToolStripMenuItem.Text = "Riscos"
+        '
+        'ExamesToolStripMenuItem
+        '
+        Me.ExamesToolStripMenuItem.Name = "ExamesToolStripMenuItem"
+        Me.ExamesToolStripMenuItem.Size = New System.Drawing.Size(297, 26)
+        Me.ExamesToolStripMenuItem.Text = "Exames"
+        '
+        'TreinamentosToolStripMenuItem
+        '
+        Me.TreinamentosToolStripMenuItem.Name = "TreinamentosToolStripMenuItem"
+        Me.TreinamentosToolStripMenuItem.Size = New System.Drawing.Size(297, 26)
+        Me.TreinamentosToolStripMenuItem.Text = "Treinamentos"
+        '
+        'ToolStripSeparator27
+        '
+        Me.ToolStripSeparator27.Name = "ToolStripSeparator27"
+        Me.ToolStripSeparator27.Size = New System.Drawing.Size(294, 6)
+        '
+        'CategoriasToolStripMenuItem
+        '
+        Me.CategoriasToolStripMenuItem.Name = "CategoriasToolStripMenuItem"
+        Me.CategoriasToolStripMenuItem.Size = New System.Drawing.Size(297, 26)
+        Me.CategoriasToolStripMenuItem.Text = "Categorias dos trabalhadores"
+        '
+        'ToolStripSeparator24
+        '
+        Me.ToolStripSeparator24.Name = "ToolStripSeparator24"
+        Me.ToolStripSeparator24.Size = New System.Drawing.Size(221, 6)
+        '
         'ToolStripMenuItem9
         '
         Me.ToolStripMenuItem9.Name = "ToolStripMenuItem9"
@@ -1188,10 +1225,10 @@ Partial Class FrmPrincipal
         Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
         Me.ClientesToolStripMenuItem.Text = "Clientes"
         '
-        'ToolStripSeparator24
+        'ToolStripSeparator26
         '
-        Me.ToolStripSeparator24.Name = "ToolStripSeparator24"
-        Me.ToolStripSeparator24.Size = New System.Drawing.Size(221, 6)
+        Me.ToolStripSeparator26.Name = "ToolStripSeparator26"
+        Me.ToolStripSeparator26.Size = New System.Drawing.Size(221, 6)
         '
         'ToolStripMenuItem8
         '
@@ -1212,9 +1249,16 @@ Partial Class FrmPrincipal
         '
         'ESocialToolStripMenuItem
         '
+        Me.ESocialToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem, Me.ToolStripSeparator28, Me.AbrirPainelEmissorToolStripMenuItem})
         Me.ESocialToolStripMenuItem.Name = "ESocialToolStripMenuItem"
         Me.ESocialToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
         Me.ESocialToolStripMenuItem.Text = "E-Social"
+        '
+        'S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem
+        '
+        Me.S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem.Name = "S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem"
+        Me.S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem.Size = New System.Drawing.Size(417, 26)
+        Me.S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem.Text = "S-2210 - Comunicação de acidente de trabalho"
         '
         'ToolStripSeparator25
         '
@@ -1598,17 +1642,17 @@ Partial Class FrmPrincipal
         '
         Me.Chart4.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Chart4.BorderlineColor = System.Drawing.Color.WhiteSmoke
-        ChartArea15.Name = "ChartArea1"
-        Me.Chart4.ChartAreas.Add(ChartArea15)
+        ChartArea7.Name = "ChartArea1"
+        Me.Chart4.ChartAreas.Add(ChartArea7)
         Me.Chart4.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend15.Name = "Legend1"
-        Me.Chart4.Legends.Add(Legend15)
+        Legend7.Name = "Legend1"
+        Me.Chart4.Legends.Add(Legend7)
         Me.Chart4.Location = New System.Drawing.Point(2, 0)
         Me.Chart4.Name = "Chart4"
-        Series15.ChartArea = "ChartArea1"
-        Series15.Legend = "Legend1"
-        Series15.Name = "Series1"
-        Me.Chart4.Series.Add(Series15)
+        Series7.ChartArea = "ChartArea1"
+        Series7.Legend = "Legend1"
+        Series7.Name = "Series1"
+        Me.Chart4.Series.Add(Series7)
         Me.Chart4.Size = New System.Drawing.Size(734, 234)
         Me.Chart4.TabIndex = 3
         Me.Chart4.Text = "Chart4"
@@ -2063,27 +2107,27 @@ Partial Class FrmPrincipal
         Me.Chart3.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Scaled
         Me.Chart3.BorderlineColor = System.Drawing.Color.WhiteSmoke
         Me.Chart3.BorderlineWidth = 0
-        ChartArea16.AlignmentOrientation = CType((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical Or System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal), System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)
-        ChartArea16.BackColor = System.Drawing.Color.Gainsboro
-        ChartArea16.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center
-        ChartArea16.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Scaled
-        ChartArea16.BorderColor = System.Drawing.Color.Transparent
-        ChartArea16.Name = "ChartArea1"
-        Me.Chart3.ChartAreas.Add(ChartArea16)
+        ChartArea8.AlignmentOrientation = CType((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical Or System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal), System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)
+        ChartArea8.BackColor = System.Drawing.Color.Gainsboro
+        ChartArea8.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center
+        ChartArea8.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Scaled
+        ChartArea8.BorderColor = System.Drawing.Color.Transparent
+        ChartArea8.Name = "ChartArea1"
+        Me.Chart3.ChartAreas.Add(ChartArea8)
         Me.Chart3.Dock = System.Windows.Forms.DockStyle.Fill
-        Legend16.Alignment = System.Drawing.StringAlignment.Far
-        Legend16.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom
-        Legend16.Name = "Legend1"
-        Me.Chart3.Legends.Add(Legend16)
+        Legend8.Alignment = System.Drawing.StringAlignment.Far
+        Legend8.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom
+        Legend8.Name = "Legend1"
+        Me.Chart3.Legends.Add(Legend8)
         Me.Chart3.Location = New System.Drawing.Point(530, 32)
         Me.Chart3.Name = "Chart3"
-        Series16.ChartArea = "ChartArea1"
-        Series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Stock
-        Series16.Legend = "Legend1"
-        Series16.MarkerImageTransparentColor = System.Drawing.Color.Red
-        Series16.Name = "Series1"
-        Series16.YValuesPerPoint = 4
-        Me.Chart3.Series.Add(Series16)
+        Series8.ChartArea = "ChartArea1"
+        Series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Stock
+        Series8.Legend = "Legend1"
+        Series8.MarkerImageTransparentColor = System.Drawing.Color.Red
+        Series8.Name = "Series1"
+        Series8.YValuesPerPoint = 4
+        Me.Chart3.Series.Add(Series8)
         Me.Chart3.Size = New System.Drawing.Size(507, 530)
         Me.Chart3.TabIndex = 5
         Me.Chart3.Text = "Chart3"
@@ -2113,35 +2157,35 @@ Partial Class FrmPrincipal
         Me.DtPatio.AllowUserToDeleteRows = False
         Me.DtPatio.AllowUserToResizeColumns = False
         Me.DtPatio.AllowUserToResizeRows = False
-        DataGridViewCellStyle16.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle16.ForeColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.Gainsboro
-        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.DarkSlateGray
-        Me.DtPatio.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Gainsboro
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.DarkSlateGray
+        Me.DtPatio.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
         Me.DtPatio.BackgroundColor = System.Drawing.Color.WhiteSmoke
         Me.DtPatio.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DtPatio.CausesValidation = False
         Me.DtPatio.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.DtPatio.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle17.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle17.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle17.ForeColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DtPatio.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DtPatio.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.DtPatio.ColumnHeadersHeight = 29
         Me.DtPatio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DtPatio.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9})
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle18.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle18.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle18.ForeColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.Gainsboro
-        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DtPatio.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Gainsboro
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DtPatio.DefaultCellStyle = DataGridViewCellStyle8
         Me.DtPatio.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DtPatio.EnableHeadersVisualStyles = False
         Me.DtPatio.GridColor = System.Drawing.Color.Gainsboro
@@ -2149,22 +2193,22 @@ Partial Class FrmPrincipal
         Me.DtPatio.MultiSelect = False
         Me.DtPatio.Name = "DtPatio"
         Me.DtPatio.ReadOnly = True
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle19.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle19.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle19.ForeColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Gainsboro
-        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DtPatio.RowHeadersDefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Gainsboro
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DtPatio.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.DtPatio.RowHeadersVisible = False
         Me.DtPatio.RowHeadersWidth = 100
         Me.DtPatio.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle20.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle20.ForeColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Gainsboro
-        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.DarkSlateGray
-        Me.DtPatio.RowsDefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Gainsboro
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.DarkSlateGray
+        Me.DtPatio.RowsDefaultCellStyle = DataGridViewCellStyle10
         Me.DtPatio.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DtPatio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DtPatio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -3434,43 +3478,20 @@ Partial Class FrmPrincipal
         Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         '
-        'ToolStripSeparator26
-        '
-        Me.ToolStripSeparator26.Name = "ToolStripSeparator26"
-        Me.ToolStripSeparator26.Size = New System.Drawing.Size(221, 6)
-        '
-        'RiscosToolStripMenuItem
-        '
-        Me.RiscosToolStripMenuItem.Name = "RiscosToolStripMenuItem"
-        Me.RiscosToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
-        Me.RiscosToolStripMenuItem.Text = "Riscos"
-        '
-        'ExamesToolStripMenuItem
-        '
-        Me.ExamesToolStripMenuItem.Name = "ExamesToolStripMenuItem"
-        Me.ExamesToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
-        Me.ExamesToolStripMenuItem.Text = "Exames"
-        '
-        'TreinamentosToolStripMenuItem
-        '
-        Me.TreinamentosToolStripMenuItem.Name = "TreinamentosToolStripMenuItem"
-        Me.TreinamentosToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
-        Me.TreinamentosToolStripMenuItem.Text = "Treinamentos"
-        '
-        'ToolStripSeparator27
-        '
-        Me.ToolStripSeparator27.Name = "ToolStripSeparator27"
-        Me.ToolStripSeparator27.Size = New System.Drawing.Size(221, 6)
-        '
-        'CategoriasToolStripMenuItem
-        '
-        Me.CategoriasToolStripMenuItem.Name = "CategoriasToolStripMenuItem"
-        Me.CategoriasToolStripMenuItem.Size = New System.Drawing.Size(297, 26)
-        Me.CategoriasToolStripMenuItem.Text = "Categorias dos trabalhadores"
-        '
         'Timer2
         '
         Me.Timer2.Interval = 1000
+        '
+        'ToolStripSeparator28
+        '
+        Me.ToolStripSeparator28.Name = "ToolStripSeparator28"
+        Me.ToolStripSeparator28.Size = New System.Drawing.Size(414, 6)
+        '
+        'AbrirPainelEmissorToolStripMenuItem
+        '
+        Me.AbrirPainelEmissorToolStripMenuItem.Name = "AbrirPainelEmissorToolStripMenuItem"
+        Me.AbrirPainelEmissorToolStripMenuItem.Size = New System.Drawing.Size(417, 26)
+        Me.AbrirPainelEmissorToolStripMenuItem.Text = "Abrir painel emissor"
         '
         'FrmPrincipal
         '
@@ -3872,4 +3893,7 @@ Partial Class FrmPrincipal
     Friend WithEvents CategoriasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator26 As ToolStripSeparator
     Friend WithEvents Timer2 As Timer
+    Friend WithEvents S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator28 As ToolStripSeparator
+    Friend WithEvents AbrirPainelEmissorToolStripMenuItem As ToolStripMenuItem
 End Class
