@@ -185,6 +185,7 @@
     <Compile Include="Chave_de_comando_manual.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Class1.vb" />
     <Compile Include="ClasseLogin.vb" />
     <Compile Include="ClasseValidaLogin.vb" />
     <Compile Include="Classe_Veiculos_Oficina.vb" />

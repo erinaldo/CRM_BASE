@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net
+Imports System.Security.Cryptography
 Imports System.Security.Cryptography.X509Certificates
 Imports System.Security.Cryptography.Xml
 Imports System.Text
@@ -466,7 +467,13 @@ Public Class Form2210
         LqTrabalhista.InsereESocial(LstIDCliente.Items(CmbTodosClientes.SelectedIndex).ToString, LstIdColaborador.Items(CmbColaboradores.SelectedIndex).ToString _
                                     , "S-2210", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, "C:\Iara\ESocial\" & Identificacao & ".xml", Identificacao)
 
+        'inicia o processo de assinatura
+
+        'assina documento
+
         SelecionarCertificado("C:\Iara\ESocial\" & Identificacao & ".xml", Identificacao)
+
+
 
     End Sub
 
@@ -477,16 +484,18 @@ Public Class Form2210
     Dim ObjCertificadoX509 As New X509Certificate2
     Dim GetCerificateX509 As New X509Store("MY", StoreLocation.CurrentUser)
     Dim objColecaoCertificadosX509 As New X509Certificate2Collection
+
+
     Private Sub SelecionarCertificado(ByVal ArqXmlAssinar As String, ByVal StrIdentificacao As String)
 
         'Try
 
         GetCerificateX509.Open(OpenFlags.ReadOnly Or OpenFlags.OpenExistingOnly)
 
-            objColecaoCertificadosX509 = X509Certificate2UI.SelectFromCollection(GetCerificateX509.Certificates,
-    "Certificado(s) dísponível(is)", "Selecione o certificado.", X509SelectionFlag.SingleSelection)
+        objColecaoCertificadosX509 = X509Certificate2UI.SelectFromCollection(GetCerificateX509.Certificates,
+"Certificado(s) dísponível(is)", "Selecione o certificado.", X509SelectionFlag.SingleSelection)
 
-            If objColecaoCertificadosX509.Count > 0 Then
+        If objColecaoCertificadosX509.Count > 0 Then
 
             AssinarDocumentoXML(ArqXmlAssinar, "Signature", objColecaoCertificadosX509.Item(0).SerialNumber.ToString, StrIdentificacao)
 
@@ -501,67 +510,36 @@ Public Class Form2210
     End Sub
     Private Sub AssinarDocumentoXML(ByVal ArqXmlAssinar As String, ByVal TagXml As String, ByVal StrSercialCertifiado As String, ByVal StrIdentificacao As String)
 
-        Dim sdrDocXml As StreamReader
-        Dim strXML As String
-        Dim strTagXML As String = TagXml
+        Try
 
-        sdrDocXml = File.OpenText(ArqXmlAssinar)
-        strXML = sdrDocXml.ReadToEnd()
-        sdrDocXml.Close()
+            Dim Certificado As X509Certificate2
+            Certificado = objColecaoCertificadosX509.Item(0)
 
-        Dim objColecaoCertificadoX509 As X509Certificate2Collection = Nothing
-        Dim objCertificadoX509 As New X509Certificate2()
-        Dim getCertificadoX509 As New X509Store("MY", StoreLocation.CurrentUser)
+            Dim crypto As RSACryptoServiceProvider
+            crypto = Certificado.PrivateKey
 
-        getCertificadoX509.Open(OpenFlags.ReadOnly Or OpenFlags.OpenExistingOnly)
+            Dim arquivo As FileInfo = New FileInfo(ArqXmlAssinar)
+            Dim FS As FileStream = arquivo.OpenRead()
 
-        objColecaoCertificadosX509 = getCertificadoX509.Certificates.Find(X509FindType.FindBySerialNumber, StrSercialCertifiado, True)
+            Dim signature As Byte() = crypto.SignData(FS, New SHA1Managed())
 
-        If objColecaoCertificadosX509.Count = 1 Then
+            Dim FsCrypto As FileStream
 
-            objCertificadoX509 = objColecaoCertificadosX509.Item(0)
+            FsCrypto = New FileStream(ArqXmlAssinar & ".signature", FileMode.Create)
+            FsCrypto.Write(signature, 0, signature.Length())
 
-            Dim DocXML = New XmlDocument
-            DocXML.PreserveWhitespace = False
-            DocXML.Load(ArqXmlAssinar)
+            FsCrypto = New FileStream(ArqXmlAssinar & ".key", FileMode.Create)
+            Dim XmlCert As String = crypto.ToXmlString(False)
+            FsCrypto.Write(Encoding.Default.GetBytes(XmlCert), 0, XmlCert.Length)
 
-            If DocXML.GetElementsByTagName(strTagXML).Count = 1 Then
+            MsgBox("Arquivo assinado com sucesso!", vbOKOnly)
 
-                Dim SignedXML As New SignedXml(DocXML)
-                SignedXML.SigningKey = objCertificadoX509.PrivateKey
+        Catch ex As Exception
 
-                Dim Referencia As New Reference()
-                Referencia.Uri = ""
+            MsgBox("Erro ao assinar arquivo!", vbOKOnly)
 
-                Dim env As New XmlDsigEnvelopedSignatureTransform
+        End Try
 
-                Referencia.AddTransform(env)
-
-                Dim c14 As New XmlDsigC14NTransform
-
-                Referencia.AddTransform(c14)
-
-                SignedXML.AddReference(Referencia)
-
-                Dim KeyInfo As New KeyInfo
-                KeyInfo.AddClause(New KeyInfoX509Data(objCertificadoX509))
-
-                SignedXML.KeyInfo = KeyInfo
-
-                Try
-
-                    SignedXML.ComputeSignature()
-                    MsgBox("Ate aqui ok")
-
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-
-                End Try
-
-
-            End If
-
-        End If
 
     End Sub
 
