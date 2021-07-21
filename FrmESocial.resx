@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="Column9.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -135,16 +138,19 @@
   <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Column8.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column8.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Column7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="ClmCancelar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="ClmTransmitir.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column10.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="ImageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -154,28 +160,27 @@
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACy
-        BAAAAk1TRnQBSQFMAgEBAgEAAWABAAFgAQABEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
-        AwABEAMAAQEBAAEgBgABEBIAQP/AAED/CAACJwEtATcCRgFbAWwgAAJGAVsBbAInAS0BN4gAQP8EAAIn
-        AS0BNwJ/AeAB8AKLAfQB/wJIAV8BcRgAAkgBXwFxAosB9AH/An8B4AHwAicBLQE3hABA/wQAAkYBWwFs
-        AosB9AH/Ao8B9wH/AosB9AH/AkgBXwFxEAACSAFfAXECiwH0Af8CjwH3Af8CigH0Af8CRgFbAWyEABz/
-        A5oB/wP+Hf8IAAJIAV8BcQKLAfQB/wKPAfcB/wKLAfQB/wJIAV8BcQgAAkgBXwFxAosB9AH/Ao8B9wH/
-        AooB9AH/AkgBXwFxiAAM/wPEAf8DmwH/A5oB/wOaAf8DPAH/A5EB/wP+Af8DmgH/A5sB/wPEDf8MAAJI
-        AV8BcQKLAfQB/wKPAfcB/wKLAfQB/wJIAV8BcQJIAV8BcQKLAfQB/wKPAfcB/wKKAfQB/wJIAV8BcYwA
-        CP8DoAH/A8YB/wP8Af8D/QH/A/0B/wNUAf8D2AX/A/0B/wP8Af8DxQH/A6AJ/xAAAkgBXwFxAosB9AH/
-        Ao8B9wH/AosB9AH/AosB9AH/Ao8B9wH/AooB9AH/AkgBXwFxkAAE/wP5Af8DmRH/A+MV/wOZAf8D+QX/
-        FAACSAFfAXECiwH0Af8CjwH3Af8CjwH3Af8CiwH0Af8CSAFfAXGUAAT/A/gB/wObFf8D6RH/A5sB/wP4
-        Bf8UAAJIAV8BcQKLAfQB/wKPAfcB/wKPAfcB/wKLAfQB/wJIAV8BcZQACP8DmgH/A9IN/wPZAf8DYA3/
-        A9IB/wOaCf8QAAJIAV8BcQKLAfQB/wKPAfcB/wKLAfQB/wKLAfQB/wKPAfcB/wKLAfQB/wJIAV8BcZAA
-        CP8D/gH/A7cB/wOYAf8DmQH/A/4B/wOCAf8DQQH/A5gB/wOYAf8DmAH/A7cB/wP9Cf8MAAJIAV8BcQKL
-        AfQB/wKPAfcB/wKLAfQB/wJIAV8BcQJIAV8BcQKLAfQB/wKPAfcB/wKLAfQB/wJIAV8BcYwAHP8D+wH/
-        A5Id/wgAAkgBXwFxAosB9AH/Ao8B9wH/AosB9AH/AkgBXwFxCAACSAFfAXECiwH0Af8CjwH3Af8CiwH0
-        Af8CSAFfAXGIACD/A/4d/wQAAkYBWwFsAosB9AH/Ao8B9wH/AosB9AH/AkgBXwFxEAACSAFfAXECiwH0
-        Af8CjwH3Af8CiwH0Af8CRgFbAWyEAED/BAACJwEtATcCfwHgAfACiwH0Af8CSAFfAXEYAAJIAV8BcQKL
-        AfQB/wJ/AeAB8AInAS0BN4QAQP8IAAInAS0BNwJGAVsBbCAAAkYBWwFsAicBLQE3iABA/8AAAUIBTQE+
-        BwABPgMAASgDAAFAAwABEAMAAQEBAAEBBQABgBcAA/8DAAL/BgABzwHzBgABhwHhBgABgwHBBgABwQGD
-        BgAB4AEHBgAB8AEPBgAB+AEfBgAB+AEfBgAB8AEPBgAB4AEHBgABwQGDBgABgwHBBgABhwHhBgABzwHz
-        BgAC/wQACw==
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACi
+        BAAAAk1TRnQBSQFMAgEBAgEAAXABAAFwAQABEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        AwABEAMAAQEBAAEgBgABEBIAQP/AAED/CAADJQE3Aj8BQAFsIAACPwFAAWwDJQE3iABA/wQAAyUBNwJ5
+        AcUB8AKLAfQB/wJAAUEBcRgAAkABQQFxAosB9AH/AnkBxQHwAyUBN4QAQP8EAAI/AUABbAKLAfQB/wKP
+        AfcB/wKLAfQB/wJAAUEBcRAAAkABQQFxAosB9AH/Ao8B9wH/AooB9AH/Aj8BQAFshAAc/wOaAf8D/h3/
+        CAACQAFBAXECiwH0Af8CjwH3Af8CiwH0Af8CQAFBAXEIAAJAAUEBcQKLAfQB/wKPAfcB/wKKAfQB/wJA
+        AUEBcYgADP8DxAH/A5sB/wOaAf8DmgH/AzoB/wORAf8D/gH/A5oB/wObAf8DxA3/DAACQAFBAXECiwH0
+        Af8CjwH3Af8CiwH0Af8CQAFBAXECQAFBAXECiwH0Af8CjwH3Af8CigH0Af8CQAFBAXGMAAj/A6AB/wPG
+        Af8D/AH/A/0B/wP9Af8DUgH/A9gF/wP9Af8D/AH/A8UB/wOgCf8QAAJAAUEBcQKLAfQB/wKPAfcB/wKL
+        AfQB/wKLAfQB/wKPAfcB/wKKAfQB/wJAAUEBcZAABP8D+QH/A5kR/wPjFf8DmQH/A/kF/xQAAkABQQFx
+        AosB9AH/Ao8B9wH/Ao8B9wH/AosB9AH/AkABQQFxlAAE/wP4Af8DmxX/A+kR/wObAf8D+AX/FAACQAFB
+        AXECiwH0Af8CjwH3Af8CjwH3Af8CiwH0Af8CQAFBAXGUAAj/A5oB/wPSDf8D2QH/A14N/wPSAf8Dmgn/
+        EAACQAFBAXECiwH0Af8CjwH3Af8CiwH0Af8CiwH0Af8CjwH3Af8CiwH0Af8CQAFBAXGQAAj/A/4B/wO3
+        Af8DmAH/A5kB/wP+Af8DggH/Az8B/wOYAf8DmAH/A5gB/wO3Af8D/Qn/DAACQAFBAXECiwH0Af8CjwH3
+        Af8CiwH0Af8CQAFBAXECQAFBAXECiwH0Af8CjwH3Af8CiwH0Af8CQAFBAXGMABz/A/sB/wOSHf8IAAJA
+        AUEBcQKLAfQB/wKPAfcB/wKLAfQB/wJAAUEBcQgAAkABQQFxAosB9AH/Ao8B9wH/AosB9AH/AkABQQFx
+        iAAg/wP+Hf8EAAI/AUABbAKLAfQB/wKPAfcB/wKLAfQB/wJAAUEBcRAAAkABQQFxAosB9AH/Ao8B9wH/
+        AosB9AH/Aj8BQAFshABA/wQAAyUBNwJ5AcUB8AKLAfQB/wJAAUEBcRgAAkABQQFxAosB9AH/AnkBxQHw
+        AyUBN4QAQP8IAAMlATcCPwFAAWwgAAI/AUABbAMlATeIAED/wAABQgFNAT4HAAE+AwABKAMAAUADAAEQ
+        AwABAQEAAQEFAAGAFwAD/wMAAv8GAAHPAfMGAAGHAeEGAAGDAcEGAAHBAYMGAAHgAQcGAAHwAQ8GAAH4
+        AR8GAAH4AR8GAAHwAQ8GAAHgAQcGAAHBAYMGAAGDAcEGAAGHAeEGAAHPAfMGAAL/BAAL
 </value>
   </data>
 </root>

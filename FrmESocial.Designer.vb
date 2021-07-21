@@ -45,16 +45,18 @@ Partial Class FrmESocial
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DtProdutos = New System.Windows.Forms.DataGridView()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ClmCancelar = New System.Windows.Forms.DataGridViewImageColumn()
         Me.ClmTransmitir = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PnnInferior.SuspendLayout()
         Me.Panel12.SuspendLayout()
         CType(Me.DtProdutos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -217,7 +219,7 @@ Partial Class FrmESocial
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DtProdutos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DtProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DtProdutos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column2, Me.Column5, Me.Column3, Me.Column4, Me.Column1, Me.Column6, Me.Column7, Me.Column8, Me.ClmCancelar, Me.ClmTransmitir})
+        Me.DtProdutos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column9, Me.Column2, Me.Column5, Me.Column3, Me.Column4, Me.Column1, Me.Column6, Me.Column8, Me.Column7, Me.ClmCancelar, Me.ClmTransmitir, Me.Column10})
         DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke
         DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
@@ -244,6 +246,14 @@ Partial Class FrmESocial
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         Me.ImageList1.Images.SetKeyName(0, "344979-sincronizar-icones-de-glifo-grátis-vetor.jpg")
         Me.ImageList1.Images.SetKeyName(1, "delete_80_icon_icons_com_57340.png")
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Status"
+        Me.Column9.MinimumWidth = 6
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        Me.Column9.Width = 125
         '
         'Column2
         '
@@ -284,6 +294,7 @@ Partial Class FrmESocial
         Me.Column4.MinimumWidth = 6
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
+        Me.Column4.Width = 125
         '
         'Column1
         '
@@ -293,6 +304,7 @@ Partial Class FrmESocial
         Me.Column1.MinimumWidth = 6
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
+        Me.Column1.Visible = False
         Me.Column1.Width = 90
         '
         'Column6
@@ -301,15 +313,8 @@ Partial Class FrmESocial
         Me.Column6.MinimumWidth = 6
         Me.Column6.Name = "Column6"
         Me.Column6.ReadOnly = True
+        Me.Column6.Visible = False
         Me.Column6.Width = 75
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "Data do aceite"
-        Me.Column7.MinimumWidth = 6
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.Width = 90
         '
         'Column8
         '
@@ -317,7 +322,17 @@ Partial Class FrmESocial
         Me.Column8.MinimumWidth = 6
         Me.Column8.Name = "Column8"
         Me.Column8.ReadOnly = True
+        Me.Column8.Visible = False
         Me.Column8.Width = 75
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "Data do aceite"
+        Me.Column7.MinimumWidth = 6
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        Me.Column7.Visible = False
+        Me.Column7.Width = 90
         '
         'ClmCancelar
         '
@@ -335,6 +350,14 @@ Partial Class FrmESocial
         Me.ClmTransmitir.Name = "ClmTransmitir"
         Me.ClmTransmitir.ReadOnly = True
         Me.ClmTransmitir.Width = 30
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "Arquivo assinatura"
+        Me.Column10.MinimumWidth = 6
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        Me.Column10.Width = 125
         '
         'FrmESocial
         '
@@ -374,14 +397,16 @@ Partial Class FrmESocial
     Friend WithEvents Label1 As Label
     Friend WithEvents DtProdutos As DataGridView
     Friend WithEvents ImageList1 As ImageList
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
     Friend WithEvents ClmCancelar As DataGridViewImageColumn
     Friend WithEvents ClmTransmitir As DataGridViewImageColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
 End Class

@@ -784,7 +784,7 @@ Partial Public Class ImagensProdutosIara
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Imagem", DbType:="Image", UpdateCheck:=UpdateCheck.Never)>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Imagem", DbType:="Image", CanBeNull:=true, UpdateCheck:=UpdateCheck.Never)>  _
 	Public Property Imagem() As System.Data.Linq.Binary
 		Get
 			Return Me._Imagem

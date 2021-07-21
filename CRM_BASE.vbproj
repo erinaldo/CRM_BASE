@@ -15,6 +15,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>D:\Bakucp Donw\WebSite\System\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -127,6 +128,8 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
@@ -140,7 +143,9 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
@@ -207,6 +212,7 @@
     <Compile Include="DtCadastro.vb">
       <DependentUpon>DtCadastro.dbml</DependentUpon>
     </Compile>
+    <Compile Include="EnvioSST.vb" />
     <Compile Include="FemCompras.Designer.vb">
       <DependentUpon>FemCompras.vb</DependentUpon>
     </Compile>
@@ -1403,6 +1409,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IInternetEnabled.vb" />
+    <Compile Include="LoteEnvioResponseDTO.vb" />
     <Compile Include="LqComercial.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1475,7 +1482,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OficinaDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ServicoEnviarLoteEventosClient.vb" />
     <Compile Include="Telefone.vb" />
+    <Compile Include="Web References\WebReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Chave_de_comando_manual.resx">
@@ -2173,6 +2186,12 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="Web References\WebReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\WebReference\ServicoEnviarLoteEventos.wsdl" />
+    <None Include="WsEnviarLoteEventos.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -2806,6 +2825,22 @@
     <None Include="Resources\globe_disconnected_21030.png" />
     <None Include="Resources\antipatia.png" />
     <None Include="Resources\gostar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="C:\Iara\ESocial\pacote-de-comunicacao-esocial-v1-5\Pacote de Comunicação eSocial v1.5\WSDL\LoteEventos\WsEnviarLoteEventos-v1_1_0.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebReference\</RelPath>
+      <UpdateFromURL>C:\Iara\ESocial\pacote-de-comunicacao-esocial-v1-5\Pacote de Comunicação eSocial v1.5\WSDL\LoteEventos\WsEnviarLoteEventos-v1_1_0.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CRM_BASE_WebReference_ServicoEnviarLoteEventos</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

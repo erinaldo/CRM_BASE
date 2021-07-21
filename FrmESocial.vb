@@ -4,6 +4,10 @@ Imports System.IO
 Imports System.Security.Cryptography
 Imports System.Security.Cryptography.X509Certificates
 Imports System.Security.Cryptography.Xml
+Imports System.ServiceModel
+Imports CRM_BASE.WebReference
+Imports Newtonsoft.Json
+Imports Newtonsoft.Json.Serialization
 
 Public Class FrmESocial
 
@@ -117,7 +121,7 @@ Public Class FrmESocial
 
         Dim BuscaTrab = From trab In LqTrabalhista.ESocial
                         Where trab.IdESocial Like "*"
-                        Select trab.IdColaborador, trab.IdCliente, trab.HoraResposta, trab.DataResposta, trab.HoraSolicitacao, trab.DataSolicitacao, trab.Evento, trab.IdESocial
+                        Select trab.Arquivo, trab.Status, trab.IdColaborador, trab.IdCliente, trab.HoraResposta, trab.DataResposta, trab.HoraSolicitacao, trab.DataSolicitacao, trab.Evento, trab.IdESocial
 
         For Each rw In BuscaTrab.ToList
 
@@ -143,7 +147,7 @@ Public Class FrmESocial
 
             End If
 
-            DtProdutos.Rows.Add(rw.IdESocial, _NomeColaborador, _DocColaborador, rw.Evento, FormatDateTime(rw.DataSolicitacao, DateFormat.ShortDate), FormatDateTime(rw.HoraSolicitacao.ToString, DateFormat.ShortTime), DtFinal, HrFinal, ImageList1.Images(1), ImageList1.Images(0))
+            DtProdutos.Rows.Add(rw.Status, rw.IdESocial, _NomeColaborador, _DocColaborador, rw.Evento, FormatDateTime(rw.DataSolicitacao, DateFormat.ShortDate), FormatDateTime(rw.HoraSolicitacao.ToString, DateFormat.ShortTime), DtFinal, HrFinal, ImageList1.Images(1), ImageList1.Images(0), rw.Arquivo)
 
         Next
 
@@ -155,4 +159,41 @@ Public Class FrmESocial
 
 
     End Sub
+
+    Private Sub DtProdutos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DtProdutos.CellDoubleClick
+
+        ArqStr = DtProdutos.SelectedCells(11).Value
+        TaskOfTResult_MethodAsync()
+
+    End Sub
+
+    Dim ArqStr As String = ""
+
+    Async Function TaskOfTResult_MethodAsync() As Task(Of String)
+
+        Dim Certificado As X509Certificate2
+        Certificado = objColecaoCertificadosX509.Item(0)
+        Dim Key As RSA = Certificado.GetRSAPrivateKey
+
+        Dim myBinding = New BasicHttpsBinding()
+        myBinding.Security.Mode = SecurityMode.Transport
+        myBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Certificate
+
+        Dim Client As ServicoEnviarLoteEventos = New ServicoEnviarLoteEventos(myBinding)
+
+        Client.ClientCertificates.Add(Certificado)
+
+        Dim doc As XmlDocument = New XmlDocument()
+        doc.Load(New XmlTextReader(ArqStr))
+
+        Dim result As String = Await Client.EnviarLoteEventosAsync(doc.DocumentElement)
+        Dim json As String = JsonConvert.SerializeObject(result, Newtonsoft.Json.Formatting.Indented, New JsonSerializerSettings With {
+.ContractResolver = New CamelCasePropertyNamesContractResolver()})
+
+        Return json
+
+    End Function
+
 End Class
+
+

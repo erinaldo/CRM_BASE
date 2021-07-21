@@ -1969,7 +1969,7 @@ Partial Public Class FabricantesVeiculo
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Logomarca", DbType:="Image", UpdateCheck:=UpdateCheck.Never)>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Logomarca", DbType:="Image", CanBeNull:=true, UpdateCheck:=UpdateCheck.Never)>  _
 	Public Property Logomarca() As System.Data.Linq.Binary
 		Get
 			Return Me._Logomarca
@@ -4889,7 +4889,7 @@ Partial Public Class ImagemRespostaCklist
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Imagem", DbType:="Image", UpdateCheck:=UpdateCheck.Never)>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Imagem", DbType:="Image", CanBeNull:=true, UpdateCheck:=UpdateCheck.Never)>  _
 	Public Property Imagem() As System.Data.Linq.Binary
 		Get
 			Return Me._Imagem
@@ -9293,7 +9293,7 @@ Partial Public Class ImagemVeiculosColetado
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ImagemColetado", DbType:="Image", UpdateCheck:=UpdateCheck.Never)>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ImagemColetado", DbType:="Image", CanBeNull:=true, UpdateCheck:=UpdateCheck.Never)>  _
 	Public Property ImagemColetado() As System.Data.Linq.Binary
 		Get
 			Return Me._ImagemColetado
@@ -9325,7 +9325,7 @@ Partial Public Class ImagemVeiculosColetado
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ImagemColetadoFim", DbType:="Image", UpdateCheck:=UpdateCheck.Never)>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ImagemColetadoFim", DbType:="Image", CanBeNull:=true, UpdateCheck:=UpdateCheck.Never)>  _
 	Public Property ImagemColetadoFim() As System.Data.Linq.Binary
 		Get
 			Return Me._ImagemColetadoFim

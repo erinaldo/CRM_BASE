@@ -1,26 +1,24 @@
 ﻿Imports System
-Imports System.Collections.Generic
-Imports System.Linq
-Imports System.Text
-Imports System.Threading.Tasks
 Imports System.Security.Cryptography
 Imports System.Security.Cryptography.X509Certificates
 Imports System.Security.Cryptography.Xml
+Imports System.ServiceModel
+Imports System.Text
 Imports System.Xml
-Imports System.Deployment.Internal.CodeSigning
+Imports CRM_BASE.WebReference
 
 Namespace SignVerify
+
     Public Class SignVerifyEnvelope
         Public Shared Sub Main(ByVal args As String())
             Try
-                CryptoConfig.AddAlgorithm(GetType(RSAPKCS1SHA256SignatureDescription), "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256")
-                Dim Key As RSACryptoServiceProvider = New RSACryptoServiceProvider()
+                Dim Key As RSA = RSA.Create()
                 CreateSomeXml("Example.xml")
                 Console.WriteLine("New XML file created.")
-                SignXmlFile("Example.xml", "signedExample.xml", Key)
+                SignXmlFile("Example.xml", "SignedExample.xml", Key)
                 Console.WriteLine("XML file signed.")
                 Console.WriteLine("Verifying signature...")
-                Dim result As Boolean = VerifyXmlFile("SignedExample.xml", Key)
+                Dim result As Boolean = VerifyXmlFile("SignedExample.xml")
 
                 If result Then
                     Console.WriteLine("The XML signature is valid.")
@@ -35,16 +33,19 @@ Namespace SignVerify
 
         Public Shared Sub SignXmlFile(ByVal FileName As String, ByVal SignedFileName As String, ByVal Key As RSA)
             Dim doc As XmlDocument = New XmlDocument()
+            doc.PreserveWhitespace = False
             doc.Load(New XmlTextReader(FileName))
+            'trata dados DOC
             Dim signedXml As SignedXml = New SignedXml(doc)
             signedXml.SigningKey = Key
-            signedXml.SignedInfo.SignatureMethod = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
             Dim reference As Reference = New Reference()
             reference.Uri = ""
-            reference.AddTransform(New XmlDsigEnvelopedSignatureTransform())
-            reference.AddTransform(New XmlDsigExcC14NTransform())
-            reference.DigestMethod = "http://www.w3.org/2001/04/xmlenc#sha256"
+            Dim env As XmlDsigEnvelopedSignatureTransform = New XmlDsigEnvelopedSignatureTransform()
+            reference.AddTransform(env)
             signedXml.AddReference(reference)
+            Dim keyInfo As KeyInfo = New KeyInfo()
+            keyInfo.AddClause(New RSAKeyValue(CType(Key, RSA)))
+            signedXml.KeyInfo = keyInfo
             signedXml.ComputeSignature()
             Dim xmlDigitalSignature As XmlElement = signedXml.GetXml()
             doc.DocumentElement.AppendChild(doc.ImportNode(xmlDigitalSignature, True))
@@ -58,13 +59,14 @@ Namespace SignVerify
             xmltw.Close()
         End Sub
 
-        Public Shared Function VerifyXmlFile(ByVal Name As String, ByVal Key As RSA) As Boolean
+        Public Shared Function VerifyXmlFile(ByVal Name As String) As Boolean
             Dim xmlDocument As XmlDocument = New XmlDocument()
+            xmlDocument.PreserveWhitespace = True
             xmlDocument.Load(Name)
             Dim signedXml As SignedXml = New SignedXml(xmlDocument)
             Dim nodeList As XmlNodeList = xmlDocument.GetElementsByTagName("Signature")
             signedXml.LoadXml(CType(nodeList(0), XmlElement))
-            Return signedXml.CheckSignature(Key)
+            Return signedXml.CheckSignature()
         End Function
 
         Public Shared Sub CreateSomeXml(ByVal FileName As String)
@@ -76,7 +78,9 @@ Namespace SignVerify
             document.WriteTo(xmltw)
             xmltw.Close()
         End Sub
+
     End Class
+
 End Namespace
 
 

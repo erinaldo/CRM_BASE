@@ -433,8 +433,8 @@ Partial Public Class LqTrabalhistaDataContext
 	End Function
 	
 	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.InsereESocial")>  _
-	Public Function InsereESocial(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdCliente", DbType:="Int")> ByVal idCliente As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdColaborador", DbType:="Int")> ByVal idColaborador As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Evento", DbType:="NText")> ByVal evento As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataSolicitacao", DbType:="Date")> ByVal dataSolicitacao As System.Nullable(Of Date), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="HoraSolicitacao", DbType:="Time")> ByVal horaSolicitacao As System.Nullable(Of System.TimeSpan), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataResposta", DbType:="Date")> ByVal dataResposta As System.Nullable(Of Date), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="HoraResposta", DbType:="Time")> ByVal horaResposta As System.Nullable(Of System.TimeSpan), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Arquivo", DbType:="NText")> ByVal arquivo As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IDEVENTO", DbType:="NChar(36)")> ByVal iDEVENTO As String) As Integer
-		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), idCliente, idColaborador, evento, dataSolicitacao, horaSolicitacao, dataResposta, horaResposta, arquivo, iDEVENTO)
+	Public Function InsereESocial(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdCliente", DbType:="Int")> ByVal idCliente As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdColaborador", DbType:="Int")> ByVal idColaborador As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Evento", DbType:="NText")> ByVal evento As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataSolicitacao", DbType:="Date")> ByVal dataSolicitacao As System.Nullable(Of Date), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="HoraSolicitacao", DbType:="Time")> ByVal horaSolicitacao As System.Nullable(Of System.TimeSpan), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataResposta", DbType:="Date")> ByVal dataResposta As System.Nullable(Of Date), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="HoraResposta", DbType:="Time")> ByVal horaResposta As System.Nullable(Of System.TimeSpan), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Arquivo", DbType:="NText")> ByVal arquivo As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IDEVENTO", DbType:="NChar(36)")> ByVal iDEVENTO As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Protocolo", DbType:="NText")> ByVal protocolo As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Recibo", DbType:="NText")> ByVal recibo As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Status", DbType:="Int")> ByVal status As System.Nullable(Of Integer)) As Integer
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), idCliente, idColaborador, evento, dataSolicitacao, horaSolicitacao, dataResposta, horaResposta, arquivo, iDEVENTO, protocolo, recibo, status)
 		Return CType(result.ReturnValue,Integer)
 	End Function
 End Class
@@ -3927,6 +3927,12 @@ Partial Public Class ESocial
 	
 	Private _IDEVENTO As String
 	
+	Private _Protocolo As String
+	
+	Private _Recibo As String
+	
+	Private _Status As System.Nullable(Of Integer)
+	
     #Region "Extensibility Method Definitions"
     Partial Private Sub OnLoaded()
     End Sub
@@ -3973,6 +3979,18 @@ Partial Public Class ESocial
     Partial Private Sub OnIDEVENTOChanging(value As String)
     End Sub
     Partial Private Sub OnIDEVENTOChanged()
+    End Sub
+    Partial Private Sub OnProtocoloChanging(value As String)
+    End Sub
+    Partial Private Sub OnProtocoloChanged()
+    End Sub
+    Partial Private Sub OnReciboChanging(value As String)
+    End Sub
+    Partial Private Sub OnReciboChanged()
+    End Sub
+    Partial Private Sub OnStatusChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnStatusChanged()
     End Sub
     #End Region
 	
@@ -4138,6 +4156,54 @@ Partial Public Class ESocial
 				Me._IDEVENTO = value
 				Me.SendPropertyChanged("IDEVENTO")
 				Me.OnIDEVENTOChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Protocolo", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Protocolo() As String
+		Get
+			Return Me._Protocolo
+		End Get
+		Set
+			If (String.Equals(Me._Protocolo, value) = false) Then
+				Me.OnProtocoloChanging(value)
+				Me.SendPropertyChanging
+				Me._Protocolo = value
+				Me.SendPropertyChanged("Protocolo")
+				Me.OnProtocoloChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Recibo", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Recibo() As String
+		Get
+			Return Me._Recibo
+		End Get
+		Set
+			If (String.Equals(Me._Recibo, value) = false) Then
+				Me.OnReciboChanging(value)
+				Me.SendPropertyChanging
+				Me._Recibo = value
+				Me.SendPropertyChanged("Recibo")
+				Me.OnReciboChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Status", DbType:="Int")>  _
+	Public Property Status() As System.Nullable(Of Integer)
+		Get
+			Return Me._Status
+		End Get
+		Set
+			If (Me._Status.Equals(value) = false) Then
+				Me.OnStatusChanging(value)
+				Me.SendPropertyChanging
+				Me._Status = value
+				Me.SendPropertyChanged("Status")
+				Me.OnStatusChanged
 			End If
 		End Set
 	End Property

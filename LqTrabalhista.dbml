@@ -339,6 +339,9 @@
       <Column Name="HoraResposta" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
       <Column Name="Arquivo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="IDEVENTO" Type="System.String" DbType="NChar(36)" CanBeNull="true" />
+      <Column Name="Protocolo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Recibo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.AtualizaSetorCliente" Method="AtualizaSetorCliente">
@@ -450,6 +453,9 @@
     <Parameter Name="HoraResposta" Parameter="horaResposta" Type="System.TimeSpan" DbType="Time" />
     <Parameter Name="Arquivo" Parameter="arquivo" Type="System.String" DbType="NText" />
     <Parameter Name="IDEVENTO" Parameter="iDEVENTO" Type="System.String" DbType="NChar(36)" />
+    <Parameter Name="Protocolo" Parameter="protocolo" Type="System.String" DbType="NText" />
+    <Parameter Name="Recibo" Parameter="recibo" Type="System.String" DbType="NText" />
+    <Parameter Name="Status" Parameter="status" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

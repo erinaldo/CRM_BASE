@@ -3,6 +3,7 @@ Imports System.Net
 Imports System.Security.Cryptography
 Imports System.Security.Cryptography.X509Certificates
 Imports System.Security.Cryptography.Xml
+Imports System.ServiceModel
 Imports System.Text
 Imports System.Text.RegularExpressions
 Imports System.Xml
@@ -27,15 +28,20 @@ Public Class Form2210
         Dim Persona As String = "2 - CPF"
         Dim PersonaSel As Integer = 2
 
-        If LstDoc.Items(CmbTodosClientes.SelectedIndex).ToString.Length = 14 Then
-            Persona = "2"
-            PersonaSel = 2
+        If CmbTodosClientes.Text <> "" Then
+            If LstDoc.Items(CmbTodosClientes.SelectedIndex).ToString.Length = 14 Then
+                Persona = "2"
+                PersonaSel = 2
+            Else
+                Persona = "1"
+                PersonaSel = 1
+            End If
         Else
-            Persona = "1"
-            PersonaSel = 1
+            Persona = "0"
+            PersonaSel = 0
         End If
 
-        Dim Doc As String
+        Dim Doc As String = "000000"
 
         If PersonaSel = 2 Then
 
@@ -104,7 +110,17 @@ Public Class Form2210
         Dim LqTrabalhista As New LqTrabalhistaDataContext
         LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
 
-        Dim IdSocial As String = LqTrabalhista.ESocial.ToList.Last.IdESocial
+        Dim IdSocial As String
+
+        If LqTrabalhista.ESocial.ToList.Count > 0 Then
+
+            IdSocial = LqTrabalhista.ESocial.ToList.Last.IdESocial
+
+        Else
+
+            IdSocial = "1"
+
+        End If
 
         If IdSocial.ToString.Length = 1 Then
 
@@ -127,7 +143,7 @@ Public Class Form2210
         Dim Identificacao As String = "ID" & PersonaSel & Doc & Today.Year & Mes & Dia & Hora & Minuto & Segundo & IdSocial
 
         'cria documento xml
-        Dim writer As New XmlTextWriter("C:\Iara\ESocial\" & Identificacao & ".xml", Encoding.UTF8)
+        Dim writer As New XmlTextWriter("C:\Iara\ESocial\" & IdSocial & ".xml", Encoding.UTF8)
 
         'replace 
         ''> (sinal de maior) &gt; 
@@ -136,16 +152,14 @@ Public Class Form2210
         ''> (sinal de maior) &gt; 
         ''< (sinal de menor) &lt; 
         ''& (e comercial) &amp;
-
+        Text.Replace(">", "&gt").Replace("<", "&lt").Replace("&", "&amp").Replace("""", "&quot").Replace("'", "&apos")
         'inicia o documento xml
 
         writer.WriteStartDocument()
 
         'escreve o elmento raiz
 
-        writer.WriteStartElement("eSocial", "http://www.esocial.gov.br/schema/evt/evtS2210/v1_0_0")
-
-        writer.WriteStartElement("Signature")
+        writer.WriteStartElement("eSocial", "http://www.esocial.gov.br/schema/lote/eventos/envio/v1_1_1")
 
         'inicia evtCAT
 
@@ -424,10 +438,6 @@ Public Class Form2210
 
         writer.WriteEndElement()
 
-        'encerra Signature
-
-        writer.WriteEndElement()
-
         'Escreve o XML para o arquivo e fecha o objeto escritor
 
         writer.Close()
@@ -438,42 +448,13 @@ Public Class Form2210
 
         'Valida o arquivo XML com o seu Schema XSD
 
-        Try
-
-            settings.ValidationType = ValidationType.Schema
-
-            ''settings.Schemas.Add("schema.xsd", XmlReader.Create(txtXSD.Text))
-
-
-            'Using XmlValidatingReader As XmlReader = XmlReader.Create(txtXML.Text, settings)
-
-            '    While XmlValidatingReader.Read()
-
-            '    End While
-
-            'End Using
-
-        Catch ex As Exception
-
-            'lstValida.Items.Add(ex.Message)
-
-            Exit Sub
-
-        End Try
         'insere informações no banco de envio do evento
-
-        'Process.Start("C:\Iara\ESocial\" & Identificacao & ".xml")
-
-        LqTrabalhista.InsereESocial(LstIDCliente.Items(CmbTodosClientes.SelectedIndex).ToString, LstIdColaborador.Items(CmbColaboradores.SelectedIndex).ToString _
-                                    , "S-2210", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, "C:\Iara\ESocial\" & Identificacao & ".xml", Identificacao)
 
         'inicia o processo de assinatura
 
         'assina documento
 
-        SelecionarCertificado("C:\Iara\ESocial\" & Identificacao & ".xml", Identificacao)
-
-
+        SelecionarCertificado("C:\Iara\ESocial\" & IdSocial & ".xml", Identificacao)
 
     End Sub
 
@@ -485,27 +466,50 @@ Public Class Form2210
     Dim GetCerificateX509 As New X509Store("MY", StoreLocation.CurrentUser)
     Dim objColecaoCertificadosX509 As New X509Certificate2Collection
 
-
     Private Sub SelecionarCertificado(ByVal ArqXmlAssinar As String, ByVal StrIdentificacao As String)
 
-        'Try
+        Try
 
-        GetCerificateX509.Open(OpenFlags.ReadOnly Or OpenFlags.OpenExistingOnly)
+            GetCerificateX509.Open(OpenFlags.ReadOnly Or OpenFlags.OpenExistingOnly)
 
-        objColecaoCertificadosX509 = X509Certificate2UI.SelectFromCollection(GetCerificateX509.Certificates,
-"Certificado(s) dísponível(is)", "Selecione o certificado.", X509SelectionFlag.SingleSelection)
+            objColecaoCertificadosX509 = X509Certificate2UI.SelectFromCollection(GetCerificateX509.Certificates,
+    "Certificado(s) dísponível(is)", "Selecione o certificado.", X509SelectionFlag.SingleSelection)
 
-        If objColecaoCertificadosX509.Count > 0 Then
+            If objColecaoCertificadosX509.Count > 0 Then
 
-            AssinarDocumentoXML(ArqXmlAssinar, "Signature", objColecaoCertificadosX509.Item(0).SerialNumber.ToString, StrIdentificacao)
+                AssinarDocumentoXML(ArqXmlAssinar, "Signature", objColecaoCertificadosX509.Item(0).SerialNumber.ToString, StrIdentificacao)
 
-        End If
+            End If
 
-        'Catch ex As Exception
+        Catch ex As Exception
 
-        'MsgBox(ex.Message)
+            MsgBox(ex.Message)
 
-        'End Try
+        End Try
+
+    End Sub
+
+    Private Sub AssinarRSA(ByVal ArqXmlAssinar As String, ByVal TagXml As String, ByVal StrSercialCertifiado As String, ByVal StrIdentificacao As String)
+
+        Dim Certificado As X509Certificate2
+        Certificado = objColecaoCertificadosX509.Item(0)
+
+        Dim crypto As RSACryptoServiceProvider
+        crypto = Certificado.PrivateKey
+
+        Dim arquivo As FileInfo = New FileInfo(ArqXmlAssinar)
+        Dim FS As FileStream = arquivo.OpenRead()
+
+        Dim signature As Byte() = crypto.SignData(FS, New SHA1Managed())
+
+        Dim FsCrypto As FileStream
+
+        FsCrypto = New FileStream(ArqXmlAssinar & ".signature", FileMode.Create)
+        FsCrypto.Write(signature, 0, signature.Length())
+
+        FsCrypto = New FileStream(ArqXmlAssinar & ".key", FileMode.Create)
+        Dim XmlCert As String = crypto.ToXmlString(False)
+        FsCrypto.Write(Encoding.Default.GetBytes(XmlCert), 0, XmlCert.Length)
 
     End Sub
     Private Sub AssinarDocumentoXML(ByVal ArqXmlAssinar As String, ByVal TagXml As String, ByVal StrSercialCertifiado As String, ByVal StrIdentificacao As String)
@@ -514,29 +518,49 @@ Public Class Form2210
 
             Dim Certificado As X509Certificate2
             Certificado = objColecaoCertificadosX509.Item(0)
+            Dim Key As RSA = Certificado.GetRSAPrivateKey
 
-            Dim crypto As RSACryptoServiceProvider
-            crypto = Certificado.PrivateKey
+            SignVerify.SignVerifyEnvelope.CreateSomeXml("C:\Iara\ESocial\Signed" & StrIdentificacao & ".xml")
 
-            Dim arquivo As FileInfo = New FileInfo(ArqXmlAssinar)
-            Dim FS As FileStream = arquivo.OpenRead()
+            Dim Arquivo_ASS As String = "C:\Iara\ESocial\" & StrIdentificacao & ".xml"
 
-            Dim signature As Byte() = crypto.SignData(FS, New SHA1Managed())
+            SignVerify.SignVerifyEnvelope.SignXmlFile(ArqXmlAssinar, Arquivo_ASS, Key)
 
-            Dim FsCrypto As FileStream
+            Dim LqTrabalhista As New LqTrabalhistaDataContext
+            LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
 
-            FsCrypto = New FileStream(ArqXmlAssinar & ".signature", FileMode.Create)
-            FsCrypto.Write(signature, 0, signature.Length())
+            LqTrabalhista.InsereESocial(LstIDCliente.Items(CmbTodosClientes.SelectedIndex).ToString, LstIdColaborador.Items(CmbColaboradores.SelectedIndex).ToString _
+                                    , "S-2210", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, "C:\Iara\ESocial\" & StrIdentificacao & ".xml", StrIdentificacao, "", "", 0)
 
-            FsCrypto = New FileStream(ArqXmlAssinar & ".key", FileMode.Create)
-            Dim XmlCert As String = crypto.ToXmlString(False)
-            FsCrypto.Write(Encoding.Default.GetBytes(XmlCert), 0, XmlCert.Length)
+            'SignedXML.ComputeSignature()
 
-            MsgBox("Arquivo assinado com sucesso!", vbOKOnly)
+            If MsgBox("Arquivo assinado com sucesso!", vbOKOnly) = DialogResult.OK Then
+
+                'envia para o webservice
+
+                Dim myBinding = New BasicHttpsBinding()
+                myBinding.Security.Mode = SecurityMode.Transport
+                myBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Certificate
+
+                Dim cc As WebReference.ServicoEnviarLoteEventos = New WebReference.ServicoEnviarLoteEventos(myBinding)
+
+                cc.ClientCertificates.Add(Certificado)
+
+                MsgBox(cc.SoapVersion.ToString)
+
+                ' Cliente = New WebReference.ServicoEnviarLoteEventos(myBinding, ea)
+
+                'Dim cc = New(myBinding, ea)
+
+
+                Process.Start(Arquivo_ASS)
+
+            End If
+
 
         Catch ex As Exception
 
-            MsgBox("Erro ao assinar arquivo!", vbOKOnly)
+            MsgBox(ex.Message & Chr(13) & ex.StackTrace, vbOKOnly)
 
         End Try
 
