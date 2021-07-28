@@ -16,7 +16,7 @@
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>D:\Bakucp Donw\WebSite\System\</PublishUrl>
+    <PublishUrl>D:\Public IARA\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,7 +26,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>32</ApplicationRevision>
+    <ApplicationRevision>33</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -1409,6 +1409,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IInternetEnabled.vb" />
+    <Compile Include="LogResurltadoEsocial.Designer.vb">
+      <DependentUpon>LogResurltadoEsocial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LogResurltadoEsocial.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="LoteEnvioResponseDTO.vb" />
     <Compile Include="LqComercial.designer.vb">
       <AutoGen>True</AutoGen>
@@ -1484,6 +1490,16 @@
     </Compile>
     <Compile Include="ServicoEnviarLoteEventosClient.vb" />
     <Compile Include="Telefone.vb" />
+    <Compile Include="Web References\ConsultaLote\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConsultaResultProt\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\WebReference\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2079,6 +2095,9 @@
     <EmbeddedResource Include="FrmVistoriavb.resx">
       <DependentUpon>FrmVistoriavb.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LogResurltadoEsocial.resx">
+      <DependentUpon>LogResurltadoEsocial.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -2186,6 +2205,19 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="schemas\evtCAT.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\ConsultaLote\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConsultaLote\WsConsultarIdentificadoresEventos.wsdl" />
+    <None Include="Web References\ConsultaResultProt\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConsultaResultProt\ServicoConsultarLoteEventos.wsdl" />
     <None Include="Web References\WebReference\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
@@ -2830,6 +2862,28 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="C:\Iara\ESocial\pacote-de-comunicacao-esocial-v1-5\Pacote de Comunicação eSocial v1.5\WSDL\Eventos\WsConsultarIdentificadoresEventos-v1_0_0.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConsultaLote\</RelPath>
+      <UpdateFromURL>C:\Iara\ESocial\pacote-de-comunicacao-esocial-v1-5\Pacote de Comunicação eSocial v1.5\WSDL\Eventos\WsConsultarIdentificadoresEventos-v1_0_0.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CRM_BASE_ConsultaLote_WsConsultarIdentificadoresEventos</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\Iara\ESocial\pacote-de-comunicacao-esocial-v1-5\Pacote de Comunicação eSocial v1.5\WSDL\LoteEventos\WsConsultarLoteEventos-v1_1_0.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConsultaResultProt\</RelPath>
+      <UpdateFromURL>C:\Iara\ESocial\pacote-de-comunicacao-esocial-v1-5\Pacote de Comunicação eSocial v1.5\WSDL\LoteEventos\WsConsultarLoteEventos-v1_1_0.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CRM_BASE_ConsultaResultProt_ServicoConsultarLoteEventos</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="C:\Iara\ESocial\pacote-de-comunicacao-esocial-v1-5\Pacote de Comunicação eSocial v1.5\WSDL\LoteEventos\WsEnviarLoteEventos-v1_1_0.wsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WebReference\</RelPath>
@@ -2842,5 +2896,6 @@
       <CachedSettingsPropName>CRM_BASE_WebReference_ServicoEnviarLoteEventos</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

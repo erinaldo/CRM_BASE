@@ -221,5 +221,11 @@
     <Setting Name="CRM_BASE_WebReference_ServicoEnviarLoteEventos" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">endereco_ambiente_acessar_envio</Value>
     </Setting>
+    <Setting Name="CRM_BASE_ConsultaLote_WsConsultarIdentificadoresEventos" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">endereco_ambiente_acessar_consulta</Value>
+    </Setting>
+    <Setting Name="CRM_BASE_ConsultaResultProt_ServicoConsultarLoteEventos" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">endereco_ambiente_acessar_consulta</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

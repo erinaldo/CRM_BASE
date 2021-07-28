@@ -8,7 +8,9 @@ Imports System.Text
 Imports System.Text.RegularExpressions
 Imports System.Xml
 Imports System.Xml.Schema
+Imports CRM_BASE.WebReference
 Imports Newtonsoft.Json
+Imports Newtonsoft.Json.Serialization
 
 Public Class Form2210
     Private Sub BttFechar_Click(sender As Object, e As EventArgs) Handles BttFechar.Click
@@ -61,6 +63,10 @@ Public Class Form2210
 
             ElseIf Not Valid.StartsWith("1015") And Not Valid.StartsWith("1040") And Not Valid.StartsWith("1074") And Not Valid.StartsWith("1163") Then
 
+                Doc = LstDoc.Items(CmbTodosClientes.SelectedIndex).ToString.Replace(".", "").Replace("-", "").Replace("/", "")
+
+            ElseIf Not Valid.StartsWith("1015") And Not Valid.StartsWith("1040") And Not Valid.StartsWith("1074") And Not Valid.StartsWith("1163") Then
+
                 Doc = "000000" & LstDoc.Items(CmbTodosClientes.SelectedIndex).ToString.Replace(".", "").Replace("-", "").Replace("/", "").ToCharArray(0, 8)
 
             End If
@@ -68,42 +74,46 @@ Public Class Form2210
         End If
 
         Dim Mes As Integer = Today.Month
+        Dim MStr As String = Mes
+        If Mes < 10 Then
 
-        If Mes.ToString.Length = 1 Then
-
-            Mes = "0" & Mes
+            MStr = "0" & Mes
 
         End If
 
         Dim Dia As Integer = Today.Day
+        Dim DStr As String = Dia
 
-        If Dia.ToString.Length = 1 Then
+        If Dia < 10 Then
 
-            Dia = "0" & Dia
+            DStr = "0" & Dia
 
         End If
 
         Dim Hora As Integer = Now.Hour
+        Dim HrStr As String = Hora
 
-        If Hora.ToString.Length = 1 Then
+        If Hora < 10 Then
 
-            Hora = "0" & Hora
+            HrStr = "0" & Hora
 
         End If
 
         Dim Minuto As Integer = Now.Minute
+        Dim MinStr As String = Minuto
 
-        If Minuto.ToString.Length = 1 Then
+        If Minuto < 10 Then
 
-            Minuto = "0" & Minuto
+            MinStr = "0" & Minuto
 
         End If
 
         Dim Segundo As Integer = Now.Second
+        Dim SgStr As String = Segundo
 
-        If Segundo.ToString.Length = 1 Then
+        If Segundo < 10 Then
 
-            Segundo = "0" & Segundo
+            SgStr = "0" & Segundo
 
         End If
 
@@ -140,7 +150,7 @@ Public Class Form2210
 
         End If
 
-        Dim Identificacao As String = "ID" & PersonaSel & Doc & Today.Year & Mes & Dia & Hora & Minuto & Segundo & IdSocial
+        Dim Identificacao As String = "ID" & PersonaSel & Doc & Today.Year & MStr & DStr & HrStr & MinStr & SgStr & IdSocial
 
         'cria documento xml
         Dim writer As New XmlTextWriter("C:\Iara\ESocial\" & IdSocial & ".xml", Encoding.UTF8)
@@ -157,20 +167,43 @@ Public Class Form2210
 
         writer.WriteStartDocument()
 
+        writer.WriteStartElement("eSocial", "http://www.esocial.gov.br/schema/lote/eventos/envio/v1_1_1")
+
+        writer.WriteStartElement("envioLoteEventos")
+        writer.WriteAttributeString("grupo", 2)
+
+        writer.WriteStartElement("ideEmpregador")
+        writer.WriteElementString("tpInsc", Persona)
+        writer.WriteElementString("nrInsc", Doc)
+
+        writer.WriteEndElement()
+
+        writer.WriteStartElement("ideTransmissor")
+
+        writer.WriteElementString("tpInsc", "1")
+        writer.WriteElementString("nrInsc", FrmPrincipal.CNPJ.Replace(".", "").Replace("/", "").Replace("-", ""))
+
+        writer.WriteEndElement()
+
+        writer.WriteStartElement("eventos")
+
+        writer.WriteStartElement("evento")
+        writer.WriteAttributeString("Id", Identificacao)
+
         'escreve o elmento raiz
 
-        writer.WriteStartElement("eSocial", "http://www.esocial.gov.br/schema/lote/eventos/envio/v1_1_1")
+        writer.WriteStartElement("eSocial", "http://www.esocial.gov.br/schema/evt/evtCAT/v_S_01_00_00")
 
         'inicia evtCAT
 
         writer.WriteStartElement("evtCAT")
-        writer.WriteElementString("Id", Identificacao)
+        writer.WriteAttributeString("Id", Identificacao)
 
         'inicia ideEvento
 
         writer.WriteStartElement("ideEvento")
         writer.WriteElementString("indRetif", "1")
-        writer.WriteElementString("nrRecibo", "")
+
         writer.WriteElementString("tpAmb", "8")
         writer.WriteElementString("procEmi", "1")
         writer.WriteElementString("verProc", "1.0.0")
@@ -193,8 +226,12 @@ Public Class Form2210
 
         writer.WriteStartElement("ideVinculo")
         writer.WriteElementString("cpfTrab", LStDoColab.Items(CmbColaboradores.SelectedIndex).ToString.Replace(".", "").Replace("-", ""))
-        writer.WriteElementString("matricula", LstMatricula.Items(CmbColaboradores.SelectedIndex).ToString)
-        writer.WriteElementString("codCateg", LstGrupoTrab.Items(CmbColaboradores.SelectedIndex).ToString)
+
+        If LstMatricula.Items(CmbColaboradores.SelectedIndex).ToString <> "" Then
+            writer.WriteElementString("matricula", LstMatricula.Items(CmbColaboradores.SelectedIndex).ToString)
+        Else
+            writer.WriteElementString("codCateg", LstGrupoTrab.Items(CmbColaboradores.SelectedIndex).ToString)
+        End If
 
         'encerra ideEmpregador
 
@@ -240,12 +277,14 @@ Public Class Form2210
         End If
 
         writer.WriteStartElement("cat")
-        writer.WriteElementString("dtAcid", _ANO & _MES & _DIA)
+        writer.WriteElementString("dtAcid", _ANO & "-" & _MES & "-" & _DIA)
         writer.WriteElementString("tpAcid", tpAcid)
         If HorasAntesTrab.TimeOfDay.ToString <> "00:00:00" Then
-            writer.WriteElementString("hrsTrabAntesAcid", HorasAntesTrab.TimeOfDay.ToString.ToCharArray(0, 5).ToString.Replace(":", ""))
-        Else
-            writer.WriteElementString("hrsTrabAntesAcid", "")
+
+            Dim HrStrAtnTrab As String = HorasAntesTrab.TimeOfDay.ToString
+            HrStrAtnTrab = HrStrAtnTrab.ToCharArray(0, 5)
+            HrStrAtnTrab = HrStrAtnTrab.Replace(":", "")
+            writer.WriteElementString("hrsTrabAntesAcid", HrStrAtnTrab)
         End If
 
         Dim Obito As Integer = 1
@@ -275,8 +314,6 @@ Public Class Form2210
 
         If CkObito.Checked = True Then
             writer.WriteElementString("dtObito", _ANO_obt & _MES_obt & _DIA_obt)
-        Else
-            writer.WriteElementString("dtObito", "")
         End If
 
         Dim Ocorrencia As String = "N"
@@ -299,9 +336,14 @@ Public Class Form2210
         End If
 
         writer.WriteElementString("iniciatCAT", iniciatCAT)
-        writer.WriteElementString("obsCAT", TxtObservacao.Text)
+        If TxtObservacao.Text <> "" Then
+            writer.WriteElementString("obsCAT", TxtObservacao.Text)
+        End If
 
         writer.WriteStartElement("localAcidente")
+
+        writer.WriteElementString("tpLocal", CmbTipoLocal.SelectedItem.ToString.ToCharArray(0, 1))
+
         writer.WriteElementString("dscLocal", TxtDescricaoLocal.Text)
 
         Dim BuscaDadosTabela20 = From l In LqTrabalhista.Tabela20
@@ -310,37 +352,36 @@ Public Class Form2210
 
         If BuscaDadosTabela20.Count > 0 Then
             writer.WriteElementString("tpLograd", BuscaDadosTabela20.First.Codigo)
-        Else
-            writer.WriteElementString("tpLograd", "")
         End If
 
         writer.WriteElementString("dscLograd", TxtEndereco.Text)
         writer.WriteElementString("nrLograd", TxtNumero.Text)
-        writer.WriteElementString("complemento", TxtComplemento.Text)
+        If TxtComplemento.Text <> "" Then
+            writer.WriteElementString("complemento", TxtComplemento.Text)
+        End If
+
         writer.WriteElementString("bairro", TxtBairro.Text)
         writer.WriteElementString("cep", TxtCep.Text)
-        writer.WriteElementString("codMunic", CodMunicipio)
+        writer.WriteElementString("codMunic", CodMunicipio.Remove(0, 2))
         writer.WriteElementString("uf", TxtEstado.Text)
 
         If CmbTipoLocal.SelectedItem.ToString.StartsWith("2") Then
 
             writer.WriteElementString("pais", LstCodPaises.Items(CmbPaises.SelectedIndex).ToString)
 
-        Else
-
-            writer.WriteElementString("pais", "")
-
         End If
 
-        writer.WriteElementString("codPostal", TxtCodPostal.Text)
+        If TxtCodPostal.Text <> "" Then
+            writer.WriteElementString("codPostal", TxtCodPostal.Text)
 
-        writer.WriteStartElement("ideLocalAcid")
-        writer.WriteElementString("tpInsc", TxtCodPostal.Text)
-        writer.WriteElementString("nrInsc", TxtTipoInscr.Text)
+            writer.WriteStartElement("ideLocalAcid")
+            writer.WriteElementString("tpInsc", TxtCodPostal.Text)
+            writer.WriteElementString("nrInsc", TxtTipoInscr.Text)
 
-        'encerra ideLocalAcid
+            'encerra ideLocalAcid
 
-        writer.WriteEndElement()
+            writer.WriteEndElement()
+        End If
 
         'encerra localAcidente
 
@@ -361,76 +402,73 @@ Public Class Form2210
 
         writer.WriteEndElement()
 
-        writer.WriteEndElement()
-
-        writer.WriteStartElement("atestado")
-
-        Dim _dtAtestado As Date = DtAtestado.Value
-
-        Dim _ANO_Atestado As String = _dtAtestado.Year
-        Dim _MES_Atestado As String = _dtAtestado.Month
-        If _MES_Atestado.Length < 2 Then
-            _MES_Atestado = "0" & _dtAtestado.Month
-        End If
-        Dim _DIA_Atestado As String = _dtAtestado.Day
-        If _DIA_Atestado.Length < 2 Then
-            _DIA_Atestado = "0" & _dtAtestado.Day
-        End If
-
         If CkAtestadoMedico.Checked = True Then
+            writer.WriteStartElement("atestado")
+
+
+            Dim _dtAtestado As Date = DtAtestado.Value
+
+            Dim _ANO_Atestado As String = _dtAtestado.Year
+            Dim _MES_Atestado As String = _dtAtestado.Month
+            If _MES_Atestado.Length < 2 Then
+                _MES_Atestado = "0" & _dtAtestado.Month
+            End If
+            Dim _DIA_Atestado As String = _dtAtestado.Day
+            If _DIA_Atestado.Length < 2 Then
+                _DIA_Atestado = "0" & _dtAtestado.Day
+            End If
             writer.WriteElementString("dtAtendimento", _ANO_Atestado & _MES_Atestado & _DIA_Atestado)
             writer.WriteElementString("hrAtendimento", TxtHoraAtendimento.Text)
-        Else
-            writer.WriteElementString("dtAtendimento", "")
-            writer.WriteElementString("hrAtendimento", "")
+            If CkINternacao.Checked = True Then
+                writer.WriteElementString("indInternacao", "S")
+                writer.WriteElementString("durTrat", NmDurTrat.Value)
+            Else
+                writer.WriteElementString("indInternacao", "N")
+            End If
+
+            If CkAfastamento.Checked = True Then
+                writer.WriteElementString("indAfast", "S")
+            Else
+                writer.WriteElementString("indAfast", "N")
+            End If
+
+            writer.WriteElementString("dscLesao", LstTabela17.Items(CmbLesao.SelectedIndex).ToString)
+            writer.WriteElementString("dscCompLesao", TxtInfoCompl.Text)
+            writer.WriteElementString("diagProvavel", TxtDiagnostico.Text)
+            writer.WriteElementString("codCID", TxtCodCid.Text)
+
+            writer.WriteStartElement("emitente")
+            writer.WriteElementString("nmEmit", TxtNomeMedico.Text)
+
+            Dim ideOC As Integer = 0
+            If RdbCRM.Checked = True Then
+                writer.WriteElementString("ideOC", "1")
+            ElseIf RdbCRO.Checked = True Then
+                writer.WriteElementString("ideOC", "2")
+            ElseIf RdbRMS.Checked = True Then
+                writer.WriteElementString("ideOC", "3")
+            End If
+
+            writer.WriteElementString("nrOC", TxtNumDocumento.Text)
+            writer.WriteElementString("ufOC", CmbEstadoEmitente.Text)
+
+            writer.WriteEndElement()
+
         End If
-
-        If CkINternacao.Checked = True Then
-            writer.WriteElementString("indInternacao", "S")
-            writer.WriteElementString("durTrat", NmDurTrat.Value)
-        Else
-            writer.WriteElementString("indInternacao", "N")
-            writer.WriteElementString("durTrat", 0)
-        End If
-
-        If CkAfastamento.Checked = True Then
-            writer.WriteElementString("indAfast", "S")
-        Else
-            writer.WriteElementString("indAfast", "N")
-        End If
-
-        writer.WriteElementString("dscLesao", LstTabela17.Items(CmbLesao.SelectedIndex).ToString)
-        writer.WriteElementString("dscCompLesao", TxtInfoCompl.Text)
-        writer.WriteElementString("diagProvavel", TxtDiagnostico.Text)
-        writer.WriteElementString("codCID", TxtCodCid.Text)
-
-        writer.WriteStartElement("emitente")
-        writer.WriteElementString("nmEmit", TxtNomeMedico.Text)
-
-        Dim ideOC As Integer = 0
-        If RdbCRM.Checked = True Then
-            writer.WriteElementString("ideOC", "1")
-        ElseIf RdbCRO.Checked = True Then
-            writer.WriteElementString("ideOC", "2")
-        ElseIf RdbRMS.Checked = True Then
-            writer.WriteElementString("ideOC", "3")
-        End If
-
-        writer.WriteElementString("nrOC", TxtNumDocumento.Text)
-        writer.WriteElementString("ufOC", CmbEstadoEmitente.Text)
-
-        'encerra emitente
-
-        writer.WriteEndElement()
-
-        writer.WriteStartElement("catOrigem")
-        writer.WriteElementString("nrRecCatOrig", "")
-
-        'encerra catOrigem
-
-        writer.WriteEndElement()
 
         'encerra cat
+
+        'encerra evtCAT
+
+        writer.WriteEndElement()
+
+        'insere a tag de assinatura
+
+        writer.WriteEndElement()
+
+        'writer.WriteStartElement("Signature")
+
+        'writer.WriteEndElement()
 
         writer.WriteEndElement()
 
@@ -438,23 +476,22 @@ Public Class Form2210
 
         writer.WriteEndElement()
 
+        'encerra evtCAT
+
+        writer.WriteEndElement()
+
+        'encerra evtCAT
+
+        writer.WriteEndElement()
+
+        'encerra evtCAT
+
+        writer.WriteEndElement()
         'Escreve o XML para o arquivo e fecha o objeto escritor
 
         writer.Close()
 
-        Dim settings As New XmlReaderSettings()
-
-        AddHandler settings.ValidationEventHandler, AddressOf Me.ValidationEventHandler
-
-        'Valida o arquivo XML com o seu Schema XSD
-
-        'insere informações no banco de envio do evento
-
-        'inicia o processo de assinatura
-
-        'assina documento
-
-        SelecionarCertificado("C:\Iara\ESocial\" & IdSocial & ".xml", Identificacao)
+        SelecionarCertificado("C:\Iara\ESocial\" & IdSocial & ".xml", Identificacao, IdSocial)
 
     End Sub
 
@@ -466,7 +503,7 @@ Public Class Form2210
     Dim GetCerificateX509 As New X509Store("MY", StoreLocation.CurrentUser)
     Dim objColecaoCertificadosX509 As New X509Certificate2Collection
 
-    Private Sub SelecionarCertificado(ByVal ArqXmlAssinar As String, ByVal StrIdentificacao As String)
+    Private Sub SelecionarCertificado(ByVal ArqXmlAssinar As String, ByVal StrIdentificacao As String, ByVal IDSOCIAL As Integer)
 
         Try
 
@@ -477,7 +514,7 @@ Public Class Form2210
 
             If objColecaoCertificadosX509.Count > 0 Then
 
-                AssinarDocumentoXML(ArqXmlAssinar, "Signature", objColecaoCertificadosX509.Item(0).SerialNumber.ToString, StrIdentificacao)
+                AssinarDocumentoXML(ArqXmlAssinar, "Signature", objColecaoCertificadosX509.Item(0).SerialNumber.ToString, StrIdentificacao, IDSOCIAL)
 
             End If
 
@@ -489,42 +526,19 @@ Public Class Form2210
 
     End Sub
 
-    Private Sub AssinarRSA(ByVal ArqXmlAssinar As String, ByVal TagXml As String, ByVal StrSercialCertifiado As String, ByVal StrIdentificacao As String)
-
-        Dim Certificado As X509Certificate2
-        Certificado = objColecaoCertificadosX509.Item(0)
-
-        Dim crypto As RSACryptoServiceProvider
-        crypto = Certificado.PrivateKey
-
-        Dim arquivo As FileInfo = New FileInfo(ArqXmlAssinar)
-        Dim FS As FileStream = arquivo.OpenRead()
-
-        Dim signature As Byte() = crypto.SignData(FS, New SHA1Managed())
-
-        Dim FsCrypto As FileStream
-
-        FsCrypto = New FileStream(ArqXmlAssinar & ".signature", FileMode.Create)
-        FsCrypto.Write(signature, 0, signature.Length())
-
-        FsCrypto = New FileStream(ArqXmlAssinar & ".key", FileMode.Create)
-        Dim XmlCert As String = crypto.ToXmlString(False)
-        FsCrypto.Write(Encoding.Default.GetBytes(XmlCert), 0, XmlCert.Length)
-
-    End Sub
-    Private Sub AssinarDocumentoXML(ByVal ArqXmlAssinar As String, ByVal TagXml As String, ByVal StrSercialCertifiado As String, ByVal StrIdentificacao As String)
+    Private Sub AssinarDocumentoXML(ByVal ArqXmlAssinar As String, ByVal TagXml As String, ByVal StrSercialCertifiado As String, ByVal StrIdentificacao As String, ByVal IDSOCIAL As Integer)
 
         Try
 
             Dim Certificado As X509Certificate2
             Certificado = objColecaoCertificadosX509.Item(0)
             Dim Key As RSA = Certificado.GetRSAPrivateKey
-
-            SignVerify.SignVerifyEnvelope.CreateSomeXml("C:\Iara\ESocial\Signed" & StrIdentificacao & ".xml")
+            Dim X509 As X509Certificate = Certificado
+            'SignVerify.SignVerifyEnvelope.CreateSomeXml("C:\Iara\ESocial\Signed" & StrIdentificacao & ".xml")
 
             Dim Arquivo_ASS As String = "C:\Iara\ESocial\" & StrIdentificacao & ".xml"
 
-            SignVerify.SignVerifyEnvelope.SignXmlFile(ArqXmlAssinar, Arquivo_ASS, Key)
+            SignVerify.SignVerifyEnvelope.SignXmlFile(ArqXmlAssinar, Arquivo_ASS, Key, X509, StrIdentificacao)
 
             Dim LqTrabalhista As New LqTrabalhistaDataContext
             LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
@@ -534,29 +548,108 @@ Public Class Form2210
 
             'SignedXML.ComputeSignature()
 
-            If MsgBox("Arquivo assinado com sucesso!", vbOKOnly) = DialogResult.OK Then
+            'If MsgBox("Arquivo assinado com sucesso!", vbOKOnly) = DialogResult.OK Then
 
-                'envia para o webservice
+            'envia para o webservice
 
-                Dim myBinding = New BasicHttpsBinding()
-                myBinding.Security.Mode = SecurityMode.Transport
-                myBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Certificate
+            Dim myBinding = New BasicHttpsBinding()
+            myBinding.Security.Mode = SecurityMode.Transport
+            myBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Certificate
 
-                Dim cc As WebReference.ServicoEnviarLoteEventos = New WebReference.ServicoEnviarLoteEventos(myBinding)
+            'rotina para teste -- apagar
 
-                cc.ClientCertificates.Add(Certificado)
+            'cria documento xml
 
-                MsgBox(cc.SoapVersion.ToString)
+            Dim settings As New XmlReaderSettings()
 
-                ' Cliente = New WebReference.ServicoEnviarLoteEventos(myBinding, ea)
+            AddHandler settings.ValidationEventHandler, AddressOf Me.ValidationEventHandler
 
-                'Dim cc = New(myBinding, ea)
+            'ecerra arquivo de test
+
+            Dim Client As ServicoEnviarLoteEventos = New ServicoEnviarLoteEventos(myBinding)
+
+            Client.ClientCertificates.Add(Certificado)
+
+            Dim doc As XmlDocument = New XmlDocument()
+            doc.Load(New XmlTextReader(Arquivo_ASS))
+
+            'Process.Start(Arquivo_ASS)
+
+            Try
+                Dim result = Client.EnviarLoteEventos(doc.DocumentElement)
+                Dim json As String = JsonConvert.SerializeObject(result, Newtonsoft.Json.Formatting.Indented, New JsonSerializerSettings With {
+            .ContractResolver = New CamelCasePropertyNamesContractResolver()})
+
+                Dim reader As XmlElement = (result)
+                Dim elementos As ArrayList = New ArrayList
+                Dim ResultadoConsulta As String = ""
+
+                For Each res As XmlNode In result.ChildNodes
+                    For Each res_0 As XmlNode In res.ChildNodes
+
+                        If res_0.Name = "status" Then
+
+                            For Each res_1 As XmlNode In res_0.ChildNodes
+
+                                If res_1.Name = "descResposta" Then
+                                    ResultadoConsulta = res_1.InnerText
+                                End If
+
+                            Next
+
+                        ElseIf res_0.Name = "dadosRecepcaoLote" Then
+
+                            For Each res_1 As XmlNode In res_0.ChildNodes
+
+                                If res_1.Name = "protocoloEnvio" Then
+                                    ResultadoConsulta = res_1.InnerText
+                                End If
+
+                            Next
 
 
-                Process.Start(Arquivo_ASS)
+                        End If
 
-            End If
+                    Next
+                Next
 
+                Dim Erro As String = json
+
+                If ResultadoConsulta <> "" Then
+
+                    If MsgBox("Evento transmitido com sucesso!", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Sucesso!") = MsgBoxResult.Ok Then
+
+                        'atualiza protocolo
+
+                        LqTrabalhista.AtualizaProtocoloEsocial(IDSOCIAL, ResultadoConsulta)
+
+                        FrmESocial.Show(FrmPrincipal)
+
+                        'Me.Close()
+
+                    End If
+
+                Else
+
+                    MsgBox("Não foi possível ler o protocolo de retorno do evento" & Chr(13) & Erro, MsgBoxStyle.OkOnly)
+
+                End If
+
+            Catch ex As Exception
+
+                MsgBox(ex.Message & ex.StackTrace)
+
+            End Try
+
+            'Process.Start(Arquivo_ASS)
+
+            ' Cliente = New WebReference.ServicoEnviarLoteEventos(myBinding, ea)
+
+            'Dim cc = New(myBinding, ea)
+
+            'FrmESocial.Show(FrmPrincipal)
+
+            'Me.Close()
 
         Catch ex As Exception
 

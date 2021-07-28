@@ -589,7 +589,7 @@ Public Class FrmLogin
                             FrmPrincipal.LblCargo.Text = ""
                             FrmPrincipal.LblChaveEnc.Text = ChaveEncontrada
                             FrmPrincipal.RazaoSocial = RazaoSocial
-                            FrmPrincipal.CNPJ = CNPJ
+                            FrmPrincipal.CNPJ = "30.694.650/0001-45"
                             FrmPrincipal.Endereco = Endereco
                             FrmPrincipal.Telefone = Telefone
                             FrmPrincipal.Email = Email

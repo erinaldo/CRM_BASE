@@ -53,310 +53,330 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Base;User ID=sqlsystem;Password=1q2w3e4r*")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Base;User ID=sqlsystem;Password=1q2w3e4r*")>  _
         Public ReadOnly Property BaseConnectionString() As String
             Get
-                Return CType(Me("BaseConnectionString"), String)
+                Return CType(Me("BaseConnectionString"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Oficina;Persist Security Info=True;User ID=sq" &
-            "lsystem;Password=1q2w3e4r*")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Oficina;Persist Security Info=True;User ID=sq"& _ 
+            "lsystem;Password=1q2w3e4r*")>  _
         Public ReadOnly Property OficinaConnectionString() As String
             Get
-                Return CType(Me("OficinaConnectionString"), String)
+                Return CType(Me("OficinaConnectionString"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=TransportePrestadorOnLine;Persist Security In" &
-            "fo=True;User ID=sqlsystem;Password=1q2w3e4r*")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=TransportePrestadorOnLine;Persist Security In"& _ 
+            "fo=True;User ID=sqlsystem;Password=1q2w3e4r*")>  _
         Public ReadOnly Property TransportePrestadorOnLineConnectionString() As String
             Get
-                Return CType(Me("TransportePrestadorOnLineConnectionString"), String)
+                Return CType(Me("TransportePrestadorOnLineConnectionString"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Jarbes;Persist Security Info=True;User ID=sql" &
-            "system;Password=1q2w3e4r*")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Jarbes;Persist Security Info=True;User ID=sql"& _ 
+            "system;Password=1q2w3e4r*")>  _
         Public ReadOnly Property JarbesConnectionString() As String
             Get
-                Return CType(Me("JarbesConnectionString"), String)
+                Return CType(Me("JarbesConnectionString"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=TransportePrestadorOnLine;Persist Security In" &
-            "fo=True;User ID=sqlsystem;Password=1q2w3e4r*")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=TransportePrestadorOnLine;Persist Security In"& _ 
+            "fo=True;User ID=sqlsystem;Password=1q2w3e4r*")>  _
         Public ReadOnly Property TransportePrestadorOnLineConnectionString1() As String
             Get
-                Return CType(Me("TransportePrestadorOnLineConnectionString1"), String)
+                Return CType(Me("TransportePrestadorOnLineConnectionString1"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Comercial;User ID=sqlsystem;Password=1q2w3e4r" &
-            "*")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Comercial;User ID=sqlsystem;Password=1q2w3e4r"& _ 
+            "*")>  _
         Public ReadOnly Property ComercialConnectionString() As String
             Get
-                Return CType(Me("ComercialConnectionString"), String)
+                Return CType(Me("ComercialConnectionString"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Financeiro;Persist Security Info=True;User ID" &
-            "=SqlSystem;Password=1q2w3e4r*")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Financeiro;Persist Security Info=True;User ID"& _ 
+            "=SqlSystem;Password=1q2w3e4r*")>  _
         Public ReadOnly Property FinanceiroConnectionString() As String
             Get
-                Return CType(Me("FinanceiroConnectionString"), String)
+                Return CType(Me("FinanceiroConnectionString"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=EstoqueDistribuidorOnLine;Persist Security In" &
-            "fo=True;User ID=sqlsystem")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=EstoqueDistribuidorOnLine;Persist Security In"& _ 
+            "fo=True;User ID=sqlsystem")>  _
         Public ReadOnly Property EstoqueDistribuidorOnLineConnectionString() As String
             Get
-                Return CType(Me("EstoqueDistribuidorOnLineConnectionString"), String)
+                Return CType(Me("EstoqueDistribuidorOnLineConnectionString"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Base;Persist Security Info=True;User ID=sqlsy" &
-            "stem;Password=1q2w3e4r*")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Base;Persist Security Info=True;User ID=sqlsy"& _ 
+            "stem;Password=1q2w3e4r*")>  _
         Public ReadOnly Property BaseConnectionString1() As String
             Get
-                Return CType(Me("BaseConnectionString1"), String)
+                Return CType(Me("BaseConnectionString1"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=IARA;Persist Security Info=True;User ID=SqlSy" &
-            "stem;Password=1q2w3e4r*")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=IARA;Persist Security Info=True;User ID=SqlSy"& _ 
+            "stem;Password=1q2w3e4r*")>  _
         Public ReadOnly Property IARAConnectionString() As String
             Get
-                Return CType(Me("IARAConnectionString"), String)
+                Return CType(Me("IARAConnectionString"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Comercial;Persist Security Info=True;User ID=" &
-            "sqlsystem;Password=1q2w3e4r*")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Comercial;Persist Security Info=True;User ID="& _ 
+            "sqlsystem;Password=1q2w3e4r*")>  _
         Public ReadOnly Property ComercialConnectionString1() As String
             Get
-                Return CType(Me("ComercialConnectionString1"), String)
+                Return CType(Me("ComercialConnectionString1"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=EstoqueLocal;Persist Security Info=True;User " &
-            "ID=SqlSystem;Password=1q2w3e4r*")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=EstoqueLocal;Persist Security Info=True;User "& _ 
+            "ID=SqlSystem;Password=1q2w3e4r*")>  _
         Public ReadOnly Property EstoqueLocalConnectionString() As String
             Get
-                Return CType(Me("EstoqueLocalConnectionString"), String)
+                Return CType(Me("EstoqueLocalConnectionString"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Oficina;Persist Security Info=True;User ID=sq" &
-            "lsystem;Password=1q2w3e4r*")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=0.0.0.0;Initial Catalog=Oficina;Persist Security Info=True;User ID=sq"& _ 
+            "lsystem;Password=1q2w3e4r*")>  _
         Public ReadOnly Property OficinaConnectionString1() As String
             Get
-                Return CType(Me("OficinaConnectionString1"), String)
+                Return CType(Me("OficinaConnectionString1"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=AMI-NOTEBOOK;Initial Catalog=Base;Persist Security Info=True;User ID=" &
-            "sqlsystem")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=AMI-NOTEBOOK;Initial Catalog=Base;Persist Security Info=True;User ID="& _ 
+            "sqlsystem")>  _
         Public ReadOnly Property BaseConnectionString2() As String
             Get
-                Return CType(Me("BaseConnectionString2"), String)
+                Return CType(Me("BaseConnectionString2"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=AMI-NOTEBOOK;Initial Catalog=Oficina;Persist Security Info=True;User " &
-            "ID=SqlSystem")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=AMI-NOTEBOOK;Initial Catalog=Oficina;Persist Security Info=True;User "& _ 
+            "ID=SqlSystem")>  _
         Public ReadOnly Property OficinaConnectionString2() As String
             Get
-                Return CType(Me("OficinaConnectionString2"), String)
+                Return CType(Me("OficinaConnectionString2"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.0.7;Initial Catalog=TransportePrestadorOnline;Persist Securit" &
-            "y Info=True;User ID=SqlSystem")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.0.7;Initial Catalog=TransportePrestadorOnline;Persist Securit"& _ 
+            "y Info=True;User ID=SqlSystem")>  _
         Public ReadOnly Property TransportePrestadorOnlineConnectionString2() As String
             Get
-                Return CType(Me("TransportePrestadorOnlineConnectionString2"), String)
+                Return CType(Me("TransportePrestadorOnlineConnectionString2"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=AMI-NOTEBOOK;Initial Catalog=Comercial;Persist Security Info=True;Use" &
-            "r ID=SqlSystem")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=AMI-NOTEBOOK;Initial Catalog=Comercial;Persist Security Info=True;Use"& _ 
+            "r ID=SqlSystem")>  _
         Public ReadOnly Property ComercialConnectionString2() As String
             Get
-                Return CType(Me("ComercialConnectionString2"), String)
+                Return CType(Me("ComercialConnectionString2"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=AMI-NOTEBOOK;Initial Catalog=Financeiro;Persist Security Info=True;Us" &
-            "er ID=SqlSystem")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=AMI-NOTEBOOK;Initial Catalog=Financeiro;Persist Security Info=True;Us"& _ 
+            "er ID=SqlSystem")>  _
         Public ReadOnly Property FinanceiroConnectionString1() As String
             Get
-                Return CType(Me("FinanceiroConnectionString1"), String)
+                Return CType(Me("FinanceiroConnectionString1"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=AMI-NOTEBOOK;Initial Catalog=EstoqueLocal;Persist Security Info=True;" &
-            "User ID=SqlSystem")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=AMI-NOTEBOOK;Initial Catalog=EstoqueLocal;Persist Security Info=True;"& _ 
+            "User ID=SqlSystem")>  _
         Public ReadOnly Property EstoqueLocalConnectionString1() As String
             Get
-                Return CType(Me("EstoqueLocalConnectionString1"), String)
+                Return CType(Me("EstoqueLocalConnectionString1"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=AMI-NOTEBOOK;Initial Catalog=EstoqueDistribuidorOnLine;Persist Securi" &
-            "ty Info=True;User ID=sqlsystem")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=AMI-NOTEBOOK;Initial Catalog=EstoqueDistribuidorOnLine;Persist Securi"& _ 
+            "ty Info=True;User ID=sqlsystem")>  _
         Public ReadOnly Property EstoqueDistribuidorOnLineConnectionString1() As String
             Get
-                Return CType(Me("EstoqueDistribuidorOnLineConnectionString1"), String)
+                Return CType(Me("EstoqueDistribuidorOnLineConnectionString1"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=""152.254.236.69\sqlexpress, 14333"";Initial Catalog=EstoqueDistribuido" &
-            "rOnLine;Persist Security Info=True;User ID=sqlsystem")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=""152.254.236.69\sqlexpress, 14333"";Initial Catalog=EstoqueDistribuido"& _ 
+            "rOnLine;Persist Security Info=True;User ID=sqlsystem")>  _
         Public ReadOnly Property EstoqueDistribuidorOnLineConnectionString2() As String
             Get
-                Return CType(Me("EstoqueDistribuidorOnLineConnectionString2"), String)
+                Return CType(Me("EstoqueDistribuidorOnLineConnectionString2"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K3M64OB;Initial Catalog=Oficina;Persist Security Info=True;Us" &
-            "er ID=sqlsystem")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K3M64OB;Initial Catalog=Oficina;Persist Security Info=True;Us"& _ 
+            "er ID=sqlsystem")>  _
         Public ReadOnly Property OficinaConnectionString3() As String
             Get
-                Return CType(Me("OficinaConnectionString3"), String)
+                Return CType(Me("OficinaConnectionString3"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K3M64OB;Initial Catalog=Comercial;Persist Security Info=True;" &
-            "User ID=SqlSystem")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K3M64OB;Initial Catalog=Comercial;Persist Security Info=True;"& _ 
+            "User ID=SqlSystem")>  _
         Public ReadOnly Property ComercialConnectionString3() As String
             Get
-                Return CType(Me("ComercialConnectionString3"), String)
+                Return CType(Me("ComercialConnectionString3"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K3M64OB;Initial Catalog=Base;Persist Security Info=True;User " &
-            "ID=SqlSystem")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K3M64OB;Initial Catalog=Base;Persist Security Info=True;User "& _ 
+            "ID=SqlSystem")>  _
         Public ReadOnly Property BaseConnectionString3() As String
             Get
-                Return CType(Me("BaseConnectionString3"), String)
+                Return CType(Me("BaseConnectionString3"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K3M64OB;Initial Catalog=EstoqueLocal;Persist Security Info=Tr" &
-            "ue;User ID=Sqlsystem")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K3M64OB;Initial Catalog=EstoqueLocal;Persist Security Info=Tr"& _ 
+            "ue;User ID=Sqlsystem")>  _
         Public ReadOnly Property EstoqueLocalConnectionString2() As String
             Get
-                Return CType(Me("EstoqueLocalConnectionString2"), String)
+                Return CType(Me("EstoqueLocalConnectionString2"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K3M64OB;Initial Catalog=Financeiro;Persist Security Info=True" &
-            ";User ID=SqlSystem")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K3M64OB;Initial Catalog=Financeiro;Persist Security Info=True"& _ 
+            ";User ID=SqlSystem")>  _
         Public ReadOnly Property FinanceiroConnectionString2() As String
             Get
-                Return CType(Me("FinanceiroConnectionString2"), String)
+                Return CType(Me("FinanceiroConnectionString2"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K3M64OB;Initial Catalog=Trabalhista;Persist Security Info=Tru" &
-            "e;User ID=SqlSystem")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-K3M64OB;Initial Catalog=Trabalhista;Persist Security Info=Tru"& _ 
+            "e;User ID=SqlSystem")>  _
         Public ReadOnly Property TrabalhistaConnectionString() As String
             Get
-                Return CType(Me("TrabalhistaConnectionString"), String)
+                Return CType(Me("TrabalhistaConnectionString"),String)
             End Get
         End Property
-
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),
-         Global.System.Configuration.DefaultSettingValueAttribute("endereco_ambiente_acessar_envio")>
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("endereco_ambiente_acessar_envio")>  _
         Public ReadOnly Property CRM_BASE_WebReference_ServicoEnviarLoteEventos() As String
             Get
-                Return CType(Me("CRM_BASE_WebReference_ServicoEnviarLoteEventos"), String)
+                Return CType(Me("CRM_BASE_WebReference_ServicoEnviarLoteEventos"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("endereco_ambiente_acessar_consulta")>  _
+        Public ReadOnly Property CRM_BASE_ConsultaLote_WsConsultarIdentificadoresEventos() As String
+            Get
+                Return CType(Me("CRM_BASE_ConsultaLote_WsConsultarIdentificadoresEventos"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("endereco_ambiente_acessar_consulta")>  _
+        Public ReadOnly Property CRM_BASE_ConsultaResultProt_ServicoConsultarLoteEventos() As String
+            Get
+                Return CType(Me("CRM_BASE_ConsultaResultProt_ServicoConsultarLoteEventos"),String)
             End Get
         End Property
     End Class

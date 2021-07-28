@@ -458,4 +458,9 @@
     <Parameter Name="Status" Parameter="status" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.AtualizaProtocoloEsocial" Method="AtualizaProtocoloEsocial">
+    <Parameter Name="IdEsocial" Parameter="idEsocial" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Protocolo" Parameter="protocolo" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

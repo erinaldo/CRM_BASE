@@ -437,6 +437,12 @@ Partial Public Class LqTrabalhistaDataContext
 		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), idCliente, idColaborador, evento, dataSolicitacao, horaSolicitacao, dataResposta, horaResposta, arquivo, iDEVENTO, protocolo, recibo, status)
 		Return CType(result.ReturnValue,Integer)
 	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.AtualizaProtocoloEsocial")>  _
+	Public Function AtualizaProtocoloEsocial(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdEsocial", DbType:="Int")> ByVal idEsocial As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Protocolo", DbType:="NText")> ByVal protocolo As String) As Integer
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), idEsocial, protocolo)
+		Return CType(result.ReturnValue,Integer)
+	End Function
 End Class
 
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.SetoresClientes")>  _
