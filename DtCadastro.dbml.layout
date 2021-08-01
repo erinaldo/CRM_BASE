@@ -20,7 +20,7 @@
         <elementListCompartment Id="ca563c8f-088d-4132-9bd2-bbd863797db1" absoluteBounds="0.51499999999999968, 3.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.5 : 2.27089680989583); (1.5 : 2.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.5 : 2.27089680989583); (1.5 : 2.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DtCadastroDataContext/Login/Login_PermissoesUsuarios" />
       <nodes>
         <classShapeMoniker Id="6fffb5d5-6ee5-4bba-8abb-1953114c5325" />
@@ -110,7 +110,7 @@
         <elementListCompartment Id="3c96a179-959b-42dd-b68e-b959b38ab63c" absoluteBounds="3.015, 0.96, 1.9700000000000002, 7.7491455078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 3.91429768880208); (5 : 3.91429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 3.91429768880208); (5 : 3.91429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DtCadastroDataContext/Nacionalidades/Nacionalidades_Funcionarios" />
       <nodes>
         <classShapeMoniker Id="7c5220d4-8ab3-442d-a263-e529b315128a" />
@@ -130,7 +130,7 @@
         <elementListCompartment Id="f3b50534-6ae3-432b-acc2-4b46b550f47c" absoluteBounds="5.515, 5.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5 : 6.01044840494792); (5.5 : 6.01044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5 : 6.01044840494792); (5.5 : 6.01044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DtCadastroDataContext/Funcionarios/Funcionarios_DependentesFuncionarios" />
       <nodes>
         <classShapeMoniker Id="07c0ecc2-5899-4784-af36-f34fd50fa4ce" />
@@ -169,7 +169,7 @@
         <elementListCompartment Id="195d38ea-3771-41a6-b7eb-53df16e1243c" absoluteBounds="10.39, 7.2100000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(10.375 : 7.34699625651042); (10 : 7.34699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(10.375 : 7.34699625651042); (10 : 7.34699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DtCadastroDataContext/Documentos/Documentos_VinculosDocumentos" />
       <nodes>
         <classShapeMoniker Id="b21c4623-3e85-4f37-a4d4-7279b215d7f2" />
@@ -387,14 +387,14 @@
         <elementListCompartment Id="9f01cc37-9cfb-4105-bf1d-1709212d49eb" absoluteBounds="14.89, 3.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 1.67390055338542); (5 : 1.67390055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 1.67390055338542); (5 : 1.67390055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DtCadastroDataContext/Cargos/Cargos_Funcionarios" />
       <nodes>
         <classShapeMoniker Id="db2aecfe-f1c1-4644-aeb7-7266c7eeb713" />
         <classShapeMoniker Id="07c0ecc2-5899-4784-af36-f34fd50fa4ce" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.5 : 2.84626164523237); (8.4375 : 3.78376164523237); (8.4375 : 2.625); (14.375 : 2.625); (14.875 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(7.5 : 2.84626164523237); (8.4375 : 3.78376164523237); (8.4375 : 2.625); (11.2916666666667 : 2.625 : JumpStart); (11.4583333333333 : 2.625 : JumpEnd); (14.375 : 2.625); (14.875 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DtCadastroDataContext/Cargos/Cargos_BeneficiosCargo" />
       <nodes>
         <classShapeMoniker Id="db2aecfe-f1c1-4644-aeb7-7266c7eeb713" />
@@ -414,7 +414,7 @@
         <elementListCompartment Id="f6e07e22-a88c-4488-86e8-4af8ac804b58" absoluteBounds="12.64, 3.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(7.48153846153846 : 2.84780110677083); (7.90625 : 3.27251264523237); (7.90625 : 2.75); (12.25 : 2.75); (12.625 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(7.48153846153846 : 2.84780110677083); (7.90625 : 3.27251264523237); (7.90625 : 2.75); (11.2916666666667 : 2.75 : JumpStart); (11.4583333333333 : 2.75 : JumpEnd); (12.25 : 2.75); (12.625 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DtCadastroDataContext/Cargos/Cargos_EscalaCargos" />
       <nodes>
         <classShapeMoniker Id="db2aecfe-f1c1-4644-aeb7-7266c7eeb713" />
@@ -440,7 +440,7 @@
         <classShapeMoniker Id="d230f2d8-7a3d-4302-87b8-6eb3cce6b7ee" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.5 : 2.7970308760016); (7.75 : 3.0470308760016); (7.75 : 2.6875); (14.3541666666667 : 2.6875 : JumpStart); (14.5208333333333 : 2.6875 : JumpEnd); (18.9375 : 2.6875); (19.375 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(7.5 : 2.7970308760016); (7.75 : 3.0470308760016); (7.75 : 2.6875); (11.2916666666667 : 2.6875 : JumpStart); (11.4583333333333 : 2.6875 : JumpEnd); (18.9375 : 2.6875); (19.375 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DtCadastroDataContext/Cargos/Cargos_VinculoFerramentasCargos" />
       <nodes>
         <classShapeMoniker Id="db2aecfe-f1c1-4644-aeb7-7266c7eeb713" />
@@ -459,7 +459,7 @@
         <elementListCompartment Id="a2a7baa3-aa42-4a60-9cb5-d1e3a2d0d80b" absoluteBounds="23.89, 3.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(19.125 : 4.67687968659856); (19.5267156910056 : 5.07859537760417); (22.5416666666667 : 5.07859537760417 : JumpStart); (22.7083333333333 : 5.07859537760417 : JumpEnd); (23.5 : 5.07859537760417); (23.875 : 4.70359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(19.125 : 4.67687968659856); (19.5267156910056 : 5.07859537760417); (23.5 : 5.07859537760417); (23.875 : 4.70359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DtCadastroDataContext/Ferramentas/Ferramentas_EPI" />
       <nodes>
         <classShapeMoniker Id="7c3a3f53-585d-4fc8-8782-d826bd895343" />
@@ -505,7 +505,7 @@
         <classShapeMoniker Id="e654c85e-ee60-429f-a1de-97a31e024a82" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(19.125 : 7.71961671082731); (19.4166666666667 : 7.71961671082731 : JumpStart); (19.5833333333333 : 7.71961671082731 : JumpEnd); (23.90625 : 7.71961671082731); (23.90625 : 7.1362939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(19.125 : 7.71961671082731); (23.90625 : 7.71961671082731); (23.90625 : 7.1362939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DtCadastroDataContext/Servicos/Servicos_EPIServico" />
       <nodes>
         <classShapeMoniker Id="7a3a914b-02a5-4ffc-a40b-7e328ae06b95" />
@@ -531,7 +531,7 @@
         <elementListCompartment Id="4bf5cf19-644b-49e3-8012-fb1665e19be2" absoluteBounds="24.015, 8.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(19.125 : 8.21235270182292); (19.4166666666667 : 8.21235270182292 : JumpStart); (19.5833333333333 : 8.21235270182292 : JumpEnd); (21.625 : 8.21235270182292)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(19.125 : 8.21235270182292); (21.625 : 8.21235270182292)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DtCadastroDataContext/Servicos/Servicos_FerramentasServico" />
       <nodes>
         <classShapeMoniker Id="7a3a914b-02a5-4ffc-a40b-7e328ae06b95" />
@@ -552,7 +552,7 @@
         <classShapeMoniker Id="7046e95a-9d77-47b2-b427-50c748b89b20" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(19.125 : 7.52410354421574); (19.4166666666667 : 7.52410354421574 : JumpStart); (19.5833333333333 : 7.52410354421574 : JumpEnd); (25.953125 : 7.52410354421574); (25.953125 : 7.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(19.125 : 7.52410354421574); (25.953125 : 7.52410354421574); (25.953125 : 7.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DtCadastroDataContext/Servicos/Servicos_ProfissionalServico" />
       <nodes>
         <classShapeMoniker Id="7a3a914b-02a5-4ffc-a40b-7e328ae06b95" />
@@ -650,5 +650,11 @@
         <classShapeMoniker Id="88f35d6b-6431-431b-875b-6f849ae1b2b5" />
       </nodes>
     </associationConnector>
+    <classShape Id="f897a761-8cae-4f3c-8dd4-7bfee1f185fb" absoluteBounds="5.5, 7.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DtCadastroDataContext/BASE_CERTIFICADO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2f099287-2876-4e51-9db6-a0efdf7169cb" absoluteBounds="5.515, 7.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

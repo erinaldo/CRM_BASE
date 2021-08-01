@@ -79,455 +79,460 @@ Public Class FrmPrincipal
 
     Public Sub CarregaDashboard()
 
-        If Timer2.Enabled = False Then
-            Timer2.Enabled = True
-            EsperaC = 15
-            Me.Cursor = Cursors.WaitCursor
-
-            'limpa alert
-
-            TtFinanceiro.Image = Nothing
-            TtFinanceiro.TextAlign = ContentAlignment.MiddleLeft
-            CotaçõesToolStripMenuItem.Image = Nothing
-            RecebimentoToolStripMenuItem1.Image = Nothing
-            EmitirNFSToolStripMenuItem.Image = Nothing
-            GestãoDeMarkupToolStripMenuItem.Image = Nothing
-            PagamentosCimValidaçãoDeValoresToolStripMenuItem.Image = Nothing
-            PagamentosCimValidaçãoDeValoresToolStripMenuItem.Enabled = False
-            ExpediçãoToolStripMenuItem.Image = Nothing
-            ExpediçãoToolStripMenuItem.Enabled = False
-
-            TtEstoque.Image = Nothing
-            TtEstoque.TextAlign = ContentAlignment.MiddleLeft
-            ToolStripMenuItem1.Image = Nothing
-            RecebimentoToolStripMenuItem.Image = Nothing
-
-            'TtEstoque.Enabled = False
-            'ToolStripMenuItem1.Enabled = False
-            RecebimentoToolStripMenuItem.Enabled = False
-
-            TtOficina.Image = Nothing
-            TtOficina.TextAlign = ContentAlignment.MiddleLeft
-            LaudosPericiaisToolStripMenuItem.Image = Nothing
-
-            TtOficina.Enabled = True
-            LaudosPericiaisToolStripMenuItem.Enabled = False
-
-            ToolStripDropDownButton1.Image = Nothing
-            ToolStripDropDownButton1.TextAlign = ContentAlignment.MiddleLeft
-            ToolStripMenuItem11.Image = Nothing
-
-            ToolStripDropDownButton1.Enabled = False
-            ToolStripMenuItem11.Enabled = False
-
-            TtComercial.Image = Nothing
-            TtComercial.TextAlign = ContentAlignment.MiddleLeft
-            ToolStripMenuItem2.Image = Nothing
-
-            TtComercial.Enabled = False
-            ToolStripMenuItem2.Enabled = False
-
-            If Application.OpenForms.OfType(Of FrmSinc)().Count() = 0 Then
-
-                FrmSinc.Show(Me)
-                FrmSinc.Focus()
-
-                Me.Refresh()
-
-            End If
-
-            'FrmSinc.Refresh()
+        Try
 
 
-            FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Iniciando paramentros de leitura", "", "", Nothing)
+            If Timer2.Enabled = False Then
+                Timer2.Enabled = True
+                EsperaC = 15
+                Me.Cursor = Cursors.WaitCursor
 
-            'FrmSinc.Refresh()
+                'limpa alert
 
-            valOpc = 0
+                TtFinanceiro.Image = Nothing
+                TtFinanceiro.TextAlign = ContentAlignment.MiddleLeft
+                CotaçõesToolStripMenuItem.Image = Nothing
+                RecebimentoToolStripMenuItem1.Image = Nothing
+                EmitirNFSToolStripMenuItem.Image = Nothing
+                GestãoDeMarkupToolStripMenuItem.Image = Nothing
+                PagamentosCimValidaçãoDeValoresToolStripMenuItem.Image = Nothing
+                PagamentosCimValidaçãoDeValoresToolStripMenuItem.Enabled = False
+                ExpediçãoToolStripMenuItem.Image = Nothing
+                ExpediçãoToolStripMenuItem.Enabled = False
 
-            'carrega imagem do ususario
+                TtEstoque.Image = Nothing
+                TtEstoque.TextAlign = ContentAlignment.MiddleLeft
+                ToolStripMenuItem1.Image = Nothing
+                RecebimentoToolStripMenuItem.Image = Nothing
 
-            Dim baseUrlImagemUsuario As String = "http://www.iarasoftware.com.br/consulta_dados_usuario_local.php?ChaveOficina=" & LblChaveEnc.Text & "&IdUsuario=" & IdUsuario
+                'TtEstoque.Enabled = False
+                'ToolStripMenuItem1.Enabled = False
+                RecebimentoToolStripMenuItem.Enabled = False
 
-            'carrega informações no site
+                TtOficina.Image = Nothing
+                TtOficina.TextAlign = ContentAlignment.MiddleLeft
+                LaudosPericiaisToolStripMenuItem.Image = Nothing
 
-            ' Chamada sincrona
-            Dim syncClientImagemUsuario = New WebClient()
-            Dim contentImagemUsuario = syncClientImagemUsuario.DownloadString(baseUrlImagemUsuario)
+                TtOficina.Enabled = True
+                LaudosPericiaisToolStripMenuItem.Enabled = False
 
-            Dim readImagemUsuario = JsonConvert.DeserializeObject(Of List(Of Classe_Veiculos_Oficina.DadosUsuario))(contentImagemUsuario)
+                ToolStripDropDownButton1.Image = Nothing
+                ToolStripDropDownButton1.TextAlign = ContentAlignment.MiddleLeft
+                ToolStripMenuItem11.Image = Nothing
 
-            LblCargo.Text = readImagemUsuario.Item(0).Cargo
+                ToolStripDropDownButton1.Enabled = False
+                ToolStripMenuItem11.Enabled = False
 
-            If readImagemUsuario.Item(0).UrlImagem <> "" Then
+                TtComercial.Image = Nothing
+                TtComercial.TextAlign = ContentAlignment.MiddleLeft
+                ToolStripMenuItem2.Image = Nothing
 
-                Dim baseUrlImagem As String = "http://www.iarasoftware.com.br/" & readImagemUsuario.Item(0).UrlImagem
+                TtComercial.Enabled = False
+                ToolStripMenuItem2.Enabled = False
+
+                If Application.OpenForms.OfType(Of FrmSinc)().Count() = 0 Then
+
+                    FrmSinc.Show(Me)
+                    FrmSinc.Focus()
+
+                    Me.Refresh()
+
+                End If
+
+                'FrmSinc.Refresh()
+
+
+                FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Iniciando paramentros de leitura", "", "", Nothing)
+
+                'FrmSinc.Refresh()
+
+                valOpc = 0
+
+                'carrega imagem do ususario
+
+                Dim baseUrlImagemUsuario As String = "http://www.iarasoftware.com.br/consulta_dados_usuario_local.php?ChaveOficina=" & LblChaveEnc.Text & "&IdUsuario=" & IdUsuario
 
                 'carrega informações no site
 
                 ' Chamada sincrona
-                Dim syncClientImagem = New WebClient()
-                'syncClientImagem.DownloadFile(New Uri(baseUrlImagem), row.lcl_arq.ToString)
-                Dim stream As Stream = syncClientImagem.OpenRead(baseUrlImagem)
+                Dim syncClientImagemUsuario = New WebClient()
+                Dim contentImagemUsuario = syncClientImagemUsuario.DownloadString(baseUrlImagemUsuario)
 
-                Dim img As Image = Image.FromStream(stream)
+                Dim readImagemUsuario = JsonConvert.DeserializeObject(Of List(Of Classe_Veiculos_Oficina.DadosUsuario))(contentImagemUsuario)
 
-                PicSelf.BackgroundImage = img
+                LblCargo.Text = readImagemUsuario.Item(0).Cargo
 
-            End If
+                If readImagemUsuario.Item(0).UrlImagem <> "" Then
 
-            'Try
+                    Dim baseUrlImagem As String = "http://www.iarasoftware.com.br/" & readImagemUsuario.Item(0).UrlImagem
 
-            Dim baseUrl As String = "http://www.iarasoftware.com.br/read_todos_processos_local.php?ChaveOficina=" & LblChaveEnc.Text
+                    'carrega informações no site
 
-            'carrega informações no site
+                    ' Chamada sincrona
+                    Dim syncClientImagem = New WebClient()
+                    'syncClientImagem.DownloadFile(New Uri(baseUrlImagem), row.lcl_arq.ToString)
+                    Dim stream As Stream = syncClientImagem.OpenRead(baseUrlImagem)
 
-            ' Chamada sincrona
-            Dim syncClient = New WebClient()
-            Dim content = syncClient.DownloadString(baseUrl)
+                    Dim img As Image = Image.FromStream(stream)
 
-            FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
-
-            FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Realizando busca nos servidores internos", "", "", Nothing)
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            'FrmSinc.Refresh()
-
-            LstStatusLista.Items.Clear()
-            LstDatasReg.Items.Clear()
-            LstStatusPlacas.Items.Clear()
-            LstStatusString.Items.Clear()
-
-            Dim BuscaOficina = From veic In LqOficina.Vistorias
-                               Where veic.NivelReq = 0
-                               Select veic.IdTecnico, veic.Recebida, veic.Concluido, veic.DataSolicitação, veic.IdVeiculo, veic.DataVistoria, veic.DataInicioVistoria
-
-
-            Dim DDMes As New ListBox
-            Dim Pos
-            'popula no grid
-
-            Dim Conc As Integer
-            Dim Espera As Integer
-            Dim Realizando As Integer
-
-            Dim DesmConc As Integer
-            Dim DesmEspera As Integer
-            Dim DesmRealizando As Integer
-
-            Dim FunilariaConc As Integer
-            Dim FunilariaEspera As Integer
-            Dim FunilariaRealizando As Integer
-
-            Dim EntregaConc As Integer
-            Dim EntregaEspera As Integer
-            Dim EntregaRealizando As Integer
-
-            Dim LstConc As New ListBox
-            Dim LstEspera As New ListBox
-
-            Dim LstConcDesm As New ListBox
-            Dim LstEsperaDesm As New ListBox
-
-            Dim LstConcFunil As New ListBox
-            Dim LstEsperaFunil As New ListBox
-
-            Dim LstConcEntrega As New ListBox
-            Dim LstEsperaEntrega As New ListBox
-
-            Dim TodosVeiculos As New ListBox
-
-            Dim read = JsonConvert.DeserializeObject(Of List(Of Classe_Veiculos_Oficina.Veiculos))(content)
-
-            DtPatio.Rows.Clear()
-
-            LqOficina.Connection.ConnectionString = ConnectionStringOficina
-
-            Dim TodosVeiculosValor As New ListBox
-
-
-            FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
-
-            FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Lendo dados obtidos", 0, read.Count, Nothing)
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-
-            Realizando = 0
-            Espera = 0
-            Conc = 0
-            DesmRealizando = 0
-            DesmEspera = 0
-            DesmConc = 0
-
-            Dim CT As Double = 10 / read.Count
-
-            For Each row In read.ToList
-
-                If Not TodosVeiculos.Items.Contains(row.Placa.ToUpper) Then
-
-                    If row.Status < 2 Then
-
-                        TodosVeiculos.Items.Add(row.Placa.ToUpper)
-                        DtPatio.Rows.Add(row.IdVeiculo, row.Placa.ToUpper, row.Modelo, row.Fabricante, My.Resources.alert_icon_icons_com_52395, "", row.Tipo & "-" & row.Status, row.IdSolicitacao, row.IdCliente)
-
-                    End If
+                    PicSelf.BackgroundImage = img
 
                 End If
 
-                'procura se item esta na lsita de inseridos
+                'Try
 
-                If Not TodosVeiculosValor.Items.Contains(row.Placa & "-" & row.Tipo & "-" & row.Status) Then
+                Dim baseUrl As String = "http://www.iarasoftware.com.br/read_todos_processos_local.php?ChaveOficina=" & LblChaveEnc.Text
 
-                    TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
+                'carrega informações no site
 
-                    Dim IndexTrav As Integer = -1
+                ' Chamada sincrona
+                Dim syncClient = New WebClient()
+                Dim content = syncClient.DownloadString(baseUrl)
 
-                    For i As Integer = 0 To TodosVeiculos.Items.Count - 1
+                FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
 
-                        If TodosVeiculos.Items(i).ToString = row.Placa.ToUpper Then
+                FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Realizando busca nos servidores internos", "", "", Nothing)
 
-                            Dim DataInicioEnc As Date = row.DataInicio.ToString
+                FrmSinc.ProgressBar1.Value += 1
 
-                            Dim DataTerminoEnc As Date = row.DataInicio.ToString
+                FrmSinc.Refresh()
 
-                            Dim DataControle As Date = Today.Date.AddYears(-1)
+                'FrmSinc.Refresh()
 
-                            If DataInicioEnc.Date > DataControle Then
+                LstStatusLista.Items.Clear()
+                LstDatasReg.Items.Clear()
+                LstStatusPlacas.Items.Clear()
+                LstStatusString.Items.Clear()
 
-                                If row.Tipo = 0 Then
+                Dim BuscaOficina = From veic In LqOficina.Vistorias
+                                   Where veic.NivelReq = 0
+                                   Select veic.IdTecnico, veic.Recebida, veic.Concluido, veic.DataSolicitação, veic.IdVeiculo, veic.DataVistoria, veic.DataInicioVistoria
 
-                                    'DtPatio.Rows(i).Cells(4).Value = ImageList1.Images(1)
 
-                                    If row.Status < 2 Then
+                Dim DDMes As New ListBox
+                Dim Pos
+                'popula no grid
 
-                                        If row.Status = 0 Then
+                Dim Conc As Integer
+                Dim Espera As Integer
+                Dim Realizando As Integer
 
-                                            Realizando += 1
+                Dim DesmConc As Integer
+                Dim DesmEspera As Integer
+                Dim DesmRealizando As Integer
 
-                                        ElseIf row.Status = 1 Then
+                Dim FunilariaConc As Integer
+                Dim FunilariaEspera As Integer
+                Dim FunilariaRealizando As Integer
 
-                                            'Espera += 1
+                Dim EntregaConc As Integer
+                Dim EntregaEspera As Integer
+                Dim EntregaRealizando As Integer
 
-                                            LstEspera.Items.Add(DataInicioEnc.Day)
-                                            LstConc.Items.Add(0)
+                Dim LstConc As New ListBox
+                Dim LstEspera As New ListBox
 
-                                            LstStatusLista.Items.Add(0)
-                                            LstDatasReg.Items.Add(DataInicioEnc.Date)
-                                            LstStatusPlacas.Items.Add(row.Placa)
-                                            LstStatusString.Items.Add("Aguardando entrada na oficina")
-                                            '
+                Dim LstConcDesm As New ListBox
+                Dim LstEsperaDesm As New ListBox
 
-                                        End If
+                Dim LstConcFunil As New ListBox
+                Dim LstEsperaFunil As New ListBox
 
-                                    End If
+                Dim LstConcEntrega As New ListBox
+                Dim LstEsperaEntrega As New ListBox
 
-                                ElseIf row.Tipo = 1 Then
+                Dim TodosVeiculos As New ListBox
 
-                                    'DtPatio.Rows(i).Cells(4).Value = ImageList1.Images(1)
+                Dim read = JsonConvert.DeserializeObject(Of List(Of Classe_Veiculos_Oficina.Veiculos))(content)
 
-                                    If row.Status < 2 Then
+                DtPatio.Rows.Clear()
 
-                                        If row.Status = 0 Then
+                LqOficina.Connection.ConnectionString = ConnectionStringOficina
 
-                                            Espera += 1
+                Dim TodosVeiculosValor As New ListBox
 
-                                            LstEspera.Items.Add(DataInicioEnc.Day)
-                                            LstConc.Items.Add(DataTerminoEnc.Day)
 
-                                            LstStatusLista.Items.Add(1)
-                                            LstDatasReg.Items.Add(DataInicioEnc.Date)
-                                            LstStatusPlacas.Items.Add(row.Placa)
-                                            LstStatusString.Items.Add("Recebendo veículo")
-                                            'TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
+                FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
 
-                                        ElseIf row.Status = 1 Then
+                FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Lendo dados obtidos", 0, read.Count, Nothing)
 
-                                            Conc += 1
-                                            'DesmEspera += 1
-                                            LstEsperaDesm.Items.Add(DataInicioEnc.Day)
-                                            LstConcDesm.Items.Add(0)
+                FrmSinc.ProgressBar1.Value += 1
 
-                                            LstStatusLista.Items.Add(2)
-                                            LstDatasReg.Items.Add(DataInicioEnc.Date)
-                                            LstStatusPlacas.Items.Add(row.Placa)
-                                            LstStatusString.Items.Add("Aguardando desmonte para reparos")
-                                            'TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
+                FrmSinc.Refresh()
 
-                                        End If
 
-                                    End If
+                Realizando = 0
+                Espera = 0
+                Conc = 0
+                DesmRealizando = 0
+                DesmEspera = 0
+                DesmConc = 0
 
-                                ElseIf row.Tipo = 2 Then
+                Dim CT As Double = 10 / read.Count
 
-                                    If Not TodosVeiculosValor.Items.Contains(row.Placa & "-1-1") Then
+                For Each row In read.ToList
 
-                                        DtPatio.Rows(i).Cells(4).Value = ImageList1.Images(0)
+                    If Not TodosVeiculos.Items.Contains(row.Placa.ToUpper) Then
 
-                                    Else
+                        If row.Status < 2 Then
 
-                                        DtPatio.Rows(i).Cells(4).Value = ImageList1.Images(5)
+                            TodosVeiculos.Items.Add(row.Placa.ToUpper)
+                            DtPatio.Rows.Add(row.IdVeiculo, row.Placa.ToUpper, row.Modelo, row.Fabricante, My.Resources.alert_icon_icons_com_52395, "", row.Tipo & "-" & row.Status, row.IdSolicitacao, row.IdCliente)
 
-                                    End If
+                        End If
 
-                                    If row.Status < 2 Then
+                    End If
 
-                                        'verifica 
+                    'procura se item esta na lsita de inseridos
 
-                                        If row.Status = 0 Then
+                    If Not TodosVeiculosValor.Items.Contains(row.Placa & "-" & row.Tipo & "-" & row.Status) Then
 
-                                            'DesmRealizando += 1
+                        TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
 
-                                            LstEsperaDesm.Items.Add(DataInicioEnc.Day)
-                                            LstConcDesm.Items.Add(0)
+                        Dim IndexTrav As Integer = -1
 
-                                            LstStatusLista.Items.Add(3)
-                                            LstDatasReg.Items.Add(DataInicioEnc.Date)
-                                            LstStatusPlacas.Items.Add(row.Placa)
+                        For i As Integer = 0 To TodosVeiculos.Items.Count - 1
 
-                                            ' TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
+                            If TodosVeiculos.Items(i).ToString = row.Placa.ToUpper Then
 
-                                            Dim Valida As Boolean = False
+                                Dim DataInicioEnc As Date = row.DataInicio.ToString
 
-                                            If TodosVeiculosValor.Items.Contains(row.Placa & "-3-50") Then
+                                Dim DataTerminoEnc As Date = row.DataInicio.ToString
 
-                                                Valida = True
+                                Dim DataControle As Date = Today.Date.AddYears(-1)
 
-                                                LstStatusString.Items.Add("Aguardando desmonte do veículo")
+                                If DataInicioEnc.Date > DataControle Then
 
-                                            ElseIf TodosVeiculosValor.Items.Contains(row.Placa & "-3-60") Then
+                                    If row.Tipo = 0 Then
 
-                                                Valida = True
+                                        'DtPatio.Rows(i).Cells(4).Value = ImageList1.Images(1)
 
-                                                LstStatusString.Items.Add("Desmontando concluído")
-
-                                            End If
-
-                                            If Valida = False Then
-
-                                                LstStatusString.Items.Add("Realizando desmontes necessários")
-
-                                            End If
-
-                                        ElseIf row.Status = 1 Then
-
-                                            DesmConc += 1
-
-                                            LstEsperaDesm.Items.Add(0)
-                                            LstConcDesm.Items.Add(DataInicioEnc.Day)
-
-                                            LstStatusLista.Items.Add(3)
-                                            LstDatasReg.Items.Add(DataInicioEnc.Date)
-                                            LstStatusPlacas.Items.Add(row.Placa)
-                                            LstStatusString.Items.Add("Desmontando Concluído")
-                                            ' TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
-
-                                            'Else
-
-                                        End If
-
-                                    End If
-
-                                ElseIf row.Tipo = 3 Then
-
-                                    'DtPatio.Rows(i).Cells(4).Value = ImageList1.Images(5)
-
-                                    'verifica se o veículo já esta no patio
-
-                                    ' If TodosVeiculosValor.Items.Contains(row.Placa & "-1-1") Then
-
-                                    If row.Status < 2 Then
-
-                                        If row.Status = 0 Then
-
-                                            DesmConc += 1
-                                            FunilariaEspera += 1
-
-                                            LstEsperaDesm.Items.Add(DataInicioEnc.Day)
-                                            LstConcDesm.Items.Add(DataTerminoEnc.Day)
-
-                                            LstStatusLista.Items.Add(4)
-                                            LstDatasReg.Items.Add(DataInicioEnc.Date)
-                                            LstStatusPlacas.Items.Add(row.Placa)
-                                            LstStatusString.Items.Add("Desmonte concluído")
-                                            'TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
-
-                                        End If
-
-                                    ElseIf row.Status = 50 Then
-
-                                        DesmEspera += 1
-
-                                        LstEsperaFunil.Items.Add(DataInicioEnc.Day)
-                                        LstConcFunil.Items.Add(DataTerminoEnc.Day)
-
-                                        LstStatusLista.Items.Add(6)
-                                        LstDatasReg.Items.Add(DataInicioEnc.Date)
-                                        LstStatusPlacas.Items.Add(row.Placa)
-                                        LstStatusString.Items.Add("Desmonte em espera")
-                                        TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
-
-                                    ElseIf row.Status = 60 Then
-
-                                        DesmRealizando += 1
-
-                                        LstEsperaFunil.Items.Add(DataInicioEnc.Day)
-                                        LstConcFunil.Items.Add(DataTerminoEnc.Day)
-
-                                        LstStatusLista.Items.Add(6)
-                                        LstDatasReg.Items.Add(DataInicioEnc.Date)
-                                        LstStatusPlacas.Items.Add(row.Placa)
-                                        LstStatusString.Items.Add("Desmonte sendo realizado")
-                                        TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
-
-                                    End If
-
-                                    ' End If
-
-                                ElseIf row.Tipo = 4 Then
-
-                                    DtPatio.Rows(i).Cells(4).Value = ImageList1.Images(3)
-
-                                    If row.Status < 2 Then
-
-                                        If TodosVeiculosValor.Items.Contains(row.Placa & "-3-1") Then
+                                        If row.Status < 2 Then
 
                                             If row.Status = 0 Then
 
-                                                FunilariaConc += 1
-                                                EntregaEspera += 1
-                                                'EntregaRealizando += 1
+                                                Realizando += 1
 
-                                                LstEsperaEntrega.Items.Add(DataInicioEnc.Day)
-                                                LstConcEntrega.Items.Add(0)
+                                            ElseIf row.Status = 1 Then
 
-                                                LstStatusLista.Items.Add(7)
+                                                'Espera += 1
+
+                                                LstEspera.Items.Add(DataInicioEnc.Day)
+                                                LstConc.Items.Add(0)
+
+                                                LstStatusLista.Items.Add(0)
                                                 LstDatasReg.Items.Add(DataInicioEnc.Date)
                                                 LstStatusPlacas.Items.Add(row.Placa)
-                                                LstStatusString.Items.Add("Entregando veículo")
+                                                LstStatusString.Items.Add("Aguardando entrada na oficina")
+                                                '
+
+                                            End If
+
+                                        End If
+
+                                    ElseIf row.Tipo = 1 Then
+
+                                        'DtPatio.Rows(i).Cells(4).Value = ImageList1.Images(1)
+
+                                        If row.Status < 2 Then
+
+                                            If row.Status = 0 Then
+
+                                                Espera += 1
+
+                                                LstEspera.Items.Add(DataInicioEnc.Day)
+                                                LstConc.Items.Add(DataTerminoEnc.Day)
+
+                                                LstStatusLista.Items.Add(1)
+                                                LstDatasReg.Items.Add(DataInicioEnc.Date)
+                                                LstStatusPlacas.Items.Add(row.Placa)
+                                                LstStatusString.Items.Add("Recebendo veículo")
+                                                'TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
+
+                                            ElseIf row.Status = 1 Then
+
+                                                Conc += 1
+                                                'DesmEspera += 1
+                                                LstEsperaDesm.Items.Add(DataInicioEnc.Day)
+                                                LstConcDesm.Items.Add(0)
+
+                                                LstStatusLista.Items.Add(2)
+                                                LstDatasReg.Items.Add(DataInicioEnc.Date)
+                                                LstStatusPlacas.Items.Add(row.Placa)
+                                                LstStatusString.Items.Add("Aguardando desmonte para reparos")
                                                 'TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
 
                                             End If
 
                                         End If
 
-                                    Else
+                                    ElseIf row.Tipo = 2 Then
 
-                                        Dim DataControleEntrega As Date = "01/" & Today.Month & "/" & Today.Year
+                                        If Not TodosVeiculosValor.Items.Contains(row.Placa & "-1-1") Then
 
-                                        If DataInicioEnc >= DataControleEntrega Then
+                                            DtPatio.Rows(i).Cells(4).Value = ImageList1.Images(0)
 
-                                            EntregaConc += 1
+                                        Else
 
-                                            LstStatusLista.Items.Add(8)
+                                            DtPatio.Rows(i).Cells(4).Value = ImageList1.Images(5)
+
+                                        End If
+
+                                        If row.Status < 2 Then
+
+                                            'verifica 
+
+                                            If row.Status = 0 Then
+
+                                                'DesmRealizando += 1
+
+                                                LstEsperaDesm.Items.Add(DataInicioEnc.Day)
+                                                LstConcDesm.Items.Add(0)
+
+                                                LstStatusLista.Items.Add(3)
+                                                LstDatasReg.Items.Add(DataInicioEnc.Date)
+                                                LstStatusPlacas.Items.Add(row.Placa)
+
+                                                ' TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
+
+                                                Dim Valida As Boolean = False
+
+                                                If TodosVeiculosValor.Items.Contains(row.Placa & "-3-50") Then
+
+                                                    Valida = True
+
+                                                    LstStatusString.Items.Add("Aguardando desmonte do veículo")
+
+                                                ElseIf TodosVeiculosValor.Items.Contains(row.Placa & "-3-60") Then
+
+                                                    Valida = True
+
+                                                    LstStatusString.Items.Add("Desmontando concluído")
+
+                                                End If
+
+                                                If Valida = False Then
+
+                                                    LstStatusString.Items.Add("Realizando desmontes necessários")
+
+                                                End If
+
+                                            ElseIf row.Status = 1 Then
+
+                                                DesmConc += 1
+
+                                                LstEsperaDesm.Items.Add(0)
+                                                LstConcDesm.Items.Add(DataInicioEnc.Day)
+
+                                                LstStatusLista.Items.Add(3)
+                                                LstDatasReg.Items.Add(DataInicioEnc.Date)
+                                                LstStatusPlacas.Items.Add(row.Placa)
+                                                LstStatusString.Items.Add("Desmontando Concluído")
+                                                ' TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
+
+                                                'Else
+
+                                            End If
+
+                                        End If
+
+                                    ElseIf row.Tipo = 3 Then
+
+                                        'DtPatio.Rows(i).Cells(4).Value = ImageList1.Images(5)
+
+                                        'verifica se o veículo já esta no patio
+
+                                        ' If TodosVeiculosValor.Items.Contains(row.Placa & "-1-1") Then
+
+                                        If row.Status < 2 Then
+
+                                            If row.Status = 0 Then
+
+                                                DesmConc += 1
+                                                FunilariaEspera += 1
+
+                                                LstEsperaDesm.Items.Add(DataInicioEnc.Day)
+                                                LstConcDesm.Items.Add(DataTerminoEnc.Day)
+
+                                                LstStatusLista.Items.Add(4)
+                                                LstDatasReg.Items.Add(DataInicioEnc.Date)
+                                                LstStatusPlacas.Items.Add(row.Placa)
+                                                LstStatusString.Items.Add("Desmonte concluído")
+                                                'TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
+
+                                            End If
+
+                                        ElseIf row.Status = 50 Then
+
+                                            DesmEspera += 1
+
+                                            LstEsperaFunil.Items.Add(DataInicioEnc.Day)
+                                            LstConcFunil.Items.Add(DataTerminoEnc.Day)
+
+                                            LstStatusLista.Items.Add(6)
                                             LstDatasReg.Items.Add(DataInicioEnc.Date)
                                             LstStatusPlacas.Items.Add(row.Placa)
-                                            LstStatusString.Items.Add("Veículo entregue")
+                                            LstStatusString.Items.Add("Desmonte em espera")
+                                            TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
+
+                                        ElseIf row.Status = 60 Then
+
+                                            DesmRealizando += 1
+
+                                            LstEsperaFunil.Items.Add(DataInicioEnc.Day)
+                                            LstConcFunil.Items.Add(DataTerminoEnc.Day)
+
+                                            LstStatusLista.Items.Add(6)
+                                            LstDatasReg.Items.Add(DataInicioEnc.Date)
+                                            LstStatusPlacas.Items.Add(row.Placa)
+                                            LstStatusString.Items.Add("Desmonte sendo realizado")
+                                            TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
+
+                                        End If
+
+                                        ' End If
+
+                                    ElseIf row.Tipo = 4 Then
+
+                                        DtPatio.Rows(i).Cells(4).Value = ImageList1.Images(3)
+
+                                        If row.Status < 2 Then
+
+                                            If TodosVeiculosValor.Items.Contains(row.Placa & "-3-1") Then
+
+                                                If row.Status = 0 Then
+
+                                                    FunilariaConc += 1
+                                                    EntregaEspera += 1
+                                                    'EntregaRealizando += 1
+
+                                                    LstEsperaEntrega.Items.Add(DataInicioEnc.Day)
+                                                    LstConcEntrega.Items.Add(0)
+
+                                                    LstStatusLista.Items.Add(7)
+                                                    LstDatasReg.Items.Add(DataInicioEnc.Date)
+                                                    LstStatusPlacas.Items.Add(row.Placa)
+                                                    LstStatusString.Items.Add("Entregando veículo")
+                                                    'TodosVeiculosValor.Items.Add(row.Placa & "-" & row.Tipo & "-" & row.Status)
+
+                                                End If
+
+                                            End If
+
+                                        Else
+
+                                            Dim DataControleEntrega As Date = "01/" & Today.Month & "/" & Today.Year
+
+                                            If DataInicioEnc >= DataControleEntrega Then
+
+                                                EntregaConc += 1
+
+                                                LstStatusLista.Items.Add(8)
+                                                LstDatasReg.Items.Add(DataInicioEnc.Date)
+                                                LstStatusPlacas.Items.Add(row.Placa)
+                                                LstStatusString.Items.Add("Veículo entregue")
+
+                                            End If
 
                                         End If
 
@@ -537,475 +542,483 @@ Public Class FrmPrincipal
 
                             End If
 
-                        End If
+                        Next
 
-                    Next
+                    End If
+
+                    Dim Qt As Integer = FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value
+                    FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value = Qt + 1
+
+
+                    FrmSinc.ProgressBar1.Value += CT
+
+                    FrmSinc.Refresh()
+
+                Next
+
+                LblConcluido.Text = Conc
+                LblEspera.Text = Espera
+                LblAndamento.Text = Realizando
+
+                LblDesmonteEspera.Text = DesmEspera
+                LblDemRealiz.Text = DesmRealizando
+                LblDesmonteConcluido.Text = DesmConc
+
+                LblFunilEspera.Text = FunilariaEspera
+                LblFunilAndamento.Text = FunilariaRealizando
+                LblFunilConc.Text = FunilariaConc
+
+                LblAguardandoEntrega.Text = EntregaEspera
+                LblEntregando.Text = EntregaRealizando
+                LblEntregues.Text = EntregaConc
+
+
+                'carrega solicitações de cadasto de markup
+
+                LqFinanceiro.Connection.ConnectionString = ConnectionStringFinanceiro
+                LqBase.Connection.ConnectionString = ConnectionStringBase
+
+                FrmNotifficação.DtProdutos.Rows.Clear()
+
+                Dim LqComercial As New LqComercialDataContext
+                LqComercial.Connection.ConnectionString = ConnectionStringComercial
+
+                Dim BuscaComercial = From com In LqComercial.Orcamentos
+                                     Where com.ValorRecebido = True And com.NfEmitida = False
+                                     Select com.IdOrcamento, com.IdCliente
+
+                If BuscaComercial.Count > 0 Then
+
+                    TtFinanceiro.Image = My.Resources.alert_icon_icons_com_52395
+                    TtFinanceiro.TextAlign = ContentAlignment.MiddleRight
+                    EmitirNFSToolStripMenuItem.Image = My.Resources.alert_icon_icons_com_52395
+
+                    TtFinanceiro.Enabled = True
+                    EmitirNFSToolStripMenuItem.Enabled = True
 
                 End If
 
-                Dim Qt As Integer = FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value
-                FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value = Qt + 1
+                'busca solicitações de estoque
 
+                Dim LqEstoque As New LqEstoqueLocalDataContext
 
-                FrmSinc.ProgressBar1.Value += CT
+                LqEstoque.Connection.ConnectionString = ConnectionStringEstoqueLocal
+
+                Dim BuscaSolicitaçõesEstoque = From est In LqEstoque.SolicitacaoProdutosEstoque
+                                               Where est.Status = False
+                                               Select est.Qtdade, est.IdProduto, est.IdSolicitacaoCad
+
+                FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
+
+                FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Carregando solicitações internas 1-3", 0, BuscaSolicitaçõesEstoque.Count, Nothing)
+
+                FrmSinc.ProgressBar1.Value += 1
 
                 FrmSinc.Refresh()
 
-            Next
+                For Each row In BuscaSolicitaçõesEstoque.ToList
 
-            LblConcluido.Text = Conc
-            LblEspera.Text = Espera
-            LblAndamento.Text = Realizando
+                    Dim Qt As Integer = FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value
+                    FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value = Qt + 1
 
-            LblDesmonteEspera.Text = DesmEspera
-            LblDemRealiz.Text = DesmRealizando
-            LblDesmonteConcluido.Text = DesmConc
+                    'FrmSinc.Refresh()
 
-            LblFunilEspera.Text = FunilariaEspera
-            LblFunilAndamento.Text = FunilariaRealizando
-            LblFunilConc.Text = FunilariaConc
+                    If row.IdProduto <> 0 Then
 
-            LblAguardandoEntrega.Text = EntregaEspera
-            LblEntregando.Text = EntregaRealizando
-            LblEntregues.Text = EntregaConc
+                        'verifica se ja foi inseirdo na lista
 
+                        Dim BuscadescricaoProduto = From prod In LqBase.Produtos
+                                                    Where prod.IdProduto = row.IdProduto
+                                                    Select prod.Descricao
 
-            'carrega solicitações de cadasto de markup
+                        Dim Str As String = "O produto " & BuscadescricaoProduto.First & " foi solicitado ao estoque."
 
-            LqFinanceiro.Connection.ConnectionString = ConnectionStringFinanceiro
-            LqBase.Connection.ConnectionString = ConnectionStringBase
+                        Dim _Index As Integer = -1
 
-            FrmNotifficação.DtProdutos.Rows.Clear()
+                        Dim QtIndex As Integer = 0
 
-            Dim LqComercial As New LqComercialDataContext
-            LqComercial.Connection.ConnectionString = ConnectionStringComercial
+                        For Each dtr As DataGridViewRow In FrmNotifficação.DtProdutos.Rows
+                            If dtr.Cells(0).Value.ToString.StartsWith(Str) Then
+                                _Index = dtr.Index
+                                QtIndex = dtr.Cells(1).Value.ToString + 1
+                            End If
+                        Next
 
-            Dim BuscaComercial = From com In LqComercial.Orcamentos
-                                 Where com.ValorRecebido = True And com.NfEmitida = False
-                                 Select com.IdOrcamento, com.IdCliente
-
-            If BuscaComercial.Count > 0 Then
-
-                TtFinanceiro.Image = My.Resources.alert_icon_icons_com_52395
-                TtFinanceiro.TextAlign = ContentAlignment.MiddleRight
-                EmitirNFSToolStripMenuItem.Image = My.Resources.alert_icon_icons_com_52395
-
-                TtFinanceiro.Enabled = True
-                EmitirNFSToolStripMenuItem.Enabled = True
-
-            End If
-
-            'busca solicitações de estoque
-
-            Dim LqEstoque As New LqEstoqueLocalDataContext
-
-            LqEstoque.Connection.ConnectionString = ConnectionStringEstoqueLocal
-
-            Dim BuscaSolicitaçõesEstoque = From est In LqEstoque.SolicitacaoProdutosEstoque
-                                           Where est.Status = False
-                                           Select est.Qtdade, est.IdProduto, est.IdSolicitacaoCad
-
-            FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
-
-            FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Carregando solicitações internas 1-3", 0, BuscaSolicitaçõesEstoque.Count, Nothing)
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            For Each row In BuscaSolicitaçõesEstoque.ToList
-
-                Dim Qt As Integer = FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value
-                FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value = Qt + 1
-
-                'FrmSinc.Refresh()
-
-                If row.IdProduto <> 0 Then
-
-                    'verifica se ja foi inseirdo na lista
-
-                    Dim BuscadescricaoProduto = From prod In LqBase.Produtos
-                                                Where prod.IdProduto = row.IdProduto
-                                                Select prod.Descricao
-
-                    Dim Str As String = "O produto " & BuscadescricaoProduto.First & " foi solicitado ao estoque."
-
-                    Dim _Index As Integer = -1
-
-                    Dim QtIndex As Integer = 0
-
-                    For Each dtr As DataGridViewRow In FrmNotifficação.DtProdutos.Rows
-                        If dtr.Cells(0).Value.ToString.StartsWith(Str) Then
-                            _Index = dtr.Index
-                            QtIndex = dtr.Cells(1).Value.ToString + 1
-                        End If
-                    Next
-
-                    If _Index = -1 Then
-                        FrmNotifficação.DtProdutos.Rows.Add(Str & " (visto 1 vez.)", 1)
-                    Else
-                        FrmNotifficação.DtProdutos.Rows(_Index).Cells(0).Value = (Str & " (visto " & QtIndex & " vezes.)")
-                        FrmNotifficação.DtProdutos.Rows(_Index).Cells(1).Value = (QtIndex)
-                    End If
-
-                Else
-
-                    'verifica se ja foi inseirdo na lista
-
-                    Dim Buscadescricao = From desc In LqOficina.SolicitacaoCadastroPeca
-                                         Where desc.IdSolicitacaoCadastro = row.IdSolicitacaoCad
-                                         Select desc.Descricao, desc.IdCodCad
-
-                    Dim Str As String = ""
-
-                    If Buscadescricao.Count > 0 Then
-                        If Buscadescricao.First.IdCodCad <> 0 Then
-
-                            Dim BuscadescricaoProduto = From prod In LqBase.Produtos
-                                                        Where prod.IdProduto = Buscadescricao.First.IdCodCad
-                                                        Select prod.Descricao
-
-                            Str = "O produto " & BuscadescricaoProduto.First & " foi solicitado ao estoque."
+                        If _Index = -1 Then
+                            FrmNotifficação.DtProdutos.Rows.Add(Str & " (visto 1 vez.)", 1)
                         Else
-                            Str = "O produto " & Buscadescricao.First.Descricao & " (cadastro pendente) foi solicitado ao estoque."
+                            FrmNotifficação.DtProdutos.Rows(_Index).Cells(0).Value = (Str & " (visto " & QtIndex & " vezes.)")
+                            FrmNotifficação.DtProdutos.Rows(_Index).Cells(1).Value = (QtIndex)
                         End If
-                    End If
 
-                    Dim _Index As Integer = -1
-
-                    Dim QtIndex As Integer = 0
-
-                    For Each dtr As DataGridViewRow In FrmNotifficação.DtProdutos.Rows
-                        If dtr.Cells(0).Value.ToString.StartsWith(Str) Then
-                            _Index = dtr.Index
-                            QtIndex = dtr.Cells(1).Value.ToString + 1
-                        End If
-                    Next
-
-                    If _Index = -1 Then
-                        FrmNotifficação.DtProdutos.Rows.Add(Str & " (visto 1 vez.)", 1)
                     Else
-                        FrmNotifficação.DtProdutos.Rows(_Index).Cells(0).Value = (Str & " (visto " & QtIndex & " vezes.)")
-                        FrmNotifficação.DtProdutos.Rows(_Index).Cells(1).Value = (QtIndex)
+
+                        'verifica se ja foi inseirdo na lista
+
+                        Dim Buscadescricao = From desc In LqOficina.SolicitacaoCadastroPeca
+                                             Where desc.IdSolicitacaoCadastro = row.IdSolicitacaoCad
+                                             Select desc.Descricao, desc.IdCodCad
+
+                        Dim Str As String = ""
+
+                        If Buscadescricao.Count > 0 Then
+                            If Buscadescricao.First.IdCodCad <> 0 Then
+
+                                Dim BuscadescricaoProduto = From prod In LqBase.Produtos
+                                                            Where prod.IdProduto = Buscadescricao.First.IdCodCad
+                                                            Select prod.Descricao
+
+                                Str = "O produto " & BuscadescricaoProduto.First & " foi solicitado ao estoque."
+                            Else
+                                Str = "O produto " & Buscadescricao.First.Descricao & " (cadastro pendente) foi solicitado ao estoque."
+                            End If
+                        End If
+
+                        Dim _Index As Integer = -1
+
+                        Dim QtIndex As Integer = 0
+
+                        For Each dtr As DataGridViewRow In FrmNotifficação.DtProdutos.Rows
+                            If dtr.Cells(0).Value.ToString.StartsWith(Str) Then
+                                _Index = dtr.Index
+                                QtIndex = dtr.Cells(1).Value.ToString + 1
+                            End If
+                        Next
+
+                        If _Index = -1 Then
+                            FrmNotifficação.DtProdutos.Rows.Add(Str & " (visto 1 vez.)", 1)
+                        Else
+                            FrmNotifficação.DtProdutos.Rows(_Index).Cells(0).Value = (Str & " (visto " & QtIndex & " vezes.)")
+                            FrmNotifficação.DtProdutos.Rows(_Index).Cells(1).Value = (QtIndex)
+                        End If
+
                     End If
 
-                End If
-
-            Next
-
-
-            'bubsca solicitaões de cadastro
-
-            Dim BuscaSolicitacaoCadastro = From sol In LqOficina.SolicitacaoCadastroPeca
-                                           Where sol.IdCodCad = 0
-                                           Select sol.Descricao
-
-            FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
-
-            FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Carregando solicitações internas 3-3", 0, BuscaSolicitacaoCadastro.Count, Nothing)
-
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            For Each row In BuscaSolicitacaoCadastro.ToList
-
-                Dim Qt As Integer = FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value
-                FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value = Qt + 1
-
-                'FrmSinc.Refresh()
-
-                Dim Str As String = "O produto " & BuscaSolicitacaoCadastro.First & " foi inserido e esta aguardando seu cadastro."
-
-                Dim _Index As Integer = -1
-
-                Dim QtIndex As Integer = 0
-
-                For Each dtr As DataGridViewRow In FrmNotifficação.DtProdutos.Rows
-                    If dtr.Cells(0).Value.ToString.StartsWith(Str) Then
-                        _Index = dtr.Index
-                        QtIndex = dtr.Cells(1).Value.ToString + 1
-                    End If
                 Next
 
-                If _Index = -1 Then
-                    FrmNotifficação.DtProdutos.Rows.Add(Str & " (visto 1 vez.)", 1)
-                Else
-                    FrmNotifficação.DtProdutos.Rows(_Index).Cells(0).Value = (Str & " (visto " & QtIndex & " vezes.)")
-                    FrmNotifficação.DtProdutos.Rows(_Index).Cells(1).Value = (QtIndex)
+
+                'bubsca solicitaões de cadastro
+
+                Dim BuscaSolicitacaoCadastro = From sol In LqOficina.SolicitacaoCadastroPeca
+                                               Where sol.IdCodCad = 0
+                                               Select sol.Descricao
+
+                FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
+
+                FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Carregando solicitações internas 3-3", 0, BuscaSolicitacaoCadastro.Count, Nothing)
+
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                For Each row In BuscaSolicitacaoCadastro.ToList
+
+                    Dim Qt As Integer = FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value
+                    FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value = Qt + 1
+
+                    'FrmSinc.Refresh()
+
+                    Dim Str As String = "O produto " & BuscaSolicitacaoCadastro.First & " foi inserido e esta aguardando seu cadastro."
+
+                    Dim _Index As Integer = -1
+
+                    Dim QtIndex As Integer = 0
+
+                    For Each dtr As DataGridViewRow In FrmNotifficação.DtProdutos.Rows
+                        If dtr.Cells(0).Value.ToString.StartsWith(Str) Then
+                            _Index = dtr.Index
+                            QtIndex = dtr.Cells(1).Value.ToString + 1
+                        End If
+                    Next
+
+                    If _Index = -1 Then
+                        FrmNotifficação.DtProdutos.Rows.Add(Str & " (visto 1 vez.)", 1)
+                    Else
+                        FrmNotifficação.DtProdutos.Rows(_Index).Cells(0).Value = (Str & " (visto " & QtIndex & " vezes.)")
+                        FrmNotifficação.DtProdutos.Rows(_Index).Cells(1).Value = (QtIndex)
+                    End If
+
+                Next
+
+                FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
+
+                FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Obtendo informações do servidor remoto", "", "", Nothing)
+
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                'bubsca solicitaões de cadastro
+
+                Dim DataOri As Date = "1111-11-11"
+
+                Dim BUscaSolicitacaoMarkupProdutos = From sol In LqBase.Produtos
+                                                     Where sol.Markup = 0
+                                                     Select sol.IdProduto
+
+                Dim BUscaSolicitacaoMarkupServiços = From sol In LqBase.Servicos
+                                                     Where sol.Markup = 0
+                                                     Select sol.IdServico
+
+                FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
+
+                FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Carregando solicitações financeiras", 0, BUscaSolicitacaoMarkupProdutos.Count + BUscaSolicitacaoMarkupServiços.Count, Nothing)
+
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                For Each row In BUscaSolicitacaoMarkupProdutos.ToList
+
+                    Dim Qt As Integer = FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value
+                    FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value = Qt + 1
+
+                    'FrmSinc.Refresh()
+
+                Next
+
+                For Each row In BUscaSolicitacaoMarkupServiços.ToList
+
+                    Dim Qt As Integer = FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value
+                    FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value = Qt + 1
+
+                    'FrmSinc.Refresh()
+
+                Next
+
+                If BUscaSolicitacaoMarkupProdutos.Count > 0 Then
+
+                    TtFinanceiro.Image = My.Resources.alert_icon_icons_com_52395
+                    TtFinanceiro.TextAlign = ContentAlignment.MiddleRight
+                    GestãoDeMarkupToolStripMenuItem.Image = My.Resources.alert_icon_icons_com_52395
+                    GestãoDeMarkupToolStripMenuItem.Enabled = True
+
                 End If
 
-            Next
+                If BUscaSolicitacaoMarkupServiços.Count > 0 Then
 
-            FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
+                    TtFinanceiro.Image = My.Resources.alert_icon_icons_com_52395
+                    TtFinanceiro.TextAlign = ContentAlignment.MiddleRight
+                    GestãoDeMarkupToolStripMenuItem.Image = My.Resources.alert_icon_icons_com_52395
+                    GestãoDeMarkupToolStripMenuItem.Enabled = True
 
-            FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Obtendo informações do servidor remoto", "", "", Nothing)
+                End If
 
+                FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
 
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            'bubsca solicitaões de cadastro
-
-            Dim DataOri As Date = "1111-11-11"
-
-            Dim BUscaSolicitacaoMarkupProdutos = From sol In LqBase.Produtos
-                                                 Where sol.Markup = 0
-                                                 Select sol.IdProduto
-
-            Dim BUscaSolicitacaoMarkupServiços = From sol In LqBase.Servicos
-                                                 Where sol.Markup = 0
-                                                 Select sol.IdServico
-
-            FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
-
-            FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Carregando solicitações financeiras", 0, BUscaSolicitacaoMarkupProdutos.Count + BUscaSolicitacaoMarkupServiços.Count, Nothing)
-
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            For Each row In BUscaSolicitacaoMarkupProdutos.ToList
-
-                Dim Qt As Integer = FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value
-                FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value = Qt + 1
+                FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Lendo solicitações do caixa", "", "", Nothing)
 
                 'FrmSinc.Refresh()
 
-            Next
+                Dim BuscaOrçamentos = From orc In LqComercial.Orcamentos
+                                      Where orc.Aprovado = True And orc.ValorRecebido = False
+                                      Select orc.IdOrcamento, orc.IdCliente, orc.DataAprov, orc.ValorRecebido
 
-            For Each row In BUscaSolicitacaoMarkupServiços.ToList
+                If BuscaOrçamentos.Count > 0 Then
 
-                Dim Qt As Integer = FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value
-                FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(2).Value = Qt + 1
+                    TtFinanceiro.Image = My.Resources.alert_icon_icons_com_52395
+                    TtFinanceiro.TextAlign = ContentAlignment.MiddleRight
+                    RecebimentoToolStripMenuItem1.Image = My.Resources.alert_icon_icons_com_52395
+                    RecebimentoToolStripMenuItem1.Enabled = True
 
-                'FrmSinc.Refresh()
+                End If
 
-            Next
+                FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
 
-            If BUscaSolicitacaoMarkupProdutos.Count > 0 Then
+                FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Obtendo informações do servidor remoto", "", "", Nothing)
 
-                TtFinanceiro.Image = My.Resources.alert_icon_icons_com_52395
-                TtFinanceiro.TextAlign = ContentAlignment.MiddleRight
-                GestãoDeMarkupToolStripMenuItem.Image = My.Resources.alert_icon_icons_com_52395
-                GestãoDeMarkupToolStripMenuItem.Enabled = True
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                'renderiza painel
+
+                PnnPainelInferior.Size = New Size(PnnPainelInferior.Width, ((Me.Height - (PnnSuperior.Height + PnnPainelInferior.Height)) + PnnPainelInferior.Height) - 50)
+
+                Dim GuardaIndex As Integer = FrmSinc.DtProdutos.Rows.Count - 1
+
+                'Consultas iniciais
+
+                VerificaUsuários()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VeirificaBancos()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaClientes()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaImagens()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaServicosNaoCadastrado()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                ProcuraProdutosNaoCadastrados()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaComercial()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaSolicitaçõesCotação()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaOrdemDeCompra_separacao()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaREcebimentos()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                verificaLiberacao()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaEngenharia()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaEngenhariaSolicitada()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaMarkup()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaLaudosSolicitar()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaFuncoesColaboradores()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaColaboradores()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaPagamentos()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                AfericaoValores()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaCotacaoOnLine()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                CarregaExpedicao()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                VerificaAtualCotac()
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                UpPrecosProdutos()
+
+
+                FrmSinc.ProgressBar1.Value += 1
+
+                FrmSinc.Refresh()
+
+                'desenha valores
+                Popula_Grafico()
+
+                FrmSinc.DtProdutos.Rows(GuardaIndex).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
+
+
+                FrmSinc.ProgressBar1.Value = 100
+
+                FrmSinc.Refresh()
+
+                LblUltimaAtualizacao.Text = "Sinc.: " & Now
+
+                'Catch ex As Exception
+
+                '    LblUltimaAtualizacao.Text = "Erro ao sincronizar com o servidor remoto"
+
+                'End Try
+
+                Me.WindowState = FormWindowState.Maximized
+
+                'Me.Dispose()
+
+                FrmSinc.Close()
+
+                Me.Cursor = Cursors.Arrow
 
             End If
 
-            If BUscaSolicitacaoMarkupServiços.Count > 0 Then
-
-                TtFinanceiro.Image = My.Resources.alert_icon_icons_com_52395
-                TtFinanceiro.TextAlign = ContentAlignment.MiddleRight
-                GestãoDeMarkupToolStripMenuItem.Image = My.Resources.alert_icon_icons_com_52395
-                GestãoDeMarkupToolStripMenuItem.Enabled = True
-
-            End If
-
-            FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
-
-            FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Lendo solicitações do caixa", "", "", Nothing)
-
-            'FrmSinc.Refresh()
-
-            Dim BuscaOrçamentos = From orc In LqComercial.Orcamentos
-                                  Where orc.Aprovado = True And orc.ValorRecebido = False
-                                  Select orc.IdOrcamento, orc.IdCliente, orc.DataAprov, orc.ValorRecebido
-
-            If BuscaOrçamentos.Count > 0 Then
-
-                TtFinanceiro.Image = My.Resources.alert_icon_icons_com_52395
-                TtFinanceiro.TextAlign = ContentAlignment.MiddleRight
-                RecebimentoToolStripMenuItem1.Image = My.Resources.alert_icon_icons_com_52395
-                RecebimentoToolStripMenuItem1.Enabled = True
-
-            End If
-
-            FrmSinc.DtProdutos.Rows(FrmSinc.DtProdutos.Rows.Count - 1).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
-
-            FrmSinc.DtProdutos.Rows.Add(My.Resources.alert_icon_icons_com_52395, "Obtendo informações do servidor remoto", "", "", Nothing)
-
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            'renderiza painel
-
-            PnnPainelInferior.Size = New Size(PnnPainelInferior.Width, ((Me.Height - (PnnSuperior.Height + PnnPainelInferior.Height)) + PnnPainelInferior.Height) - 50)
-
-            Dim GuardaIndex As Integer = FrmSinc.DtProdutos.Rows.Count - 1
-
-            'Consultas iniciais
-
-            VerificaUsuários()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VeirificaBancos()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaClientes()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaImagens()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaServicosNaoCadastrado()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            ProcuraProdutosNaoCadastrados()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaComercial()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaSolicitaçõesCotação()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaOrdemDeCompra_separacao()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaREcebimentos()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            verificaLiberacao()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaEngenharia()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaEngenhariaSolicitada()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaMarkup()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaLaudosSolicitar()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaFuncoesColaboradores()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaColaboradores()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaPagamentos()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            AfericaoValores()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaCotacaoOnLine()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            CarregaExpedicao()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            VerificaAtualCotac()
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            UpPrecosProdutos()
-
-
-            FrmSinc.ProgressBar1.Value += 1
-
-            FrmSinc.Refresh()
-
-            'desenha valores
-            Popula_Grafico()
-
-            FrmSinc.DtProdutos.Rows(GuardaIndex).Cells(0).Value = My.Resources.check_ok_accept_apply_1582
-
-
-            FrmSinc.ProgressBar1.Value = 100
-
-            FrmSinc.Refresh()
-
-            LblUltimaAtualizacao.Text = "Sinc.: " & Now
-
-            'Catch ex As Exception
-
-            '    LblUltimaAtualizacao.Text = "Erro ao sincronizar com o servidor remoto"
-
-            'End Try
-
-            Me.WindowState = FormWindowState.Maximized
-
-            'Me.Dispose()
-
-            FrmSinc.Close()
+        Catch ex As Exception
 
             Me.Cursor = Cursors.Arrow
 
-        End If
+            FrmSinc.Close()
+
+            EsperaC = 15
+
+        End Try
 
     End Sub
 
@@ -5821,7 +5834,15 @@ Public Class FrmPrincipal
 
         Timer1.Enabled = False
 
-        Form2210.Show(Me)
+        Dim BuscaCert = From cert In LqBase.BASE_CERTIFICADO
+                        Where cert.RAZAO = RazaoSocial
+                        Select cert.SERIAL_CERT
+
+        If BuscaCert.Count > 0 Then
+            Form2210.Show(Me)
+        Else
+            MsgBox("Não é possível realizar essa operação porque não foi encontrado nenhum certificado valido.")
+        End If
 
         Me.Cursor = Cursors.Arrow
 
@@ -5833,7 +5854,27 @@ Public Class FrmPrincipal
 
         Timer1.Enabled = False
 
-        FrmESocial.Show(Me)
+        Dim BuscaCert = From cert In LqBase.BASE_CERTIFICADO
+                        Where cert.RAZAO = RazaoSocial
+                        Select cert.SERIAL_CERT
+
+        If BuscaCert.Count > 0 Then
+            FrmESocial.Show(Me)
+        Else
+            MsgBox("Não é possível realizar essa operação porque não foi encontrado nenhum certificado valido.")
+        End If
+
+        Me.Cursor = Cursors.Arrow
+
+    End Sub
+
+    Private Sub CertificadosDigitaisToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CertificadosDigitaisToolStripMenuItem.Click
+
+        Me.Cursor = Cursors.WaitCursor
+
+        Timer1.Enabled = False
+
+        FrmCertificados.Show(Me)
 
         Me.Cursor = Cursors.Arrow
 

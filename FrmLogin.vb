@@ -156,6 +156,9 @@ Public Class FrmLogin
                     Dim _IP As String = ""
                     Dim _Instancia As String = ""
                     Dim _PortaSql As String = ""
+
+                    Dim _DOC As String = ""
+
                     For Each palavra In palavras
 
                         Dim str0 As String = palavra
@@ -179,52 +182,68 @@ Public Class FrmLogin
 
                                     _PortaSql = (palavra0)
 
+                                    If palavra0 = "" Then
+                                        _PortaSql = 0
+                                    End If
+
                                 ElseIf _Instancia = "" And _PortaSql <> "" And _IP <> "" Then
 
                                     _Instancia = (palavra0)
+
+                                ElseIf _Instancia <> "" And _PortaSql <> "" And _IP <> "" Then
+
+                                    _DOC = palavra0
 
                                 End If
 
                                 FrmPrincipal._Ip = _IP
                                 FrmPrincipal._Instancia = _Instancia
+
                                 FrmPrincipal._portaSQL = Val(_PortaSql)
 
                                 _IP = _IP.Replace("U", "")
 
                                 'public
 
-                                Dim Instancia As String = ""
-
-                                If FrmPrincipal._Instancia <> "" Then
-
-                                    Instancia = "\" & FrmPrincipal._Instancia
-
-                                End If
-
-                                If _Instancia <> "" And _PortaSql <> "" And _IP <> "" Then
-
-                                    TxtDoc.Text = (palavra0)
-
-                                End If
-
-                                FrmPrincipal.ConnectionStringBase = "Data Source=" & _IP & Instancia & "," & FrmPrincipal._portaSQL & ";Initial Catalog= Base;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
-                                    FrmPrincipal.ConnectionStringComercial = "Data Source=" & _IP & Instancia & "," & FrmPrincipal._portaSQL & ";Initial Catalog= Comercial;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
-                                    FrmPrincipal.ConnectionStringEstoqueLocal = "Data Source=" & _IP & Instancia & "," & FrmPrincipal._portaSQL & ";Initial Catalog= EstoqueLocal;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
-                                    FrmPrincipal.ConnectionStringFinanceiro = "Data Source=" & _IP & Instancia & "," & FrmPrincipal._portaSQL & ";Initial Catalog= Financeiro;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
-                                    FrmPrincipal.ConnectionStringOficina = "Data Source=" & _IP & Instancia & "," & FrmPrincipal._portaSQL & ";Initial Catalog= Oficina;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
-                                FrmPrincipal.ConnectionStringTrabalhista = "Data Source=" & _IP & Instancia & "," & FrmPrincipal._portaSQL & ";Initial Catalog= Trabalhista;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
-
-                                FrmPrincipal.ConnectionStringEstoqueDistribuidorOnLine = "Data Source= " & IPIAra & "\SQLEXPRESS, 14333;Initial Catalog= EstoqueDistribuidorOnLine;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
-                                    FrmPrincipal.ConnectionStringIARA = "Data Source=" & IPIAra & "\SQLEXPRESS, 14333;Initial Catalog= IARA;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
-                                    FrmPrincipal.ConnectionStringTransportePrestadorOnline = "Data Source=" & IPIAra & "\SQLEXPRESS, 14333;Initial Catalog= TransportePrestadorOnline;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
-
-                                    LblStatus.Text = ""
-
-                                End If
+                            End If
 
                         Next
 
                     Next
+
+                    Dim Instancia As String = ""
+
+                    If FrmPrincipal._Instancia <> "" Then
+
+                        Instancia = "\" & FrmPrincipal._Instancia
+
+                    End If
+
+                    If _Instancia <> "" And _PortaSql <> "" And _IP <> "" Then
+
+                        TxtDoc.Text = (_DOC)
+                        _DOC_SEL = _DOC
+
+                    End If
+
+                    Dim PortaUs As String = ""
+
+                    If FrmPrincipal._portaSQL > 0 Then
+                        PortaUs = "," & FrmPrincipal._portaSQL
+                    End If
+
+                    FrmPrincipal.ConnectionStringBase = "Data Source=" & _IP & Instancia & PortaUs & ";Initial Catalog= Base;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
+                    FrmPrincipal.ConnectionStringComercial = "Data Source=" & _IP & Instancia & PortaUs & ";Initial Catalog= Comercial;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
+                    FrmPrincipal.ConnectionStringEstoqueLocal = "Data Source=" & _IP & Instancia & PortaUs & ";Initial Catalog= EstoqueLocal;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
+                    FrmPrincipal.ConnectionStringFinanceiro = "Data Source=" & _IP & Instancia & PortaUs & ";Initial Catalog= Financeiro;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
+                    FrmPrincipal.ConnectionStringOficina = "Data Source=" & _IP & Instancia & PortaUs & ";Initial Catalog= Oficina;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
+                    FrmPrincipal.ConnectionStringTrabalhista = "Data Source=" & _IP & Instancia & PortaUs & ";Initial Catalog= Trabalhista;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
+
+                    FrmPrincipal.ConnectionStringEstoqueDistribuidorOnLine = "Data Source= " & IPIAra & "\SQLEXPRESS, 14333;Initial Catalog= EstoqueDistribuidorOnLine;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
+                    FrmPrincipal.ConnectionStringIARA = "Data Source=" & IPIAra & "\SQLEXPRESS, 14333;Initial Catalog= IARA;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
+                    FrmPrincipal.ConnectionStringTransportePrestadorOnline = "Data Source=" & IPIAra & "\SQLEXPRESS, 14333;Initial Catalog= TransportePrestadorOnline;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
+
+                    LblStatus.Text = ""
 
                     'verifica se esta maquina possui licensas pelo mac
 
@@ -470,6 +489,8 @@ Public Class FrmLogin
         End Try
     End Function
 
+    Dim _DOC_SEL As String = ""
+
     Private Sub BttSalvar_Click(sender As Object, e As EventArgs) Handles BttSalvar.Click
 
         'conecta com o servidor remoto para verificar usuario, devolve a chave correspondente, conn MYSQL
@@ -558,38 +579,74 @@ Public Class FrmLogin
 
                     End If
 
-                    'Try
-                    ' Chamada sincrona
-                    Dim syncClient = New WebClient()
+                    Try
+                        ' Chamada sincrona
+                        Dim syncClient = New WebClient()
                         Dim content = syncClient.DownloadString(baseUrl)
 
                         'Dim arquivoJson = JObject.Parse(content)
 
                         ' Cria o serializados Json e trata a resposta
                         Dim serializer As New DataContractJsonSerializer(GetType(ClasseLogin))
-                    Using ms = New MemoryStream(Encoding.Unicode.GetBytes(content))
-                        ' deserializa o objeto JSON usando o tipo de dados
-                        Dim weatherData = DirectCast(serializer.ReadObject(ms), ClasseLogin)
-                        Dim read = JsonConvert.DeserializeObject(Of List(Of ClasseLogin))(content)
-                        If read.Count > 0 Then
-                            ChaveEncontrada = (read.Item(0).ChaveOficina)
-                            NomeComplemento = (read.Item(0).NomeCompleto)
-                            IdUsuario = (read.Item(0).IdUsuario)
-                            RazaoSocial = (read.Item(0).RazaoSocial)
-                            CNPJ = (read.Item(0).CNPJ)
-                            Endereco = (read.Item(0).Endereco)
-                            IE = (read.Item(0).IE)
-                            Telefone = (read.Item(0).Telefone)
-                            Email = (read.Item(0).Email)
-                            Numero = (read.Item(0).Numero)
-                            Complemento = (read.Item(0).Complemento)
-                            NomeFantasia = (read.Item(0).NomeFantasia)
+                        Using ms = New MemoryStream(Encoding.Unicode.GetBytes(content))
+                            ' deserializa o objeto JSON usando o tipo de dados
+                            Dim weatherData = DirectCast(serializer.ReadObject(ms), ClasseLogin)
+                            Dim read = JsonConvert.DeserializeObject(Of List(Of ClasseLogin))(content)
+                            If read.Count > 0 Then
+                                ChaveEncontrada = (read.Item(0).ChaveOficina)
+                                NomeComplemento = (read.Item(0).NomeCompleto)
+                                IdUsuario = (read.Item(0).IdUsuario)
+                                RazaoSocial = (read.Item(0).RazaoSocial)
+                                CNPJ = (read.Item(0).CNPJ)
+                                Endereco = (read.Item(0).Endereco)
+                                IE = (read.Item(0).IE)
+                                Telefone = (read.Item(0).Telefone)
+                                Email = (read.Item(0).Email)
+                                Numero = (read.Item(0).Numero)
+                                Complemento = (read.Item(0).Complemento)
+                                NomeFantasia = (read.Item(0).NomeFantasia)
+
+                                FrmPrincipal.LblNomeUsuario.Text = NomeComplemento
+                                FrmPrincipal.LblCargo.Text = ""
+                                FrmPrincipal.LblChaveEnc.Text = ChaveEncontrada
+                                FrmPrincipal.RazaoSocial = RazaoSocial
+                                FrmPrincipal.CNPJ = CNPJ '30.694.650/0001-45"
+                                FrmPrincipal.Endereco = Endereco
+                                FrmPrincipal.Telefone = Telefone
+                                FrmPrincipal.Email = Email
+                                FrmPrincipal.IE = IE
+                                FrmPrincipal.Complemento = Complemento
+                                FrmPrincipal.Numero = Numero
+                                FrmPrincipal.NomeFantasia = NomeFantasia
+
+                                'FrmPrincipal.Timer1.Enabled = True
+
+                                Me.Visible = False
+
+                                FrmPrincipal.IdUsuario = IdUsuario
+                                'FrmPrincipal.WindowState = FormWindowState.Minimized
+
+                                FrmPrincipal.CarregaDashboard()
+
+                                FrmPrincipal.Show()
+
+                                FrmPrincipal.Visible = True
+
+                            Else
+                                MsgBox("O usuário não foi encontrado!", vbOKOnly)
+                            End If
+                            'Return weatherData
+                        End Using
+
+                    Catch ex As Exception
+
+                        If MsgBox("Não foi possível conectar ao servidor remoto, a IARA irá iniciar no modo off-line :(" & Chr(13) & "Mas não se preocupe, seus dados serão sincronizados assim que a comunicação for retomada com a nuvem :)", vbOKOnly) = MsgBoxResult.Ok Then
 
                             FrmPrincipal.LblNomeUsuario.Text = NomeComplemento
                             FrmPrincipal.LblCargo.Text = ""
                             FrmPrincipal.LblChaveEnc.Text = ChaveEncontrada
                             FrmPrincipal.RazaoSocial = RazaoSocial
-                            FrmPrincipal.CNPJ = "30.694.650/0001-45"
+                            FrmPrincipal.CNPJ = _DOC_SEL '"30.694.650/0001-45"
                             FrmPrincipal.Endereco = Endereco
                             FrmPrincipal.Telefone = Telefone
                             FrmPrincipal.Email = Email
@@ -611,23 +668,9 @@ Public Class FrmLogin
 
                             FrmPrincipal.Visible = True
 
-                        Else
-                            MsgBox("O usuário não foi encontrado!", vbOKOnly)
                         End If
-                        'Return weatherData
-                    End Using
 
-                    'Catch ex As Exception
-
-                    '    If MsgBox("Não foi possível conectar ao servidor remoto :(" & Chr(13) & ex.StackTrace, vbOKOnly) = MsgBoxResult.Ok Then
-
-                    '        Me.Visible = True
-
-                    '        FrmSinc.Close()
-
-                    '    End If
-
-                    'End Try
+                    End Try
 
                 Else
 
@@ -915,7 +958,7 @@ Public Class FrmLogin
                     "Instancia:" & FrmPrincipal._Instancia & Chr(13) &
                     "CNPJ:" & TxtDoc.Text
 
-                            Dim Instancia As String
+                            Dim Instancia As String = ""
 
                             If FrmPrincipal._Instancia <> "" Then
 
@@ -923,7 +966,15 @@ Public Class FrmLogin
 
                             End If
 
-                            Dim ConecctionServer As String = "Data Source=" & FrmPrincipal._Ip & Instancia & ", " & FrmPrincipal._portaSQL & ";Initial Catalog= Base;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
+                            Dim PortaUs As String = ""
+
+                            If FrmPrincipal._portaSQL.ToString <> "" Then
+
+                                PortaUs = "," & FrmPrincipal._portaSQL
+
+                            End If
+
+                            Dim ConecctionServer As String = "Data Source=" & FrmPrincipal._Ip & Instancia & PortaUs & ";Initial Catalog= Base;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
 
                             Lqbase.Connection.ConnectionString = ConecctionServer
 

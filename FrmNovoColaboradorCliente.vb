@@ -532,7 +532,7 @@ Public Class FrmNovoColaboradorCliente
             If IdColaboradorCliente = 0 Then
 
                 LqTrabalhista.InsereColaboradorCliente(IdCliente, TxtNomeCompleto.Text, TxtApelido.Text, Persona, TxtCPF.Text, TxtIE.Text, TxtCep.Text, TxtNumero.Text, TxtComplemento.Text, TxtTelefone.Text, TxtCelular.Text, TxtEmail.Text, LstIdFuncao.Items(CmbFuncao.SelectedIndex).ToString, CmbFuncao.Text, TxtRemuneracao.Text, TxttAdmissao.Value, "1111-11-11", CmbGrupo.Text, CmbCategoriaTrabalhador.Text)
-                IdColaboradorCliente = LqTrabalhista.ESocial.ToList.Last.IdColaborador
+                IdColaboradorCliente = LqTrabalhista.ColaboradoresCliente.ToList.Last.IdColaboradorCliente
                 'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2190", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
                 'EmiteDocumento("S-2190")
                 'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2200", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)

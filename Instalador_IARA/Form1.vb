@@ -21,7 +21,7 @@ Public Class Form1
 
     End Sub
 
-    Dim Stagio As Integer = 0
+    Dim Stagio As Integer = -1
 
 
     Private Sub StartStop()
@@ -79,7 +79,7 @@ Public Class Form1
 
             Pnn1.Visible = False
             BtnAvançar.Enabled = False
-            BttVoltar.Enabled = False
+            BttVoltar.Enabled = True
 
             If IO.Directory.Exists("C:\Iara\Ini") Then
 
@@ -135,9 +135,21 @@ Public Class Form1
 
                                         _PortaSql = (palavra0)
 
+                                        If palavra0 = "" Then
+
+                                            _PortaSql = 0
+
+                                        End If
+
                                     ElseIf _INstancia = "" And _PortaSql <> "" And _IP <> "" Then
 
                                         _INstancia = (palavra0)
+
+                                    End If
+
+                                    If _IP.EndsWith("U") Then
+
+                                        _IP = _IP.Remove(_IP.Length - 1, 1)
 
                                     End If
 
@@ -159,6 +171,8 @@ Public Class Form1
 
             End If
 
+            Stagio = 0
+
         ElseIf Pnn2.Visible = True Then
 
             If Stagio = 0 Then
@@ -168,107 +182,30 @@ Public Class Form1
 
                 PnnDataBases.Dock = DockStyle.Fill
 
-                'cria usuario caso nao exista na base concetando com user sa
-
-
-                'apaga tabelas
-
-                'base
-
                 DtDataBases.Rows.Clear()
 
                 If RdbBdd.Checked = True Then
 
-                    If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Base") Then
+                    'varre todas as pastas
 
-                        For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Base").ToList
+                    For Each path In IO.Directory.GetDirectories("C:\Iara\Uteis\BDD").ToList
 
-                            DtDataBases.Rows.Add(ImageList1.Images(3), itens.ToString, "Aguardando rotina")
-
-                        Next
-
-                    End If
-
-                    If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Oficina") Then
-
-                        For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Oficina").ToList
+                        For Each itens In IO.Directory.GetFiles(path.ToString)
 
                             DtDataBases.Rows.Add(ImageList1.Images(3), itens.ToString, "Aguardando rotina")
 
                         Next
 
-                    End If
-
-                    If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Comercial") Then
-
-                        For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Comercial").ToList
-
-                            DtDataBases.Rows.Add(ImageList1.Images(3), itens.ToString, "Aguardando rotina")
-
-                        Next
-
-                    End If
-
-                    If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_EstoqueLocal") Then
-
-                        For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_EstoqueLocal").ToList
-
-                            DtDataBases.Rows.Add(ImageList1.Images(3), itens.ToString, "Aguardando rotina")
-
-                        Next
-
-                    End If
-
-                    If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Financeiro") Then
-
-                        For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Financeiro").ToList
-
-                            DtDataBases.Rows.Add(ImageList1.Images(3), itens.ToString, "Aguardando rotina")
-
-                        Next
-
-                    End If
-
-                Else
-
-                    If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Iara") Then
-
-                        For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Iara").ToList
-
-                            DtDataBases.Rows.Add(ImageList1.Images(3), itens.ToString, "Aguardando rotina")
-
-                        Next
-
-                    End If
-
-                    If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_EstoqueDistribuidorOnLine") Then
-
-                        For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_EstoqueDistribuidorOnLine").ToList
-
-                            DtDataBases.Rows.Add(ImageList1.Images(3), itens.ToString, "Aguardando rotina")
-
-                        Next
-
-                    End If
-
-                    If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_TransportePrestadorOnline") Then
-
-                        For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_TransportePrestadorOnline").ToList
-
-                            DtDataBases.Rows.Add(ImageList1.Images(3), itens.ToString, "Aguardando rotina")
-
-                        Next
-
-                    End If
+                    Next
 
                 End If
 
                 BtnAvançar.Enabled = True
                 BttVoltar.Enabled = True
 
-                Stagio += 1
+                Stagio = 1
 
-                BtnAvançar.PerformClick()
+                'BtnAvançar.PerformClick()
 
             ElseIf Stagio = 1 Then
 
@@ -297,10 +234,16 @@ Public Class Form1
 
                     End If
 
-                    ConecctionServer = "Data Source=" & TxtIp.Text & Instancia & "," & TxtPortaSQL.Text & ";Initial Catalog= Master;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
+                    Dim Porta As String = ""
+                    If TxtPortaSQL.Text <> "" Then
+
+                        Porta = "," & TxtPortaSQL.Text
+
+                    End If
+
+                    ConecctionServer = "Data Source=" & TxtIp.Text & Instancia & Porta & ";Initial Catalog= Master;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
 
                     'carrega 
-
 
                     Using Conexão As New SqlClient.SqlConnection(ConecctionServer)
 
@@ -328,6 +271,7 @@ Public Class Form1
                             row.Cells(0).Value = ImageList1.Images(1)
                             row.Cells(2).Value = ex.Message
 
+                            Err += 1
                             Conexão.Close()
 
                         End Try
@@ -353,205 +297,25 @@ Public Class Form1
 
                     If RdbBdd.Checked = True Then
 
-                        'base
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Base\Tabelas") Then
+                        'carrega os arquivos 
+                        Dim Direct As String = "C:\Iara\Uteis\BDD"
 
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Base\Tabelas").ToList
+                        For Each path In IO.Directory.GetDirectories(Direct).ToList
 
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "Base", "Aguardando rotina")
+                            For Each itens In IO.Directory.GetDirectories(path.ToString)
 
-                            Next
+                                If Not itens.ToString.EndsWith("Dsc") And Not itens.ToString.EndsWith("Insert") And Not itens.ToString.EndsWith("Inserts") Then
+                                    For Each itens_sub In IO.Directory.GetFiles(itens.ToString)
 
-                        End If
+                                        Dim Base As String = path.ToString.Remove(0, Direct.ToString.Length).Remove(0, 5)
+                                        DtItensBDD.Rows.Add(ImageList1.Images(3), itens_sub.ToString, Base, "Aguardando rotina")
 
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Base\Procedures") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Base\Procedures").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "Base", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Base\Insert") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Base\Insert").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "Base", "Aguardando rotina")
+                                    Next
+                                End If
 
                             Next
 
-                        End If
-
-                        'Ofiina
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Oficina\Tabelas") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Oficina\Tabelas").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "Oficina", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Oficina\Procedures") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Oficina\Procedures").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "Oficina", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                        'Comercial
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Comercial\Tabelas") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Comercial\Tabelas").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "Comercial", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Comercial\Procedures") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Comercial\Procedures").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "Comercial", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                        'Estoque local
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_EstoqueLocal\Tabelas") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_EstoqueLocal\Tabelas").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "EstoqueLocal", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_EstoqueLocal\Procedures") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_EstoqueLocal\Procedures").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "EstoqueLocal", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                        'Financeiro
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Financeiro\Tabelas") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Financeiro\Tabelas").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "Financeiro", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Financeiro\Procedures") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Financeiro\Procedures").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "Financeiro", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Financeiro\Insert") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Financeiro\Insert").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "Financeiro", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                    Else
-
-                        'iara
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Iara\Tabelas") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Iara\Tabelas").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "Iara", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Iara\Procedures") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Iara\Procedures").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "Iara", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_Iara\Insert") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_Iara\Insert").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "Iara", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                        'EstoqueDistribuidorOnLine
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_EstoqueDistribuidorOnLine\Tabelas") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_EstoqueDistribuidorOnLine\Tabelas").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "EstoqueDistribuidorOnLine", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_EstoqueDistribuidorOnLine\Procedures") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_EstoqueDistribuidorOnLine\Procedures").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "EstoqueDistribuidorOnLine", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                        'EstoqueDistribuidorOnLine
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_TransportePrestadorOnline\Tabelas") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_TransportePrestadorOnline\Tabelas").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "TransportePrestadorOnline", "Aguardando rotina")
-
-                            Next
-
-                        End If
-
-                        If IO.Directory.Exists("C:\Iara\Uteis\Bdd\Bdd_TransportePrestadorOnline\Procedures") Then
-
-                            For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\Bdd\Bdd_TransportePrestadorOnline\Procedures").ToList
-
-                                DtItensBDD.Rows.Add(ImageList1.Images(3), itens.ToString, "TransportePrestadorOnline", "Aguardando rotina")
-
-                            Next
-
-                        End If
+                        Next
 
                     End If
 
@@ -559,12 +323,11 @@ Public Class Form1
                     PnnTabelas.Visible = True
                     PnnTabelas.Dock = DockStyle.Fill
                     BtnAvançar.Enabled = True
+                    BttVoltar.Enabled = True
 
-                    Stagio += 1
+                    Stagio = 2
 
-                    BtnAvançar.PerformClick()
-
-
+                    'BtnAvançar.PerformClick()
 
                 Else
 
@@ -579,10 +342,10 @@ Public Class Form1
                     Next
 
                     BttRodarNovamente.Visible = True
+                    BttVoltar.Enabled = True
 
                 End If
 
-                BttVoltar.Enabled = True
 
             ElseIf Stagio = 2 Then
 
@@ -607,7 +370,14 @@ Public Class Form1
 
                     End If
 
-                    ConecctionServer = "Data Source=" & TxtIp.Text & Instancia & "," & TxtPortaSQL.Text & ";Initial Catalog=" & row.Cells(2).Value.ToString & ";Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
+                    Dim Porta As String = ""
+                    If TxtPortaSQL.Text <> "" Then
+
+                        Porta = "," & TxtPortaSQL.Text
+
+                    End If
+
+                    ConecctionServer = "Data Source=" & TxtIp.Text & Instancia & Porta & ";Initial Catalog=" & row.Cells(2).Value.ToString & ";Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
 
                     Using Conexão As New SqlClient.SqlConnection(ConecctionServer)
 
@@ -644,12 +414,11 @@ Public Class Form1
 
                 Next
 
-                Stagio += 1
+                Stagio = 3
 
                 If Err = 0 Then
 
                     'popula cnpj e busca chave
-
 
                     Dim Arquivo As String = "C:\Iara\Ini\Initial.ini"
 
@@ -729,11 +498,19 @@ Public Class Form1
 
                     'End If
 
-                    BtnAvançar.Enabled = True
+                    PnnLicensas.Visible = True
+                    PnnLicensas.Dock = DockStyle.Fill
 
-                    BttVoltar.Enabled = True
+                    PnnTabelas.Visible = False
 
-                    BtnAvançar.PerformClick()
+                    BtnAvançar.Visible = False
+                    BtnConcluir.Visible = True
+                    BtnConcluir.Enabled = True
+                    BttVoltar.Enabled = False
+
+                    BttBuscarLicensas.PerformClick()
+
+                    'BtnAvançar.PerformClick()
 
                 Else
 
@@ -1083,25 +860,102 @@ Public Class Form1
         BtnConcluir.Visible = False
         BtnAvançar.Visible = True
 
-        If Stagio = 1 Then
+        If Stagio = 0 Then
+
+            Pnn1.Visible = True
+            Pnn1.Dock = DockStyle.Fill
+
+            Pnn2.Visible = False
+            BtnAvançar.Enabled = True
+            BttVoltar.Enabled = False
+
+            Stagio = -1
+
+        ElseIf Stagio = 1 Then
+
+            Pnn2.Visible = True
+            Pnn2.Dock = DockStyle.Fill
+
+            PnnServidor.Visible = True
+            PnnDataBases.Visible = False
+
+            PnnDataBases.Dock = DockStyle.Fill
+
+            BtnAvançar.Enabled = True
+            BttVoltar.Enabled = True
 
             Stagio = 0
 
-            PnnServidor.Visible = True
-            PnnServidor.Dock = DockStyle.Fill
-
-            PnnDataBases.Visible = False
+            'BtnAvançar.PerformClick()
 
         ElseIf Stagio = 2 Then
 
-            Stagio = 1
-
-            PnnDataBases.Visible = True
-            PnnDataBases.Dock = DockStyle.Fill
+            'StartStop()
 
             PnnTabelas.Visible = False
+            PnnDataBases.Visible = True
 
-        End If
+            PnnDataBases.Dock = DockStyle.Fill
+
+            BtnAvançar.Enabled = True
+            BttVoltar.Enabled = True
+
+            'cria tabelas
+
+            Stagio = 1
+
+        ElseIf Stagio = 3 Then
+
+            PnnDataBases.Visible = False
+            PnnTabelas.Visible = True
+            PnnTabelas.Dock = DockStyle.Fill
+            BtnAvançar.Enabled = True
+            BttVoltar.Enabled = True
+
+            Stagio = 2
+
+        ElseIf Stagio = 4 Then
+
+                PnnLicensas.Visible = True
+                PnnLicensas.Dock = DockStyle.Fill
+
+                PnnTabelas.Visible = False
+
+                BttBuscarLicensas.PerformClick()
+
+                Dim Err As Integer = 0
+
+                If Err = 0 Then
+
+                    BtnAvançar.Visible = False
+                    BtnConcluir.Visible = True
+
+                    BttVoltar.Enabled = True
+
+                    TxtCNPJ.Focus()
+
+                Else
+
+                    BtnAvançar.Visible = False
+                    BtnConcluir.Visible = True
+
+                    BttVoltar.Enabled = True
+
+                    For Each row As DataGridViewRow In DtItensBDD.Rows
+
+                        If row.Cells(3).Value = "Sucesso" Then
+                            row.Visible = False
+                        End If
+
+                    Next
+
+                    BttRodarNovamente.Visible = True
+
+                    BttRodarTabelaAgain.Visible = True
+
+                End If
+
+            End If
 
     End Sub
 
@@ -1172,7 +1026,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveEst00.Count To LblQtDeskEstoque.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Est-00", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Est-00", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1190,7 +1044,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveEst01.Count To LblQtMobEstoque.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Est-01", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Est-01", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1208,7 +1062,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveOfi00.Count To LblQtDeskOficina.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Ofi-00", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Ofi-00", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1226,7 +1080,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveOfi01.Count To LblQtMobOficina.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Ofi-01", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Ofi-01", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1324,7 +1178,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveEst00.Count To LblQtDeskEstoque.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Est-00", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Est-00", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1342,7 +1196,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveEst01.Count To LblQtMobEstoque.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Est-01", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Est-01", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1360,7 +1214,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveOfi00.Count To LblQtDeskOficina.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Ofi-00", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Ofi-00", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1378,7 +1232,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveOfi01.Count To LblQtMobOficina.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Ofi-01", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Ofi-01", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1483,7 +1337,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveEst00.Count To LblQtDeskEstoque.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Est-00", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Est-00", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1501,7 +1355,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveEst01.Count To LblQtMobEstoque.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Est-01", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Est-01", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1519,7 +1373,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveOfi00.Count To LblQtDeskOficina.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Ofi-00", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Ofi-00", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1537,7 +1391,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveOfi01.Count To LblQtMobOficina.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Ofi-01", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Ofi-01", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1632,7 +1486,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveEst00.Count To LblQtDeskEstoque.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Est-00", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Est-00", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1650,7 +1504,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveEst01.Count To LblQtMobEstoque.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Est-01", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Est-01", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1668,7 +1522,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveOfi00.Count To LblQtDeskOficina.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Ofi-00", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Ofi-00", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1686,7 +1540,7 @@ Public Class Form1
 
                             For i As Integer = BuscaChaveOfi01.Count To LblQtMobOficina.Text - 1 Step 1
 
-                                LqBase.InsereChavesInterno("Ofi-01", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                                LqBase.InsereChavesInterno("Ofi-01", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                             Next
 
@@ -1793,7 +1647,7 @@ Public Class Form1
 
                         For i As Integer = BuscaChaveEst00.Count To LblQtDeskEstoque.Text - 1 Step 1
 
-                            LqBase.InsereChavesInterno("Est-00", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                            LqBase.InsereChavesInterno("Est-00", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                         Next
 
@@ -1811,7 +1665,7 @@ Public Class Form1
 
                         For i As Integer = BuscaChaveEst01.Count To LblQtMobEstoque.Text - 1 Step 1
 
-                            LqBase.InsereChavesInterno("Est-01", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                            LqBase.InsereChavesInterno("Est-01", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                         Next
 
@@ -1829,7 +1683,7 @@ Public Class Form1
 
                         For i As Integer = BuscaChaveOfi00.Count To LblQtDeskOficina.Text - 1 Step 1
 
-                            LqBase.InsereChavesInterno("Ofi-00", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                            LqBase.InsereChavesInterno("Ofi-00", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                         Next
 
@@ -1847,7 +1701,7 @@ Public Class Form1
 
                         For i As Integer = BuscaChaveOfi01.Count To LblQtMobOficina.Text - 1 Step 1
 
-                            LqBase.InsereChavesInterno("Ofi-01", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                            LqBase.InsereChavesInterno("Ofi-01", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                         Next
 
@@ -1942,7 +1796,7 @@ Public Class Form1
 
                         For i As Integer = BuscaChaveEst00.Count To LblQtDeskEstoque.Text - 1 Step 1
 
-                            LqBase.InsereChavesInterno("Est-00", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                            LqBase.InsereChavesInterno("Est-00", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                         Next
 
@@ -1960,7 +1814,7 @@ Public Class Form1
 
                         For i As Integer = BuscaChaveEst01.Count To LblQtMobEstoque.Text - 1 Step 1
 
-                            LqBase.InsereChavesInterno("Est-01", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                            LqBase.InsereChavesInterno("Est-01", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                         Next
 
@@ -1978,7 +1832,7 @@ Public Class Form1
 
                         For i As Integer = BuscaChaveOfi00.Count To LblQtDeskOficina.Text - 1 Step 1
 
-                            LqBase.InsereChavesInterno("Ofi-00", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                            LqBase.InsereChavesInterno("Ofi-00", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                         Next
 
@@ -1996,7 +1850,7 @@ Public Class Form1
 
                         For i As Integer = BuscaChaveOfi01.Count To LblQtMobOficina.Text - 1 Step 1
 
-                            LqBase.InsereChavesInterno("Ofi-01", LblChave.Text, LblValidade.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
+                            LqBase.InsereChavesInterno("Ofi-01", LblChave.Text, LblTelefone.Text, Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, TxtCNPJ.Text, _idCliente, "", "", "")
 
                         Next
 
@@ -2491,7 +2345,14 @@ Public Class Form1
 
                 If CkInstanciaPadrão.Checked = True Then
 
-                    ConecctionServer = "Data Source=" & TxtIp.Text & "\" & TxtNomeInstancia.Text & "," & TxtPortaSQL.Text & ";Initial Catalog= Master;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
+                    Dim PortaUs As String = ""
+                    If TxtPortaSQL.Text <> "" Then
+
+                        PortaUs = "," & PortaUs
+
+                    End If
+
+                    ConecctionServer = "Data Source=" & TxtIp.Text & "\" & TxtNomeInstancia.Text & PortaUs & ";Initial Catalog= Master;Persist Security Info=True;User ID=sqlsystem;Password=1q2w3e4r*"
 
                     Using Conexão As New SqlClient.SqlConnection(ConecctionServer)
 
@@ -2618,6 +2479,8 @@ Public Class Form1
 
     Private Sub BttBuscarLicensas_Click(sender As Object, e As EventArgs) Handles BttBuscarLicensas.Click
 
+        Me.Cursor = Cursors.WaitCursor
+
         QtDskEst = 0
         QtMobEst = 0
         QtDskOfi = 0
@@ -2636,44 +2499,56 @@ Public Class Form1
             Dim syncClient = New WebClient()
             Dim content = syncClient.DownloadString(baseUrl)
 
-            Try
-
-                'Dim arquivoJson = JObject.Parse(content)
-
-                ' Cria o serializados Json e trata a resposta
-                Dim serializer As New DataContractJsonSerializer(GetType(ClsJSON.Acesso))
-                Using ms = New MemoryStream(Encoding.Unicode.GetBytes(content))
-                    ' deserializa o objeto JSON usando o tipo de dados
-                    Dim weatherData = DirectCast(serializer.ReadObject(ms), ClsJSON.Acesso)
-
-                    'Return weatherData
-                End Using
-            Catch ex As Exception
-                Throw ex
-            End Try
-
             Dim read = JsonConvert.DeserializeObject(Of List(Of ClsJSON.Acesso))(content)
 
             Dim Aprovados As Integer = 0
             Dim Perdido As Integer = 0
             Dim Aberto As Integer = 0
 
-            For Each row In read.ToList
-                LblChave.Text = row.ChaveOficina
-            Next
+            If read.Count > 0 Then
+                For Each row In read.ToList
+                    LblChave.Text = row.ChaveOficina
+                    LblRazaoSocial.Text = row.Razao & " - " & row.FAntasia
+                    LblTelefone.Text = row.Telefone
+                    LblEmail.Text = row.Email
+                Next
 
-            BtnConcluir.Enabled = True
-            BtnAvançar.Enabled = False
+                BtnConcluir.Enabled = True
+                BtnAvançar.Enabled = False
 
-            Dim baseUrl_chave As String = "http://www.iarasoftware.com.br/reseta_correlacoes_interna.php?ChaveOficina=" & LblChave.Text
+                Dim baseUrl_chave As String = "http://www.iarasoftware.com.br/reseta_correlacoes_interna.php?ChaveOficina=" & LblChave.Text
 
-            'carrega informações no site
+                'carrega informações no site
 
-            ' Chamada sincrona
-            Dim syncClient_Chave = New WebClient()
-            Dim content_Chave = syncClient.DownloadString(baseUrl_chave)
+                ' Chamada sincrona
+                Dim syncClient_Chave = New WebClient()
+                Dim content_Chave = syncClient.DownloadString(baseUrl_chave)
+
+                Me.Cursor = Cursors.Arrow
+
+            Else
+
+                If MsgBox("Não encontrei nenhuma licensa vincula a este CNPJ, deseja gerar uma licensa agora?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+
+                    If MsgBox("No momento não é possível gerar uma licensa dinamicamente, por favor entre em contato com um de nossos representantes para solicitar um acesso." & Chr(13) & "Obrigado ;)") = MsgBoxResult.Ok Then
+
+                        End
+
+                    End If
+                    'FrmSolicitaPrimeiroAcesso.Show(Me)
+
+                Else
+
+                    Me.Cursor = Cursors.Arrow
+
+                End If
+
+            End If
 
         Catch ex As Exception
+
+            MsgBox("Houve uma falha na comunicação com o servidor remoto :(")
+            Me.Cursor = Cursors.Arrow
 
         End Try
 

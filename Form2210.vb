@@ -120,17 +120,7 @@ Public Class Form2210
         Dim LqTrabalhista As New LqTrabalhistaDataContext
         LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
 
-        Dim IdSocial As String
-
-        If LqTrabalhista.ESocial.ToList.Count > 0 Then
-
-            IdSocial = LqTrabalhista.ESocial.ToList.Last.IdESocial
-
-        Else
-
-            IdSocial = "1"
-
-        End If
+        Dim IdSocial As String = HrStr.Remove(0, 1) & MinStr & SgStr
 
         If IdSocial.ToString.Length = 1 Then
 
@@ -153,7 +143,7 @@ Public Class Form2210
         Dim Identificacao As String = "ID" & PersonaSel & Doc & Today.Year & MStr & DStr & HrStr & MinStr & SgStr & IdSocial
 
         'cria documento xml
-        Dim writer As New XmlTextWriter("C:\Iara\ESocial\" & IdSocial & ".xml", Encoding.UTF8)
+        Dim writer As New XmlTextWriter("C:\Iara\ESocial\Eventos\" & Identificacao & ".xml", Encoding.UTF8)
 
         'replace 
         ''> (sinal de maior) &gt; 
@@ -166,29 +156,6 @@ Public Class Form2210
         'inicia o documento xml
 
         writer.WriteStartDocument()
-
-        writer.WriteStartElement("eSocial", "http://www.esocial.gov.br/schema/lote/eventos/envio/v1_1_1")
-
-        writer.WriteStartElement("envioLoteEventos")
-        writer.WriteAttributeString("grupo", 2)
-
-        writer.WriteStartElement("ideEmpregador")
-        writer.WriteElementString("tpInsc", Persona)
-        writer.WriteElementString("nrInsc", Doc)
-
-        writer.WriteEndElement()
-
-        writer.WriteStartElement("ideTransmissor")
-
-        writer.WriteElementString("tpInsc", "1")
-        writer.WriteElementString("nrInsc", FrmPrincipal.CNPJ.Replace(".", "").Replace("/", "").Replace("-", ""))
-
-        writer.WriteEndElement()
-
-        writer.WriteStartElement("eventos")
-
-        writer.WriteStartElement("evento")
-        writer.WriteAttributeString("Id", Identificacao)
 
         'escreve o elmento raiz
 
@@ -204,7 +171,7 @@ Public Class Form2210
         writer.WriteStartElement("ideEvento")
         writer.WriteElementString("indRetif", "1")
 
-        writer.WriteElementString("tpAmb", "8")
+        writer.WriteElementString("tpAmb", "2")
         writer.WriteElementString("procEmi", "1")
         writer.WriteElementString("verProc", "1.0.0")
 
@@ -462,36 +429,37 @@ Public Class Form2210
 
         writer.WriteEndElement()
 
-        'insere a tag de assinatura
-
-        writer.WriteEndElement()
-
-        'writer.WriteStartElement("Signature")
-
-        'writer.WriteEndElement()
-
-        writer.WriteEndElement()
-
-        'encerra evtCAT
-
-        writer.WriteEndElement()
-
-        'encerra evtCAT
-
-        writer.WriteEndElement()
-
-        'encerra evtCAT
-
-        writer.WriteEndElement()
-
-        'encerra evtCAT
-
-        writer.WriteEndElement()
-        'Escreve o XML para o arquivo e fecha o objeto escritor
-
         writer.Close()
 
-        SelecionarCertificado("C:\Iara\ESocial\" & IdSocial & ".xml", Identificacao, IdSocial)
+        GetCerificateX509.Open(OpenFlags.ReadOnly Or OpenFlags.OpenExistingOnly)
+
+        Dim LqBase As New DtCadastroDataContext
+        LqBase.Connection.ConnectionString = FrmPrincipal.ConnectionStringBase
+
+        Dim BuscaCertificado = From cert In LqBase.BASE_CERTIFICADO
+                               Where cert.SERIAL_CERT Like "*"
+                               Select cert.RAZAO, cert.SERIAL_CERT
+
+        If BuscaCertificado.Count > 0 Then
+
+            For Each item_c In GetCerificateX509.Certificates
+
+                If item_c.SerialNumber = (BuscaCertificado.First.SERIAL_CERT) Then
+
+                    SignVerify.SignVerifyEnvelope.SignXmlFile("C:\Iara\ESocial\Eventos\" & Identificacao & ".xml", "C:\Iara\ESocial\Eventos\Signed" & Identificacao & ".xml", objColecaoCertificadosX509.Item(0), Identificacao)
+                    criaEventoEnviaLote("C:\Iara\ESocial\Eventos\Signed" & Identificacao & ".xml", Identificacao, Doc, _ANO, _MES, _DIA, HrStr, MinStr, SgStr)
+
+                End If
+
+            Next
+
+        End If
+
+        'writer.WriteEndElement()
+        'Escreve o XML para o arquivo e fecha o objeto escritor
+        'Process.Start("C:\Iara\ESocial\Eventos\" & Identificacao & ".xml")
+
+        'gera o envio de lote
 
     End Sub
 
@@ -505,24 +473,26 @@ Public Class Form2210
 
     Private Sub SelecionarCertificado(ByVal ArqXmlAssinar As String, ByVal StrIdentificacao As String, ByVal IDSOCIAL As Integer)
 
-        Try
+        'Try
 
-            GetCerificateX509.Open(OpenFlags.ReadOnly Or OpenFlags.OpenExistingOnly)
+        GetCerificateX509.Open(OpenFlags.ReadOnly Or OpenFlags.OpenExistingOnly)
 
             objColecaoCertificadosX509 = X509Certificate2UI.SelectFromCollection(GetCerificateX509.Certificates,
     "Certificado(s) dísponível(is)", "Selecione o certificado.", X509SelectionFlag.SingleSelection)
 
             If objColecaoCertificadosX509.Count > 0 Then
 
-                AssinarDocumentoXML(ArqXmlAssinar, "Signature", objColecaoCertificadosX509.Item(0).SerialNumber.ToString, StrIdentificacao, IDSOCIAL)
+            SignVerify.SignVerifyEnvelope.SignXmlFile(ArqXmlAssinar, "C:\Iara\ESocial\" & StrIdentificacao & ".xml", objColecaoCertificadosX509.Item(0), StrIdentificacao)
 
-            End If
+            'AssinarDocumentoXML(ArqXmlAssinar, "Signature", objColecaoCertificadosX509.Item(0).SerialNumber.ToString, StrIdentificacao, IDSOCIAL)
 
-        Catch ex As Exception
+        End If
 
-            MsgBox(ex.Message)
+        'Catch ex As Exception
 
-        End Try
+        '    MsgBox(ex.Message)
+
+        'End Try
 
     End Sub
 
@@ -533,113 +503,17 @@ Public Class Form2210
             Dim Certificado As X509Certificate2
             Certificado = objColecaoCertificadosX509.Item(0)
             Dim Key As RSA = Certificado.GetRSAPrivateKey
-            Dim X509 As X509Certificate = Certificado
+            Dim X509 As X509Certificate2 = Certificado
             'SignVerify.SignVerifyEnvelope.CreateSomeXml("C:\Iara\ESocial\Signed" & StrIdentificacao & ".xml")
 
             Dim Arquivo_ASS As String = "C:\Iara\ESocial\" & StrIdentificacao & ".xml"
 
-            SignVerify.SignVerifyEnvelope.SignXmlFile(ArqXmlAssinar, Arquivo_ASS, Key, X509, StrIdentificacao)
-
-            Dim LqTrabalhista As New LqTrabalhistaDataContext
-            LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
-
-            LqTrabalhista.InsereESocial(LstIDCliente.Items(CmbTodosClientes.SelectedIndex).ToString, LstIdColaborador.Items(CmbColaboradores.SelectedIndex).ToString _
-                                    , "S-2210", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, "C:\Iara\ESocial\" & StrIdentificacao & ".xml", StrIdentificacao, "", "", 0)
 
             'SignedXML.ComputeSignature()
 
             'If MsgBox("Arquivo assinado com sucesso!", vbOKOnly) = DialogResult.OK Then
 
             'envia para o webservice
-
-            Dim myBinding = New BasicHttpsBinding()
-            myBinding.Security.Mode = SecurityMode.Transport
-            myBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Certificate
-
-            'rotina para teste -- apagar
-
-            'cria documento xml
-
-            Dim settings As New XmlReaderSettings()
-
-            AddHandler settings.ValidationEventHandler, AddressOf Me.ValidationEventHandler
-
-            'ecerra arquivo de test
-
-            Dim Client As ServicoEnviarLoteEventos = New ServicoEnviarLoteEventos(myBinding)
-
-            Client.ClientCertificates.Add(Certificado)
-
-            Dim doc As XmlDocument = New XmlDocument()
-            doc.Load(New XmlTextReader(Arquivo_ASS))
-
-            'Process.Start(Arquivo_ASS)
-
-            Try
-                Dim result = Client.EnviarLoteEventos(doc.DocumentElement)
-                Dim json As String = JsonConvert.SerializeObject(result, Newtonsoft.Json.Formatting.Indented, New JsonSerializerSettings With {
-            .ContractResolver = New CamelCasePropertyNamesContractResolver()})
-
-                Dim reader As XmlElement = (result)
-                Dim elementos As ArrayList = New ArrayList
-                Dim ResultadoConsulta As String = ""
-
-                For Each res As XmlNode In result.ChildNodes
-                    For Each res_0 As XmlNode In res.ChildNodes
-
-                        If res_0.Name = "status" Then
-
-                            For Each res_1 As XmlNode In res_0.ChildNodes
-
-                                If res_1.Name = "descResposta" Then
-                                    ResultadoConsulta = res_1.InnerText
-                                End If
-
-                            Next
-
-                        ElseIf res_0.Name = "dadosRecepcaoLote" Then
-
-                            For Each res_1 As XmlNode In res_0.ChildNodes
-
-                                If res_1.Name = "protocoloEnvio" Then
-                                    ResultadoConsulta = res_1.InnerText
-                                End If
-
-                            Next
-
-
-                        End If
-
-                    Next
-                Next
-
-                Dim Erro As String = json
-
-                If ResultadoConsulta <> "" Then
-
-                    If MsgBox("Evento transmitido com sucesso!", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Sucesso!") = MsgBoxResult.Ok Then
-
-                        'atualiza protocolo
-
-                        LqTrabalhista.AtualizaProtocoloEsocial(IDSOCIAL, ResultadoConsulta)
-
-                        FrmESocial.Show(FrmPrincipal)
-
-                        'Me.Close()
-
-                    End If
-
-                Else
-
-                    MsgBox("Não foi possível ler o protocolo de retorno do evento" & Chr(13) & Erro, MsgBoxStyle.OkOnly)
-
-                End If
-
-            Catch ex As Exception
-
-                MsgBox(ex.Message & ex.StackTrace)
-
-            End Try
 
             'Process.Start(Arquivo_ASS)
 
@@ -679,12 +553,6 @@ Public Class Form2210
             CmbTodosClientes.Items.Add(row.RazaoSocial_nome)
             LstIDCliente.Items.Add(row.IdCliente)
         Next
-
-        Dim LqTrabalhista As New LqTrabalhistaDataContext
-        LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
-
-
-
 
     End Sub
 
@@ -836,6 +704,213 @@ Public Class Form2210
         End If
 
     End Sub
+
+    Private Sub criaEventoEnviaLote(FileName As String, IDENTIFICACAO As String, CNPJ As String, AAAA As String, MM As String, DD As String, HH As String, MM_ As String, SS As String)
+
+        Try
+
+
+            Dim LqBase As New DtCadastroDataContext
+            LqBase.Connection.ConnectionString = FrmPrincipal.ConnectionStringBase
+
+            Dim BuscaCertificado = From cert In LqBase.BASE_CERTIFICADO
+                                   Where cert.SERIAL_CERT Like "*"
+                                   Select cert.RAZAO, cert.SERIAL_CERT
+
+            If BuscaCertificado.Count > 0 Then
+
+                For Each item_c In GetCerificateX509.Certificates
+
+                    If item_c.SerialNumber = (BuscaCertificado.First.SERIAL_CERT) Then
+
+
+                        'replace 
+                        ''> (sinal de maior) &gt; 
+                        ''< (sinal de menor) &lt; 
+                        ''& (e comercial) &amp;
+                        ''> (sinal de maior) &gt; 
+                        ''< (sinal de menor) &lt; 
+                        ''& (e comercial) &amp;
+                        Text.Replace(">", "&gt").Replace("<", "&lt").Replace("&", "&amp").Replace("""", "&quot").Replace("'", "&apos")
+                        'inicia o documento xml
+
+                        Dim PERSONA As Integer
+
+                        If CNPJ.Length > 11 Then
+                            PERSONA = 1
+                        Else
+                            PERSONA = 2
+                        End If
+
+                        'carrega xml do lote
+                        Dim doc As XmlDocument = New XmlDocument()
+                        doc.PreserveWhitespace = False
+                        doc.Load(New XmlTextReader(FileName))
+
+                        'Carrega XML
+
+                        Dim xmltw As XmlTextWriter = New XmlTextWriter("C:\Iara\ESocial\Lotes\" & CNPJ & AAAA & MM & DD & "T" & HH & MM_ & SS & ".xml", New UTF8Encoding(True))
+
+                        xmltw.WriteStartDocument()
+                        xmltw.WriteStartElement("eSocial", "http://www.esocial.gov.br/schema/lote/eventos/envio/v1_1_1")
+
+                        xmltw.WriteStartElement("envioLoteEventos")
+                        xmltw.WriteAttributeString("grupo", 2)
+
+                        xmltw.WriteStartElement("ideEmpregador")
+                        xmltw.WriteElementString("tpInsc", PERSONA)
+                        xmltw.WriteElementString("nrInsc", CNPJ)
+
+                        xmltw.WriteEndElement()
+
+                        xmltw.WriteStartElement("ideTransmissor")
+
+                        xmltw.WriteElementString("tpInsc", "1")
+                        xmltw.WriteElementString("nrInsc", FrmPrincipal.CNPJ.Replace(".", "").Replace("/", "").Replace("-", ""))
+
+                        xmltw.WriteEndElement()
+
+                        xmltw.WriteStartElement("eventos")
+
+                        xmltw.WriteStartElement("evento")
+                        xmltw.WriteAttributeString("Id", IDENTIFICACAO)
+
+                        doc.WriteTo(xmltw)
+                        xmltw.Close()
+
+                        'envia evento para o servidor Serpro
+
+                        Dim myBinding = New BasicHttpsBinding()
+                        myBinding.Security.Mode = SecurityMode.Transport
+                        myBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Certificate
+
+                        'rotina para teste -- apagar
+
+                        'cria documento xml
+
+                        Dim settings As New XmlReaderSettings()
+
+                        AddHandler settings.ValidationEventHandler, AddressOf Me.ValidationEventHandler
+
+                        'ecerra arquivo de test
+
+                        Dim Client As ServicoEnviarLoteEventos = New ServicoEnviarLoteEventos(myBinding)
+
+                        Client.ClientCertificates.Add(item_c)
+
+                        Dim LqTrabalhista As New LqTrabalhistaDataContext
+                        LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
+
+                        LqTrabalhista.InsereESocial(LstIDCliente.Items(CmbTodosClientes.SelectedIndex).ToString, LstIdColaborador.Items(CmbColaboradores.SelectedIndex).ToString _
+                                    , "S-2210", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay, "C:\Iara\ESocial\Lotes\" & CNPJ & AAAA & MM & DD & "T" & HH & MM_ & SS & ".xml", IDENTIFICACAO, "", "", 0)
+
+                        Dim docLote As XmlDocument = New XmlDocument()
+                        docLote.Load(New XmlTextReader("C:\Iara\ESocial\Lotes\" & CNPJ & AAAA & MM & DD & "T" & HH & MM_ & SS & ".xml"))
+
+                        'Process.Start(Arquivo_ASS)
+
+                        Try
+
+                            Dim result = Client.EnviarLoteEventos(docLote.DocumentElement)
+                            Dim json As String = JsonConvert.SerializeObject(result, Newtonsoft.Json.Formatting.Indented, New JsonSerializerSettings With {
+            .ContractResolver = New CamelCasePropertyNamesContractResolver()})
+
+                            Dim reader As XmlElement = (result)
+                            Dim elementos As ArrayList = New ArrayList
+                            Dim ResultadoConsulta As String = ""
+                            Dim Cod As Integer
+
+                            For Each res As XmlNode In result.ChildNodes
+                                For Each res_0 As XmlNode In res.ChildNodes
+
+                                    If res_0.Name = "status" Then
+
+                                        For Each res_1 As XmlNode In res_0.ChildNodes
+
+                                            If res_1.Name = "cdResposta" Then
+                                                Cod = res_1.InnerText
+                                            End If
+
+                                        Next
+
+                                    ElseIf res_0.Name = "dadosRecepcaoLote" Then
+
+                                        For Each res_1 As XmlNode In res_0.ChildNodes
+
+                                            If Cod = 201 Then
+
+                                                If res_1.Name = "protocoloEnvio" Then
+                                                    ResultadoConsulta = res_1.InnerText
+                                                End If
+
+                                            End If
+
+                                        Next
+
+
+                                    End If
+
+                                Next
+
+                            Next
+
+                            Dim Erro As String = json
+
+                            If ResultadoConsulta <> "" Then
+
+                                If MsgBox("Evento transmitido com sucesso!", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Sucesso!") = MsgBoxResult.Ok Then
+
+                                    'atualiza protocolo
+                                    Dim writer As New XmlTextWriter("C:\Iara\ESocial\Consultas\" & CNPJ & AAAA & MM & DD & "T" & HH & MM_ & SS & ".xml", Encoding.UTF8)
+
+                                    writer.WriteStartDocument()
+
+                                    writer.WriteStartElement("eSocial", "http://www.esocial.gov.br/schema/lote/eventos/envio/consulta/retornoProcessamento/v1_0_0")
+                                    writer.WriteStartElement("consultaLoteEventos")
+                                    writer.WriteElementString("protocoloEnvio", ResultadoConsulta)
+
+                                    writer.WriteEndElement()
+                                    writer.WriteEndElement()
+
+                                    writer.Close()
+
+                                    LqTrabalhista.AtualizaProtocoloESocial(IDENTIFICACAO, ResultadoConsulta, "C:\Iara\ESocial\Consultas\" & CNPJ & AAAA & MM & DD & "T" & HH & MM_ & SS & ".xml")
+
+                                    FrmESocial.Show(FrmPrincipal)
+
+                                    'Me.Close()
+
+                                End If
+
+                            Else
+
+                                MsgBox("Não foi possível ler o protocolo de retorno do evento :(" & Chr(13) & Erro, MsgBoxStyle.OkOnly)
+
+                            End If
+
+                        Catch ex As Exception
+
+                            MsgBox(ex.Message & ex.StackTrace)
+
+                        End Try
+
+                        'salva xml do lote de envio
+
+                        'Process.Start("C:\Iara\ESocial\Lotes\" & CNPJ & AAAA & MM & DD & "T" & HH & MM_ & SS & ".xml")
+
+                    End If
+
+                Next
+
+            End If
+
+        Catch ex As Exception
+
+            MsgBox(ex.Message)
+
+        End Try
+
+    End Sub
     Private Sub RdbTipico_CheckedChanged(sender As Object, e As EventArgs) Handles RdbTipico.CheckedChanged
         VerificaTipoAcid()
     End Sub
@@ -923,46 +998,62 @@ Public Class Form2210
 
             'carrega informações no site
 
-            ' Chamada sincrona
-            Dim syncClientImagemUsuario = New WebClient()
-            Dim contentImagemUsuario = syncClientImagemUsuario.DownloadString(baseUrlImagemUsuario)
+            Try
 
-            Dim readImagemUsuario = JsonConvert.DeserializeObject(Of List(Of Classe_Veiculos_Oficina.UFEMIT))(contentImagemUsuario)
+                ' Chamada sincrona
+                Dim syncClientImagemUsuario = New WebClient()
+                Dim contentImagemUsuario = syncClientImagemUsuario.DownloadString(baseUrlImagemUsuario)
 
-            Me.Cursor = Cursors.AppStarting
+                Dim readImagemUsuario = JsonConvert.DeserializeObject(Of List(Of Classe_Veiculos_Oficina.UFEMIT))(contentImagemUsuario)
 
-            For Each i In readImagemUsuario.ToList
+                Me.Cursor = Cursors.AppStarting
 
-                If i.sigla = ds.Tables(0).Rows(0)("uf").ToString() Then
+                For Each i In readImagemUsuario.ToList
 
-                    'busca municipio
+                    If i.sigla = ds.Tables(0).Rows(0)("uf").ToString() Then
 
-                    Dim baseUrlUf As String = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/" & i.id & "/distritos"
+                        'busca municipio
 
-                    'carrega informações no site
+                        Dim baseUrlUf As String = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/" & i.id & "/distritos"
 
-                    ' Chamada sincrona
-                    Dim syncClientUf = New WebClient()
-                    Dim contentuf = syncClientUf.DownloadString(baseUrlUf)
+                        'carrega informações no site
 
-                    Dim result_byteDadosRF As Byte() = Encoding.Default.GetBytes(contentuf)
-                    Dim TextURLDevolvidaDadosRF As String = Encoding.UTF8.GetString(result_byteDadosRF)
+                        Try
 
-                    Dim readUf = JsonConvert.DeserializeObject(Of List(Of Classe_Veiculos_Oficina.MunRoot))(TextURLDevolvidaDadosRF)
+                            ' Chamada sincrona
+                            Dim syncClientUf = New WebClient()
+                            Dim contentuf = syncClientUf.DownloadString(baseUrlUf)
 
-                    For Each l In readUf.ToList
+                            Dim result_byteDadosRF As Byte() = Encoding.Default.GetBytes(contentuf)
+                            Dim TextURLDevolvidaDadosRF As String = Encoding.UTF8.GetString(result_byteDadosRF)
 
-                        If l.nome = TxtCidade.Text Then
+                            Dim readUf = JsonConvert.DeserializeObject(Of List(Of Classe_Veiculos_Oficina.MunRoot))(TextURLDevolvidaDadosRF)
 
-                            CodMunicipio = l.id
+                            For Each l In readUf.ToList
 
-                        End If
+                                If l.nome = TxtCidade.Text Then
 
-                    Next
+                                    CodMunicipio = l.id
 
-                End If
+                                End If
 
-            Next
+                            Next
+
+                        Catch ex As Exception
+
+                            CodMunicipio = "000000"
+
+                        End Try
+
+                    End If
+
+                Next
+
+            Catch ex As Exception
+
+                CodMunicipio = "000000"
+
+            End Try
 
             DescLogradouro = ds.Tables(0).Rows(0)("tipo_logradouro").ToString()
 
@@ -1723,19 +1814,27 @@ Public Class Form2210
 
         'carrega informações no site
 
-        ' Chamada sincrona
-        Dim syncClientImagemUsuario = New WebClient()
-        Dim contentImagemUsuario = syncClientImagemUsuario.DownloadString(baseUrlImagemUsuario)
+        Try
 
-        Dim readImagemUsuario = JsonConvert.DeserializeObject(Of List(Of Classe_Veiculos_Oficina.UFEMIT))(contentImagemUsuario)
+            ' Chamada sincrona
+            Dim syncClientImagemUsuario = New WebClient()
+            Dim contentImagemUsuario = syncClientImagemUsuario.DownloadString(baseUrlImagemUsuario)
 
-        CmbEstadoEmitente.Items.Clear()
+            Dim readImagemUsuario = JsonConvert.DeserializeObject(Of List(Of Classe_Veiculos_Oficina.UFEMIT))(contentImagemUsuario)
 
-        For Each i In readImagemUsuario.ToList
+            CmbEstadoEmitente.Items.Clear()
 
-            CmbEstadoEmitente.Items.Add(i.sigla)
+            For Each i In readImagemUsuario.ToList
 
-        Next
+                CmbEstadoEmitente.Items.Add(i.sigla)
+
+            Next
+
+        Catch ex As Exception
+
+            CmbEstadoEmitente.Items.Add("SP")
+
+        End Try
 
     End Sub
     Private Sub RdbCRM_CheckedChanged(sender As Object, e As EventArgs) Handles RdbCRM.CheckedChanged

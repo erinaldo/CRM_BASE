@@ -27,8 +27,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>6</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -300,6 +300,12 @@
     <Compile Include="FrmServidores.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmSolicitaPrimeiroAcesso.Designer.vb">
+      <DependentUpon>FrmSolicitaPrimeiroAcesso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSolicitaPrimeiroAcesso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="LqBase.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -340,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmServidores.resx">
       <DependentUpon>FrmServidores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSolicitaPrimeiroAcesso.resx">
+      <DependentUpon>FrmSolicitaPrimeiroAcesso.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

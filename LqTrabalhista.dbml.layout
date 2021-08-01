@@ -53,7 +53,7 @@
         <elementListCompartment Id="66cf1318-2c35-45fe-8bf8-7c096d5131e3" absoluteBounds="0.51499999999999968, 5.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 5.03407348632813); (2.66666666666667 : 5.03407348632813 : JumpStart); (2.83333333333333 : 5.03407348632813 : JumpEnd); (3 : 5.03407348632813)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.5 : 5.03407348632813); (3 : 5.03407348632813)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LqTrabalhistaDataContext/Riscos/Riscos_RiscosSetores" />
       <nodes>
         <classShapeMoniker Id="f7307c69-1230-4573-9eef-69a2f41a9b67" />

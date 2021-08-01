@@ -119,17 +119,12 @@ Public Class FrmESocial
 
     Private Sub FrmESocial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        GetCerificateX509.Open(OpenFlags.ReadOnly Or OpenFlags.OpenExistingOnly)
-
-        objColecaoCertificadosX509 = X509Certificate2UI.SelectFromCollection(GetCerificateX509.Certificates,
-"Certificado(s) dísponível(is)", "Selecione o certificado.", X509SelectionFlag.SingleSelection)
-
         Dim LqTrabalhista As New LqTrabalhistaDataContext
         LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
 
         Dim BuscaTrab = From trab In LqTrabalhista.ESocial
                         Where trab.IdESocial Like "*"
-                        Select trab.Protocolo, trab.Arquivo, trab.Status, trab.IdColaborador, trab.IdCliente, trab.HoraResposta, trab.DataResposta, trab.HoraSolicitacao, trab.DataSolicitacao, trab.Evento, trab.IdESocial
+                        Select trab.Protocolo, trab.Arquivo, trab.Status, trab.IdColaborador, trab.IdCliente, trab.HoraResposta, trab.DataResposta, trab.HoraSolicitacao, trab.DataSolicitacao, trab.Evento, trab.IdESocial, trab.IDEVENTO, trab.Recibo
 
         For Each rw In BuscaTrab.ToList
 
@@ -158,26 +153,33 @@ Public Class FrmESocial
 
                 Dim Stt As String
 
+                Dim LqBase As New DtCadastroDataContext
+                LqBase.Connection.ConnectionString = FrmPrincipal.ConnectionStringBase
+
+                Dim BuscaCliente = From cliente In LqBase.Clientes
+                                   Where cliente.IdCliente = rw.IdCliente
+                                   Select cliente.Apelido
+
                 If rw.Status = 1 Then
+                    'verifica resposta do servidor
 
-                    If objColecaoCertificadosX509.Count > 0 Then
-                        'verifica resposta do servidor
+                    Try
 
-                        Try
+                        DtProdutos.Rows.Add(rw.Status, rw.IdESocial, _DocColaborador, BuscaCliente.First & " - " & _NomeColaborador, rw.Evento, FormatDateTime(rw.DataSolicitacao, DateFormat.ShortDate), FormatDateTime(rw.HoraSolicitacao.ToString, DateFormat.ShortTime), DtFinal, HrFinal, ImageList1.Images(1), ImageList1.Images(0), rw.Arquivo, rw.IdESocial, rw.Protocolo, Stt, "", rw.IDEVENTO)
 
-                            DtProdutos.Rows.Add(rw.Status, rw.IdESocial, _DocColaborador, _NomeColaborador, rw.Evento, FormatDateTime(rw.DataSolicitacao, DateFormat.ShortDate), FormatDateTime(rw.HoraSolicitacao.ToString, DateFormat.ShortTime), DtFinal, HrFinal, ImageList1.Images(1), ImageList1.Images(0), rw.Arquivo, rw.IdESocial, rw.Protocolo, Stt)
+                        VerificaServidor()
 
-                            VerificaServidor()
+                    Catch ex As Exception
 
-                        Catch ex As Exception
+                        Stt = ex.Message
 
-                            Stt = ex.Message
+                    End Try
 
-                        End Try
-                    End If
+                ElseIf rw.Status = 2 Then
+
+                    DtTransacoesconcluidas.Rows.Add(rw.Status, rw.IdESocial, _DocColaborador, BuscaCliente.First & " - " & _NomeColaborador, rw.Evento, FormatDateTime(rw.DataSolicitacao, DateFormat.ShortDate), FormatDateTime(rw.HoraSolicitacao.ToString, DateFormat.ShortTime), DtFinal, HrFinal, ImageList1.Images(3), ImageList1.Images(3), rw.Arquivo, rw.IdESocial, rw.Protocolo, Stt, rw.Recibo, rw.IDEVENTO)
 
                 End If
-
 
             End If
 
@@ -218,9 +220,8 @@ Public Class FrmESocial
     End Sub
     Private Sub DtProdutos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DtProdutos.CellDoubleClick
 
-        LogResurltadoEsocial.LblResult.Text = DtProdutos.SelectedCells(14).Value
+        LogResurltadoEsocial.LblResult.Text = DtProdutos.SelectedCells(15).Value
         LogResurltadoEsocial.Show(Me)
-
 
     End Sub
 
@@ -230,147 +231,207 @@ Public Class FrmESocial
         For Each row As DataGridViewRow In DtProdutos.Rows
             If row.Cells(0).Value = 1 Then
 
-                Dim Certificado As X509Certificate2
-                Certificado = objColecaoCertificadosX509.Item(0)
-                Dim Key As RSA = Certificado.GetRSAPrivateKey
+                'carrega certificado
 
-                'declara o xml de envio de consulta
+                Dim LqBase As New DtCadastroDataContext
+                LqBase.Connection.ConnectionString = FrmPrincipal.ConnectionStringBase
 
-                Dim Mes As Integer = Today.Month
-                Dim MStr As String = Mes
-                If Mes < 10 Then
+                Dim BuscaCertificado = From cert In LqBase.BASE_CERTIFICADO
+                                       Where cert.SERIAL_CERT Like "*"
+                                       Select cert.RAZAO, cert.SERIAL_CERT
 
-                    MStr = "0" & Mes
+                If BuscaCertificado.Count > 0 Then
 
-                End If
+                    'lista todos os certificados e compara com o numero serial
 
-                Dim Dia As Integer = Today.Day
-                Dim DStr As String = Dia
+                    GetCerificateX509.Open(OpenFlags.ReadOnly Or OpenFlags.OpenExistingOnly)
 
-                If Dia < 10 Then
+                    For Each item_c In GetCerificateX509.Certificates
 
-                    DStr = "0" & Dia
+                        If item_c.SerialNumber = (BuscaCertificado.First.SERIAL_CERT) Then
 
-                End If
+                            Dim Certificado As X509Certificate2
+                            Certificado = item_c
+                            'declara o xml de envio de consulta
 
-                Dim Hora As Integer = Now.Hour
-                Dim HrStr As String = Hora
+                            Dim Mes As Integer = Today.Month
+                            Dim MStr As String = Mes
+                            If Mes < 10 Then
 
-                If Hora < 10 Then
+                                MStr = "0" & Mes
 
-                    HrStr = "0" & Hora
+                            End If
 
-                End If
+                            Dim Dia As Integer = Today.Day
+                            Dim DStr As String = Dia
 
-                Dim Minuto As Integer = Now.Minute
-                Dim MinStr As String = Minuto
+                            If Dia < 10 Then
 
-                If Minuto < 10 Then
+                                DStr = "0" & Dia
 
-                    MinStr = "0" & Minuto
+                            End If
 
-                End If
+                            Dim Hora As Integer = Now.Hour
+                            Dim HrStr As String = Hora
 
-                Dim Segundo As Integer = Now.Second
-                Dim SgStr As String = Segundo
+                            If Hora < 10 Then
 
-                If Segundo < 10 Then
+                                HrStr = "0" & Hora
 
-                    SgStr = "0" & Segundo
+                            End If
 
-                End If
+                            Dim Minuto As Integer = Now.Minute
+                            Dim MinStr As String = Minuto
 
-                Dim ArquivoStrRes As String = "C:\Iara\ESocial\Consulta\" & row.Cells(12).Value & Today.Year & MStr & DStr & HrStr & MinStr & SgStr & Now.TimeOfDay.Milliseconds & ".xml"
-                Dim ArquivoStrIniRes As String = "C:\Iara\ESocial\Consulta\Signed" & row.Cells(12).Value & MStr & DStr & HrStr & MinStr & SgStr & Now.TimeOfDay.Milliseconds & ".xml"
-                Dim Arquivo_ASSRes As String = "C:\Iara\ESocial\Consulta\ID" & row.Cells(12).Value & MStr & DStr & HrStr & MinStr & SgStr & Now.TimeOfDay.Milliseconds & ".xml"
+                            If Minuto < 10 Then
 
-                'cria XML
-                Dim writer As New XmlTextWriter(ArquivoStrRes, Encoding.UTF8)
+                                MinStr = "0" & Minuto
 
-                writer.WriteStartDocument()
+                            End If
 
-                writer.WriteStartElement("eSocial", "http://www.esocial.gov.br/schema/lote/eventos/envio/consulta/retornoProcessamento/v1_0_0")
-                writer.WriteStartElement("consultaLoteEventos")
-                writer.WriteElementString("protocoloEnvio", row.Cells(13).Value)
+                            Dim Segundo As Integer = Now.Second
+                            Dim SgStr As String = Segundo
 
-                writer.WriteEndElement()
-                writer.WriteEndElement()
+                            If Segundo < 10 Then
 
-                writer.Close()
+                                SgStr = "0" & Segundo
 
-                'SignVerify.SignVerifyEnvelope.CreateSomeXml(ArquivoStrIni)
+                            End If
 
-                'SignVerify.SignVerifyEnvelope.SignXmlFile(ArquivoStrRes, Arquivo_ASSRes, Key)
+                            'cria XML
 
-                'transmite doc
+                            'transmite doc
 
-                Dim myBinding = New BasicHttpsBinding()
-                myBinding.Security.Mode = SecurityMode.Transport
-                myBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Certificate
+                            Dim myBinding = New BasicHttpsBinding()
+                            myBinding.Security.Mode = SecurityMode.Transport
+                            myBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Certificate
 
-                Dim settings As New XmlReaderSettings()
+                            Dim settings As New XmlReaderSettings()
 
-                AddHandler settings.ValidationEventHandler, AddressOf Me.ValidationEventHandler
+                            AddHandler settings.ValidationEventHandler, AddressOf Me.ValidationEventHandler
 
-                Dim Client As ServicoConsultarLoteEventos = New ServicoConsultarLoteEventos(myBinding)
+                            Dim Client As ServicoConsultarLoteEventos = New ServicoConsultarLoteEventos(myBinding)
 
-                Client.ClientCertificates.Add(Certificado)
+                            Client.ClientCertificates.Add(Certificado)
 
-                'executa leitura e validação
+                            'executa leitura e validação
 
-                Dim doc As XmlDocument = New XmlDocument()
+                            Dim Arquivo_ASSR As String = row.Cells(11).Value
 
-                Dim Arquivo_ASSR As String = ArquivoStrRes
-                doc.Load(New XmlTextReader(Arquivo_ASSR))
+                            Try
 
-                Dim result = Client.ConsultarLoteEventos(doc.DocumentElement)
+                                Dim doc As XmlDocument = New XmlDocument()
+                                doc.PreserveWhitespace = False
+                                doc.Load(New XmlTextReader(Arquivo_ASSR))
 
-                Dim json As String = JsonConvert.SerializeObject(result, Newtonsoft.Json.Formatting.Indented, New JsonSerializerSettings With {
-                .ContractResolver = New CamelCasePropertyNamesContractResolver()})
+                                Dim result = Client.ConsultarLoteEventos(doc.DocumentElement)
 
+                                Dim json As String = JsonConvert.SerializeObject(result, Newtonsoft.Json.Formatting.Indented, New JsonSerializerSettings With {
+                                .ContractResolver = New CamelCasePropertyNamesContractResolver()})
 
-                Dim reader As XmlElement = (result)
-                Dim elementos As ArrayList = New ArrayList
+                                Dim reader As XmlElement = (result)
+                                Dim elementos As ArrayList = New ArrayList
 
-                Dim ResultadoConsulta As String = ""
+                                Dim ResultadoConsulta As String = ""
 
-                For Each item In reader.ChildNodes
+                                For Each item In reader.ChildNodes
 
-                    'le os childs
-                    For Each item0 As XmlElement In item.ChildNodes
+                                    'le os childs
+                                    For Each item0 As XmlElement In item.ChildNodes
 
-                        If item0.Name = "retornoEventos" Then
+                                        If item0.Name = "retornoEventos" Then
 
-                            For Each item1 As XmlElement In item0.ChildNodes
+                                            For Each item1 As XmlElement In item0.ChildNodes
 
-                                For Each item2 As XmlElement In item1.ChildNodes
+                                                For Each item2 As XmlElement In item1.ChildNodes
+                                                    If item2.Name = "retornoEvento" Then
 
-                                    If item2.Name = "retornoEvento" Then
+                                                        For Each item3 As XmlElement In item2.ChildNodes
 
-                                        Dim jsonR As String = JsonConvert.SerializeObject(item2, Newtonsoft.Json.Formatting.Indented, New JsonSerializerSettings With {
-                .ContractResolver = New CamelCasePropertyNamesContractResolver()})
+                                                            For Each item4 As XmlElement In item3.ChildNodes
 
-                                        row.Cells(14).Value = jsonR
+                                                                For Each item5 As XmlElement In item4.ChildNodes
 
-                                        'MsgBox(jsonR)
+                                                                    If item5.Name = "processamento" Then
 
-                                    End If
+                                                                        Dim Result_cons As String = ""
+
+                                                                        For Each item6 As XmlElement In item5.ChildNodes
+
+                                                                            If item6.Name = "cdResposta" Then
+                                                                                Result_cons = item6.InnerText & " - "
+                                                                            End If
+
+                                                                            If item6.Name = "descResposta" Then
+
+                                                                                Result_cons &= item6.InnerText
+
+                                                                                row.Cells(14).Value = Result_cons
+                                                                                row.Cells(9).Value = ImageList1.Images(3)
+                                                                                row.Cells(10).Value = ImageList1.Images(3)
+
+                                                                            End If
+
+                                                                        Next
+
+                                                                    End If
+
+                                                                Next
+
+                                                            Next
+
+                                                        Next
+
+                                                        'MsgBox(jsonR)
+
+                                                    End If
+
+                                                Next
+
+                                            Next
+
+                                        End If
+
+                                    Next
 
                                 Next
 
-                            Next
+                                row.Cells(15).Value = json
+                                row.Cells(0).Value = 2
+                                'atualiza recibo
+
+                                Dim LqTrabalhista As New LqTrabalhistaDataContext
+                                LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
+
+                                LqTrabalhista.atualizaStatusReciboEsocial(row.Cells(16).Value, json)
+
+                            Catch ex As Exception
+
+                                If ex.Message.StartsWith("Não foi possível localizar o arquivo") Then
+                                    row.Cells(14).Value = "Arquivo não encontrado"
+                                ElseIf ex.Message.StartsWith("O documento enviado não é") Then
+                                    row.Cells(14).Value = "Documento inválido"
+                                End If
+                                row.Cells(9).Value = ImageList1.Images(1)
+                                row.Cells(10).Value = ImageList1.Images(1)
+                                row.Cells(0).Value = 2
+
+                                Dim LqTrabalhista As New LqTrabalhistaDataContext
+                                LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
+
+                                LqTrabalhista.atualizaStatusReciboEsocial(row.Cells(16).Value, ex.Message)
+
+                            End Try
+
+                            'Process.Start(Arquivo_ASS)
 
                         End If
 
                     Next
 
-                Next
-
-
-                'Process.Start(Arquivo_ASS)
+                End If
 
             End If
-
 
         Next
     End Sub
@@ -389,6 +450,17 @@ Public Class FrmESocial
             RefreshConsulta -= 1
 
         End If
+    End Sub
+
+    Private Sub DtTransacoesconcluidas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DtTransacoesconcluidas.CellContentClick
+
+    End Sub
+
+    Private Sub DtTransacoesconcluidas_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DtTransacoesconcluidas.CellDoubleClick
+
+        LogResurltadoEsocial.LblResult.Text = DtTransacoesconcluidas.SelectedCells(15).Value
+        LogResurltadoEsocial.Show(Me)
+
     End Sub
 End Class
 

@@ -44,7 +44,6 @@ Partial Class FrmListaClientes
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.DtProdutos = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -53,6 +52,7 @@ Partial Class FrmListaClientes
         Me.ClmExcluir = New System.Windows.Forms.DataGridViewImageColumn()
         Me.ClmEditar = New System.Windows.Forms.DataGridViewImageColumn()
         Me.ClmEsocial = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.PnnInferior.SuspendLayout()
         Me.Panel12.SuspendLayout()
         CType(Me.DtProdutos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -242,18 +242,6 @@ Partial Class FrmListaClientes
         Me.DtProdutos.Size = New System.Drawing.Size(958, 589)
         Me.DtProdutos.TabIndex = 121
         '
-        'Label1
-        '
-        Me.Label1.BackColor = System.Drawing.Color.Gainsboro
-        Me.Label1.Font = New System.Drawing.Font("Calibri", 8.25!)
-        Me.Label1.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.Label1.Location = New System.Drawing.Point(9, 40)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(961, 19)
-        Me.Label1.TabIndex = 176
-        Me.Label1.Text = "Clientes cadastrados"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'Column2
         '
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -328,6 +316,18 @@ Partial Class FrmListaClientes
         Me.ClmEsocial.Name = "ClmEsocial"
         Me.ClmEsocial.ReadOnly = True
         Me.ClmEsocial.Width = 30
+        '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.Gainsboro
+        Me.Label1.Font = New System.Drawing.Font("Calibri", 8.25!)
+        Me.Label1.ForeColor = System.Drawing.Color.DarkSlateGray
+        Me.Label1.Location = New System.Drawing.Point(9, 40)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(961, 19)
+        Me.Label1.TabIndex = 176
+        Me.Label1.Text = "Clientes cadastrados"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'FrmListaClientes
         '

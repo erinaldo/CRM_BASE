@@ -458,9 +458,15 @@
     <Parameter Name="Status" Parameter="status" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.AtualizaProtocoloEsocial" Method="AtualizaProtocoloEsocial">
-    <Parameter Name="IdEsocial" Parameter="idEsocial" Type="System.Int32" DbType="Int" />
+  <Function Name="dbo.AtualizaProtocoloESocial" Method="AtualizaProtocoloESocial">
+    <Parameter Name="Identificacao" Parameter="identificacao" Type="System.String" DbType="NChar(36)" />
     <Parameter Name="Protocolo" Parameter="protocolo" Type="System.String" DbType="NText" />
+    <Parameter Name="Arq" Parameter="arq" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.atualizaStatusReciboEsocial" Method="atualizaStatusReciboEsocial">
+    <Parameter Name="IDENTIFICACAO" Parameter="iDENTIFICACAO" Type="System.String" DbType="VarChar(36)" />
+    <Parameter Name="RES_JSON" Parameter="rES_JSON" Type="System.String" DbType="NText" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

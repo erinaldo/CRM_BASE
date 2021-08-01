@@ -149,18 +149,18 @@
             Form1._idChave = BuscaChave.First.IdChaveIara
 
             Form1.LblChave.Text = BuscaChave.First.NumeroDaChaveIara
-            Form1.LblValidade.Text = BuscaChave.First.ValidadeDiasIara
+            Form1.LblTelefone.Text = BuscaChave.First.ValidadeDiasIara
 
             Form1.LblRazaoSocial.Text = BuscaCnpj.First.NomeCompletoJv
 
             If BuscaChave.First.DataAtivacaoIara <> "1111-11-11" Then
                 Dim InicioContagem As Date = BuscaChave.First.DataAtivacaoIara
 
-                Form1.LblExpira.Text = FormatDateTime(BuscaChave.First.DataAtivacaoIara.Value.AddDays(BuscaChave.First.ValidadeDiasIara), DateFormat.ShortDate)
+                Form1.LblEmail.Text = FormatDateTime(BuscaChave.First.DataAtivacaoIara.Value.AddDays(BuscaChave.First.ValidadeDiasIara), DateFormat.ShortDate)
 
             Else
 
-                Form1.LblExpira.Text = "Ferramenta não ativada."
+                Form1.LblEmail.Text = "Ferramenta não ativada."
 
             End If
 

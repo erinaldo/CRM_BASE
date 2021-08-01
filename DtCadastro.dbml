@@ -644,6 +644,14 @@
       <Association Name="Produtos_VinculoProdutoProduto1" Member="Produtos1" ThisKey="IdProdutoFinal" OtherKey="IdProduto" Type="Produtos" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.BASE_CERTIFICADO" Member="BASE_CERTIFICADO">
+    <Type Name="BASE_CERTIFICADO">
+      <Column Name="ID_EMPRESA" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CNPJ" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="RAZAO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SERIAL_CERT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.AtualizaBairroEndereco" Method="AtualizaBairroEndereco">
     <Parameter Name="IdBairro" Parameter="idBairro" Type="System.Int32" DbType="Int" />
     <Parameter Name="IdEndereco" Parameter="idEndereco" Type="System.Int32" DbType="Int" />
@@ -1307,6 +1315,13 @@
     <Parameter Name="TipoConta" Parameter="tipoConta" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="TipoDocEspec" Parameter="tipoDocEspec" Type="System.String" DbType="NText" />
     <Parameter Name="NUmeroDoDOC" Parameter="nUmeroDoDOC" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insereSerialNumberCertificado" Method="insereSerialNumberCertificado">
+    <Parameter Name="ID_EMPRESA" Parameter="iD_EMPRESA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CNPJ" Parameter="cNPJ" Type="System.String" DbType="VarChar(14)" />
+    <Parameter Name="RAZAO" Parameter="rAZAO" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SERIAL_CERITIFICADO" Parameter="sERIAL_CERITIFICADO" Type="System.String" DbType="VarChar(100)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

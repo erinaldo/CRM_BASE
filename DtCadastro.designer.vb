@@ -319,6 +319,12 @@ Partial Public Class DtCadastroDataContext
     End Sub
   Partial Private Sub DeleteColaboradoEquipe(instance As ColaboradoEquipe)
     End Sub
+  Partial Private Sub InsertBASE_CERTIFICADO(instance As BASE_CERTIFICADO)
+    End Sub
+  Partial Private Sub UpdateBASE_CERTIFICADO(instance As BASE_CERTIFICADO)
+    End Sub
+  Partial Private Sub DeleteBASE_CERTIFICADO(instance As BASE_CERTIFICADO)
+    End Sub
   #End Region
 	
 	Public Sub New()
@@ -655,6 +661,12 @@ Partial Public Class DtCadastroDataContext
 	Public ReadOnly Property VinculoProdutoProduto() As System.Data.Linq.Table(Of VinculoProdutoProduto)
 		Get
 			Return Me.GetTable(Of VinculoProdutoProduto)
+		End Get
+	End Property
+	
+	Public ReadOnly Property BASE_CERTIFICADO() As System.Data.Linq.Table(Of BASE_CERTIFICADO)
+		Get
+			Return Me.GetTable(Of BASE_CERTIFICADO)
 		End Get
 	End Property
 	
@@ -1341,6 +1353,12 @@ Partial Public Class DtCadastroDataContext
 				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="TipoDocEspec", DbType:="NText")> ByVal tipoDocEspec As String,  _
 				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="NUmeroDoDOC", DbType:="NText")> ByVal nUmeroDoDOC As String) As Integer
 		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), nomeCompleto, cPF, rG, nomePai, nomeMae, cEP, idEndereco, endereco, numero, complemento, bairro, cidade, estado, pais, telefone, cElular, email, telefoneCont1, nomeCont1, telefoneCont2, nomeCont2, telefoneCont3, nomeCont3, foto, idCargo, cargo, idNacionalidade, nacionalidade, idExterno, numBanco, nomeBanco, idBanco, ag, conta, op, tipoConta, tipoDocEspec, nUmeroDoDOC)
+		Return CType(result.ReturnValue,Integer)
+	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.insereSerialNumberCertificado")>  _
+	Public Function insereSerialNumberCertificado(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="ID_EMPRESA", DbType:="Int")> ByVal iD_EMPRESA As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="CNPJ", DbType:="VarChar(14)")> ByVal cNPJ As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="RAZAO", DbType:="VarChar(50)")> ByVal rAZAO As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="SERIAL_CERITIFICADO", DbType:="VarChar(100)")> ByVal sERIAL_CERITIFICADO As String) As Integer
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), iD_EMPRESA, cNPJ, rAZAO, sERIAL_CERITIFICADO)
 		Return CType(result.ReturnValue,Integer)
 	End Function
 End Class
@@ -3539,7 +3557,7 @@ Partial Public Class Funcionarios
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Foto", DbType:="Image", CanBeNull:=true, UpdateCheck:=UpdateCheck.Never)>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Foto", DbType:="Image", UpdateCheck:=UpdateCheck.Never)>  _
 	Public Property Foto() As System.Data.Linq.Binary
 		Get
 			Return Me._Foto
@@ -6577,7 +6595,7 @@ Partial Public Class ImagemProduto
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Imagem", DbType:="Image", CanBeNull:=true, UpdateCheck:=UpdateCheck.Never)>  _
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Imagem", DbType:="Image", UpdateCheck:=UpdateCheck.Never)>  _
 	Public Property Imagem() As System.Data.Linq.Binary
 		Get
 			Return Me._Imagem
@@ -12993,4 +13011,132 @@ Partial Public Class VinculoProdutoProduto
 			End If
 		End Set
 	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.BASE_CERTIFICADO")>  _
+Partial Public Class BASE_CERTIFICADO
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _ID_EMPRESA As Integer
+	
+	Private _CNPJ As String
+	
+	Private _RAZAO As String
+	
+	Private _SERIAL_CERT As String
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnID_EMPRESAChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnID_EMPRESAChanged()
+    End Sub
+    Partial Private Sub OnCNPJChanging(value As String)
+    End Sub
+    Partial Private Sub OnCNPJChanged()
+    End Sub
+    Partial Private Sub OnRAZAOChanging(value As String)
+    End Sub
+    Partial Private Sub OnRAZAOChanged()
+    End Sub
+    Partial Private Sub OnSERIAL_CERTChanging(value As String)
+    End Sub
+    Partial Private Sub OnSERIAL_CERTChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ID_EMPRESA", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
+	Public Property ID_EMPRESA() As Integer
+		Get
+			Return Me._ID_EMPRESA
+		End Get
+		Set
+			If ((Me._ID_EMPRESA = value)  _
+						= false) Then
+				Me.OnID_EMPRESAChanging(value)
+				Me.SendPropertyChanging
+				Me._ID_EMPRESA = value
+				Me.SendPropertyChanged("ID_EMPRESA")
+				Me.OnID_EMPRESAChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CNPJ", DbType:="VarChar(14)")>  _
+	Public Property CNPJ() As String
+		Get
+			Return Me._CNPJ
+		End Get
+		Set
+			If (String.Equals(Me._CNPJ, value) = false) Then
+				Me.OnCNPJChanging(value)
+				Me.SendPropertyChanging
+				Me._CNPJ = value
+				Me.SendPropertyChanged("CNPJ")
+				Me.OnCNPJChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_RAZAO", DbType:="VarChar(50)")>  _
+	Public Property RAZAO() As String
+		Get
+			Return Me._RAZAO
+		End Get
+		Set
+			If (String.Equals(Me._RAZAO, value) = false) Then
+				Me.OnRAZAOChanging(value)
+				Me.SendPropertyChanging
+				Me._RAZAO = value
+				Me.SendPropertyChanged("RAZAO")
+				Me.OnRAZAOChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SERIAL_CERT", DbType:="VarChar(100)")>  _
+	Public Property SERIAL_CERT() As String
+		Get
+			Return Me._SERIAL_CERT
+		End Get
+		Set
+			If (String.Equals(Me._SERIAL_CERT, value) = false) Then
+				Me.OnSERIAL_CERTChanging(value)
+				Me.SendPropertyChanging
+				Me._SERIAL_CERT = value
+				Me.SendPropertyChanged("SERIAL_CERT")
+				Me.OnSERIAL_CERTChanged
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
 End Class

@@ -40,9 +40,9 @@ Partial Class Form1
         Me.LblRazaoSocial = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.TxtCNPJ = New System.Windows.Forms.MaskedTextBox()
-        Me.LblExpira = New System.Windows.Forms.Label()
+        Me.LblEmail = New System.Windows.Forms.Label()
         Me.Label33 = New System.Windows.Forms.Label()
-        Me.LblValidade = New System.Windows.Forms.Label()
+        Me.LblTelefone = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.LblChave = New System.Windows.Forms.Label()
         Me.Label30 = New System.Windows.Forms.Label()
@@ -55,8 +55,6 @@ Partial Class Form1
         Me.Label43 = New System.Windows.Forms.Label()
         Me.Panel25 = New System.Windows.Forms.Panel()
         Me.LblQtDeskOficina = New System.Windows.Forms.Label()
-        Me.PnnAddDeskOfi = New System.Windows.Forms.Panel()
-        Me.PnnMnnDeskOfi = New System.Windows.Forms.Panel()
         Me.Panel24 = New System.Windows.Forms.Panel()
         Me.Label42 = New System.Windows.Forms.Label()
         Me.LblVlrUnitMobOfi = New System.Windows.Forms.Label()
@@ -70,16 +68,12 @@ Partial Class Form1
         Me.Label36 = New System.Windows.Forms.Label()
         Me.Panel21 = New System.Windows.Forms.Panel()
         Me.LblQtMobOficina = New System.Windows.Forms.Label()
-        Me.PnnAddMobEst = New System.Windows.Forms.Panel()
-        Me.PnnMnnMobOfi = New System.Windows.Forms.Panel()
         Me.Panel13 = New System.Windows.Forms.Panel()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.PnnEstoque = New System.Windows.Forms.Panel()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Panel12 = New System.Windows.Forms.Panel()
         Me.LblQtDeskEstoque = New System.Windows.Forms.Label()
-        Me.PnnAddDeskEstoque = New System.Windows.Forms.Panel()
-        Me.PnnMnnDeskEstoque = New System.Windows.Forms.Panel()
         Me.Panel18 = New System.Windows.Forms.Panel()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.LblSubDeskEst = New System.Windows.Forms.Label()
@@ -88,8 +82,6 @@ Partial Class Form1
         Me.LblVlrUnitDeskEst = New System.Windows.Forms.Label()
         Me.Panel15 = New System.Windows.Forms.Panel()
         Me.LblQtMobEstoque = New System.Windows.Forms.Label()
-        Me.PnnAddMobEstoque = New System.Windows.Forms.Panel()
-        Me.PnnMnnMobEst = New System.Windows.Forms.Panel()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.LblSubMobEst = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
@@ -97,8 +89,6 @@ Partial Class Form1
         Me.LblVlrUnitMobEst = New System.Windows.Forms.Label()
         Me.Panel20 = New System.Windows.Forms.Panel()
         Me.Panel19 = New System.Windows.Forms.Panel()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.BttBuscarLicensas = New System.Windows.Forms.Button()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.PnnTabelas = New System.Windows.Forms.Panel()
         Me.DtItensBDD = New System.Windows.Forms.DataGridView()
@@ -106,9 +96,7 @@ Partial Class Form1
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BttRodarTabelaAgain = New System.Windows.Forms.Button()
         Me.PnnDataBases = New System.Windows.Forms.Panel()
-        Me.BttRodarNovamente = New System.Windows.Forms.Button()
         Me.DtDataBases = New System.Windows.Forms.DataGridView()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -143,6 +131,19 @@ Partial Class Form1
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ServiceController1 = New System.ServiceProcess.ServiceController()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.PnnAddDeskOfi = New System.Windows.Forms.Panel()
+        Me.PnnMnnDeskOfi = New System.Windows.Forms.Panel()
+        Me.PnnAddMobEst = New System.Windows.Forms.Panel()
+        Me.PnnMnnMobOfi = New System.Windows.Forms.Panel()
+        Me.PnnAddDeskEstoque = New System.Windows.Forms.Panel()
+        Me.PnnMnnDeskEstoque = New System.Windows.Forms.Panel()
+        Me.PnnAddMobEstoque = New System.Windows.Forms.Panel()
+        Me.PnnMnnMobEst = New System.Windows.Forms.Panel()
+        Me.BttBuscarLicensas = New System.Windows.Forms.Button()
+        Me.BttRodarTabelaAgain = New System.Windows.Forms.Button()
+        Me.BttRodarNovamente = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.BttRemover = New System.Windows.Forms.Button()
@@ -151,8 +152,6 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.ServiceController1 = New System.ServiceProcess.ServiceController()
-        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel5.SuspendLayout()
         Me.Panel8.SuspendLayout()
         Me.Panel9.SuspendLayout()
@@ -310,18 +309,17 @@ Partial Class Form1
         Me.PnnLicensas.Controls.Add(Me.LblRazaoSocial)
         Me.PnnLicensas.Controls.Add(Me.Label26)
         Me.PnnLicensas.Controls.Add(Me.TxtCNPJ)
-        Me.PnnLicensas.Controls.Add(Me.LblExpira)
+        Me.PnnLicensas.Controls.Add(Me.LblEmail)
         Me.PnnLicensas.Controls.Add(Me.Label33)
-        Me.PnnLicensas.Controls.Add(Me.LblValidade)
+        Me.PnnLicensas.Controls.Add(Me.LblTelefone)
         Me.PnnLicensas.Controls.Add(Me.Label32)
         Me.PnnLicensas.Controls.Add(Me.LblChave)
         Me.PnnLicensas.Controls.Add(Me.Label30)
         Me.PnnLicensas.Controls.Add(Me.Panel7)
-        Me.PnnLicensas.Controls.Add(Me.Label14)
         Me.PnnLicensas.Controls.Add(Me.BttBuscarLicensas)
         Me.PnnLicensas.Controls.Add(Me.Label19)
         Me.PnnLicensas.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PnnLicensas.Location = New System.Drawing.Point(41, 26)
+        Me.PnnLicensas.Location = New System.Drawing.Point(92, 26)
         Me.PnnLicensas.Name = "PnnLicensas"
         Me.PnnLicensas.Size = New System.Drawing.Size(674, 365)
         Me.PnnLicensas.TabIndex = 50
@@ -330,8 +328,8 @@ Partial Class Form1
         'LblRazaoSocial
         '
         Me.LblRazaoSocial.AutoSize = True
-        Me.LblRazaoSocial.ForeColor = System.Drawing.Color.SlateGray
-        Me.LblRazaoSocial.Location = New System.Drawing.Point(17, 67)
+        Me.LblRazaoSocial.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblRazaoSocial.Location = New System.Drawing.Point(17, 84)
         Me.LblRazaoSocial.Name = "LblRazaoSocial"
         Me.LblRazaoSocial.Size = New System.Drawing.Size(11, 17)
         Me.LblRazaoSocial.TabIndex = 197
@@ -340,7 +338,7 @@ Partial Class Form1
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(17, 48)
+        Me.Label26.Location = New System.Drawing.Point(17, 65)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(78, 17)
         Me.Label26.TabIndex = 196
@@ -358,49 +356,49 @@ Partial Class Form1
         Me.TxtCNPJ.TabIndex = 195
         Me.TxtCNPJ.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         '
-        'LblExpira
+        'LblEmail
         '
-        Me.LblExpira.AutoSize = True
-        Me.LblExpira.ForeColor = System.Drawing.Color.SlateGray
-        Me.LblExpira.Location = New System.Drawing.Point(507, 102)
-        Me.LblExpira.Name = "LblExpira"
-        Me.LblExpira.Size = New System.Drawing.Size(11, 17)
-        Me.LblExpira.TabIndex = 194
-        Me.LblExpira.Text = " "
+        Me.LblEmail.AutoSize = True
+        Me.LblEmail.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblEmail.Location = New System.Drawing.Point(263, 209)
+        Me.LblEmail.Name = "LblEmail"
+        Me.LblEmail.Size = New System.Drawing.Size(11, 17)
+        Me.LblEmail.TabIndex = 194
+        Me.LblEmail.Text = " "
         '
         'Label33
         '
         Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(507, 83)
+        Me.Label33.Location = New System.Drawing.Point(263, 190)
         Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(64, 17)
+        Me.Label33.Size = New System.Drawing.Size(43, 17)
         Me.Label33.TabIndex = 193
-        Me.Label33.Text = "Expira em"
+        Me.Label33.Text = "E-mail"
         '
-        'LblValidade
+        'LblTelefone
         '
-        Me.LblValidade.AutoSize = True
-        Me.LblValidade.ForeColor = System.Drawing.Color.SlateGray
-        Me.LblValidade.Location = New System.Drawing.Point(261, 102)
-        Me.LblValidade.Name = "LblValidade"
-        Me.LblValidade.Size = New System.Drawing.Size(11, 17)
-        Me.LblValidade.TabIndex = 192
-        Me.LblValidade.Text = " "
+        Me.LblTelefone.AutoSize = True
+        Me.LblTelefone.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblTelefone.Location = New System.Drawing.Point(17, 209)
+        Me.LblTelefone.Name = "LblTelefone"
+        Me.LblTelefone.Size = New System.Drawing.Size(11, 17)
+        Me.LblTelefone.TabIndex = 192
+        Me.LblTelefone.Text = " "
         '
         'Label32
         '
         Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(261, 83)
+        Me.Label32.Location = New System.Drawing.Point(17, 190)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(56, 17)
         Me.Label32.TabIndex = 191
-        Me.Label32.Text = "Validade"
+        Me.Label32.Text = "Telefone"
         '
         'LblChave
         '
         Me.LblChave.AutoSize = True
-        Me.LblChave.ForeColor = System.Drawing.Color.SlateGray
-        Me.LblChave.Location = New System.Drawing.Point(17, 102)
+        Me.LblChave.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblChave.Location = New System.Drawing.Point(17, 143)
         Me.LblChave.Name = "LblChave"
         Me.LblChave.Size = New System.Drawing.Size(11, 17)
         Me.LblChave.TabIndex = 190
@@ -409,7 +407,7 @@ Partial Class Form1
         'Label30
         '
         Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(17, 83)
+        Me.Label30.Location = New System.Drawing.Point(17, 124)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(42, 17)
         Me.Label30.TabIndex = 189
@@ -426,9 +424,9 @@ Partial Class Form1
         Me.Panel7.Controls.Add(Me.PnnEstoque)
         Me.Panel7.Controls.Add(Me.Panel20)
         Me.Panel7.Controls.Add(Me.Panel19)
-        Me.Panel7.Location = New System.Drawing.Point(9, 155)
+        Me.Panel7.Location = New System.Drawing.Point(9, 352)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(670, 207)
+        Me.Panel7.Size = New System.Drawing.Size(670, 10)
         Me.Panel7.TabIndex = 188
         '
         'Label20
@@ -529,27 +527,6 @@ Partial Class Form1
         Me.LblQtDeskOficina.TabIndex = 2
         Me.LblQtDeskOficina.Text = "0"
         Me.LblQtDeskOficina.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'PnnAddDeskOfi
-        '
-        Me.PnnAddDeskOfi.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_mais_16
-        Me.PnnAddDeskOfi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PnnAddDeskOfi.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PnnAddDeskOfi.Location = New System.Drawing.Point(0, 44)
-        Me.PnnAddDeskOfi.Name = "PnnAddDeskOfi"
-        Me.PnnAddDeskOfi.Size = New System.Drawing.Size(98, 15)
-        Me.PnnAddDeskOfi.TabIndex = 1
-        '
-        'PnnMnnDeskOfi
-        '
-        Me.PnnMnnDeskOfi.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_menos_16
-        Me.PnnMnnDeskOfi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PnnMnnDeskOfi.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PnnMnnDeskOfi.Location = New System.Drawing.Point(0, 0)
-        Me.PnnMnnDeskOfi.Name = "PnnMnnDeskOfi"
-        Me.PnnMnnDeskOfi.Size = New System.Drawing.Size(98, 15)
-        Me.PnnMnnDeskOfi.TabIndex = 0
-        Me.PnnMnnDeskOfi.Visible = False
         '
         'Panel24
         '
@@ -702,27 +679,6 @@ Partial Class Form1
         Me.LblQtMobOficina.Text = "0"
         Me.LblQtMobOficina.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
-        'PnnAddMobEst
-        '
-        Me.PnnAddMobEst.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_mais_16
-        Me.PnnAddMobEst.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PnnAddMobEst.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PnnAddMobEst.Location = New System.Drawing.Point(0, 44)
-        Me.PnnAddMobEst.Name = "PnnAddMobEst"
-        Me.PnnAddMobEst.Size = New System.Drawing.Size(98, 15)
-        Me.PnnAddMobEst.TabIndex = 1
-        '
-        'PnnMnnMobOfi
-        '
-        Me.PnnMnnMobOfi.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_menos_16
-        Me.PnnMnnMobOfi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PnnMnnMobOfi.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PnnMnnMobOfi.Location = New System.Drawing.Point(0, 0)
-        Me.PnnMnnMobOfi.Name = "PnnMnnMobOfi"
-        Me.PnnMnnMobOfi.Size = New System.Drawing.Size(98, 15)
-        Me.PnnMnnMobOfi.TabIndex = 0
-        Me.PnnMnnMobOfi.Visible = False
-        '
         'Panel13
         '
         Me.Panel13.Controls.Add(Me.Label16)
@@ -798,27 +754,6 @@ Partial Class Form1
         Me.LblQtDeskEstoque.TabIndex = 2
         Me.LblQtDeskEstoque.Text = "0"
         Me.LblQtDeskEstoque.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'PnnAddDeskEstoque
-        '
-        Me.PnnAddDeskEstoque.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_mais_16
-        Me.PnnAddDeskEstoque.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PnnAddDeskEstoque.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PnnAddDeskEstoque.Location = New System.Drawing.Point(0, 44)
-        Me.PnnAddDeskEstoque.Name = "PnnAddDeskEstoque"
-        Me.PnnAddDeskEstoque.Size = New System.Drawing.Size(98, 15)
-        Me.PnnAddDeskEstoque.TabIndex = 1
-        '
-        'PnnMnnDeskEstoque
-        '
-        Me.PnnMnnDeskEstoque.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_menos_16
-        Me.PnnMnnDeskEstoque.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PnnMnnDeskEstoque.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PnnMnnDeskEstoque.Location = New System.Drawing.Point(0, 0)
-        Me.PnnMnnDeskEstoque.Name = "PnnMnnDeskEstoque"
-        Me.PnnMnnDeskEstoque.Size = New System.Drawing.Size(98, 15)
-        Me.PnnMnnDeskEstoque.TabIndex = 0
-        Me.PnnMnnDeskEstoque.Visible = False
         '
         'Panel18
         '
@@ -911,27 +846,6 @@ Partial Class Form1
         Me.LblQtMobEstoque.Text = "0"
         Me.LblQtMobEstoque.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
-        'PnnAddMobEstoque
-        '
-        Me.PnnAddMobEstoque.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_mais_16
-        Me.PnnAddMobEstoque.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PnnAddMobEstoque.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PnnAddMobEstoque.Location = New System.Drawing.Point(0, 44)
-        Me.PnnAddMobEstoque.Name = "PnnAddMobEstoque"
-        Me.PnnAddMobEstoque.Size = New System.Drawing.Size(98, 15)
-        Me.PnnAddMobEstoque.TabIndex = 1
-        '
-        'PnnMnnMobEst
-        '
-        Me.PnnMnnMobEst.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_menos_16
-        Me.PnnMnnMobEst.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PnnMnnMobEst.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PnnMnnMobEst.Location = New System.Drawing.Point(0, 0)
-        Me.PnnMnnMobEst.Name = "PnnMnnMobEst"
-        Me.PnnMnnMobEst.Size = New System.Drawing.Size(98, 15)
-        Me.PnnMnnMobEst.TabIndex = 0
-        Me.PnnMnnMobEst.Visible = False
-        '
         'Label27
         '
         Me.Label27.BackColor = System.Drawing.Color.Gainsboro
@@ -1008,31 +922,6 @@ Partial Class Form1
         Me.Panel19.Size = New System.Drawing.Size(1, 190)
         Me.Panel19.TabIndex = 213
         '
-        'Label14
-        '
-        Me.Label14.BackColor = System.Drawing.Color.Gainsboro
-        Me.Label14.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.Label14.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.Label14.Location = New System.Drawing.Point(6, 125)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(673, 21)
-        Me.Label14.TabIndex = 187
-        Me.Label14.Text = "Licensas encontradas"
-        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'BttBuscarLicensas
-        '
-        Me.BttBuscarLicensas.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.Search_find_locate_1542
-        Me.BttBuscarLicensas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BttBuscarLicensas.Enabled = False
-        Me.BttBuscarLicensas.FlatAppearance.BorderSize = 0
-        Me.BttBuscarLicensas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BttBuscarLicensas.Location = New System.Drawing.Point(228, 23)
-        Me.BttBuscarLicensas.Name = "BttBuscarLicensas"
-        Me.BttBuscarLicensas.Size = New System.Drawing.Size(19, 17)
-        Me.BttBuscarLicensas.TabIndex = 4
-        Me.BttBuscarLicensas.UseVisualStyleBackColor = True
-        '
         'Label19
         '
         Me.Label19.AutoSize = True
@@ -1047,7 +936,7 @@ Partial Class Form1
         Me.PnnTabelas.Controls.Add(Me.DtItensBDD)
         Me.PnnTabelas.Controls.Add(Me.BttRodarTabelaAgain)
         Me.PnnTabelas.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PnnTabelas.Location = New System.Drawing.Point(20, 26)
+        Me.PnnTabelas.Location = New System.Drawing.Point(71, 26)
         Me.PnnTabelas.Name = "PnnTabelas"
         Me.PnnTabelas.Size = New System.Drawing.Size(21, 365)
         Me.PnnTabelas.TabIndex = 49
@@ -1064,7 +953,7 @@ Partial Class Form1
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 8.25!)
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.SlateGray
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.WhiteSmoke
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DarkSlateGray
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
@@ -1113,42 +1002,16 @@ Partial Class Form1
         Me.Column4.ReadOnly = True
         Me.Column4.Width = 300
         '
-        'BttRodarTabelaAgain
-        '
-        Me.BttRodarTabelaAgain.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources._1485477118_rotation_right_78579
-        Me.BttRodarTabelaAgain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BttRodarTabelaAgain.FlatAppearance.BorderSize = 0
-        Me.BttRodarTabelaAgain.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BttRodarTabelaAgain.Location = New System.Drawing.Point(6, 285)
-        Me.BttRodarTabelaAgain.Name = "BttRodarTabelaAgain"
-        Me.BttRodarTabelaAgain.Size = New System.Drawing.Size(25, 25)
-        Me.BttRodarTabelaAgain.TabIndex = 48
-        Me.BttRodarTabelaAgain.UseVisualStyleBackColor = True
-        Me.BttRodarTabelaAgain.Visible = False
-        '
         'PnnDataBases
         '
         Me.PnnDataBases.Controls.Add(Me.BttRodarNovamente)
         Me.PnnDataBases.Controls.Add(Me.DtDataBases)
         Me.PnnDataBases.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PnnDataBases.Location = New System.Drawing.Point(10, 26)
+        Me.PnnDataBases.Location = New System.Drawing.Point(61, 26)
         Me.PnnDataBases.Name = "PnnDataBases"
         Me.PnnDataBases.Size = New System.Drawing.Size(10, 365)
         Me.PnnDataBases.TabIndex = 48
         Me.PnnDataBases.Visible = False
-        '
-        'BttRodarNovamente
-        '
-        Me.BttRodarNovamente.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources._1485477118_rotation_right_78579
-        Me.BttRodarNovamente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BttRodarNovamente.FlatAppearance.BorderSize = 0
-        Me.BttRodarNovamente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BttRodarNovamente.Location = New System.Drawing.Point(6, 285)
-        Me.BttRodarNovamente.Name = "BttRodarNovamente"
-        Me.BttRodarNovamente.Size = New System.Drawing.Size(25, 25)
-        Me.BttRodarNovamente.TabIndex = 48
-        Me.BttRodarNovamente.UseVisualStyleBackColor = True
-        Me.BttRodarNovamente.Visible = False
         '
         'DtDataBases
         '
@@ -1161,7 +1024,7 @@ Partial Class Form1
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 8.25!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.DarkSlateGray
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.SlateGray
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DarkSlateGray
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
@@ -1222,13 +1085,14 @@ Partial Class Form1
         Me.PnnServidor.Dock = System.Windows.Forms.DockStyle.Left
         Me.PnnServidor.Location = New System.Drawing.Point(0, 26)
         Me.PnnServidor.Name = "PnnServidor"
-        Me.PnnServidor.Size = New System.Drawing.Size(10, 365)
+        Me.PnnServidor.Size = New System.Drawing.Size(61, 365)
         Me.PnnServidor.TabIndex = 47
         Me.PnnServidor.Visible = False
         '
         'RdbbTabelasInex
         '
         Me.RdbbTabelasInex.AutoSize = True
+        Me.RdbbTabelasInex.Enabled = False
         Me.RdbbTabelasInex.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.RdbbTabelasInex.Location = New System.Drawing.Point(9, 261)
         Me.RdbbTabelasInex.Name = "RdbbTabelasInex"
@@ -1408,6 +1272,7 @@ Partial Class Form1
         Me.RdbAtualizar.TabIndex = 2
         Me.RdbAtualizar.Text = "Atualizar bancos"
         Me.RdbAtualizar.UseVisualStyleBackColor = True
+        Me.RdbAtualizar.Visible = False
         '
         'RdbLigarIara
         '
@@ -1419,6 +1284,7 @@ Partial Class Form1
         Me.RdbLigarIara.TabIndex = 1
         Me.RdbLigarIara.Text = "Ligar I.A.R.A."
         Me.RdbLigarIara.UseVisualStyleBackColor = True
+        Me.RdbLigarIara.Visible = False
         '
         'RdbBdd
         '
@@ -1535,6 +1401,136 @@ Partial Class Form1
         '
         Me.Timer1.Interval = 1000
         '
+        'ServiceController1
+        '
+        Me.ServiceController1.ServiceName = "MSSQLSERVER"
+        '
+        'Timer2
+        '
+        '
+        'PnnAddDeskOfi
+        '
+        Me.PnnAddDeskOfi.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_mais_16
+        Me.PnnAddDeskOfi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PnnAddDeskOfi.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PnnAddDeskOfi.Location = New System.Drawing.Point(0, 44)
+        Me.PnnAddDeskOfi.Name = "PnnAddDeskOfi"
+        Me.PnnAddDeskOfi.Size = New System.Drawing.Size(98, 15)
+        Me.PnnAddDeskOfi.TabIndex = 1
+        '
+        'PnnMnnDeskOfi
+        '
+        Me.PnnMnnDeskOfi.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_menos_16
+        Me.PnnMnnDeskOfi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PnnMnnDeskOfi.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PnnMnnDeskOfi.Location = New System.Drawing.Point(0, 0)
+        Me.PnnMnnDeskOfi.Name = "PnnMnnDeskOfi"
+        Me.PnnMnnDeskOfi.Size = New System.Drawing.Size(98, 15)
+        Me.PnnMnnDeskOfi.TabIndex = 0
+        Me.PnnMnnDeskOfi.Visible = False
+        '
+        'PnnAddMobEst
+        '
+        Me.PnnAddMobEst.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_mais_16
+        Me.PnnAddMobEst.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PnnAddMobEst.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PnnAddMobEst.Location = New System.Drawing.Point(0, 44)
+        Me.PnnAddMobEst.Name = "PnnAddMobEst"
+        Me.PnnAddMobEst.Size = New System.Drawing.Size(98, 15)
+        Me.PnnAddMobEst.TabIndex = 1
+        '
+        'PnnMnnMobOfi
+        '
+        Me.PnnMnnMobOfi.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_menos_16
+        Me.PnnMnnMobOfi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PnnMnnMobOfi.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PnnMnnMobOfi.Location = New System.Drawing.Point(0, 0)
+        Me.PnnMnnMobOfi.Name = "PnnMnnMobOfi"
+        Me.PnnMnnMobOfi.Size = New System.Drawing.Size(98, 15)
+        Me.PnnMnnMobOfi.TabIndex = 0
+        Me.PnnMnnMobOfi.Visible = False
+        '
+        'PnnAddDeskEstoque
+        '
+        Me.PnnAddDeskEstoque.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_mais_16
+        Me.PnnAddDeskEstoque.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PnnAddDeskEstoque.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PnnAddDeskEstoque.Location = New System.Drawing.Point(0, 44)
+        Me.PnnAddDeskEstoque.Name = "PnnAddDeskEstoque"
+        Me.PnnAddDeskEstoque.Size = New System.Drawing.Size(98, 15)
+        Me.PnnAddDeskEstoque.TabIndex = 1
+        '
+        'PnnMnnDeskEstoque
+        '
+        Me.PnnMnnDeskEstoque.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_menos_16
+        Me.PnnMnnDeskEstoque.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PnnMnnDeskEstoque.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PnnMnnDeskEstoque.Location = New System.Drawing.Point(0, 0)
+        Me.PnnMnnDeskEstoque.Name = "PnnMnnDeskEstoque"
+        Me.PnnMnnDeskEstoque.Size = New System.Drawing.Size(98, 15)
+        Me.PnnMnnDeskEstoque.TabIndex = 0
+        Me.PnnMnnDeskEstoque.Visible = False
+        '
+        'PnnAddMobEstoque
+        '
+        Me.PnnAddMobEstoque.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_mais_16
+        Me.PnnAddMobEstoque.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PnnAddMobEstoque.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PnnAddMobEstoque.Location = New System.Drawing.Point(0, 44)
+        Me.PnnAddMobEstoque.Name = "PnnAddMobEstoque"
+        Me.PnnAddMobEstoque.Size = New System.Drawing.Size(98, 15)
+        Me.PnnAddMobEstoque.TabIndex = 1
+        '
+        'PnnMnnMobEst
+        '
+        Me.PnnMnnMobEst.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.icons8_menos_16
+        Me.PnnMnnMobEst.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PnnMnnMobEst.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PnnMnnMobEst.Location = New System.Drawing.Point(0, 0)
+        Me.PnnMnnMobEst.Name = "PnnMnnMobEst"
+        Me.PnnMnnMobEst.Size = New System.Drawing.Size(98, 15)
+        Me.PnnMnnMobEst.TabIndex = 0
+        Me.PnnMnnMobEst.Visible = False
+        '
+        'BttBuscarLicensas
+        '
+        Me.BttBuscarLicensas.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources.Search_find_locate_1542
+        Me.BttBuscarLicensas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BttBuscarLicensas.Enabled = False
+        Me.BttBuscarLicensas.FlatAppearance.BorderSize = 0
+        Me.BttBuscarLicensas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BttBuscarLicensas.Location = New System.Drawing.Point(228, 23)
+        Me.BttBuscarLicensas.Name = "BttBuscarLicensas"
+        Me.BttBuscarLicensas.Size = New System.Drawing.Size(19, 17)
+        Me.BttBuscarLicensas.TabIndex = 4
+        Me.BttBuscarLicensas.UseVisualStyleBackColor = True
+        '
+        'BttRodarTabelaAgain
+        '
+        Me.BttRodarTabelaAgain.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources._1485477118_rotation_right_78579
+        Me.BttRodarTabelaAgain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BttRodarTabelaAgain.FlatAppearance.BorderSize = 0
+        Me.BttRodarTabelaAgain.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BttRodarTabelaAgain.Location = New System.Drawing.Point(6, 285)
+        Me.BttRodarTabelaAgain.Name = "BttRodarTabelaAgain"
+        Me.BttRodarTabelaAgain.Size = New System.Drawing.Size(25, 25)
+        Me.BttRodarTabelaAgain.TabIndex = 48
+        Me.BttRodarTabelaAgain.UseVisualStyleBackColor = True
+        Me.BttRodarTabelaAgain.Visible = False
+        '
+        'BttRodarNovamente
+        '
+        Me.BttRodarNovamente.BackgroundImage = Global.Instalador_IARA.My.Resources.Resources._1485477118_rotation_right_78579
+        Me.BttRodarNovamente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BttRodarNovamente.FlatAppearance.BorderSize = 0
+        Me.BttRodarNovamente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BttRodarNovamente.Location = New System.Drawing.Point(6, 285)
+        Me.BttRodarNovamente.Name = "BttRodarNovamente"
+        Me.BttRodarNovamente.Size = New System.Drawing.Size(25, 25)
+        Me.BttRodarNovamente.TabIndex = 48
+        Me.BttRodarNovamente.UseVisualStyleBackColor = True
+        Me.BttRodarNovamente.Visible = False
+        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.WhiteSmoke
@@ -1632,13 +1628,6 @@ Partial Class Form1
         Me.Panel2.Size = New System.Drawing.Size(397, 140)
         Me.Panel2.TabIndex = 1
         '
-        'ServiceController1
-        '
-        Me.ServiceController1.ServiceName = "MSSQLSERVER"
-        '
-        'Timer2
-        '
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -1650,6 +1639,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel6)
         Me.Font = New System.Drawing.Font("Calibri", 8.25!)
+        Me.ForeColor = System.Drawing.Color.SlateGray
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form1"
         Me.Opacity = 0.95R
@@ -1748,7 +1738,6 @@ Partial Class Form1
     Friend WithEvents PnnLicensas As Panel
     Friend WithEvents BttBuscarLicensas As Button
     Friend WithEvents Label19 As Label
-    Friend WithEvents Label14 As Label
     Friend WithEvents Panel7 As Panel
     Friend WithEvents Panel12 As Panel
     Friend WithEvents PnnMnnDeskEstoque As Panel
@@ -1761,9 +1750,9 @@ Partial Class Form1
     Friend WithEvents RdbAtualizar As RadioButton
     Friend WithEvents LblChave As Label
     Friend WithEvents Label30 As Label
-    Friend WithEvents LblValidade As Label
+    Friend WithEvents LblTelefone As Label
     Friend WithEvents Label32 As Label
-    Friend WithEvents LblExpira As Label
+    Friend WithEvents LblEmail As Label
     Friend WithEvents Label33 As Label
     Friend WithEvents Panel20 As Panel
     Friend WithEvents LblVlrUnitMobOfi As Label
