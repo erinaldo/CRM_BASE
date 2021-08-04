@@ -316,6 +316,12 @@ Partial Public Class LqTrabalhistaDataContext
 		End Get
 	End Property
 	
+	Public ReadOnly Property CID_FIND() As System.Data.Linq.Table(Of CID_FIND)
+		Get
+			Return Me.GetTable(Of CID_FIND)
+		End Get
+	End Property
+	
 	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.AtualizaSetorCliente")>  _
 	Public Function AtualizaSetorCliente(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdSetorCliente", DbType:="Int")> ByVal idSetorCliente As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="NomeSetor", DbType:="NText")> ByVal nomeSetor As String) As Integer
 		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), idSetorCliente, nomeSetor)
@@ -4237,4 +4243,40 @@ Partial Public Class ESocial
 			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
 		End If
 	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.CID_FIND")>  _
+Partial Public Class CID_FIND
+	
+	Private _CODIGO As String
+	
+	Private _DESCRICAO As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CODIGO", DbType:="VarChar(10)")>  _
+	Public Property CODIGO() As String
+		Get
+			Return Me._CODIGO
+		End Get
+		Set
+			If (String.Equals(Me._CODIGO, value) = false) Then
+				Me._CODIGO = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DESCRICAO", DbType:="VarChar(200)")>  _
+	Public Property DESCRICAO() As String
+		Get
+			Return Me._DESCRICAO
+		End Get
+		Set
+			If (String.Equals(Me._DESCRICAO, value) = false) Then
+				Me._DESCRICAO = value
+			End If
+		End Set
+	End Property
 End Class

@@ -412,6 +412,12 @@
     <Compile Include="FrmCheckList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmCID.Designer.vb">
+      <DependentUpon>FrmCID.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCID.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmClientes.Designer.vb">
       <DependentUpon>FrmClientes.vb</DependentUpon>
     </Compile>
@@ -716,6 +722,12 @@
       <DependentUpon>FrmLaudosSolicitados.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmLaudosSolicitados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListaClienteEmissaoEsocial.Designer.vb">
+      <DependentUpon>FrmListaClienteEmissaoEsocial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListaClienteEmissaoEsocial.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmListaClientes.Designer.vb">
@@ -1330,6 +1342,30 @@
     <Compile Include="FrmStart.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmTab15_16.Designer.vb">
+      <DependentUpon>FrmTab15_16.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTab15_16.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTabela13.Designer.vb">
+      <DependentUpon>FrmTabela13.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTabela13.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTabela14.Designer.vb">
+      <DependentUpon>FrmTabela14.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTabela14.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTabela17.Designer.vb">
+      <DependentUpon>FrmTabela17.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTabela17.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmTodosProdutos.Designer.vb">
       <DependentUpon>FrmTodosProdutos.vb</DependentUpon>
     </Compile>
@@ -1616,6 +1652,9 @@
     <EmbeddedResource Include="FrmCheckList.resx">
       <DependentUpon>FrmCheckList.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCID.resx">
+      <DependentUpon>FrmCID.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmClientes.resx">
       <DependentUpon>FrmClientes.vb</DependentUpon>
     </EmbeddedResource>
@@ -1770,6 +1809,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLaudosSolicitados.resx">
       <DependentUpon>FrmLaudosSolicitados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListaClienteEmissaoEsocial.resx">
+      <DependentUpon>FrmListaClienteEmissaoEsocial.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListaClientes.resx">
       <DependentUpon>FrmListaClientes.vb</DependentUpon>
@@ -2061,6 +2103,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStart.resx">
       <DependentUpon>FrmStart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTab15_16.resx">
+      <DependentUpon>FrmTab15_16.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTabela13.resx">
+      <DependentUpon>FrmTabela13.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTabela14.resx">
+      <DependentUpon>FrmTabela14.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTabela17.resx">
+      <DependentUpon>FrmTabela17.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTodosProdutos.resx">
       <DependentUpon>FrmTodosProdutos.vb</DependentUpon>
@@ -2839,6 +2893,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="OneDrive.ico" />
+    <None Include="Resources\check-ok.png" />
+    <None Include="Resources\alertar_obg.png" />
     <None Include="Resources\kisspng-computer-icons-clip-art-sbi-po-exam-evaluation-ico-fabsdrive-school-management-system-principal-da-5b66314b5b13d5.6202905015334239473731.png" />
     <None Include="Resources\logotipo-950x350px.png" />
     <None Include="Resources\NFEImage.png" />

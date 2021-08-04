@@ -23,7 +23,7 @@ Public Class Form2210
 
     End Sub
 
-    Private Sub BttColaboradores_Click(sender As Object, e As EventArgs) Handles BttColaboradores.Click
+    Private Sub BttColaboradores_Click(sender As Object, e As EventArgs) Handles BttTransmitirCAT.Click
 
         'monta arquivo xml
 
@@ -321,16 +321,16 @@ Public Class Form2210
             writer.WriteElementString("tpLograd", BuscaDadosTabela20.First.Codigo)
         End If
 
-        writer.WriteElementString("dscLograd", TxtEndereco.Text)
+        writer.WriteElementString("dscLograd", LblEndereco.Text)
         writer.WriteElementString("nrLograd", TxtNumero.Text)
         If TxtComplemento.Text <> "" Then
             writer.WriteElementString("complemento", TxtComplemento.Text)
         End If
 
-        writer.WriteElementString("bairro", TxtBairro.Text)
+        writer.WriteElementString("bairro", LblBairro.Text)
         writer.WriteElementString("cep", TxtCep.Text)
         writer.WriteElementString("codMunic", CodMunicipio.Remove(0, 2))
-        writer.WriteElementString("uf", TxtEstado.Text)
+        writer.WriteElementString("uf", LblEstado.Text)
 
         If CmbTipoLocal.SelectedItem.ToString.StartsWith("2") Then
 
@@ -564,7 +564,12 @@ Public Class Form2210
 
         If CmbTodosClientes.Items.Contains(CmbTodosClientes.Text) Then
 
+            TxtDodCliente.Text = LstDoc.Items(CmbTodosClientes.SelectedIndex).ToString.Replace(".", "").Replace("-", "").Replace("/", "").ToCharArray(0, 14)
+            TxtDodCliente.Text &= LstDoc.Items(CmbTodosClientes.SelectedIndex).ToString.Replace(".", "").Replace("-", "").Replace("/", "").ToCharArray(12, 2)
+            ImgValCliente.BackgroundImage = My.Resources.check_ok
+
             CmbTodosClientes.BackColor = Color.White
+            TxtDocColaborador.Enabled = True
 
             Dim LqTrabalhista As New LqTrabalhistaDataContext
             LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
@@ -613,8 +618,8 @@ Public Class Form2210
         If CmbColaboradores.Items.Contains(CmbColaboradores.Text) Then
 
             CmbColaboradores.BackColor = Color.White
-
-            CmbTodosClientes.BackColor = Color.White
+            TxtDocColaborador.Text = LStDoColab.Items(CmbColaboradores.SelectedIndex).ToString.Replace(".", "").Replace("-", "")
+            ImgValColab.BackgroundImage = My.Resources.check_ok
 
             TabControl1.Enabled = True
 
@@ -633,6 +638,8 @@ Public Class Form2210
         RdbTipico.ForeColor = Color.SlateGray
         RdbDoenca.ForeColor = Color.SlateGray
         RdbTrajeto.ForeColor = Color.SlateGray
+        ImgValidSelTipo.BackgroundImage = My.Resources.check_ok
+        DtAcidente.Enabled = True
 
         If RdbTipico.Checked = True Then
 
@@ -652,7 +659,7 @@ Public Class Form2210
             For Each row In BuscaTabela.ToList
 
                 CodTabela_15_16.Items.Add(row.Codigo)
-                CmbSituacaoGeradora.Items.Add(row.Codigo & " " & row.Descricao)
+                CmbSituacaoGeradora.Items.Add(row.Descricao)
 
             Next
 
@@ -674,7 +681,7 @@ Public Class Form2210
             For Each row In BuscaTabela.ToList
 
                 CodTabela_15_16.Items.Add(row.Codigo)
-                CmbSituacaoGeradora.Items.Add(row.Codigo & " " & row.Descricao)
+                CmbSituacaoGeradora.Items.Add(row.Descricao)
 
             Next
 
@@ -983,10 +990,12 @@ Public Class Form2210
             Dim xml As String = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml".Replace("@cep", TxtCep.Text)
             ds.ReadXml(xml)
 
-            TxtEndereco.Text = ds.Tables(0).Rows(0)("tipo_logradouro").ToString() & " " & ds.Tables(0).Rows(0)("logradouro").ToString()
-            TxtBairro.Text = ds.Tables(0).Rows(0)("bairro").ToString()
-            TxtCidade.Text = ds.Tables(0).Rows(0)("cidade").ToString()
-            TxtEstado.Text = ds.Tables(0).Rows(0)("uf").ToString()
+            LblEndereco.Text = ds.Tables(0).Rows(0)("tipo_logradouro").ToString() & " " & ds.Tables(0).Rows(0)("logradouro").ToString()
+            lblbairro.Text = ds.Tables(0).Rows(0)("bairro").ToString()
+            LblCidade.Text = ds.Tables(0).Rows(0)("cidade").ToString()
+            LblEstado.Text = ds.Tables(0).Rows(0)("uf").ToString()
+
+            ImgValCepLocal.BackgroundImage = My.Resources.check_ok
 
             'procura codigo do muicipio na api do ibge
 
@@ -1031,7 +1040,7 @@ Public Class Form2210
 
                             For Each l In readUf.ToList
 
-                                If l.nome = TxtCidade.Text Then
+                                If l.nome = LblCidade.Text Then
 
                                     CodMunicipio = l.id
 
@@ -1066,21 +1075,16 @@ Public Class Form2210
 
             CmbDescricao.BackColor = Color.MistyRose
 
-            TxtEndereco.Enabled = False
             TxtNumero.Enabled = False
             TxtComplemento.Enabled = False
-            TxtBairro.Enabled = False
-            TxtCidade.Enabled = False
-            TxtEstado.Enabled = False
-            TxtPais.Enabled = False
 
-            TxtEndereco.Text = ""
+            LblEndereco.Text = ""
             TxtNumero.Text = ""
             TxtComplemento.Text = ""
-            TxtBairro.Text = ""
-            TxtCidade.Text = ""
-            TxtEstado.Text = ""
-            TxtPais.Text = ""
+            LblBairro.Text = ""
+            LblCidade.Text = ""
+            LblEstado.Text = ""
+            lblPais.Text = ""
 
         End If
 
@@ -1092,6 +1096,9 @@ Public Class Form2210
 
         If CmbTipoLocal.Items.Contains(CmbTipoLocal.Text) Then
             CmbTipoLocal.BackColor = Color.White
+
+            ImgValTpLocal.BackgroundImage = My.Resources.check_ok
+
             If CmbTipoLocal.SelectedItem.ToString.ToCharArray(0, 1).ToString <> "2" Then
                 TxtDescricaoLocal.Enabled = True
                 CmbPaises.Items.Clear()
@@ -1190,6 +1197,8 @@ Public Class Form2210
         If TxtNumero.Text <> "" Then
             TxtNumero.BackColor = Color.White
 
+            ImgValNumEndereco.BackgroundImage = My.Resources.check_ok
+
             TxtComplemento.Enabled = True
             CkAtestadoMedico.Enabled = True
             CkINternacao.Enabled = True
@@ -1200,7 +1209,8 @@ Public Class Form2210
             RdbCNO.Enabled = True
 
         Else
-            TxtNumero.BackColor = Color.MistyRose
+
+            ImgValNumEndereco.BackgroundImage = My.Resources.alertar_obg
 
             TxtComplemento.Enabled = False
             TxtComplemento.Text = ""
@@ -1229,6 +1239,8 @@ Public Class Form2210
         RdbEmpregador.ForeColor = Color.SlateGray
         RdbOrdemJud.ForeColor = Color.SlateGray
         RdbFiscalizador.ForeColor = Color.SlateGray
+
+        ImgValResponsável.BackgroundImage = My.Resources.check_ok
 
         TxtObservacao.Enabled = True
         CmbTipoLocal.Enabled = True
@@ -1272,6 +1284,8 @@ Public Class Form2210
 
         End If
 
+        TabControl1.SelectedIndex = 1
+
     End Sub
     Private Sub RdbEmpregador_CheckedChanged(sender As Object, e As EventArgs) Handles RdbEmpregador.CheckedChanged
 
@@ -1306,12 +1320,16 @@ Public Class Form2210
     End Sub
 
     Dim LstTabela17 As New ListBox
+    Dim LstCodCid As New ListBox
+    Dim LstDescricaoCid As New ListBox
 
     Private Sub LiberaTipoInsc()
 
         RdbCNPJ.ForeColor = Color.SlateGray
         RdbCAEPF.ForeColor = Color.SlateGray
         RdbCNO.ForeColor = Color.SlateGray
+
+        ImgTipoInscr.BackgroundImage = My.Resources.check_ok
 
         TxtTipoInscr.Enabled = True
         'busca dados da tabela 17
@@ -1333,19 +1351,208 @@ Public Class Form2210
 
         Me.Cursor = Cursors.WaitCursor
 
-        Try
+        If Not IO.File.Exists("C:\Iara\UTEIS\BDD\Bdd_Trabalhista\Tabelas\CID_0.txt") Then
 
-            API_HTML = pegaHTML(URL_API_CID)
+            Using sw As FileStream = File.Create("C:\Iara\UTEIS\BDD\Bdd_Trabalhista\Tabelas\CID_0.txt")
 
-            Me.Cursor = Cursors.WaitCursor
+                Dim TextoString As String = "CREATE TABLE dbo.CID_FIND" & Chr(13) &
+                                            "([CODIGO] [varchar](10) NULL," & Chr(13) &
+                                            "[DESCRICAO] [varchar](200) NULL)" & Chr(13) & Chr(13)
 
-            Dim ValoresTags As String = removeTags(API_HTML, 0)
+                Dim INSERT_STRING As String = "INSERT INTO dbo.CID_FIND" & Chr(13) &
+                                              "(CODIGO,DESCRICAO)" & Chr(13) &
+                                              "VALUES" & Chr(13)
 
-            'varre resultados
+                Try
 
-        Catch ex As Exception
-            MessageBox.Show(" Erro : " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+                    API_HTML = pegaHTML(URL_API_CID)
+
+                    Me.Cursor = Cursors.WaitCursor
+
+                    '<select scrolling = "auto" Class="fundo_select_tabnet" name="SDiagn_Lesão_(CID10_4díg)" id="S56" size="10" multiple="" style="display: block;">
+                    '<option value = "TODAS_AS_CATEGORIAS__" selected="">Todas As categorias
+                    '</option><option value="1">S00.0 Traum superf do couro cabeludo
+
+                    Dim str As String = API_HTML.Replace("""", "'")
+                    Dim textoUrl As Byte() = New UTF8Encoding(True).GetBytes(str)
+
+                    Dim result_byteDadosRF As Byte() = Encoding.Default.GetBytes(str)
+                    Dim TextURLDevolvidaDadosRF As String = Encoding.UTF8.GetString(result_byteDadosRF)
+
+                    Dim separador As String = "<"
+                    Dim palavras As String() = TextURLDevolvidaDadosRF.Split(separador)
+                    Dim LstPalavras As New ListBox
+                    Dim palavra As String
+
+                    Dim Validado As Boolean = False
+                    Dim Contador As Integer = 0
+
+                    For Each palavra In palavras
+                        Dim Procura As String = "panel"
+                        If Validado = False Then
+                            If palavra.Contains(Procura) Then
+                                Validado = True
+                            End If
+                        Else
+                            If palavra.StartsWith("a href") Then
+
+                                Dim strOpt As String = palavra
+                                Dim separadorOpt As String = "/"
+                                Dim palavrasOpt As String() = strOpt.Split(separadorOpt)
+                                Dim LstPalavrasOpt As New ListBox
+                                Dim palavraOpt As String
+
+                                Dim Insere As Boolean = False
+                                Dim ValidOpt As Boolean = False
+                                Dim CVal As Integer = 0
+
+                                Dim Lote As Integer = 1
+
+                                For Each palavraOpt In palavrasOpt
+
+                                    CVal += 1
+
+                                    If CVal = 3 Then
+
+                                        'separa o primeiro para o codigo e remove do outro campo
+                                        Dim strCID As String = palavraOpt
+                                        Dim separadorCID As String = "-"
+                                        Dim palavrasCID As String() = strCID.Split(separadorCID)
+                                        Dim LstPalavrasCID As New ListBox
+                                        Dim palavraCID As String
+
+                                        Dim CodCid As String = ""
+
+                                        For Each palavraCID In palavrasCID
+
+                                            If CodCid = "" Then
+                                                CodCid = palavraCID
+                                            End If
+
+                                        Next
+
+                                        Dim PalavraToda As String = palavraOpt.ToLower.Remove(0, CodCid.Length)
+
+                                        If PalavraToda <> "" Then
+                                            'DtCIDS.Rows.Add(CodCid, palavraOpt.Remove(0, CodCid.Length).Replace("-", " "))
+
+                                            If Contador < 999 Then
+                                                    Contador += 1
+                                                    INSERT_STRING &= "('" & CodCid.ToUpper & "','" & palavraOpt.Remove(0, CodCid.Length).Replace("-", " ") & "')," & Chr(13)
+                                                Else
+                                                    INSERT_STRING = INSERT_STRING.Remove(INSERT_STRING.Length - 2, 1)
+                                                    Contador = 0
+                                                    Lote += 1
+                                                    INSERT_STRING &= Chr(13) & Chr(13) & "INSERT INTO dbo.CID_FIND" & Chr(13) &
+                                                                        "(CODIGO,DESCRICAO)" & Chr(13) &
+                                                                        "VALUES" & Chr(13)
+                                                End If
+
+                                        End If
+
+                                        Insere = False
+
+                                    ElseIf CVal = 3 Then
+
+                                        CVal += 1
+
+                                    End If
+
+                                Next
+
+                            End If
+
+                        End If
+
+                    Next
+                    '<select scrolling = "auto" Class="fundo_select_tabnet" name="SDiagn_Lesão_(CID10_4díg)" id="S56" size="10" multiple="" style="display: block;">
+                    '<option value = "TODAS_AS_CATEGORIAS__" selected="">Todas As categorias
+                    '</option><option value="1">S00.0 Traum superf do couro cabeludo
+                    Me.Cursor = Cursors.Arrow
+
+                    Dim ValoresTags As String = removeTags(API_HTML, 0)
+
+                    'varre resultados
+
+                Catch ex As Exception
+                    MessageBox.Show(" Erro : " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+
+                Dim texto As Byte() = New UTF8Encoding(True).GetBytes(TextoString & INSERT_STRING.Remove(INSERT_STRING.Length - 2, 1))
+                sw.Write(texto, 0, texto.Length)
+
+                sw.Close()
+
+                'roda no BDD pra nao utilizar novamente
+
+                Dim SQLString As String = IO.File.OpenText("C:\Iara\UTEIS\BDD\Bdd_Trabalhista\Insert\CID\CID_0.txt").ReadToEnd()
+
+                'Try
+
+                Dim ConecctionServer As String
+
+                ConecctionServer = FrmPrincipal.ConnectionStringTrabalhista
+
+                'carrega 
+
+                Using Conexão As New SqlClient.SqlConnection(ConecctionServer)
+
+                    Dim ConnState As Boolean = False
+
+                    'MsgBox(ConnState & " " & ConecctionServer)
+
+                    Try
+
+                        Dim SQLCommand1 As New SqlClient.SqlCommand(SQLString, Conexão)
+
+                        Conexão.Open()
+
+                        SQLCommand1.ExecuteNonQuery()
+
+                        Conexão.Close()
+
+                        'row.Visible = False
+
+                    Catch ex As Exception
+
+                        Conexão.Close()
+
+                    End Try
+
+                    'adiciona pra ver se onsegue inserir
+
+                End Using
+
+            End Using
+
+        End If
+
+        'busca cids
+
+        Dim BuscaCIDS = From cid In LqTrabalhista.CID_FIND
+                        Where cid.CODIGO Like "*"
+                        Select cid.CODIGO, cid.DESCRICAO
+
+        LstDescricaoCid.Items.Clear()
+        LstCodCid.Items.Clear()
+
+        For Each row In BuscaCIDS.ToList
+
+            LstCodCid.Items.Add(row.CODIGO)
+            LstDescricaoCid.Items.Add(row.DESCRICAO)
+
+        Next
+
+        'carrega informaçoes da lista de cids
+
+        If RdbCNPJ.Checked = True Then
+            TxtTipoInscr.Mask = "00,000,000/0000-00"
+        ElseIf RdbCAEPF.Checked = True Then
+            TxtTipoInscr.Mask = "00,000,000/0000-00"
+        ElseIf RdbCNO.Checked = True Then
+            TxtTipoInscr.Mask = "00,000,00000/00"
+        End If
+        Me.Cursor = Cursors.Arrow
 
         TxtTipoInscr.Focus()
 
@@ -1368,6 +1575,7 @@ Public Class Form2210
 
             CmbLateralidade.BackColor = Color.White
 
+            ImgValLateralidade.BackgroundImage = My.Resources.check_ok
             RdbEmpregador.Enabled = True
             RdbFiscalizador.Enabled = True
             RdbOrdemJud.Enabled = True
@@ -1404,25 +1612,6 @@ Public Class Form2210
 
     End Sub
 
-    Private Sub TxtTipoInscr_TextChanged(sender As Object, e As EventArgs) Handles TxtTipoInscr.TextChanged
-
-        If TxtTipoInscr.Text <> "" Then
-            TxtTipoInscr.BackColor = Color.White
-            CkAtestadoMedico.Enabled = True
-            CkAfastamento.Enabled = True
-            CmbLesao.Enabled = True
-        Else
-            TxtTipoInscr.BackColor = Color.MistyRose
-            CkAtestadoMedico.Enabled = False
-            CkAfastamento.Enabled = False
-            CkAtestadoMedico.Checked = False
-            CkAfastamento.Checked = False
-            CmbLesao.Enabled = False
-            CmbLesao.Text = ""
-        End If
-
-    End Sub
-
     Private Sub CkAtestadoMedico_CheckedChanged(sender As Object, e As EventArgs) Handles CkAtestadoMedico.CheckedChanged
 
         If CkAfastamento.Checked = True Then
@@ -1454,9 +1643,6 @@ Public Class Form2210
             TxtInfoCompl.Enabled = True
             TxtDiagnostico.Enabled = True
             TxtCodCid.Enabled = True
-            TxtDescricaoCID.Enabled = True
-
-            DtCIDS.Enabled = True
 
         Else
 
@@ -1466,12 +1652,8 @@ Public Class Form2210
             TxtInfoCompl.Text = ""
             TxtDiagnostico.Enabled = False
             TxtCodCid.Enabled = False
-            TxtDescricaoCID.Enabled = False
             TxtDiagnostico.Text = ""
             TxtCodCid.Text = ""
-            TxtDescricaoCID.Text = ""
-
-            DtCIDS.Enabled = False
 
         End If
 
@@ -1514,8 +1696,6 @@ Public Class Form2210
             Dim palavras As String() = TextURLDevolvidaDadosRF.Split(separador)
             Dim LstPalavras As New ListBox
             Dim palavra As String
-
-            DtCIDS.Rows.Clear()
 
             Dim Validado As Boolean = False
 
@@ -1563,12 +1743,6 @@ Public Class Form2210
 
                                 Dim PalavraToda As String = palavraOpt.ToLower.Remove(0, CodCid.Length)
 
-                                If PalavraToda <> "" Then
-                                    If PalavraToda.Contains(TxtDescricaoCID.Text.ToLower) Then
-                                        DtCIDS.Rows.Add(CodCid, palavraOpt.Remove(0, CodCid.Length).Replace("-", " "))
-                                    End If
-                                End If
-
                                 Insere = False
 
 
@@ -1602,8 +1776,6 @@ Public Class Form2210
             Dim palavras As String() = TextURLDevolvidaDadosRF.Split(separador)
             Dim LstPalavras As New ListBox
             Dim palavra As String
-
-            DtCIDS.Rows.Clear()
 
             Dim Validado As Boolean = False
 
@@ -1656,7 +1828,7 @@ Public Class Form2210
                                         Dim PalavraToda As String = palavraOpt.ToLower.Remove(0, CodCid.Length)
 
                                         If CodCid = TxtCodCid.Text Then
-                                            LblDescricao.Text = palavraOpt.Remove(0, CodCid.Length)
+                                            LblDescricaoCID.Text = palavraOpt.Remove(0, CodCid.Length)
                                         End If
 
                                         Insere = False
@@ -1686,127 +1858,32 @@ Public Class Form2210
 
     End Function
 
-    Private Sub TxtCodCid_TextChanged(sender As Object, e As EventArgs) Handles TxtCodCid.TextChanged
-
-        If TxtCodCid.Text <> "" Then
-
-            TxtDescricaoCID.Text = ""
-            'filtra so os correspondentes
-            TxtCodCid.BackColor = Color.White
-
-            Dim F_Ind As Integer = -1
-            For Each row As DataGridViewRow In DtCIDS.Rows
-
-                If row.Cells(0).Value.ToString.Contains(TxtCodCid.Text) Then
-
-                    row.Visible = True
-
-                    If F_Ind = -1 Then
-                        row.Selected = True
-                        LblDescricao.Text = row.Cells(1).Value
-                    End If
-
-                Else
-
-                    If F_Ind = row.Index Then
-                        F_Ind = -1
-                    End If
-
-                    row.Visible = False
-
-                End If
-
-            Next
-
-            TxtNomeMedico.Enabled = True
-
-        Else
-
-            TxtCodCid.BackColor = Color.MistyRose
-
-            LblDescricao.Text = ""
-            TxtNomeMedico.Text = ""
-            TxtNomeMedico.Enabled = False
-
-            For Each row As DataGridViewRow In DtCIDS.Rows
-                row.Visible = True
-            Next
-
-            DtCIDS.Rows(0).Selected = True
-
-        End If
-
-    End Sub
-
-    Private Sub TxtCodCid_LostFocus(sender As Object, e As EventArgs) Handles TxtCodCid.LostFocus
-
-    End Sub
 
     Private Sub TxtDescricaoLocal_TextChanged(sender As Object, e As EventArgs) Handles TxtDescricaoLocal.TextChanged
 
         If TxtDescricaoLocal.Text <> "" Then
             TxtDescricaoLocal.BackColor = Color.White
             CmbDescricao.Enabled = True
+            ImgValDescricaoLocal.BackgroundImage = My.Resources.check_ok
+
         Else
             TxtDescricaoLocal.BackColor = Color.MistyRose
             CmbDescricao.Enabled = False
             CmbDescricao.Text = ""
-        End If
-
-    End Sub
-
-    Private Sub TxtDescricaoCID_TextChanged(sender As Object, e As EventArgs) Handles TxtDescricaoCID.TextChanged
-
-        If TxtDescricaoCID.Text <> "" Then
-            'filtra so os correspondentes
-            TxtCodCid.Text = ""
-
-            Dim F_Ind As Integer = -1
-            For Each row As DataGridViewRow In DtCIDS.Rows
-
-                If row.Cells(1).Value.ToString.Contains(TxtDescricaoCID.Text) Then
-
-                    row.Visible = True
-
-                    If F_Ind = -1 Then
-                        F_Ind = row.Index
-                    End If
-
-                Else
-
-                    If F_Ind = row.Index Then
-                        F_Ind = -1
-                    End If
-
-                    row.Visible = False
-
-                End If
-
-            Next
-
-            If F_Ind <> -1 Then
-                DtCIDS.Rows(F_Ind).Selected = True
-            Else
-                DtCIDS.Rows(0).Selected = True
-            End If
-
-        Else
-
-            For Each row As DataGridViewRow In DtCIDS.Rows
-                row.Visible = True
-            Next
-
-            DtCIDS.Rows(0).Selected = True
+            ImgValDescricaoLocal.BackgroundImage = My.Resources.alertar_obg
 
         End If
 
     End Sub
 
     Private Sub LiberaDadosMedico()
+
         TxtNumDocumento.Enabled = True
         RdbCRM.ForeColor = Color.SlateGray
         RdbCRO.ForeColor = Color.SlateGray
         RdbRMS.ForeColor = Color.SlateGray
+
+        ImgValDocMedico.BackgroundImage = My.Resources.check_ok
 
         'limpa e insere todos os estados de acordo com o IBGE
 
@@ -1836,6 +1913,16 @@ Public Class Form2210
 
         End Try
 
+        If RdbCRM.Checked = True Then
+            TxtNumDocumento.Mask = "00000000-0"
+        ElseIf RdbCRO.Checked = True Then
+            TxtNumDocumento.Mask = "000,000-0"
+        ElseIf RdbRMS.Checked = True Then
+            TxtNumDocumento.Mask = "00000,000000/00-00"
+        End If
+
+        TxtNumDocumento.Focus()
+
     End Sub
     Private Sub RdbCRM_CheckedChanged(sender As Object, e As EventArgs) Handles RdbCRM.CheckedChanged
         LiberaDadosMedico()
@@ -1852,12 +1939,14 @@ Public Class Form2210
     Private Sub TxtNomeMedico_TextChanged(sender As Object, e As EventArgs) Handles TxtNomeMedico.TextChanged
 
         If TxtNomeMedico.Text <> "" Then
-            TxtNomeMedico.BackColor = Color.White
+
+            ImgValNomeMEdico.BackgroundImage = My.Resources.check_ok
+
             RdbCRM.Enabled = True
             RdbRMS.Enabled = True
             RdbCRO.Enabled = True
+
         Else
-            TxtNomeMedico.BackColor = Color.MistyRose
 
             RdbCRM.Enabled = False
             RdbRMS.Enabled = False
@@ -1866,22 +1955,10 @@ Public Class Form2210
             RdbCRM.Checked = False
             RdbRMS.Checked = False
             RdbCRO.Checked = False
+
+            ImgValNomeMEdico.BackgroundImage = My.Resources.alertar_obg
+
         End If
-
-    End Sub
-
-    Private Sub TxtNumDocumento_TextChanged(sender As Object, e As EventArgs) Handles TxtNumDocumento.TextChanged
-        If TxtNumDocumento.Text <> "" Then
-            TxtNumDocumento.BackColor = Color.White
-            CmbEstadoEmitente.Enabled = True
-        Else
-            TxtNumDocumento.BackColor = Color.MistyRose
-            CmbEstadoEmitente.Enabled = False
-            CmbEstadoEmitente.Text = ""
-        End If
-    End Sub
-
-    Private Sub Panel6_Paint(sender As Object, e As PaintEventArgs) Handles Panel6.Paint
 
     End Sub
 
@@ -1955,27 +2032,305 @@ Public Class Form2210
         If CmbEstadoEmitente.Items.Contains(CmbEstadoEmitente.Text) Then
 
             CmbEstadoEmitente.BackColor = Color.White
+            BttTransmitirCAT.Enabled = True
+            ImgValEstadoEmitente.BackgroundImage = My.Resources.check_ok
 
         Else
 
             CmbEstadoEmitente.BackColor = Color.MistyRose
+            BttTransmitirCAT.Enabled = False
+            ImgValEstadoEmitente.BackgroundImage = My.Resources.alertar_obg
 
         End If
-    End Sub
-
-    Private Sub DtCIDS_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DtCIDS.CellContentClick
 
     End Sub
 
-    Private Sub DtCIDS_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DtCIDS.CellDoubleClick
-
-        TxtCodCid.Text = DtCIDS.SelectedCells(0).Value
+    Private Sub DtCIDS_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs)
 
         FrmESocial.Show(Me)
+
+    End Sub
+
+    Private Sub MaskedTextBox1_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles TxtDodCliente.MaskInputRejected
+
+    End Sub
+
+    Private Sub MaskedTextBox1_TextChanged(sender As Object, e As EventArgs) Handles TxtDodCliente.TextChanged
+
+        If TxtDodCliente.Text.Length < 12 Then
+
+            TxtDodCliente.Mask = "000,000,000-000"
+            CmbTodosClientes.Text = ""
+
+        Else
+
+            TxtDodCliente.Mask = "00,000,000/0000-00"
+
+        End If
+
+        If TxtDodCliente.Text.Length = 11 Or TxtDodCliente.Text.Length = 14 Then
+            'procura qual indice selecionar
+            For i As Integer = 0 To LstDoc.Items.Count - 1
+                If LstDoc.Items(i).ToString.Replace(".", "").Replace("-", "").Replace("/", "") = TxtDodCliente.Text Then
+                    CmbTodosClientes.SelectedIndex = i
+                End If
+            Next
+
+        Else
+
+            CmbTodosClientes.Text = ""
+
+        End If
+
+    End Sub
+
+    Private Sub TxtDocColaborador_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles TxtDocColaborador.MaskInputRejected
+
+    End Sub
+
+    Private Sub TxtDocColaborador_TextChanged(sender As Object, e As EventArgs) Handles TxtDocColaborador.TextChanged
+
+        If TxtDocColaborador.Text.Length < 11 Then
+
+            TxtDocColaborador.Mask = "000,000,000-00"
+            CmbColaboradores.Text = ""
+
+        End If
+
+        If TxtDocColaborador.Text.Length = 11 Then
+            'procura qual indice selecionar
+            For i As Integer = 0 To LStDoColab.Items.Count - 1
+                If LStDoColab.Items(i).ToString.Replace(".", "").Replace("-", "") = TxtDocColaborador.Text Then
+                    CmbColaboradores.SelectedIndex = i
+                End If
+            Next
+
+        Else
+
+            CmbColaboradores.Text = ""
+
+        End If
+
+    End Sub
+
+    Private Sub TxtCodSitGeradora_TextChanged(sender As Object, e As EventArgs) Handles TxtCodSitGeradora.TextChanged
+
+        'busca na lista de situação geradora
+
+        Dim DescricaoSitGera As String
+
+        For i As Integer = 0 To CodTabela_15_16.Items.Count - 1
+
+            If CodTabela_15_16.Items(i).ToString = TxtCodSitGeradora.Text Then
+
+                DescricaoSitGera = CmbSituacaoGeradora.Items(i).ToString
+                LblDescricaoSitGera.Text = DescricaoSitGera
+                ImgValSitGer.BackgroundImage = My.Resources.check_ok
+
+                'carrega proxima lista
+
+                Dim LqTrabalhista As New LqTrabalhistaDataContext
+                LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
+
+                Dim BuscaLog = From l In LqTrabalhista.Tabela13
+                               Where l.Codigo Like "*"
+                               Select l.Codigo, l.Descricao
+
+                LstCodTabela13.Items.Clear()
+                CmbPArteCorpo.Items.Clear()
+
+                For Each l In BuscaLog.ToList
+
+                    LstCodTabela13.Items.Add(l.Codigo)
+                    CmbPArteCorpo.Items.Add(l.Descricao)
+
+                Next
+
+            End If
+
+        Next
+
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TxtCodParteCorpo.TextChanged
+
+        'busca na lista de situação geradora
+
+        Dim DescricaoSitGera As String
+
+        For i As Integer = 0 To LstCodTabela13.Items.Count - 1
+
+            If LstCodTabela13.Items(i).ToString = TxtCodParteCorpo.Text Then
+
+                DescricaoSitGera = CmbPArteCorpo.Items(i).ToString
+                LblDescricaoParteCorpo.Text = DescricaoSitGera
+                ImgValParteCorpo.BackgroundImage = My.Resources.check_ok
+
+                CmbLateralidade.Enabled = True
+
+            End If
+
+        Next
+
+    End Sub
+
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles Button1.Click
+
+        FrmTab15_16.Show(Me)
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+        FrmTabela13.Show(Me)
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+        FrmTabela14.Show(Me)
+
+    End Sub
+
+    Private Sub TextBox1_TextChanged_1(sender As Object, e As EventArgs) Handles TxtCodAgenteCAusador.TextChanged
+
+        Dim DescricaoSitGera As String
+
+        For i As Integer = 0 To LstCodTab14_15.Items.Count - 1
+
+            If LstCodTab14_15.Items(i).ToString = TxtCodAgenteCAusador.Text Then
+
+                DescricaoSitGera = CmbDescricao.Items(i).ToString
+                LblAgenteCausador.Text = DescricaoSitGera
+                ImgValAgenteCausador.BackgroundImage = My.Resources.check_ok
+
+                If CmbPaises.Items.Count > 0 Then
+                    CmbPaises.Enabled = True
+                    TxtCep.Enabled = False
+                    TxtCep.Text = ""
+                Else
+                    TxtCep.Enabled = True
+                    CmbPaises.Enabled = False
+                    CmbPaises.Text = ""
+                End If
+
+            End If
+
+        Next
+
+    End Sub
+
+    Private Sub TxtTipoInscr_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles TxtTipoInscr.MaskInputRejected
+
+    End Sub
+
+    Private Sub TxtTipoInscr_TextChanged(sender As Object, e As EventArgs) Handles TxtTipoInscr.TextChanged
+        If TxtTipoInscr.Text.Length = TxtTipoInscr.Mask.Replace(",", "").Replace("/", "").Replace("-", "").Length Then
+            TabControl1.SelectedIndex = 2
+
+            If TxtTipoInscr.Text <> "" Then
+                TxtTipoInscr.BackColor = Color.White
+                CkAtestadoMedico.Enabled = True
+                CkAfastamento.Enabled = True
+                CmbLesao.Enabled = True
+                ImgValNDocumento.BackgroundImage = My.Resources.check_ok
+            Else
+                TxtTipoInscr.BackColor = Color.MistyRose
+                CkAtestadoMedico.Enabled = False
+                CkAfastamento.Enabled = False
+                CkAtestadoMedico.Checked = False
+                CkAfastamento.Checked = False
+                CmbLesao.Enabled = False
+                CmbLesao.Text = ""
+                ImgValNDocumento.BackgroundImage = My.Resources.alertar_obg
+
+            End If
+        End If
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+
+        FrmTabela17.Show(Me)
+
+    End Sub
+
+    Private Sub TxtCodLesao_TextChanged(sender As Object, e As EventArgs) Handles TxtCodLesao.TextChanged
+
+        Dim DescricaoSitGera As String
+
+        For i As Integer = 0 To LstTabela17.Items.Count - 1
+
+            If LstTabela17.Items(i).ToString = TxtCodLesao.Text Then
+
+                DescricaoSitGera = CmbLesao.Items(i).ToString
+                LblDescricaoLesao.Text = DescricaoSitGera
+                ImgValLesao.BackgroundImage = My.Resources.check_ok
+
+                TxtInfoCompl.Enabled = True
+                TxtDiagnostico.Enabled = True
+                TxtCodCid.Enabled = True
+
+                TabControl1.SelectedIndex = 3
+
+            End If
+
+        Next
+
+    End Sub
+
+    Private Sub TxtCodCid_TextChanged(sender As Object, e As EventArgs) Handles TxtCodCid.TextChanged
+
+        Dim DescricaoSitGera As String
+
+        LblDescricaoCID.Text = ""
+        ImgValCid.BackgroundImage = My.Resources.alertar_obg
+
+        For i As Integer = 0 To LstCodCid.Items.Count - 1
+
+            If LstCodCid.Items(i).ToString = TxtCodCid.Text Then
+
+                DescricaoSitGera = LstDescricaoCid.Items(i).ToString
+                LblDescricaoCID.Text = DescricaoSitGera
+                ImgValCid.BackgroundImage = My.Resources.check_ok
+
+                TxtNomeMedico.Enabled = True
+
+                TxtNomeMedico.Focus()
+
+            End If
+
+        Next
+
+    End Sub
+
+    Private Sub TxtNumDocumento_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles TxtNumDocumento.MaskInputRejected
+
+    End Sub
+
+    Private Sub TxtNumDocumento_TextChanged(sender As Object, e As EventArgs) Handles TxtNumDocumento.TextChanged
+
+        If TxtNumDocumento.Text.Length = TxtNumDocumento.Mask.Replace(",", "").Replace("-", "").Replace("/", "").Length Then
+
+            CmbEstadoEmitente.Enabled = True
+            ImgvalNumDocMedico.BackgroundImage = My.Resources.check_ok
+
+        Else
+
+            CmbEstadoEmitente.Text = ""
+            CmbEstadoEmitente.Enabled = False
+            ImgvalNumDocMedico.BackgroundImage = My.Resources.alertar_obg
+
+        End If
+
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+
+        FrmCID.Show(Me)
 
     End Sub
 End Class

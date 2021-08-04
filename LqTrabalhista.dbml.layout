@@ -40,7 +40,7 @@
         <elementListCompartment Id="7a952d71-7413-44ac-b0b0-989da8018f33" absoluteBounds="3.0149999999999997, 5.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.468748 : 2.07859537760417); (1.468748 : 4.5); (2.75 : 4.5); (2.75 : 5.44314697265625); (3 : 5.44314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.468748 : 2.07859537760417); (1.468748 : 4.5); (2.75 : 4.5); (2.75 : 5.44314697265625); (3 : 5.44314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/LqTrabalhistaDataContext/SetoresClientes/SetoresClientes_RiscosSetores" />
       <nodes>
         <classShapeMoniker Id="7a279ebe-23bb-4a9a-951e-9754eac8c167" />
@@ -53,7 +53,7 @@
         <elementListCompartment Id="66cf1318-2c35-45fe-8bf8-7c096d5131e3" absoluteBounds="0.51499999999999968, 5.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 5.03407348632813); (3 : 5.03407348632813)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.5 : 5.03407348632813); (2.66666666666667 : 5.03407348632813 : JumpStart); (2.83333333333333 : 5.03407348632813 : JumpEnd); (3 : 5.03407348632813)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LqTrabalhistaDataContext/Riscos/Riscos_RiscosSetores" />
       <nodes>
         <classShapeMoniker Id="f7307c69-1230-4573-9eef-69a2f41a9b67" />
@@ -244,6 +244,12 @@
       <DataClassMoniker Name="/LqTrabalhistaDataContext/ESocial" />
       <nestedChildShapes>
         <elementListCompartment Id="14515f65-eb1b-453d-abfa-fc0158d45f9e" absoluteBounds="7.8900000000000006, 0.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c3e83d7f-b804-495d-8f45-01656fa0db81" absoluteBounds="6.75, 18.75, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/LqTrabalhistaDataContext/CID_FIND" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c2abb6c5-9e48-40b6-84af-e4443d88447f" absoluteBounds="6.765, 19.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

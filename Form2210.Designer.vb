@@ -22,10 +22,8 @@ Partial Class Form2210
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2210))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PnnInferior = New System.Windows.Forms.Panel()
         Me.LblIdVistoria = New System.Windows.Forms.Label()
@@ -34,7 +32,8 @@ Partial Class Form2210
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.Panel12 = New System.Windows.Forms.Panel()
         Me.BttFechar = New System.Windows.Forms.Button()
-        Me.BttColaboradores = New System.Windows.Forms.Button()
+        Me.BttTransmitirCAT = New System.Windows.Forms.Button()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -47,13 +46,28 @@ Partial Class Form2210
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ImgValLateralidade = New System.Windows.Forms.PictureBox()
+        Me.ImgValParteCorpo = New System.Windows.Forms.PictureBox()
+        Me.ImgValSitGer = New System.Windows.Forms.PictureBox()
+        Me.LblDescricaoSitGera = New System.Windows.Forms.Label()
+        Me.LblDescricaoParteCorpo = New System.Windows.Forms.Label()
+        Me.TxtCodParteCorpo = New System.Windows.Forms.TextBox()
+        Me.Label58 = New System.Windows.Forms.Label()
+        Me.TxtCodSitGeradora = New System.Windows.Forms.TextBox()
+        Me.ImgValidSelTipo = New System.Windows.Forms.PictureBox()
+        Me.TxtInicioExp = New System.Windows.Forms.MaskedTextBox()
         Me.CmbLateralidade = New System.Windows.Forms.ComboBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
+        Me.TxtHoraAcid = New System.Windows.Forms.MaskedTextBox()
         Me.CmbPArteCorpo = New System.Windows.Forms.ComboBox()
-        Me.Label34 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.TxtObservacao = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.ImgValResponsável = New System.Windows.Forms.PictureBox()
         Me.RdbFiscalizador = New System.Windows.Forms.RadioButton()
         Me.RdbOrdemJud = New System.Windows.Forms.RadioButton()
         Me.RdbEmpregador = New System.Windows.Forms.RadioButton()
@@ -67,10 +81,6 @@ Partial Class Form2210
         Me.Label10 = New System.Windows.Forms.Label()
         Me.CkObito = New System.Windows.Forms.CheckBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.TxtInicioExp = New System.Windows.Forms.MaskedTextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.TxtHoraAcid = New System.Windows.Forms.MaskedTextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.RdbTrajeto = New System.Windows.Forms.RadioButton()
         Me.RdbDoenca = New System.Windows.Forms.RadioButton()
         Me.RdbTipico = New System.Windows.Forms.RadioButton()
@@ -79,12 +89,20 @@ Partial Class Form2210
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TxtTipoInscr = New System.Windows.Forms.MaskedTextBox()
+        Me.LblAgenteCausador = New System.Windows.Forms.Label()
+        Me.LblPais = New System.Windows.Forms.Label()
+        Me.LblEstado = New System.Windows.Forms.Label()
+        Me.LblCidade = New System.Windows.Forms.Label()
+        Me.LblBairro = New System.Windows.Forms.Label()
+        Me.LblEndereco = New System.Windows.Forms.Label()
+        Me.TxtCodAgenteCAusador = New System.Windows.Forms.TextBox()
         Me.Label51 = New System.Windows.Forms.Label()
         Me.TxtDescricaoLocal = New System.Windows.Forms.TextBox()
         Me.Label45 = New System.Windows.Forms.Label()
-        Me.TxtTipoInscr = New System.Windows.Forms.TextBox()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.ImgTipoInscr = New System.Windows.Forms.PictureBox()
         Me.RdbCNO = New System.Windows.Forms.RadioButton()
         Me.RdbCAEPF = New System.Windows.Forms.RadioButton()
         Me.RdbCNPJ = New System.Windows.Forms.RadioButton()
@@ -100,23 +118,28 @@ Partial Class Form2210
         Me.CmbTipoLocal = New System.Windows.Forms.ComboBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.TxtPais = New System.Windows.Forms.TextBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.TxtEstado = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.TxtCidade = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.TxtBairro = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.TxtComplemento = New System.Windows.Forms.TextBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.TxtNumero = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.TxtEndereco = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.TxtCep = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
+        Me.ImgValNDocumento = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ImgValNumEndereco = New System.Windows.Forms.PictureBox()
+        Me.ImgValCepLocal = New System.Windows.Forms.PictureBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.ImgValAgenteCausador = New System.Windows.Forms.PictureBox()
+        Me.ImgValDescricaoLocal = New System.Windows.Forms.PictureBox()
+        Me.ImgValTpLocal = New System.Windows.Forms.PictureBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.LblDescricaoLesao = New System.Windows.Forms.Label()
+        Me.TxtCodLesao = New System.Windows.Forms.TextBox()
         Me.TxtDiagnostico = New System.Windows.Forms.TextBox()
         Me.Label44 = New System.Windows.Forms.Label()
         Me.TxtInfoCompl = New System.Windows.Forms.TextBox()
@@ -135,10 +158,18 @@ Partial Class Form2210
         Me.Label36 = New System.Windows.Forms.Label()
         Me.Label37 = New System.Windows.Forms.Label()
         Me.CkAtestadoMedico = New System.Windows.Forms.CheckBox()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.ImgValLesao = New System.Windows.Forms.PictureBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.TxtNumDocumento = New System.Windows.Forms.MaskedTextBox()
+        Me.ImgValCid = New System.Windows.Forms.PictureBox()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.ImgValEstadoEmitente = New System.Windows.Forms.PictureBox()
+        Me.ImgvalNumDocMedico = New System.Windows.Forms.PictureBox()
+        Me.ImgValDocMedico = New System.Windows.Forms.PictureBox()
+        Me.ImgValNomeMEdico = New System.Windows.Forms.PictureBox()
         Me.CmbEstadoEmitente = New System.Windows.Forms.ComboBox()
         Me.Label55 = New System.Windows.Forms.Label()
-        Me.TxtNumDocumento = New System.Windows.Forms.TextBox()
         Me.Label54 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.RdbRMS = New System.Windows.Forms.RadioButton()
@@ -147,30 +178,50 @@ Partial Class Form2210
         Me.TxtNomeMedico = New System.Windows.Forms.TextBox()
         Me.Label53 = New System.Windows.Forms.Label()
         Me.Label52 = New System.Windows.Forms.Label()
-        Me.DtCIDS = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LblDescricao = New System.Windows.Forms.Label()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.TxtDescricaoCID = New System.Windows.Forms.TextBox()
-        Me.Label49 = New System.Windows.Forms.Label()
-        Me.Label48 = New System.Windows.Forms.Label()
+        Me.LblDescricaoCID = New System.Windows.Forms.Label()
         Me.Label47 = New System.Windows.Forms.Label()
         Me.TxtCodCid = New System.Windows.Forms.TextBox()
         Me.Label46 = New System.Windows.Forms.Label()
+        Me.TxtDodCliente = New System.Windows.Forms.MaskedTextBox()
+        Me.Label56 = New System.Windows.Forms.Label()
+        Me.TxtDocColaborador = New System.Windows.Forms.MaskedTextBox()
+        Me.Label57 = New System.Windows.Forms.Label()
+        Me.ImgValColab = New System.Windows.Forms.PictureBox()
+        Me.ImgValCliente = New System.Windows.Forms.PictureBox()
         Me.PnnInferior.SuspendLayout()
         Me.Panel12.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        CType(Me.ImgValLateralidade, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValParteCorpo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValSitGer, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValidSelTipo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
+        CType(Me.ImgValResponsável, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.Panel7.SuspendLayout()
+        CType(Me.ImgTipoInscr, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValNDocumento, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValNumEndereco, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValCepLocal, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValAgenteCausador, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValDescricaoLocal, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValTpLocal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
         CType(Me.NmDurTrat, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValLesao, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
+        CType(Me.ImgValCid, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValEstadoEmitente, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgvalNumDocMedico, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValDocMedico, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValNomeMEdico, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel8.SuspendLayout()
-        CType(Me.DtCIDS, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValColab, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -181,7 +232,7 @@ Partial Class Form2210
         Me.Label1.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.Label1.Location = New System.Drawing.Point(1, 1)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(917, 29)
+        Me.Label1.Size = New System.Drawing.Size(944, 29)
         Me.Label1.TabIndex = 29
         Me.Label1.Text = "Comunicação de acidente de trabalho"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -194,11 +245,11 @@ Partial Class Form2210
         Me.PnnInferior.Controls.Add(Me.LblIdmarca)
         Me.PnnInferior.Controls.Add(Me.Panel10)
         Me.PnnInferior.Controls.Add(Me.Panel12)
-        Me.PnnInferior.Controls.Add(Me.BttColaboradores)
+        Me.PnnInferior.Controls.Add(Me.BttTransmitirCAT)
         Me.PnnInferior.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PnnInferior.Location = New System.Drawing.Point(1, 750)
         Me.PnnInferior.Name = "PnnInferior"
-        Me.PnnInferior.Size = New System.Drawing.Size(917, 41)
+        Me.PnnInferior.Size = New System.Drawing.Size(944, 41)
         Me.PnnInferior.TabIndex = 126
         '
         'LblIdVistoria
@@ -206,7 +257,7 @@ Partial Class Form2210
         Me.LblIdVistoria.AutoSize = True
         Me.LblIdVistoria.Dock = System.Windows.Forms.DockStyle.Left
         Me.LblIdVistoria.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.LblIdVistoria.Location = New System.Drawing.Point(222, 6)
+        Me.LblIdVistoria.Location = New System.Drawing.Point(166, 6)
         Me.LblIdVistoria.Name = "LblIdVistoria"
         Me.LblIdVistoria.Size = New System.Drawing.Size(15, 17)
         Me.LblIdVistoria.TabIndex = 48
@@ -218,7 +269,7 @@ Partial Class Form2210
         Me.LblIdSolução.AutoSize = True
         Me.LblIdSolução.Dock = System.Windows.Forms.DockStyle.Left
         Me.LblIdSolução.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.LblIdSolução.Location = New System.Drawing.Point(207, 6)
+        Me.LblIdSolução.Location = New System.Drawing.Point(151, 6)
         Me.LblIdSolução.Name = "LblIdSolução"
         Me.LblIdSolução.Size = New System.Drawing.Size(15, 17)
         Me.LblIdSolução.TabIndex = 47
@@ -230,7 +281,7 @@ Partial Class Form2210
         Me.LblIdmarca.AutoSize = True
         Me.LblIdmarca.Dock = System.Windows.Forms.DockStyle.Left
         Me.LblIdmarca.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.LblIdmarca.Location = New System.Drawing.Point(192, 6)
+        Me.LblIdmarca.Location = New System.Drawing.Point(136, 6)
         Me.LblIdmarca.Name = "LblIdmarca"
         Me.LblIdmarca.Size = New System.Drawing.Size(15, 17)
         Me.LblIdmarca.TabIndex = 46
@@ -241,9 +292,9 @@ Partial Class Form2210
         '
         Me.Panel10.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Panel10.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel10.Location = New System.Drawing.Point(192, 0)
+        Me.Panel10.Location = New System.Drawing.Point(136, 0)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(675, 6)
+        Me.Panel10.Size = New System.Drawing.Size(758, 6)
         Me.Panel10.TabIndex = 27
         '
         'Panel12
@@ -252,7 +303,7 @@ Partial Class Form2210
         Me.Panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel12.Controls.Add(Me.BttFechar)
         Me.Panel12.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel12.Location = New System.Drawing.Point(867, 0)
+        Me.Panel12.Location = New System.Drawing.Point(894, 0)
         Me.Panel12.Name = "Panel12"
         Me.Panel12.Size = New System.Drawing.Size(50, 41)
         Me.Panel12.TabIndex = 28
@@ -269,23 +320,34 @@ Partial Class Form2210
         Me.BttFechar.TabIndex = 28
         Me.BttFechar.UseVisualStyleBackColor = True
         '
-        'BttColaboradores
+        'BttTransmitirCAT
         '
-        Me.BttColaboradores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BttColaboradores.Dock = System.Windows.Forms.DockStyle.Left
-        Me.BttColaboradores.FlatAppearance.BorderColor = System.Drawing.Color.DimGray
-        Me.BttColaboradores.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BttColaboradores.Font = New System.Drawing.Font("Calibri", 8.25!)
-        Me.BttColaboradores.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.BttColaboradores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BttColaboradores.ImageKey = "avatardefault_92824.png"
-        Me.BttColaboradores.Location = New System.Drawing.Point(0, 0)
-        Me.BttColaboradores.Name = "BttColaboradores"
-        Me.BttColaboradores.Size = New System.Drawing.Size(192, 41)
-        Me.BttColaboradores.TabIndex = 51
-        Me.BttColaboradores.Text = "Transmitir nova CAT"
-        Me.BttColaboradores.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BttColaboradores.UseVisualStyleBackColor = True
+        Me.BttTransmitirCAT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BttTransmitirCAT.Dock = System.Windows.Forms.DockStyle.Left
+        Me.BttTransmitirCAT.Enabled = False
+        Me.BttTransmitirCAT.FlatAppearance.BorderColor = System.Drawing.Color.DimGray
+        Me.BttTransmitirCAT.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BttTransmitirCAT.Font = New System.Drawing.Font("Calibri", 8.25!)
+        Me.BttTransmitirCAT.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.BttTransmitirCAT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BttTransmitirCAT.ImageKey = "PngItem_2399176.png"
+        Me.BttTransmitirCAT.ImageList = Me.ImageList1
+        Me.BttTransmitirCAT.Location = New System.Drawing.Point(0, 0)
+        Me.BttTransmitirCAT.Name = "BttTransmitirCAT"
+        Me.BttTransmitirCAT.Size = New System.Drawing.Size(136, 41)
+        Me.BttTransmitirCAT.TabIndex = 51
+        Me.BttTransmitirCAT.Text = "Transmitir CAT"
+        Me.BttTransmitirCAT.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BttTransmitirCAT.UseVisualStyleBackColor = True
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "pngwing.com (1).png")
+        Me.ImageList1.Images.SetKeyName(1, "emblemok_103757.png")
+        Me.ImageList1.Images.SetKeyName(2, "search_find_locate_1542.png")
+        Me.ImageList1.Images.SetKeyName(3, "PngItem_2399176.png")
         '
         'Panel1
         '
@@ -300,7 +362,7 @@ Partial Class Form2210
         '
         Me.Panel2.BackColor = System.Drawing.Color.DarkSlateGray
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(918, 1)
+        Me.Panel2.Location = New System.Drawing.Point(945, 1)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1, 790)
         Me.Panel2.TabIndex = 128
@@ -311,7 +373,7 @@ Partial Class Form2210
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(919, 1)
+        Me.Panel3.Size = New System.Drawing.Size(946, 1)
         Me.Panel3.TabIndex = 129
         '
         'Panel4
@@ -320,7 +382,7 @@ Partial Class Form2210
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel4.Location = New System.Drawing.Point(0, 791)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(919, 1)
+        Me.Panel4.Size = New System.Drawing.Size(946, 1)
         Me.Panel4.TabIndex = 130
         '
         'Label29
@@ -330,7 +392,7 @@ Partial Class Form2210
         Me.Label29.ForeColor = System.Drawing.Color.DarkSlateGray
         Me.Label29.Location = New System.Drawing.Point(10, 37)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(893, 22)
+        Me.Label29.Size = New System.Drawing.Size(924, 22)
         Me.Label29.TabIndex = 131
         Me.Label29.Text = "Dados para a emissão da CAT"
         Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -340,45 +402,45 @@ Partial Class Form2210
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(18, 78)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(135, 17)
+        Me.Label2.Size = New System.Drawing.Size(132, 17)
         Me.Label2.TabIndex = 132
-        Me.Label2.Text = "Razão social do cliente"
+        Me.Label2.Text = "Documento do cliente"
         '
         'CmbTodosClientes
         '
         Me.CmbTodosClientes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.CmbTodosClientes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.CmbTodosClientes.BackColor = System.Drawing.Color.MistyRose
+        Me.CmbTodosClientes.BackColor = System.Drawing.Color.White
         Me.CmbTodosClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmbTodosClientes.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.CmbTodosClientes.FormattingEnabled = True
-        Me.CmbTodosClientes.Location = New System.Drawing.Point(185, 76)
+        Me.CmbTodosClientes.Location = New System.Drawing.Point(479, 75)
         Me.CmbTodosClientes.Name = "CmbTodosClientes"
-        Me.CmbTodosClientes.Size = New System.Drawing.Size(700, 25)
+        Me.CmbTodosClientes.Size = New System.Drawing.Size(406, 25)
         Me.CmbTodosClientes.TabIndex = 239
         '
         'CmbColaboradores
         '
         Me.CmbColaboradores.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.CmbColaboradores.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.CmbColaboradores.BackColor = System.Drawing.Color.MistyRose
+        Me.CmbColaboradores.BackColor = System.Drawing.Color.White
         Me.CmbColaboradores.Enabled = False
         Me.CmbColaboradores.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmbColaboradores.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.CmbColaboradores.FormattingEnabled = True
-        Me.CmbColaboradores.Location = New System.Drawing.Point(185, 109)
+        Me.CmbColaboradores.Location = New System.Drawing.Point(479, 106)
         Me.CmbColaboradores.Name = "CmbColaboradores"
-        Me.CmbColaboradores.Size = New System.Drawing.Size(700, 25)
+        Me.CmbColaboradores.Size = New System.Drawing.Size(406, 25)
         Me.CmbColaboradores.TabIndex = 241
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(18, 111)
+        Me.Label3.Location = New System.Drawing.Point(18, 109)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(145, 17)
+        Me.Label3.Size = New System.Drawing.Size(122, 17)
         Me.Label3.TabIndex = 240
-        Me.Label3.Text = "Nome do colaborador(a)"
+        Me.Label3.Text = "Doc. do colaborador"
         '
         'Label4
         '
@@ -387,7 +449,7 @@ Partial Class Form2210
         Me.Label4.ForeColor = System.Drawing.Color.DarkSlateGray
         Me.Label4.Location = New System.Drawing.Point(10, 153)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(893, 22)
+        Me.Label4.Size = New System.Drawing.Size(924, 22)
         Me.Label4.TabIndex = 242
         Me.Label4.Text = "Detalhes da CAT"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -403,15 +465,29 @@ Partial Class Form2210
         Me.TabControl1.Location = New System.Drawing.Point(13, 178)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(894, 566)
+        Me.TabControl1.Size = New System.Drawing.Size(917, 566)
         Me.TabControl1.TabIndex = 243
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Button2)
+        Me.TabPage1.Controls.Add(Me.Button1)
+        Me.TabPage1.Controls.Add(Me.ImgValLateralidade)
+        Me.TabPage1.Controls.Add(Me.ImgValParteCorpo)
+        Me.TabPage1.Controls.Add(Me.ImgValSitGer)
+        Me.TabPage1.Controls.Add(Me.LblDescricaoSitGera)
+        Me.TabPage1.Controls.Add(Me.LblDescricaoParteCorpo)
+        Me.TabPage1.Controls.Add(Me.TxtCodParteCorpo)
+        Me.TabPage1.Controls.Add(Me.Label58)
+        Me.TabPage1.Controls.Add(Me.TxtCodSitGeradora)
+        Me.TabPage1.Controls.Add(Me.ImgValidSelTipo)
+        Me.TabPage1.Controls.Add(Me.TxtInicioExp)
         Me.TabPage1.Controls.Add(Me.CmbLateralidade)
+        Me.TabPage1.Controls.Add(Me.Label9)
         Me.TabPage1.Controls.Add(Me.Label35)
+        Me.TabPage1.Controls.Add(Me.TxtHoraAcid)
         Me.TabPage1.Controls.Add(Me.CmbPArteCorpo)
-        Me.TabPage1.Controls.Add(Me.Label34)
+        Me.TabPage1.Controls.Add(Me.Label8)
         Me.TabPage1.Controls.Add(Me.TxtObservacao)
         Me.TabPage1.Controls.Add(Me.Label14)
         Me.TabPage1.Controls.Add(Me.Panel6)
@@ -430,34 +506,183 @@ Partial Class Form2210
         Me.TabPage1.Location = New System.Drawing.Point(4, 29)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(886, 533)
+        Me.TabPage1.Size = New System.Drawing.Size(909, 533)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Dados da CAT"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.ImageIndex = 2
+        Me.Button2.ImageList = Me.ImageList1
+        Me.Button2.Location = New System.Drawing.Point(305, 329)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(18, 21)
+        Me.Button2.TabIndex = 272
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.ImageIndex = 2
+        Me.Button1.ImageList = Me.ImageList1
+        Me.Button1.Location = New System.Drawing.Point(305, 264)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(18, 21)
+        Me.Button1.TabIndex = 271
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'ImgValLateralidade
+        '
+        Me.ImgValLateralidade.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValLateralidade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValLateralidade.Location = New System.Drawing.Point(541, 398)
+        Me.ImgValLateralidade.Name = "ImgValLateralidade"
+        Me.ImgValLateralidade.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValLateralidade.TabIndex = 270
+        Me.ImgValLateralidade.TabStop = False
+        '
+        'ImgValParteCorpo
+        '
+        Me.ImgValParteCorpo.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValParteCorpo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValParteCorpo.Location = New System.Drawing.Point(339, 333)
+        Me.ImgValParteCorpo.Name = "ImgValParteCorpo"
+        Me.ImgValParteCorpo.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValParteCorpo.TabIndex = 269
+        Me.ImgValParteCorpo.TabStop = False
+        '
+        'ImgValSitGer
+        '
+        Me.ImgValSitGer.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValSitGer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValSitGer.Location = New System.Drawing.Point(339, 268)
+        Me.ImgValSitGer.Name = "ImgValSitGer"
+        Me.ImgValSitGer.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValSitGer.TabIndex = 268
+        Me.ImgValSitGer.TabStop = False
+        '
+        'LblDescricaoSitGera
+        '
+        Me.LblDescricaoSitGera.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblDescricaoSitGera.Location = New System.Drawing.Point(176, 290)
+        Me.LblDescricaoSitGera.Name = "LblDescricaoSitGera"
+        Me.LblDescricaoSitGera.Size = New System.Drawing.Size(721, 40)
+        Me.LblDescricaoSitGera.TabIndex = 267
+        '
+        'LblDescricaoParteCorpo
+        '
+        Me.LblDescricaoParteCorpo.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblDescricaoParteCorpo.Location = New System.Drawing.Point(176, 355)
+        Me.LblDescricaoParteCorpo.Name = "LblDescricaoParteCorpo"
+        Me.LblDescricaoParteCorpo.Size = New System.Drawing.Size(692, 36)
+        Me.LblDescricaoParteCorpo.TabIndex = 266
+        Me.LblDescricaoParteCorpo.Text = " "
+        '
+        'TxtCodParteCorpo
+        '
+        Me.TxtCodParteCorpo.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtCodParteCorpo.Font = New System.Drawing.Font("Calibri", 10.0!)
+        Me.TxtCodParteCorpo.Location = New System.Drawing.Point(176, 331)
+        Me.TxtCodParteCorpo.MaxLength = 9
+        Me.TxtCodParteCorpo.Name = "TxtCodParteCorpo"
+        Me.TxtCodParteCorpo.Size = New System.Drawing.Size(118, 21)
+        Me.TxtCodParteCorpo.TabIndex = 265
+        '
+        'Label58
+        '
+        Me.Label58.AutoSize = True
+        Me.Label58.Location = New System.Drawing.Point(15, 334)
+        Me.Label58.Name = "Label58"
+        Me.Label58.Size = New System.Drawing.Size(124, 17)
+        Me.Label58.TabIndex = 264
+        Me.Label58.Text = "Parte do corpo(Cód.)"
+        '
+        'TxtCodSitGeradora
+        '
+        Me.TxtCodSitGeradora.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtCodSitGeradora.Font = New System.Drawing.Font("Calibri", 10.0!)
+        Me.TxtCodSitGeradora.Location = New System.Drawing.Point(176, 266)
+        Me.TxtCodSitGeradora.MaxLength = 9
+        Me.TxtCodSitGeradora.Name = "TxtCodSitGeradora"
+        Me.TxtCodSitGeradora.Size = New System.Drawing.Size(118, 21)
+        Me.TxtCodSitGeradora.TabIndex = 263
+        '
+        'ImgValidSelTipo
+        '
+        Me.ImgValidSelTipo.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValidSelTipo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValidSelTipo.Location = New System.Drawing.Point(431, 56)
+        Me.ImgValidSelTipo.Name = "ImgValidSelTipo"
+        Me.ImgValidSelTipo.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValidSelTipo.TabIndex = 262
+        Me.ImgValidSelTipo.TabStop = False
+        '
+        'TxtInicioExp
+        '
+        Me.TxtInicioExp.BackColor = System.Drawing.Color.White
+        Me.TxtInicioExp.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtInicioExp.Enabled = False
+        Me.TxtInicioExp.Font = New System.Drawing.Font("Calibri", 10.0!)
+        Me.TxtInicioExp.Location = New System.Drawing.Point(356, 122)
+        Me.TxtInicioExp.Mask = "00:00"
+        Me.TxtInicioExp.Name = "TxtInicioExp"
+        Me.TxtInicioExp.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.TxtInicioExp.Size = New System.Drawing.Size(100, 21)
+        Me.TxtInicioExp.TabIndex = 252
+        Me.TxtInicioExp.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         '
         'CmbLateralidade
         '
         Me.CmbLateralidade.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.CmbLateralidade.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.CmbLateralidade.BackColor = System.Drawing.Color.MistyRose
+        Me.CmbLateralidade.BackColor = System.Drawing.Color.White
         Me.CmbLateralidade.Enabled = False
         Me.CmbLateralidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmbLateralidade.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.CmbLateralidade.FormattingEnabled = True
         Me.CmbLateralidade.Items.AddRange(New Object() {"0 - Não aplicável", "1 - Esquerda", "2 - Direita", "3 - Ambas"})
-        Me.CmbLateralidade.Location = New System.Drawing.Point(620, 298)
+        Me.CmbLateralidade.Location = New System.Drawing.Point(178, 394)
         Me.CmbLateralidade.Name = "CmbLateralidade"
-        Me.CmbLateralidade.Size = New System.Drawing.Size(248, 25)
+        Me.CmbLateralidade.Size = New System.Drawing.Size(351, 25)
         Me.CmbLateralidade.TabIndex = 261
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(228, 124)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(121, 17)
+        Me.Label9.TabIndex = 251
+        Me.Label9.Text = "Início do expediente"
         '
         'Label35
         '
         Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(535, 301)
+        Me.Label35.Location = New System.Drawing.Point(15, 397)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(79, 17)
         Me.Label35.TabIndex = 260
         Me.Label35.Text = "Lateralidade"
+        '
+        'TxtHoraAcid
+        '
+        Me.TxtHoraAcid.BackColor = System.Drawing.Color.White
+        Me.TxtHoraAcid.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtHoraAcid.Enabled = False
+        Me.TxtHoraAcid.Font = New System.Drawing.Font("Calibri", 10.0!)
+        Me.TxtHoraAcid.Location = New System.Drawing.Point(139, 122)
+        Me.TxtHoraAcid.Mask = "00:00"
+        Me.TxtHoraAcid.Name = "TxtHoraAcid"
+        Me.TxtHoraAcid.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.TxtHoraAcid.Size = New System.Drawing.Size(82, 21)
+        Me.TxtHoraAcid.TabIndex = 250
+        Me.TxtHoraAcid.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         '
         'CmbPArteCorpo
         '
@@ -468,29 +693,30 @@ Partial Class Form2210
         Me.CmbPArteCorpo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmbPArteCorpo.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.CmbPArteCorpo.FormattingEnabled = True
-        Me.CmbPArteCorpo.Location = New System.Drawing.Point(135, 298)
+        Me.CmbPArteCorpo.Location = New System.Drawing.Point(356, 328)
         Me.CmbPArteCorpo.Name = "CmbPArteCorpo"
-        Me.CmbPArteCorpo.Size = New System.Drawing.Size(394, 25)
+        Me.CmbPArteCorpo.Size = New System.Drawing.Size(512, 25)
         Me.CmbPArteCorpo.TabIndex = 259
+        Me.CmbPArteCorpo.Visible = False
         '
-        'Label34
+        'Label8
         '
-        Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(15, 301)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(94, 17)
-        Me.Label34.TabIndex = 258
-        Me.Label34.Text = "Parte do corpo "
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(15, 124)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(105, 17)
+        Me.Label8.TabIndex = 249
+        Me.Label8.Text = "Hora do acidente"
         '
         'TxtObservacao
         '
-        Me.TxtObservacao.BackColor = System.Drawing.Color.MistyRose
+        Me.TxtObservacao.BackColor = System.Drawing.Color.White
         Me.TxtObservacao.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtObservacao.Enabled = False
-        Me.TxtObservacao.Location = New System.Drawing.Point(18, 470)
+        Me.TxtObservacao.Location = New System.Drawing.Point(541, 470)
         Me.TxtObservacao.Multiline = True
         Me.TxtObservacao.Name = "TxtObservacao"
-        Me.TxtObservacao.Size = New System.Drawing.Size(850, 57)
+        Me.TxtObservacao.Size = New System.Drawing.Size(352, 57)
         Me.TxtObservacao.TabIndex = 257
         '
         'Label14
@@ -498,31 +724,42 @@ Partial Class Form2210
         Me.Label14.BackColor = System.Drawing.Color.Gainsboro
         Me.Label14.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.Label14.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.Label14.Location = New System.Drawing.Point(6, 436)
+        Me.Label14.Location = New System.Drawing.Point(538, 436)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(875, 22)
+        Me.Label14.Size = New System.Drawing.Size(363, 22)
         Me.Label14.TabIndex = 256
         Me.Label14.Text = "Observações"
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Panel6
         '
+        Me.Panel6.Controls.Add(Me.ImgValResponsável)
         Me.Panel6.Controls.Add(Me.RdbFiscalizador)
         Me.Panel6.Controls.Add(Me.RdbOrdemJud)
         Me.Panel6.Controls.Add(Me.RdbEmpregador)
         Me.Panel6.Controls.Add(Me.Label16)
-        Me.Panel6.Location = New System.Drawing.Point(4, 374)
+        Me.Panel6.Location = New System.Drawing.Point(0, 458)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(881, 42)
+        Me.Panel6.Size = New System.Drawing.Size(529, 69)
         Me.Panel6.TabIndex = 255
+        '
+        'ImgValResponsável
+        '
+        Me.ImgValResponsável.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValResponsável.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValResponsável.Location = New System.Drawing.Point(477, 42)
+        Me.ImgValResponsável.Name = "ImgValResponsável"
+        Me.ImgValResponsável.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValResponsável.TabIndex = 271
+        Me.ImgValResponsável.TabStop = False
         '
         'RdbFiscalizador
         '
         Me.RdbFiscalizador.AutoSize = True
         Me.RdbFiscalizador.Enabled = False
         Me.RdbFiscalizador.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RdbFiscalizador.ForeColor = System.Drawing.Color.Tomato
-        Me.RdbFiscalizador.Location = New System.Drawing.Point(357, 11)
+        Me.RdbFiscalizador.ForeColor = System.Drawing.Color.SlateGray
+        Me.RdbFiscalizador.Location = New System.Drawing.Point(223, 42)
         Me.RdbFiscalizador.Name = "RdbFiscalizador"
         Me.RdbFiscalizador.Size = New System.Drawing.Size(228, 21)
         Me.RdbFiscalizador.TabIndex = 248
@@ -535,8 +772,8 @@ Partial Class Form2210
         Me.RdbOrdemJud.AutoSize = True
         Me.RdbOrdemJud.Enabled = False
         Me.RdbOrdemJud.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RdbOrdemJud.ForeColor = System.Drawing.Color.Tomato
-        Me.RdbOrdemJud.Location = New System.Drawing.Point(240, 11)
+        Me.RdbOrdemJud.ForeColor = System.Drawing.Color.SlateGray
+        Me.RdbOrdemJud.Location = New System.Drawing.Point(111, 42)
         Me.RdbOrdemJud.Name = "RdbOrdemJud"
         Me.RdbOrdemJud.Size = New System.Drawing.Size(110, 21)
         Me.RdbOrdemJud.TabIndex = 247
@@ -549,8 +786,8 @@ Partial Class Form2210
         Me.RdbEmpregador.AutoSize = True
         Me.RdbEmpregador.Enabled = False
         Me.RdbEmpregador.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RdbEmpregador.ForeColor = System.Drawing.Color.Tomato
-        Me.RdbEmpregador.Location = New System.Drawing.Point(135, 11)
+        Me.RdbEmpregador.ForeColor = System.Drawing.Color.SlateGray
+        Me.RdbEmpregador.Location = New System.Drawing.Point(14, 42)
         Me.RdbEmpregador.Name = "RdbEmpregador"
         Me.RdbEmpregador.Size = New System.Drawing.Size(98, 21)
         Me.RdbEmpregador.TabIndex = 246
@@ -572,9 +809,9 @@ Partial Class Form2210
         Me.Label13.BackColor = System.Drawing.Color.Gainsboro
         Me.Label13.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.Label13.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.Label13.Location = New System.Drawing.Point(6, 345)
+        Me.Label13.Location = New System.Drawing.Point(1, 436)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(875, 22)
+        Me.Label13.Size = New System.Drawing.Size(528, 22)
         Me.Label13.TabIndex = 254
         Me.Label13.Text = "Iniciativa da CAT"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -588,28 +825,29 @@ Partial Class Form2210
         Me.CmbSituacaoGeradora.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmbSituacaoGeradora.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.CmbSituacaoGeradora.FormattingEnabled = True
-        Me.CmbSituacaoGeradora.Location = New System.Drawing.Point(135, 264)
+        Me.CmbSituacaoGeradora.Location = New System.Drawing.Point(356, 262)
         Me.CmbSituacaoGeradora.Name = "CmbSituacaoGeradora"
-        Me.CmbSituacaoGeradora.Size = New System.Drawing.Size(733, 25)
+        Me.CmbSituacaoGeradora.Size = New System.Drawing.Size(512, 25)
         Me.CmbSituacaoGeradora.TabIndex = 253
+        Me.CmbSituacaoGeradora.Visible = False
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(15, 267)
+        Me.Label12.Location = New System.Drawing.Point(15, 269)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(111, 17)
+        Me.Label12.Size = New System.Drawing.Size(147, 17)
         Me.Label12.TabIndex = 252
-        Me.Label12.Text = "Situação geradora"
+        Me.Label12.Text = "Situação geradora (Cód.)"
         '
         'Label11
         '
         Me.Label11.BackColor = System.Drawing.Color.Gainsboro
         Me.Label11.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.Label11.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.Label11.Location = New System.Drawing.Point(6, 217)
+        Me.Label11.Location = New System.Drawing.Point(6, 225)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(875, 22)
+        Me.Label11.Size = New System.Drawing.Size(895, 22)
         Me.Label11.TabIndex = 251
         Me.Label11.Text = "Detalhes da CAT"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -617,7 +855,7 @@ Partial Class Form2210
         'CkOcorrencia
         '
         Me.CkOcorrencia.AutoSize = True
-        Me.CkOcorrencia.Location = New System.Drawing.Point(178, 140)
+        Me.CkOcorrencia.Location = New System.Drawing.Point(178, 160)
         Me.CkOcorrencia.Name = "CkOcorrencia"
         Me.CkOcorrencia.Size = New System.Drawing.Size(171, 21)
         Me.CkOcorrencia.TabIndex = 250
@@ -627,15 +865,15 @@ Partial Class Form2210
         'DtObito
         '
         Me.DtObito.Enabled = False
-        Me.DtObito.Location = New System.Drawing.Point(135, 172)
+        Me.DtObito.Location = New System.Drawing.Point(135, 190)
         Me.DtObito.Name = "DtObito"
-        Me.DtObito.Size = New System.Drawing.Size(733, 24)
+        Me.DtObito.Size = New System.Drawing.Size(321, 24)
         Me.DtObito.TabIndex = 249
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(15, 178)
+        Me.Label10.Location = New System.Drawing.Point(15, 196)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(85, 17)
         Me.Label10.TabIndex = 248
@@ -644,7 +882,7 @@ Partial Class Form2210
         'CkObito
         '
         Me.CkObito.AutoSize = True
-        Me.CkObito.Location = New System.Drawing.Point(18, 140)
+        Me.CkObito.Location = New System.Drawing.Point(18, 160)
         Me.CkObito.Name = "CkObito"
         Me.CkObito.Size = New System.Drawing.Size(154, 21)
         Me.CkObito.TabIndex = 247
@@ -653,71 +891,21 @@ Partial Class Form2210
         '
         'Panel5
         '
-        Me.Panel5.Controls.Add(Me.TxtInicioExp)
-        Me.Panel5.Controls.Add(Me.Label9)
-        Me.Panel5.Controls.Add(Me.TxtHoraAcid)
-        Me.Panel5.Controls.Add(Me.Label8)
         Me.Panel5.Controls.Add(Me.RdbTrajeto)
         Me.Panel5.Controls.Add(Me.RdbDoenca)
         Me.Panel5.Controls.Add(Me.RdbTipico)
         Me.Panel5.Controls.Add(Me.Label7)
-        Me.Panel5.Location = New System.Drawing.Point(0, 85)
+        Me.Panel5.Location = New System.Drawing.Point(18, 44)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(881, 42)
+        Me.Panel5.Size = New System.Drawing.Size(399, 36)
         Me.Panel5.TabIndex = 246
-        '
-        'TxtInicioExp
-        '
-        Me.TxtInicioExp.BackColor = System.Drawing.Color.White
-        Me.TxtInicioExp.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtInicioExp.Enabled = False
-        Me.TxtInicioExp.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtInicioExp.Location = New System.Drawing.Point(768, 11)
-        Me.TxtInicioExp.Mask = "00:00"
-        Me.TxtInicioExp.Name = "TxtInicioExp"
-        Me.TxtInicioExp.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.TxtInicioExp.Size = New System.Drawing.Size(100, 21)
-        Me.TxtInicioExp.TabIndex = 252
-        Me.TxtInicioExp.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(641, 13)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(121, 17)
-        Me.Label9.TabIndex = 251
-        Me.Label9.Text = "Início do expediente"
-        '
-        'TxtHoraAcid
-        '
-        Me.TxtHoraAcid.BackColor = System.Drawing.Color.White
-        Me.TxtHoraAcid.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtHoraAcid.Enabled = False
-        Me.TxtHoraAcid.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtHoraAcid.Location = New System.Drawing.Point(535, 11)
-        Me.TxtHoraAcid.Mask = "00:00"
-        Me.TxtHoraAcid.Name = "TxtHoraAcid"
-        Me.TxtHoraAcid.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.TxtHoraAcid.Size = New System.Drawing.Size(100, 21)
-        Me.TxtHoraAcid.TabIndex = 250
-        Me.TxtHoraAcid.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(424, 13)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(105, 17)
-        Me.Label8.TabIndex = 249
-        Me.Label8.Text = "Hora do acidente"
         '
         'RdbTrajeto
         '
         Me.RdbTrajeto.AutoSize = True
         Me.RdbTrajeto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RdbTrajeto.ForeColor = System.Drawing.Color.Tomato
-        Me.RdbTrajeto.Location = New System.Drawing.Point(325, 11)
+        Me.RdbTrajeto.ForeColor = System.Drawing.Color.SlateGray
+        Me.RdbTrajeto.Location = New System.Drawing.Point(313, 11)
         Me.RdbTrajeto.Name = "RdbTrajeto"
         Me.RdbTrajeto.Size = New System.Drawing.Size(68, 21)
         Me.RdbTrajeto.TabIndex = 248
@@ -729,8 +917,8 @@ Partial Class Form2210
         '
         Me.RdbDoenca.AutoSize = True
         Me.RdbDoenca.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RdbDoenca.ForeColor = System.Drawing.Color.Tomato
-        Me.RdbDoenca.Location = New System.Drawing.Point(225, 11)
+        Me.RdbDoenca.ForeColor = System.Drawing.Color.SlateGray
+        Me.RdbDoenca.Location = New System.Drawing.Point(213, 11)
         Me.RdbDoenca.Name = "RdbDoenca"
         Me.RdbDoenca.Size = New System.Drawing.Size(71, 21)
         Me.RdbDoenca.TabIndex = 247
@@ -742,8 +930,8 @@ Partial Class Form2210
         '
         Me.RdbTipico.AutoSize = True
         Me.RdbTipico.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RdbTipico.ForeColor = System.Drawing.Color.Tomato
-        Me.RdbTipico.Location = New System.Drawing.Point(135, 11)
+        Me.RdbTipico.ForeColor = System.Drawing.Color.SlateGray
+        Me.RdbTipico.Location = New System.Drawing.Point(123, 11)
         Me.RdbTipico.Name = "RdbTipico"
         Me.RdbTipico.Size = New System.Drawing.Size(61, 21)
         Me.RdbTipico.TabIndex = 246
@@ -754,7 +942,7 @@ Partial Class Form2210
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(15, 13)
+        Me.Label7.Location = New System.Drawing.Point(3, 13)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(101, 17)
         Me.Label7.TabIndex = 245
@@ -762,15 +950,16 @@ Partial Class Form2210
         '
         'DtAcidente
         '
-        Me.DtAcidente.Location = New System.Drawing.Point(135, 47)
+        Me.DtAcidente.Enabled = False
+        Me.DtAcidente.Location = New System.Drawing.Point(135, 86)
         Me.DtAcidente.Name = "DtAcidente"
-        Me.DtAcidente.Size = New System.Drawing.Size(733, 24)
+        Me.DtAcidente.Size = New System.Drawing.Size(321, 24)
         Me.DtAcidente.TabIndex = 245
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(15, 53)
+        Me.Label6.Location = New System.Drawing.Point(15, 92)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(105, 17)
         Me.Label6.TabIndex = 244
@@ -783,17 +972,24 @@ Partial Class Form2210
         Me.Label5.ForeColor = System.Drawing.Color.DarkSlateGray
         Me.Label5.Location = New System.Drawing.Point(8, 15)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(875, 22)
+        Me.Label5.Size = New System.Drawing.Size(895, 22)
         Me.Label5.TabIndex = 243
         Me.Label5.Text = "Dados do incidente"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.TxtTipoInscr)
+        Me.TabPage2.Controls.Add(Me.LblAgenteCausador)
+        Me.TabPage2.Controls.Add(Me.LblPais)
+        Me.TabPage2.Controls.Add(Me.LblEstado)
+        Me.TabPage2.Controls.Add(Me.LblCidade)
+        Me.TabPage2.Controls.Add(Me.LblBairro)
+        Me.TabPage2.Controls.Add(Me.LblEndereco)
+        Me.TabPage2.Controls.Add(Me.TxtCodAgenteCAusador)
         Me.TabPage2.Controls.Add(Me.Label51)
         Me.TabPage2.Controls.Add(Me.TxtDescricaoLocal)
         Me.TabPage2.Controls.Add(Me.Label45)
-        Me.TabPage2.Controls.Add(Me.TxtTipoInscr)
         Me.TabPage2.Controls.Add(Me.Label33)
         Me.TabPage2.Controls.Add(Me.Panel7)
         Me.TabPage2.Controls.Add(Me.Label31)
@@ -807,101 +1003,186 @@ Partial Class Form2210
         Me.TabPage2.Controls.Add(Me.CmbTipoLocal)
         Me.TabPage2.Controls.Add(Me.Label17)
         Me.TabPage2.Controls.Add(Me.Label15)
-        Me.TabPage2.Controls.Add(Me.TxtPais)
-        Me.TabPage2.Controls.Add(Me.Label25)
-        Me.TabPage2.Controls.Add(Me.TxtEstado)
         Me.TabPage2.Controls.Add(Me.Label26)
-        Me.TabPage2.Controls.Add(Me.TxtCidade)
         Me.TabPage2.Controls.Add(Me.Label24)
-        Me.TabPage2.Controls.Add(Me.TxtBairro)
         Me.TabPage2.Controls.Add(Me.Label23)
         Me.TabPage2.Controls.Add(Me.TxtComplemento)
         Me.TabPage2.Controls.Add(Me.Label22)
         Me.TabPage2.Controls.Add(Me.TxtNumero)
         Me.TabPage2.Controls.Add(Me.Label21)
-        Me.TabPage2.Controls.Add(Me.TxtEndereco)
         Me.TabPage2.Controls.Add(Me.Label20)
         Me.TabPage2.Controls.Add(Me.TxtCep)
         Me.TabPage2.Controls.Add(Me.Label18)
+        Me.TabPage2.Controls.Add(Me.ImgValNDocumento)
+        Me.TabPage2.Controls.Add(Me.PictureBox2)
+        Me.TabPage2.Controls.Add(Me.PictureBox1)
+        Me.TabPage2.Controls.Add(Me.ImgValNumEndereco)
+        Me.TabPage2.Controls.Add(Me.ImgValCepLocal)
+        Me.TabPage2.Controls.Add(Me.Button3)
+        Me.TabPage2.Controls.Add(Me.ImgValAgenteCausador)
+        Me.TabPage2.Controls.Add(Me.ImgValDescricaoLocal)
+        Me.TabPage2.Controls.Add(Me.ImgValTpLocal)
         Me.TabPage2.Location = New System.Drawing.Point(4, 29)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(886, 533)
+        Me.TabPage2.Size = New System.Drawing.Size(909, 533)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Local do acidente"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'TxtTipoInscr
+        '
+        Me.TxtTipoInscr.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtTipoInscr.Enabled = False
+        Me.TxtTipoInscr.Font = New System.Drawing.Font("Calibri", 10.0!)
+        Me.TxtTipoInscr.Location = New System.Drawing.Point(602, 497)
+        Me.TxtTipoInscr.Mask = "000,000,000-00"
+        Me.TxtTipoInscr.Name = "TxtTipoInscr"
+        Me.TxtTipoInscr.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.TxtTipoInscr.Size = New System.Drawing.Size(266, 21)
+        Me.TxtTipoInscr.TabIndex = 288
+        Me.TxtTipoInscr.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+        '
+        'LblAgenteCausador
+        '
+        Me.LblAgenteCausador.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblAgenteCausador.Location = New System.Drawing.Point(195, 107)
+        Me.LblAgenteCausador.Name = "LblAgenteCausador"
+        Me.LblAgenteCausador.Size = New System.Drawing.Size(702, 83)
+        Me.LblAgenteCausador.TabIndex = 284
+        Me.LblAgenteCausador.Text = " "
+        '
+        'LblPais
+        '
+        Me.LblPais.AutoSize = True
+        Me.LblPais.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblPais.Location = New System.Drawing.Point(656, 309)
+        Me.LblPais.Name = "LblPais"
+        Me.LblPais.Size = New System.Drawing.Size(11, 17)
+        Me.LblPais.TabIndex = 282
+        Me.LblPais.Text = " "
+        '
+        'LblEstado
+        '
+        Me.LblEstado.AutoSize = True
+        Me.LblEstado.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblEstado.Location = New System.Drawing.Point(268, 309)
+        Me.LblEstado.Name = "LblEstado"
+        Me.LblEstado.Size = New System.Drawing.Size(11, 17)
+        Me.LblEstado.TabIndex = 281
+        Me.LblEstado.Text = " "
+        '
+        'LblCidade
+        '
+        Me.LblCidade.AutoSize = True
+        Me.LblCidade.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblCidade.Location = New System.Drawing.Point(656, 282)
+        Me.LblCidade.Name = "LblCidade"
+        Me.LblCidade.Size = New System.Drawing.Size(11, 17)
+        Me.LblCidade.TabIndex = 280
+        Me.LblCidade.Text = " "
+        '
+        'LblBairro
+        '
+        Me.LblBairro.AutoSize = True
+        Me.LblBairro.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblBairro.Location = New System.Drawing.Point(268, 282)
+        Me.LblBairro.Name = "LblBairro"
+        Me.LblBairro.Size = New System.Drawing.Size(11, 17)
+        Me.LblBairro.TabIndex = 279
+        Me.LblBairro.Text = " "
+        '
+        'LblEndereco
+        '
+        Me.LblEndereco.AutoSize = True
+        Me.LblEndereco.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblEndereco.Location = New System.Drawing.Point(268, 255)
+        Me.LblEndereco.Name = "LblEndereco"
+        Me.LblEndereco.Size = New System.Drawing.Size(11, 17)
+        Me.LblEndereco.TabIndex = 278
+        Me.LblEndereco.Text = " "
+        '
+        'TxtCodAgenteCAusador
+        '
+        Me.TxtCodAgenteCAusador.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtCodAgenteCAusador.Font = New System.Drawing.Font("Calibri", 10.0!)
+        Me.TxtCodAgenteCAusador.Location = New System.Drawing.Point(199, 83)
+        Me.TxtCodAgenteCAusador.MaxLength = 9
+        Me.TxtCodAgenteCAusador.Name = "TxtCodAgenteCAusador"
+        Me.TxtCodAgenteCAusador.Size = New System.Drawing.Size(201, 21)
+        Me.TxtCodAgenteCAusador.TabIndex = 273
         '
         'Label51
         '
         Me.Label51.BackColor = System.Drawing.Color.Gainsboro
         Me.Label51.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.Label51.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.Label51.Location = New System.Drawing.Point(3, 158)
+        Me.Label51.Location = New System.Drawing.Point(8, 190)
         Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(875, 22)
+        Me.Label51.Size = New System.Drawing.Size(900, 22)
         Me.Label51.TabIndex = 261
         Me.Label51.Text = "Endereço do acidente"
         Me.Label51.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TxtDescricaoLocal
         '
-        Me.TxtDescricaoLocal.BackColor = System.Drawing.Color.MistyRose
+        Me.TxtDescricaoLocal.BackColor = System.Drawing.Color.White
         Me.TxtDescricaoLocal.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtDescricaoLocal.Enabled = False
         Me.TxtDescricaoLocal.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtDescricaoLocal.Location = New System.Drawing.Point(199, 82)
+        Me.TxtDescricaoLocal.Location = New System.Drawing.Point(749, 50)
         Me.TxtDescricaoLocal.MaxLength = 200
         Me.TxtDescricaoLocal.Name = "TxtDescricaoLocal"
-        Me.TxtDescricaoLocal.Size = New System.Drawing.Size(669, 21)
+        Me.TxtDescricaoLocal.Size = New System.Drawing.Size(119, 21)
         Me.TxtDescricaoLocal.TabIndex = 260
         '
         'Label45
         '
         Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(15, 85)
+        Me.Label45.Location = New System.Drawing.Point(634, 53)
         Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(178, 17)
+        Me.Label45.Size = New System.Drawing.Size(109, 17)
         Me.Label45.TabIndex = 259
-        Me.Label45.Text = "Descrição do local do acidente"
-        '
-        'TxtTipoInscr
-        '
-        Me.TxtTipoInscr.BackColor = System.Drawing.Color.MistyRose
-        Me.TxtTipoInscr.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtTipoInscr.Enabled = False
-        Me.TxtTipoInscr.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtTipoInscr.Location = New System.Drawing.Point(135, 496)
-        Me.TxtTipoInscr.Name = "TxtTipoInscr"
-        Me.TxtTipoInscr.Size = New System.Drawing.Size(149, 21)
-        Me.TxtTipoInscr.TabIndex = 258
+        Me.Label45.Text = "Descrição do local"
         '
         'Label33
         '
         Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(15, 499)
+        Me.Label33.Location = New System.Drawing.Point(489, 500)
         Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(83, 17)
+        Me.Label33.Size = New System.Drawing.Size(107, 17)
         Me.Label33.TabIndex = 257
-        Me.Label33.Text = "Código Postal"
+        Me.Label33.Text = "Nº do documento"
         '
         'Panel7
         '
+        Me.Panel7.Controls.Add(Me.ImgTipoInscr)
         Me.Panel7.Controls.Add(Me.RdbCNO)
         Me.Panel7.Controls.Add(Me.RdbCAEPF)
         Me.Panel7.Controls.Add(Me.RdbCNPJ)
         Me.Panel7.Controls.Add(Me.Label32)
-        Me.Panel7.Location = New System.Drawing.Point(3, 446)
+        Me.Panel7.Location = New System.Drawing.Point(3, 485)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(881, 42)
+        Me.Panel7.Size = New System.Drawing.Size(480, 42)
         Me.Panel7.TabIndex = 256
+        '
+        'ImgTipoInscr
+        '
+        Me.ImgTipoInscr.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgTipoInscr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgTipoInscr.Location = New System.Drawing.Point(411, 15)
+        Me.ImgTipoInscr.Name = "ImgTipoInscr"
+        Me.ImgTipoInscr.Size = New System.Drawing.Size(15, 15)
+        Me.ImgTipoInscr.TabIndex = 288
+        Me.ImgTipoInscr.TabStop = False
         '
         'RdbCNO
         '
         Me.RdbCNO.AutoSize = True
         Me.RdbCNO.Enabled = False
         Me.RdbCNO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RdbCNO.ForeColor = System.Drawing.Color.Tomato
-        Me.RdbCNO.Location = New System.Drawing.Point(266, 11)
+        Me.RdbCNO.ForeColor = System.Drawing.Color.SlateGray
+        Me.RdbCNO.Location = New System.Drawing.Point(326, 13)
         Me.RdbCNO.Name = "RdbCNO"
         Me.RdbCNO.Size = New System.Drawing.Size(53, 21)
         Me.RdbCNO.TabIndex = 248
@@ -914,8 +1195,8 @@ Partial Class Form2210
         Me.RdbCAEPF.AutoSize = True
         Me.RdbCAEPF.Enabled = False
         Me.RdbCAEPF.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RdbCAEPF.ForeColor = System.Drawing.Color.Tomato
-        Me.RdbCAEPF.Location = New System.Drawing.Point(196, 11)
+        Me.RdbCAEPF.ForeColor = System.Drawing.Color.SlateGray
+        Me.RdbCAEPF.Location = New System.Drawing.Point(256, 13)
         Me.RdbCAEPF.Name = "RdbCAEPF"
         Me.RdbCAEPF.Size = New System.Drawing.Size(63, 21)
         Me.RdbCAEPF.TabIndex = 247
@@ -928,8 +1209,8 @@ Partial Class Form2210
         Me.RdbCNPJ.AutoSize = True
         Me.RdbCNPJ.Enabled = False
         Me.RdbCNPJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RdbCNPJ.ForeColor = System.Drawing.Color.Tomato
-        Me.RdbCNPJ.Location = New System.Drawing.Point(135, 11)
+        Me.RdbCNPJ.ForeColor = System.Drawing.Color.SlateGray
+        Me.RdbCNPJ.Location = New System.Drawing.Point(195, 13)
         Me.RdbCNPJ.Name = "RdbCNPJ"
         Me.RdbCNPJ.Size = New System.Drawing.Size(54, 21)
         Me.RdbCNPJ.TabIndex = 246
@@ -951,28 +1232,28 @@ Partial Class Form2210
         Me.Label31.BackColor = System.Drawing.Color.Gainsboro
         Me.Label31.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.Label31.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.Label31.Location = New System.Drawing.Point(6, 421)
+        Me.Label31.Location = New System.Drawing.Point(6, 460)
         Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(875, 22)
+        Me.Label31.Size = New System.Drawing.Size(897, 22)
         Me.Label31.TabIndex = 253
         Me.Label31.Text = "Identificação do local do acidente"
         Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TxtCodPostal
         '
-        Me.TxtCodPostal.BackColor = System.Drawing.Color.MistyRose
+        Me.TxtCodPostal.BackColor = System.Drawing.Color.White
         Me.TxtCodPostal.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtCodPostal.Enabled = False
         Me.TxtCodPostal.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtCodPostal.Location = New System.Drawing.Point(135, 385)
+        Me.TxtCodPostal.Location = New System.Drawing.Point(749, 424)
         Me.TxtCodPostal.Name = "TxtCodPostal"
-        Me.TxtCodPostal.Size = New System.Drawing.Size(149, 21)
+        Me.TxtCodPostal.Size = New System.Drawing.Size(119, 21)
         Me.TxtCodPostal.TabIndex = 252
         '
         'Label30
         '
         Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(15, 388)
+        Me.Label30.Location = New System.Drawing.Point(634, 427)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(83, 17)
         Me.Label30.TabIndex = 251
@@ -982,21 +1263,21 @@ Partial Class Form2210
         '
         Me.CmbPaises.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.CmbPaises.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.CmbPaises.BackColor = System.Drawing.Color.MistyRose
+        Me.CmbPaises.BackColor = System.Drawing.Color.White
         Me.CmbPaises.Enabled = False
         Me.CmbPaises.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmbPaises.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.CmbPaises.FormattingEnabled = True
         Me.CmbPaises.Items.AddRange(New Object() {"1 - Estabelecimento do empregador no Brasil", "2 - Estabelecimento do empregador no exterior", "3 - Estabelecimento de terceiros onde o empregador presta serviços", "4 - Via pública", "5 - Área rural", "6 - Embarcação", "9 - Outros"})
-        Me.CmbPaises.Location = New System.Drawing.Point(135, 354)
+        Me.CmbPaises.Location = New System.Drawing.Point(199, 421)
         Me.CmbPaises.Name = "CmbPaises"
-        Me.CmbPaises.Size = New System.Drawing.Size(733, 25)
+        Me.CmbPaises.Size = New System.Drawing.Size(397, 25)
         Me.CmbPaises.TabIndex = 249
         '
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(15, 357)
+        Me.Label28.Location = New System.Drawing.Point(15, 385)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(42, 17)
         Me.Label28.TabIndex = 250
@@ -1007,9 +1288,9 @@ Partial Class Form2210
         Me.Label27.BackColor = System.Drawing.Color.Gainsboro
         Me.Label27.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.Label27.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.Label27.Location = New System.Drawing.Point(6, 319)
+        Me.Label27.Location = New System.Drawing.Point(6, 386)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(875, 22)
+        Me.Label27.Size = New System.Drawing.Size(897, 22)
         Me.Label27.TabIndex = 248
         Me.Label27.Text = "Informações de acidente no exterior"
         Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1024,15 +1305,16 @@ Partial Class Form2210
         Me.CmbDescricao.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.CmbDescricao.FormattingEnabled = True
         Me.CmbDescricao.Items.AddRange(New Object() {"1 - Estabelecimento do empregador no Brasil", "2 - Estabelecimento do empregador no exterior", "3 - Estabelecimento de terceiros onde o empregador presta serviços", "4 - Via pública", "5 - Área rural", "6 - Embarcação", "9 - Outros"})
-        Me.CmbDescricao.Location = New System.Drawing.Point(199, 110)
+        Me.CmbDescricao.Location = New System.Drawing.Point(467, 83)
         Me.CmbDescricao.Name = "CmbDescricao"
-        Me.CmbDescricao.Size = New System.Drawing.Size(669, 25)
+        Me.CmbDescricao.Size = New System.Drawing.Size(430, 25)
         Me.CmbDescricao.TabIndex = 246
+        Me.CmbDescricao.Visible = False
         '
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(15, 113)
+        Me.Label19.Location = New System.Drawing.Point(20, 86)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(104, 17)
         Me.Label19.TabIndex = 247
@@ -1042,7 +1324,7 @@ Partial Class Form2210
         '
         Me.CmbTipoLocal.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.CmbTipoLocal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.CmbTipoLocal.BackColor = System.Drawing.Color.MistyRose
+        Me.CmbTipoLocal.BackColor = System.Drawing.Color.White
         Me.CmbTipoLocal.Enabled = False
         Me.CmbTipoLocal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmbTipoLocal.Font = New System.Drawing.Font("Calibri", 8.25!)
@@ -1050,13 +1332,13 @@ Partial Class Form2210
         Me.CmbTipoLocal.Items.AddRange(New Object() {"1 - Estabelecimento do empregador no Brasil", "2 - Estabelecimento do empregador no exterior", "3 - Estabelecimento de terceiros onde o empregador presta serviços", "4 - Via pública", "5 - Área rural", "6 - Embarcação", "9 - Outros"})
         Me.CmbTipoLocal.Location = New System.Drawing.Point(199, 50)
         Me.CmbTipoLocal.Name = "CmbTipoLocal"
-        Me.CmbTipoLocal.Size = New System.Drawing.Size(669, 25)
+        Me.CmbTipoLocal.Size = New System.Drawing.Size(397, 25)
         Me.CmbTipoLocal.TabIndex = 244
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(15, 53)
+        Me.Label17.Location = New System.Drawing.Point(20, 53)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(78, 17)
         Me.Label17.TabIndex = 245
@@ -1069,82 +1351,33 @@ Partial Class Form2210
         Me.Label15.ForeColor = System.Drawing.Color.DarkSlateGray
         Me.Label15.Location = New System.Drawing.Point(8, 15)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(875, 22)
+        Me.Label15.Size = New System.Drawing.Size(895, 22)
         Me.Label15.TabIndex = 244
         Me.Label15.Text = "Informações do local do acidente"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'TxtPais
-        '
-        Me.TxtPais.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtPais.Enabled = False
-        Me.TxtPais.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtPais.Location = New System.Drawing.Point(589, 277)
-        Me.TxtPais.Name = "TxtPais"
-        Me.TxtPais.Size = New System.Drawing.Size(279, 21)
-        Me.TxtPais.TabIndex = 188
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(501, 278)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(30, 17)
-        Me.Label25.TabIndex = 187
-        Me.Label25.Text = "País"
-        '
-        'TxtEstado
-        '
-        Me.TxtEstado.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtEstado.Enabled = False
-        Me.TxtEstado.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtEstado.Location = New System.Drawing.Point(135, 277)
-        Me.TxtEstado.Name = "TxtEstado"
-        Me.TxtEstado.Size = New System.Drawing.Size(360, 21)
-        Me.TxtEstado.TabIndex = 186
-        '
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(15, 282)
+        Me.Label26.Location = New System.Drawing.Point(196, 309)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(46, 17)
         Me.Label26.TabIndex = 185
         Me.Label26.Text = "Estado"
         '
-        'TxtCidade
-        '
-        Me.TxtCidade.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtCidade.Enabled = False
-        Me.TxtCidade.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtCidade.Location = New System.Drawing.Point(589, 250)
-        Me.TxtCidade.Name = "TxtCidade"
-        Me.TxtCidade.Size = New System.Drawing.Size(279, 21)
-        Me.TxtCidade.TabIndex = 184
-        '
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(501, 251)
+        Me.Label24.Location = New System.Drawing.Point(604, 282)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(46, 17)
         Me.Label24.TabIndex = 183
         Me.Label24.Text = "Cidade"
         '
-        'TxtBairro
-        '
-        Me.TxtBairro.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtBairro.Enabled = False
-        Me.TxtBairro.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtBairro.Location = New System.Drawing.Point(135, 250)
-        Me.TxtBairro.Name = "TxtBairro"
-        Me.TxtBairro.Size = New System.Drawing.Size(360, 21)
-        Me.TxtBairro.TabIndex = 182
-        '
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(15, 255)
+        Me.Label23.Location = New System.Drawing.Point(196, 282)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(43, 17)
         Me.Label23.TabIndex = 181
@@ -1156,7 +1389,7 @@ Partial Class Form2210
         Me.TxtComplemento.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtComplemento.Enabled = False
         Me.TxtComplemento.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtComplemento.Location = New System.Drawing.Point(803, 222)
+        Me.TxtComplemento.Location = New System.Drawing.Point(359, 350)
         Me.TxtComplemento.Name = "TxtComplemento"
         Me.TxtComplemento.Size = New System.Drawing.Size(65, 21)
         Me.TxtComplemento.TabIndex = 180
@@ -1164,7 +1397,7 @@ Partial Class Form2210
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(757, 226)
+        Me.Label22.Location = New System.Drawing.Point(302, 353)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(47, 17)
         Me.Label22.TabIndex = 179
@@ -1172,11 +1405,11 @@ Partial Class Form2210
         '
         'TxtNumero
         '
-        Me.TxtNumero.BackColor = System.Drawing.Color.MistyRose
+        Me.TxtNumero.BackColor = System.Drawing.Color.White
         Me.TxtNumero.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtNumero.Enabled = False
         Me.TxtNumero.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtNumero.Location = New System.Drawing.Point(687, 224)
+        Me.TxtNumero.Location = New System.Drawing.Point(198, 350)
         Me.TxtNumero.Name = "TxtNumero"
         Me.TxtNumero.Size = New System.Drawing.Size(64, 21)
         Me.TxtNumero.TabIndex = 178
@@ -1184,26 +1417,16 @@ Partial Class Form2210
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(629, 224)
+        Me.Label21.Location = New System.Drawing.Point(19, 353)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(23, 17)
+        Me.Label21.Size = New System.Drawing.Size(132, 17)
         Me.Label21.TabIndex = 177
-        Me.Label21.Text = "Nº"
-        '
-        'TxtEndereco
-        '
-        Me.TxtEndereco.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtEndereco.Enabled = False
-        Me.TxtEndereco.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtEndereco.Location = New System.Drawing.Point(135, 223)
-        Me.TxtEndereco.Name = "TxtEndereco"
-        Me.TxtEndereco.Size = New System.Drawing.Size(488, 21)
-        Me.TxtEndereco.TabIndex = 176
+        Me.Label21.Text = "N do local do acidente"
         '
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(15, 228)
+        Me.Label20.Location = New System.Drawing.Point(196, 255)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(61, 17)
         Me.Label20.TabIndex = 175
@@ -1211,26 +1434,121 @@ Partial Class Form2210
         '
         'TxtCep
         '
-        Me.TxtCep.BackColor = System.Drawing.Color.MistyRose
+        Me.TxtCep.BackColor = System.Drawing.Color.White
         Me.TxtCep.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtCep.Enabled = False
         Me.TxtCep.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtCep.Location = New System.Drawing.Point(135, 196)
+        Me.TxtCep.Location = New System.Drawing.Point(199, 228)
         Me.TxtCep.Name = "TxtCep"
-        Me.TxtCep.Size = New System.Drawing.Size(149, 21)
+        Me.TxtCep.Size = New System.Drawing.Size(225, 21)
         Me.TxtCep.TabIndex = 174
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(15, 202)
+        Me.Label18.Location = New System.Drawing.Point(20, 231)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(29, 17)
+        Me.Label18.Size = New System.Drawing.Size(127, 17)
         Me.Label18.TabIndex = 173
-        Me.Label18.Text = "Cep"
+        Me.Label18.Text = "CEP local do acidente"
+        '
+        'ImgValNDocumento
+        '
+        Me.ImgValNDocumento.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValNDocumento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValNDocumento.Location = New System.Drawing.Point(882, 500)
+        Me.ImgValNDocumento.Name = "ImgValNDocumento"
+        Me.ImgValNDocumento.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValNDocumento.TabIndex = 287
+        Me.ImgValNDocumento.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox2.Location = New System.Drawing.Point(607, 427)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(15, 15)
+        Me.PictureBox2.TabIndex = 286
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(882, 427)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(15, 15)
+        Me.PictureBox1.TabIndex = 285
+        Me.PictureBox1.TabStop = False
+        '
+        'ImgValNumEndereco
+        '
+        Me.ImgValNumEndereco.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValNumEndereco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValNumEndereco.Location = New System.Drawing.Point(271, 353)
+        Me.ImgValNumEndereco.Name = "ImgValNumEndereco"
+        Me.ImgValNumEndereco.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValNumEndereco.TabIndex = 283
+        Me.ImgValNumEndereco.TabStop = False
+        '
+        'ImgValCepLocal
+        '
+        Me.ImgValCepLocal.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValCepLocal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValCepLocal.Location = New System.Drawing.Point(440, 230)
+        Me.ImgValCepLocal.Name = "ImgValCepLocal"
+        Me.ImgValCepLocal.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValCepLocal.TabIndex = 276
+        Me.ImgValCepLocal.TabStop = False
+        '
+        'Button3
+        '
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.ImageIndex = 2
+        Me.Button3.ImageList = Me.ImageList1
+        Me.Button3.Location = New System.Drawing.Point(406, 83)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(18, 21)
+        Me.Button3.TabIndex = 275
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'ImgValAgenteCausador
+        '
+        Me.ImgValAgenteCausador.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValAgenteCausador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValAgenteCausador.Location = New System.Drawing.Point(440, 87)
+        Me.ImgValAgenteCausador.Name = "ImgValAgenteCausador"
+        Me.ImgValAgenteCausador.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValAgenteCausador.TabIndex = 274
+        Me.ImgValAgenteCausador.TabStop = False
+        '
+        'ImgValDescricaoLocal
+        '
+        Me.ImgValDescricaoLocal.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValDescricaoLocal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValDescricaoLocal.Location = New System.Drawing.Point(882, 53)
+        Me.ImgValDescricaoLocal.Name = "ImgValDescricaoLocal"
+        Me.ImgValDescricaoLocal.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValDescricaoLocal.TabIndex = 263
+        Me.ImgValDescricaoLocal.TabStop = False
+        '
+        'ImgValTpLocal
+        '
+        Me.ImgValTpLocal.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValTpLocal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValTpLocal.Location = New System.Drawing.Point(607, 53)
+        Me.ImgValTpLocal.Name = "ImgValTpLocal"
+        Me.ImgValTpLocal.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValTpLocal.TabIndex = 262
+        Me.ImgValTpLocal.TabStop = False
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.LblDescricaoLesao)
+        Me.TabPage3.Controls.Add(Me.TxtCodLesao)
         Me.TabPage3.Controls.Add(Me.TxtDiagnostico)
         Me.TabPage3.Controls.Add(Me.Label44)
         Me.TabPage3.Controls.Add(Me.TxtInfoCompl)
@@ -1249,30 +1567,51 @@ Partial Class Form2210
         Me.TabPage3.Controls.Add(Me.Label36)
         Me.TabPage3.Controls.Add(Me.Label37)
         Me.TabPage3.Controls.Add(Me.CkAtestadoMedico)
+        Me.TabPage3.Controls.Add(Me.Button5)
+        Me.TabPage3.Controls.Add(Me.ImgValLesao)
         Me.TabPage3.Location = New System.Drawing.Point(4, 29)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(886, 533)
+        Me.TabPage3.Size = New System.Drawing.Size(909, 533)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Informações médicas"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
+        'LblDescricaoLesao
+        '
+        Me.LblDescricaoLesao.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblDescricaoLesao.Location = New System.Drawing.Point(164, 295)
+        Me.LblDescricaoLesao.Name = "LblDescricaoLesao"
+        Me.LblDescricaoLesao.Size = New System.Drawing.Size(702, 65)
+        Me.LblDescricaoLesao.TabIndex = 289
+        Me.LblDescricaoLesao.Text = " "
+        '
+        'TxtCodLesao
+        '
+        Me.TxtCodLesao.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtCodLesao.Font = New System.Drawing.Font("Calibri", 10.0!)
+        Me.TxtCodLesao.Location = New System.Drawing.Point(168, 271)
+        Me.TxtCodLesao.MaxLength = 9
+        Me.TxtCodLesao.Name = "TxtCodLesao"
+        Me.TxtCodLesao.Size = New System.Drawing.Size(201, 21)
+        Me.TxtCodLesao.TabIndex = 286
+        '
         'TxtDiagnostico
         '
-        Me.TxtDiagnostico.BackColor = System.Drawing.Color.MistyRose
+        Me.TxtDiagnostico.BackColor = System.Drawing.Color.White
         Me.TxtDiagnostico.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtDiagnostico.Enabled = False
-        Me.TxtDiagnostico.Location = New System.Drawing.Point(11, 411)
+        Me.TxtDiagnostico.Location = New System.Drawing.Point(442, 402)
         Me.TxtDiagnostico.MaxLength = 100
         Me.TxtDiagnostico.Multiline = True
         Me.TxtDiagnostico.Name = "TxtDiagnostico"
-        Me.TxtDiagnostico.Size = New System.Drawing.Size(857, 101)
+        Me.TxtDiagnostico.Size = New System.Drawing.Size(455, 122)
         Me.TxtDiagnostico.TabIndex = 262
         '
         'Label44
         '
         Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(10, 391)
+        Me.Label44.Location = New System.Drawing.Point(439, 382)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(125, 17)
         Me.Label44.TabIndex = 263
@@ -1280,20 +1619,20 @@ Partial Class Form2210
         '
         'TxtInfoCompl
         '
-        Me.TxtInfoCompl.BackColor = System.Drawing.Color.MistyRose
+        Me.TxtInfoCompl.BackColor = System.Drawing.Color.White
         Me.TxtInfoCompl.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtInfoCompl.Enabled = False
-        Me.TxtInfoCompl.Location = New System.Drawing.Point(11, 331)
+        Me.TxtInfoCompl.Location = New System.Drawing.Point(11, 402)
         Me.TxtInfoCompl.MaxLength = 200
         Me.TxtInfoCompl.Multiline = True
         Me.TxtInfoCompl.Name = "TxtInfoCompl"
-        Me.TxtInfoCompl.Size = New System.Drawing.Size(857, 57)
+        Me.TxtInfoCompl.Size = New System.Drawing.Size(413, 122)
         Me.TxtInfoCompl.TabIndex = 258
         '
         'Label43
         '
         Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(10, 311)
+        Me.Label43.Location = New System.Drawing.Point(10, 382)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(176, 17)
         Me.Label43.TabIndex = 261
@@ -1308,10 +1647,11 @@ Partial Class Form2210
         Me.CmbLesao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmbLesao.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.CmbLesao.FormattingEnabled = True
-        Me.CmbLesao.Location = New System.Drawing.Point(168, 271)
+        Me.CmbLesao.Location = New System.Drawing.Point(442, 269)
         Me.CmbLesao.Name = "CmbLesao"
-        Me.CmbLesao.Size = New System.Drawing.Size(700, 25)
+        Me.CmbLesao.Size = New System.Drawing.Size(455, 25)
         Me.CmbLesao.TabIndex = 244
+        Me.CmbLesao.Visible = False
         '
         'Label42
         '
@@ -1329,7 +1669,7 @@ Partial Class Form2210
         Me.Label41.ForeColor = System.Drawing.Color.DarkSlateGray
         Me.Label41.Location = New System.Drawing.Point(5, 232)
         Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(875, 22)
+        Me.Label41.Size = New System.Drawing.Size(895, 22)
         Me.Label41.TabIndex = 259
         Me.Label41.Text = "Dados da lesão"
         Me.Label41.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1379,7 +1719,7 @@ Partial Class Form2210
         Me.Label39.ForeColor = System.Drawing.Color.DarkSlateGray
         Me.Label39.Location = New System.Drawing.Point(3, 123)
         Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(875, 22)
+        Me.Label39.Size = New System.Drawing.Size(895, 22)
         Me.Label39.TabIndex = 254
         Me.Label39.Text = "Indicativo de internação"
         Me.Label39.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1408,6 +1748,7 @@ Partial Class Form2210
         '
         'DtAtestado
         '
+        Me.DtAtestado.Enabled = False
         Me.DtAtestado.Location = New System.Drawing.Point(168, 81)
         Me.DtAtestado.Name = "DtAtestado"
         Me.DtAtestado.Size = New System.Drawing.Size(447, 24)
@@ -1429,7 +1770,7 @@ Partial Class Form2210
         Me.Label37.ForeColor = System.Drawing.Color.DarkSlateGray
         Me.Label37.Location = New System.Drawing.Point(8, 15)
         Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(875, 22)
+        Me.Label37.Size = New System.Drawing.Size(895, 22)
         Me.Label37.TabIndex = 249
         Me.Label37.Text = "Dados do atendimento"
         Me.Label37.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1444,71 +1785,160 @@ Partial Class Form2210
         Me.CkAtestadoMedico.Text = "Atestado médico"
         Me.CkAtestadoMedico.UseVisualStyleBackColor = True
         '
+        'Button5
+        '
+        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.ImageIndex = 2
+        Me.Button5.ImageList = Me.ImageList1
+        Me.Button5.Location = New System.Drawing.Point(375, 271)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(18, 21)
+        Me.Button5.TabIndex = 288
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'ImgValLesao
+        '
+        Me.ImgValLesao.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValLesao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValLesao.Location = New System.Drawing.Point(409, 275)
+        Me.ImgValLesao.Name = "ImgValLesao"
+        Me.ImgValLesao.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValLesao.TabIndex = 287
+        Me.ImgValLesao.TabStop = False
+        '
         'TabPage4
         '
+        Me.TabPage4.Controls.Add(Me.TxtNumDocumento)
+        Me.TabPage4.Controls.Add(Me.ImgValCid)
+        Me.TabPage4.Controls.Add(Me.Button6)
+        Me.TabPage4.Controls.Add(Me.ImgValEstadoEmitente)
+        Me.TabPage4.Controls.Add(Me.ImgvalNumDocMedico)
+        Me.TabPage4.Controls.Add(Me.ImgValDocMedico)
+        Me.TabPage4.Controls.Add(Me.ImgValNomeMEdico)
         Me.TabPage4.Controls.Add(Me.CmbEstadoEmitente)
         Me.TabPage4.Controls.Add(Me.Label55)
-        Me.TabPage4.Controls.Add(Me.TxtNumDocumento)
         Me.TabPage4.Controls.Add(Me.Label54)
         Me.TabPage4.Controls.Add(Me.Panel8)
         Me.TabPage4.Controls.Add(Me.TxtNomeMedico)
         Me.TabPage4.Controls.Add(Me.Label53)
         Me.TabPage4.Controls.Add(Me.Label52)
-        Me.TabPage4.Controls.Add(Me.DtCIDS)
-        Me.TabPage4.Controls.Add(Me.LblDescricao)
-        Me.TabPage4.Controls.Add(Me.Label50)
-        Me.TabPage4.Controls.Add(Me.TxtDescricaoCID)
-        Me.TabPage4.Controls.Add(Me.Label49)
-        Me.TabPage4.Controls.Add(Me.Label48)
+        Me.TabPage4.Controls.Add(Me.LblDescricaoCID)
         Me.TabPage4.Controls.Add(Me.Label47)
         Me.TabPage4.Controls.Add(Me.TxtCodCid)
         Me.TabPage4.Controls.Add(Me.Label46)
         Me.TabPage4.Location = New System.Drawing.Point(4, 29)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(886, 533)
+        Me.TabPage4.Size = New System.Drawing.Size(909, 533)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "CID"
         Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'TxtNumDocumento
+        '
+        Me.TxtNumDocumento.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtNumDocumento.Enabled = False
+        Me.TxtNumDocumento.Font = New System.Drawing.Font("Calibri", 10.0!)
+        Me.TxtNumDocumento.Location = New System.Drawing.Point(168, 272)
+        Me.TxtNumDocumento.Mask = "000,000,000-00"
+        Me.TxtNumDocumento.Name = "TxtNumDocumento"
+        Me.TxtNumDocumento.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.TxtNumDocumento.Size = New System.Drawing.Size(178, 21)
+        Me.TxtNumDocumento.TabIndex = 291
+        Me.TxtNumDocumento.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+        '
+        'ImgValCid
+        '
+        Me.ImgValCid.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValCid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValCid.Location = New System.Drawing.Point(352, 51)
+        Me.ImgValCid.Name = "ImgValCid"
+        Me.ImgValCid.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValCid.TabIndex = 290
+        Me.ImgValCid.TabStop = False
+        '
+        'Button6
+        '
+        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button6.FlatAppearance.BorderSize = 0
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.ImageIndex = 2
+        Me.Button6.ImageList = Me.ImageList1
+        Me.Button6.Location = New System.Drawing.Point(324, 49)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(18, 21)
+        Me.Button6.TabIndex = 289
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'ImgValEstadoEmitente
+        '
+        Me.ImgValEstadoEmitente.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValEstadoEmitente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValEstadoEmitente.Location = New System.Drawing.Point(352, 309)
+        Me.ImgValEstadoEmitente.Name = "ImgValEstadoEmitente"
+        Me.ImgValEstadoEmitente.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValEstadoEmitente.TabIndex = 267
+        Me.ImgValEstadoEmitente.TabStop = False
+        '
+        'ImgvalNumDocMedico
+        '
+        Me.ImgvalNumDocMedico.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgvalNumDocMedico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgvalNumDocMedico.Location = New System.Drawing.Point(352, 275)
+        Me.ImgvalNumDocMedico.Name = "ImgvalNumDocMedico"
+        Me.ImgvalNumDocMedico.Size = New System.Drawing.Size(15, 15)
+        Me.ImgvalNumDocMedico.TabIndex = 266
+        Me.ImgvalNumDocMedico.TabStop = False
+        '
+        'ImgValDocMedico
+        '
+        Me.ImgValDocMedico.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValDocMedico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValDocMedico.Location = New System.Drawing.Point(882, 225)
+        Me.ImgValDocMedico.Name = "ImgValDocMedico"
+        Me.ImgValDocMedico.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValDocMedico.TabIndex = 250
+        Me.ImgValDocMedico.TabStop = False
+        '
+        'ImgValNomeMEdico
+        '
+        Me.ImgValNomeMEdico.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValNomeMEdico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValNomeMEdico.Location = New System.Drawing.Point(882, 174)
+        Me.ImgValNomeMEdico.Name = "ImgValNomeMEdico"
+        Me.ImgValNomeMEdico.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValNomeMEdico.TabIndex = 251
+        Me.ImgValNomeMEdico.TabStop = False
         '
         'CmbEstadoEmitente
         '
         Me.CmbEstadoEmitente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.CmbEstadoEmitente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.CmbEstadoEmitente.BackColor = System.Drawing.Color.MistyRose
+        Me.CmbEstadoEmitente.BackColor = System.Drawing.Color.White
         Me.CmbEstadoEmitente.Enabled = False
         Me.CmbEstadoEmitente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmbEstadoEmitente.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.CmbEstadoEmitente.FormattingEnabled = True
-        Me.CmbEstadoEmitente.Location = New System.Drawing.Point(417, 396)
+        Me.CmbEstadoEmitente.Location = New System.Drawing.Point(168, 302)
         Me.CmbEstadoEmitente.Name = "CmbEstadoEmitente"
-        Me.CmbEstadoEmitente.Size = New System.Drawing.Size(112, 25)
+        Me.CmbEstadoEmitente.Size = New System.Drawing.Size(178, 25)
         Me.CmbEstadoEmitente.TabIndex = 265
         '
         'Label55
         '
         Me.Label55.AutoSize = True
-        Me.Label55.Location = New System.Drawing.Point(333, 399)
+        Me.Label55.Location = New System.Drawing.Point(26, 308)
         Me.Label55.Name = "Label55"
         Me.Label55.Size = New System.Drawing.Size(78, 17)
         Me.Label55.TabIndex = 264
         Me.Label55.Text = "UF Emitente"
         '
-        'TxtNumDocumento
-        '
-        Me.TxtNumDocumento.BackColor = System.Drawing.Color.MistyRose
-        Me.TxtNumDocumento.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtNumDocumento.Enabled = False
-        Me.TxtNumDocumento.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtNumDocumento.Location = New System.Drawing.Point(168, 395)
-        Me.TxtNumDocumento.Name = "TxtNumDocumento"
-        Me.TxtNumDocumento.Size = New System.Drawing.Size(149, 21)
-        Me.TxtNumDocumento.TabIndex = 263
-        '
         'Label54
         '
         Me.Label54.AutoSize = True
-        Me.Label54.Location = New System.Drawing.Point(26, 399)
+        Me.Label54.Location = New System.Drawing.Point(26, 275)
         Me.Label54.Name = "Label54"
         Me.Label54.Size = New System.Drawing.Size(107, 17)
         Me.Label54.TabIndex = 262
@@ -1519,17 +1949,17 @@ Partial Class Form2210
         Me.Panel8.Controls.Add(Me.RdbRMS)
         Me.Panel8.Controls.Add(Me.RdbCRO)
         Me.Panel8.Controls.Add(Me.RdbCRM)
-        Me.Panel8.Location = New System.Drawing.Point(2, 343)
+        Me.Panel8.Location = New System.Drawing.Point(11, 211)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(881, 42)
+        Me.Panel8.Size = New System.Drawing.Size(857, 42)
         Me.Panel8.TabIndex = 261
         '
         'RdbRMS
         '
         Me.RdbRMS.AutoSize = True
         Me.RdbRMS.Enabled = False
-        Me.RdbRMS.ForeColor = System.Drawing.Color.Tomato
-        Me.RdbRMS.Location = New System.Drawing.Point(533, 11)
+        Me.RdbRMS.ForeColor = System.Drawing.Color.SlateGray
+        Me.RdbRMS.Location = New System.Drawing.Point(556, 11)
         Me.RdbRMS.Name = "RdbRMS"
         Me.RdbRMS.Size = New System.Drawing.Size(243, 21)
         Me.RdbRMS.TabIndex = 248
@@ -1541,8 +1971,8 @@ Partial Class Form2210
         '
         Me.RdbCRO.AutoSize = True
         Me.RdbCRO.Enabled = False
-        Me.RdbCRO.ForeColor = System.Drawing.Color.Tomato
-        Me.RdbCRO.Location = New System.Drawing.Point(273, 11)
+        Me.RdbCRO.ForeColor = System.Drawing.Color.SlateGray
+        Me.RdbCRO.Location = New System.Drawing.Point(283, 11)
         Me.RdbCRO.Name = "RdbCRO"
         Me.RdbCRO.Size = New System.Drawing.Size(254, 21)
         Me.RdbCRO.TabIndex = 247
@@ -1554,7 +1984,7 @@ Partial Class Form2210
         '
         Me.RdbCRM.AutoSize = True
         Me.RdbCRM.Enabled = False
-        Me.RdbCRM.ForeColor = System.Drawing.Color.Tomato
+        Me.RdbCRM.ForeColor = System.Drawing.Color.SlateGray
         Me.RdbCRM.Location = New System.Drawing.Point(27, 11)
         Me.RdbCRM.Name = "RdbCRM"
         Me.RdbCRM.Size = New System.Drawing.Size(240, 21)
@@ -1565,11 +1995,11 @@ Partial Class Form2210
         '
         'TxtNomeMedico
         '
-        Me.TxtNomeMedico.BackColor = System.Drawing.Color.MistyRose
+        Me.TxtNomeMedico.BackColor = System.Drawing.Color.White
         Me.TxtNomeMedico.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtNomeMedico.Enabled = False
         Me.TxtNomeMedico.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtNomeMedico.Location = New System.Drawing.Point(168, 316)
+        Me.TxtNomeMedico.Location = New System.Drawing.Point(168, 171)
         Me.TxtNomeMedico.Name = "TxtNomeMedico"
         Me.TxtNomeMedico.Size = New System.Drawing.Size(700, 21)
         Me.TxtNomeMedico.TabIndex = 260
@@ -1577,7 +2007,7 @@ Partial Class Form2210
         'Label53
         '
         Me.Label53.AutoSize = True
-        Me.Label53.Location = New System.Drawing.Point(26, 320)
+        Me.Label53.Location = New System.Drawing.Point(26, 175)
         Me.Label53.Name = "Label53"
         Me.Label53.Size = New System.Drawing.Size(103, 17)
         Me.Label53.TabIndex = 259
@@ -1588,125 +2018,20 @@ Partial Class Form2210
         Me.Label52.BackColor = System.Drawing.Color.Gainsboro
         Me.Label52.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.Label52.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.Label52.Location = New System.Drawing.Point(5, 282)
+        Me.Label52.Location = New System.Drawing.Point(8, 127)
         Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(875, 22)
+        Me.Label52.Size = New System.Drawing.Size(889, 22)
         Me.Label52.TabIndex = 258
         Me.Label52.Text = "Informações do médico/dentista"
         Me.Label52.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'DtCIDS
+        'LblDescricaoCID
         '
-        Me.DtCIDS.AllowUserToAddRows = False
-        Me.DtCIDS.AllowUserToDeleteRows = False
-        Me.DtCIDS.AllowUserToResizeColumns = False
-        Me.DtCIDS.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 10.0!)
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.SlateGray
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DtCIDS.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.DtCIDS.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.DtCIDS.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.DtCIDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DtCIDS.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Calibri", 8.25!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.SlateGray
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DtCIDS.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DtCIDS.Enabled = False
-        Me.DtCIDS.Location = New System.Drawing.Point(11, 155)
-        Me.DtCIDS.MultiSelect = False
-        Me.DtCIDS.Name = "DtCIDS"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Calibri", 8.25!)
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.SlateGray
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DtCIDS.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.DtCIDS.RowHeadersVisible = False
-        Me.DtCIDS.RowHeadersWidth = 51
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.SlateGray
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DtCIDS.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.DtCIDS.RowTemplate.Height = 24
-        Me.DtCIDS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DtCIDS.Size = New System.Drawing.Size(869, 124)
-        Me.DtCIDS.TabIndex = 257
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "ód. do CID"
-        Me.Column1.MinimumWidth = 6
-        Me.Column1.Name = "Column1"
-        Me.Column1.Width = 125
-        '
-        'Column2
-        '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column2.HeaderText = "Descrição"
-        Me.Column2.MinimumWidth = 6
-        Me.Column2.Name = "Column2"
-        '
-        'LblDescricao
-        '
-        Me.LblDescricao.AutoSize = True
-        Me.LblDescricao.ForeColor = System.Drawing.Color.DarkOrange
-        Me.LblDescricao.Location = New System.Drawing.Point(423, 50)
-        Me.LblDescricao.Name = "LblDescricao"
-        Me.LblDescricao.Size = New System.Drawing.Size(0, 17)
-        Me.LblDescricao.TabIndex = 255
-        '
-        'Label50
-        '
-        Me.Label50.AutoSize = True
-        Me.Label50.Location = New System.Drawing.Point(333, 50)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(63, 17)
-        Me.Label50.TabIndex = 254
-        Me.Label50.Text = "Descrição"
-        '
-        'TxtDescricaoCID
-        '
-        Me.TxtDescricaoCID.BackColor = System.Drawing.Color.White
-        Me.TxtDescricaoCID.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtDescricaoCID.Enabled = False
-        Me.TxtDescricaoCID.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtDescricaoCID.Location = New System.Drawing.Point(168, 118)
-        Me.TxtDescricaoCID.Name = "TxtDescricaoCID"
-        Me.TxtDescricaoCID.Size = New System.Drawing.Size(700, 21)
-        Me.TxtDescricaoCID.TabIndex = 253
-        '
-        'Label49
-        '
-        Me.Label49.AutoSize = True
-        Me.Label49.Location = New System.Drawing.Point(26, 122)
-        Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(63, 17)
-        Me.Label49.TabIndex = 252
-        Me.Label49.Text = "Descrição"
-        '
-        'Label48
-        '
-        Me.Label48.BackColor = System.Drawing.Color.Gainsboro
-        Me.Label48.Font = New System.Drawing.Font("Calibri", 8.25!)
-        Me.Label48.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.Label48.Location = New System.Drawing.Point(8, 81)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(875, 22)
-        Me.Label48.TabIndex = 251
-        Me.Label48.Text = "Procurar CID"
-        Me.Label48.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LblDescricaoCID.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblDescricaoCID.Location = New System.Drawing.Point(165, 73)
+        Me.LblDescricaoCID.Name = "LblDescricaoCID"
+        Me.LblDescricaoCID.Size = New System.Drawing.Size(719, 44)
+        Me.LblDescricaoCID.TabIndex = 255
         '
         'Label47
         '
@@ -1715,18 +2040,18 @@ Partial Class Form2210
         Me.Label47.ForeColor = System.Drawing.Color.DarkSlateGray
         Me.Label47.Location = New System.Drawing.Point(8, 12)
         Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(875, 22)
+        Me.Label47.Size = New System.Drawing.Size(889, 22)
         Me.Label47.TabIndex = 250
         Me.Label47.Text = "Informações do CID"
         Me.Label47.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TxtCodCid
         '
-        Me.TxtCodCid.BackColor = System.Drawing.Color.MistyRose
+        Me.TxtCodCid.BackColor = System.Drawing.Color.White
         Me.TxtCodCid.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtCodCid.Enabled = False
         Me.TxtCodCid.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtCodCid.Location = New System.Drawing.Point(168, 46)
+        Me.TxtCodCid.Location = New System.Drawing.Point(168, 49)
         Me.TxtCodCid.Name = "TxtCodCid"
         Me.TxtCodCid.Size = New System.Drawing.Size(149, 21)
         Me.TxtCodCid.TabIndex = 176
@@ -1734,17 +2059,86 @@ Partial Class Form2210
         'Label46
         '
         Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(26, 50)
+        Me.Label46.Location = New System.Drawing.Point(26, 53)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(86, 17)
         Me.Label46.TabIndex = 175
         Me.Label46.Text = "Código do CID"
         '
+        'TxtDodCliente
+        '
+        Me.TxtDodCliente.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtDodCliente.Font = New System.Drawing.Font("Calibri", 10.0!)
+        Me.TxtDodCliente.Location = New System.Drawing.Point(156, 75)
+        Me.TxtDodCliente.Mask = "000,000,000-000"
+        Me.TxtDodCliente.Name = "TxtDodCliente"
+        Me.TxtDodCliente.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.TxtDodCliente.Size = New System.Drawing.Size(157, 21)
+        Me.TxtDodCliente.TabIndex = 244
+        Me.TxtDodCliente.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+        '
+        'Label56
+        '
+        Me.Label56.AutoSize = True
+        Me.Label56.Location = New System.Drawing.Point(319, 78)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(154, 17)
+        Me.Label56.TabIndex = 245
+        Me.Label56.Text = "Raz. Social / Nome compl."
+        '
+        'TxtDocColaborador
+        '
+        Me.TxtDocColaborador.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtDocColaborador.Enabled = False
+        Me.TxtDocColaborador.Font = New System.Drawing.Font("Calibri", 10.0!)
+        Me.TxtDocColaborador.Location = New System.Drawing.Point(156, 106)
+        Me.TxtDocColaborador.Mask = "000,000,000-00"
+        Me.TxtDocColaborador.Name = "TxtDocColaborador"
+        Me.TxtDocColaborador.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.TxtDocColaborador.Size = New System.Drawing.Size(157, 21)
+        Me.TxtDocColaborador.TabIndex = 248
+        Me.TxtDocColaborador.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+        '
+        'Label57
+        '
+        Me.Label57.AutoSize = True
+        Me.Label57.Location = New System.Drawing.Point(319, 111)
+        Me.Label57.Name = "Label57"
+        Me.Label57.Size = New System.Drawing.Size(98, 17)
+        Me.Label57.TabIndex = 249
+        Me.Label57.Text = "Nome completo"
+        '
+        'ImgValColab
+        '
+        Me.ImgValColab.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValColab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValColab.Location = New System.Drawing.Point(899, 108)
+        Me.ImgValColab.Name = "ImgValColab"
+        Me.ImgValColab.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValColab.TabIndex = 247
+        Me.ImgValColab.TabStop = False
+        '
+        'ImgValCliente
+        '
+        Me.ImgValCliente.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValCliente.Location = New System.Drawing.Point(899, 77)
+        Me.ImgValCliente.Name = "ImgValCliente"
+        Me.ImgValCliente.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValCliente.TabIndex = 246
+        Me.ImgValCliente.TabStop = False
+        '
         'Form2210
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(919, 792)
+        Me.ClientSize = New System.Drawing.Size(946, 792)
+        Me.Controls.Add(Me.Label57)
+        Me.Controls.Add(Me.TxtDocColaborador)
+        Me.Controls.Add(Me.ImgValColab)
+        Me.Controls.Add(Me.ImgValCliente)
+        Me.Controls.Add(Me.Label56)
+        Me.Controls.Add(Me.TxtDodCliente)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.CmbColaboradores)
@@ -1771,22 +2165,43 @@ Partial Class Form2210
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        CType(Me.ImgValLateralidade, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValParteCorpo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValSitGer, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValidSelTipo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
+        CType(Me.ImgValResponsável, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
+        CType(Me.ImgTipoInscr, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValNDocumento, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValNumEndereco, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValCepLocal, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValAgenteCausador, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValDescricaoLocal, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValTpLocal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
         CType(Me.NmDurTrat, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValLesao, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
+        CType(Me.ImgValCid, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValEstadoEmitente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgvalNumDocMedico, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValDocMedico, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValNomeMEdico, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
-        CType(Me.DtCIDS, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValColab, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1800,7 +2215,7 @@ Partial Class Form2210
     Friend WithEvents Panel10 As Panel
     Friend WithEvents Panel12 As Panel
     Friend WithEvents BttFechar As Button
-    Friend WithEvents BttColaboradores As Button
+    Friend WithEvents BttTransmitirCAT As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
@@ -1842,19 +2257,13 @@ Partial Class Form2210
     Friend WithEvents TxtObservacao As TextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label
-    Friend WithEvents TxtPais As TextBox
-    Friend WithEvents Label25 As Label
-    Friend WithEvents TxtEstado As TextBox
     Friend WithEvents Label26 As Label
-    Friend WithEvents TxtCidade As TextBox
     Friend WithEvents Label24 As Label
-    Friend WithEvents TxtBairro As TextBox
     Friend WithEvents Label23 As Label
     Friend WithEvents TxtComplemento As TextBox
     Friend WithEvents Label22 As Label
     Friend WithEvents TxtNumero As TextBox
     Friend WithEvents Label21 As Label
-    Friend WithEvents TxtEndereco As TextBox
     Friend WithEvents Label20 As Label
     Friend WithEvents TxtCep As TextBox
     Friend WithEvents Label18 As Label
@@ -1873,12 +2282,10 @@ Partial Class Form2210
     Friend WithEvents RdbCAEPF As RadioButton
     Friend WithEvents RdbCNPJ As RadioButton
     Friend WithEvents Label32 As Label
-    Friend WithEvents TxtTipoInscr As TextBox
     Friend WithEvents Label33 As Label
     Friend WithEvents CmbLateralidade As ComboBox
     Friend WithEvents Label35 As Label
     Friend WithEvents CmbPArteCorpo As ComboBox
-    Friend WithEvents Label34 As Label
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents CkAtestadoMedico As CheckBox
     Friend WithEvents DtAtestado As DateTimePicker
@@ -1899,17 +2306,10 @@ Partial Class Form2210
     Friend WithEvents TxtDiagnostico As TextBox
     Friend WithEvents Label44 As Label
     Friend WithEvents TabPage4 As TabPage
-    Friend WithEvents LblDescricao As Label
-    Friend WithEvents Label50 As Label
-    Friend WithEvents TxtDescricaoCID As TextBox
-    Friend WithEvents Label49 As Label
-    Friend WithEvents Label48 As Label
+    Friend WithEvents LblDescricaoCID As Label
     Friend WithEvents Label47 As Label
     Friend WithEvents TxtCodCid As TextBox
     Friend WithEvents Label46 As Label
-    Friend WithEvents DtCIDS As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Label51 As Label
     Friend WithEvents TxtDescricaoLocal As TextBox
     Friend WithEvents Label45 As Label
@@ -1922,6 +2322,53 @@ Partial Class Form2210
     Friend WithEvents Label53 As Label
     Friend WithEvents CmbEstadoEmitente As ComboBox
     Friend WithEvents Label55 As Label
-    Friend WithEvents TxtNumDocumento As TextBox
     Friend WithEvents Label54 As Label
+    Friend WithEvents TxtDodCliente As MaskedTextBox
+    Friend WithEvents Label56 As Label
+    Friend WithEvents ImgValCliente As PictureBox
+    Friend WithEvents ImageList1 As ImageList
+    Friend WithEvents ImgValColab As PictureBox
+    Friend WithEvents TxtDocColaborador As MaskedTextBox
+    Friend WithEvents Label57 As Label
+    Friend WithEvents ImgValidSelTipo As PictureBox
+    Friend WithEvents LblDescricaoParteCorpo As Label
+    Friend WithEvents TxtCodParteCorpo As TextBox
+    Friend WithEvents Label58 As Label
+    Friend WithEvents TxtCodSitGeradora As TextBox
+    Friend WithEvents LblDescricaoSitGera As Label
+    Friend WithEvents ImgValParteCorpo As PictureBox
+    Friend WithEvents ImgValSitGer As PictureBox
+    Friend WithEvents ImgValLateralidade As PictureBox
+    Friend WithEvents ImgValResponsável As PictureBox
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents ImgValTpLocal As PictureBox
+    Friend WithEvents ImgValDescricaoLocal As PictureBox
+    Friend WithEvents Button3 As Button
+    Friend WithEvents ImgValAgenteCausador As PictureBox
+    Friend WithEvents TxtCodAgenteCAusador As TextBox
+    Friend WithEvents ImgValCepLocal As PictureBox
+    Friend WithEvents LblEndereco As Label
+    Friend WithEvents LblBairro As Label
+    Friend WithEvents LblCidade As Label
+    Friend WithEvents LblEstado As Label
+    Friend WithEvents LblPais As Label
+    Friend WithEvents ImgValNumEndereco As PictureBox
+    Friend WithEvents LblAgenteCausador As Label
+    Friend WithEvents ImgValNDocumento As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents ImgTipoInscr As PictureBox
+    Friend WithEvents TxtTipoInscr As MaskedTextBox
+    Friend WithEvents LblDescricaoLesao As Label
+    Friend WithEvents Button5 As Button
+    Friend WithEvents ImgValLesao As PictureBox
+    Friend WithEvents TxtCodLesao As TextBox
+    Friend WithEvents ImgValDocMedico As PictureBox
+    Friend WithEvents ImgValNomeMEdico As PictureBox
+    Friend WithEvents ImgValCid As PictureBox
+    Friend WithEvents Button6 As Button
+    Friend WithEvents ImgValEstadoEmitente As PictureBox
+    Friend WithEvents ImgvalNumDocMedico As PictureBox
+    Friend WithEvents TxtNumDocumento As MaskedTextBox
 End Class

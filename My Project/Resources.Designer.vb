@@ -303,6 +303,16 @@ Namespace My.Resources
         '''<summary>
         '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property alertar_obg() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("alertar_obg", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property Amassado() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Amassado", resourceCulture)
@@ -486,6 +496,16 @@ Namespace My.Resources
         Friend ReadOnly Property chassi() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("chassi", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property check_ok() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("check-ok", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

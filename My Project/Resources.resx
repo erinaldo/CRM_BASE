@@ -148,6 +148,9 @@
   <data name="icone-venda-png-4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icone-venda-png-4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="caixas-de-cartão-na-paleta-entregue-o-conceito-ícone-d-isolado-38186341" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\caixas-de-cartão-na-paleta-entregue-o-conceito-ícone-d-isolado-38186341.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="VInteriorVetorDireção" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VInteriorVetorDireção.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -163,6 +166,9 @@
   <data name="textura-da-fibra-do-carbono-6949478" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\textura-da-fibra-do-carbono-6949478.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="carrinho3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\carrinho3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="mailbox-message-received-2-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mailbox-message-received-2-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -172,14 +178,14 @@
   <data name="VAcessoriosEletricidade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VAcessoriosEletricidade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="VLateDirPortas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\VLateDirPortas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Skip-backward256_25034" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Skip-backward256_25034.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Skip-backward256_25034 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Skip-backward256_25034 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Triangle-ruler512_44215" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Triangle-ruler512_44215.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="2number_2_3830" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2number_2_3830.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,9 +226,6 @@
   <data name="VAcessoriosParteMecanica" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VAcessoriosParteMecanica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Desligar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Desligar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="unavailable1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\unavailable1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -256,20 +259,14 @@
   <data name="vinterior" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vinterior.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logotipo-950x350px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logotipo-950x350px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="VFrenteRet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VFrenteRet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calendariogde" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendariogde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="VLateDirPneus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\VLateDirPneus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="vfrentepara" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vfrentepara.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ParteEletricaAMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ParteEletricaAMF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AcabRiscos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AcabRiscos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -291,6 +288,9 @@
   </data>
   <data name="vchasse" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vchasse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vfrentepara" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vfrentepara.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrow_down_16740" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_down_16740.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -331,20 +331,20 @@
   <data name="icons8-menos-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-menos-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="VAcessoriosAmortecedores" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VAcessoriosAmortecedores.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="VLateEsqPneus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VLateEsqPneus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="VAcessorios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VAcessorios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="VAcessoriosExaustão" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\VAcessoriosExaustão.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="RiscosI" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RiscosI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Triangle-ruler512_44215" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Triangle-ruler512_44215.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="carrinho" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\carrinho.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="capacete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\capacete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -358,9 +358,6 @@
   <data name="check_ok_accept_apply_1582" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\check_ok_accept_apply_1582.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PinturaD" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PinturaD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="zoomout_zoom_search_find_1530" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zoomout_zoom_search_find_1530.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -370,8 +367,8 @@
   <data name="Search_find_locate_1542" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Search_find_locate_1542.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="carrinho" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\carrinho.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Desligar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Desligar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Delete-80_icon-icons.com_57340" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Delete-80_icon-icons.com_57340.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -385,8 +382,8 @@
   <data name="Save_icon-icons.com_73702" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Save_icon-icons.com_73702.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LAtDir" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LAtDir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="VLateDirPortas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VLateDirPortas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Teto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Teto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -411,6 +408,9 @@
   </data>
   <data name="imagen-scanner-for-me-convert-image-to-pdf-0thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imagen-scanner-for-me-convert-image-to-pdf-0thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VfrenteVetorCapo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VfrenteVetorCapo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Vinterior2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vinterior2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -556,8 +556,8 @@
   <data name="img_reparos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\img_reparos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="VfrenteVetorCapo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\VfrenteVetorCapo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="untitled-n" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\untitled-n.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="user_icon-icons1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user_icon-icons.com_579971.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -577,6 +577,9 @@
   <data name="estoque" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\estoque.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="kisspng-computer-icons-clip-art-sbi-po-exam-evaluation-ico-fabsdrive-school-management-system-principal-da-5b66314b5b13d5.6202905015334239473731" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kisspng-computer-icons-clip-art-sbi-po-exam-evaluation-ico-fabsdrive-school-management-system-principal-da-5b66314b5b13d5.6202905015334239473731.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="VFrenteIlum" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VFrenteIlum.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -589,11 +592,14 @@
   <data name="VTrasVetorAcab" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VTrasVetorAcab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="carrinho3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\carrinho3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PeçaMAus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PeçaMAus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="VAcessoriosStep" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VAcessoriosStep.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alertar_obg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alertar_obg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="imagesUTIQ7LAJ" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imagesUTIQ7LAJ.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -649,8 +655,8 @@
   <data name="VLateEsqEstrutura1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VLateEsqEstrutura1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="caixas-de-cartão-na-paleta-entregue-o-conceito-ícone-d-isolado-38186341" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\caixas-de-cartão-na-paleta-entregue-o-conceito-ícone-d-isolado-38186341.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AcabAusente" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AcabAusente.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrow_right_16742" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_right_16742.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -685,8 +691,8 @@
   <data name="calendar-icon_34471" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar-icon_34471.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="VAcessoriosAmortecedores" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\VAcessoriosAmortecedores.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LAtDir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LAtDir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delivery" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delivery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -709,8 +715,8 @@
   <data name="1486564394-edit_81508" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1486564394-edit_81508.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ParteEletricaAMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ParteEletricaAMF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logotipo-950x350px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logotipo-950x350px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="VTrasVetorLanterna" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VTrasVetorLanterna.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -730,8 +736,8 @@
   <data name="PeçaSubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PeçaSubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="untitled-n" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\untitled-n.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="VLateDirPneus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VLateDirPneus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="checklist_123014" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checklist_123014.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -754,14 +760,14 @@
   <data name="save_14706" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save_14706.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AcabAusente" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AcabAusente.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="VAcessoriosExaustão" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VAcessoriosExaustão.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="kissclipart-review-clipart-post-it-note-computer-icons-clip-ar-7058b07da9db8383" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kissclipart-review-clipart-post-it-note-computer-icons-clip-ar-7058b07da9db8383.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PeçaMAus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PeçaMAus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PinturaD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PinturaD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RasgosB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RasgosB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -772,7 +778,7 @@
   <data name="VLateEsqVidros" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VLateEsqVidros.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="kisspng-computer-icons-clip-art-sbi-po-exam-evaluation-ico-fabsdrive-school-management-system-principal-da-5b66314b5b13d5.6202905015334239473731" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\kisspng-computer-icons-clip-art-sbi-po-exam-evaluation-ico-fabsdrive-school-management-system-principal-da-5b66314b5b13d5.6202905015334239473731.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="check-ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\check-ok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

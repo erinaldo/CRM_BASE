@@ -344,6 +344,12 @@
       <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.CID_FIND" Member="CID_FIND">
+    <Type Name="CID_FIND">
+      <Column Name="CODIGO" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DESCRICAO" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.AtualizaSetorCliente" Method="AtualizaSetorCliente">
     <Parameter Name="IdSetorCliente" Parameter="idSetorCliente" Type="System.Int32" DbType="Int" />
     <Parameter Name="NomeSetor" Parameter="nomeSetor" Type="System.String" DbType="NText" />
