@@ -1,4 +1,5 @@
-﻿Imports System.Net
+﻿Imports System.IO
+Imports System.Net
 Imports Newtonsoft.Json
 
 Public Class FrmClientes
@@ -49,6 +50,9 @@ Public Class FrmClientes
                 RdbJuridica.Checked = True
                 TxtApelido.Enabled = True
 
+                RdbJuridica.Enabled = True
+                RdbFisica.Enabled = True
+
             End If
 
             If RdbFisica.Checked = True Then
@@ -68,28 +72,7 @@ Public Class FrmClientes
 
     End Sub
     Private Sub RdbJuridica_CheckedChanged(sender As Object, e As EventArgs) Handles RdbJuridica.CheckedChanged
-
-        If RdbJuridica.Checked = True Then
-            LblDocCPF_CPNJ.Text = "CNPJ"
-            LblRG_IE.Text = "IE"
-            Ckisento.Visible = True
-
-            'TxtCPF.Enabled = True
-        Else
-            LblDocCPF_CPNJ.Text = "CPF"
-            LblRG_IE.Text = "RG"
-            Ckisento.Visible = False
-            Ckisento.Checked = False
-
-            TxtCPF.Enabled = False
-            TxtIE.Enabled = False
-
-            'TxtCPF.Text = ""
-        End If
-
-        TxtCPF.Text = FrmEntradaVeículo.TxtDocumento.Text
-        TxtCPF.Enabled = False
-
+        SelecionaPersonalidade()
     End Sub
     Private Sub Ckisento_CheckedChanged(sender As Object, e As EventArgs) Handles Ckisento.CheckedChanged
         If Ckisento.Checked = True Then
@@ -118,11 +101,10 @@ Public Class FrmClientes
 
         TxtCPF.Text = ""
         TxtIE.Text = ""
-        TxtEndereco.Text = ""
-        TxtBairro.Text = ""
-        TxtCidade.Text = ""
-        TxtEstado.Text = ""
-        TxtPais.Text = ""
+        LblEndereco.Text = ""
+        LblBairro.Text = ""
+        LblCidade.Text = ""
+        LblEstado.Text = ""
         TxtNumero.Text = ""
         TxtNumero.Enabled = False
         TxtComplemento.Enabled = False
@@ -131,38 +113,47 @@ Public Class FrmClientes
 
     End Sub
     Private Sub RdbFisica_CheckedChanged(sender As Object, e As EventArgs) Handles RdbFisica.CheckedChanged
+        SelecionaPersonalidade()
+    End Sub
+
+    Private Sub SelecionaPersonalidade()
 
         If RdbJuridica.Checked = True Then
             LblDocCPF_CPNJ.Text = "CNPJ"
             LblRG_IE.Text = "IE"
             Ckisento.Visible = True
+            TxtCPF.Mask = "00,000,000/0000-00"
 
             TxtCPF.Enabled = False
             TxtApelido.Visible = True
+            TxtApelido.Focus()
 
         Else
             LblDocCPF_CPNJ.Text = "CPF"
             LblRG_IE.Text = "RG"
             Ckisento.Visible = False
             Ckisento.Checked = False
+            TxtCPF.Mask = "000,000,000-00"
 
-            TxtCPF.Enabled = False
+            TxtCPF.Enabled = True
             TxtIE.Enabled = False
 
             If TxtCPF.Text <> "" Then
                 TxtIE.Enabled = True
             End If
             TxtApelido.Visible = False
+            TxtCPF.Focus()
 
         End If
 
         If FrmOri = 1 Then
             TxtCPF.Text = FrmEntradaVeículo.TxtDocumento.Text
             TxtCPF.Enabled = False
+            TxtIE.Focus()
+
         End If
 
     End Sub
-
     Public FrmOri As Integer
 
     Dim LqCadastros As New DtCadastroDataContext
@@ -197,30 +188,30 @@ Public Class FrmClientes
             Dim xml As String = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml".Replace("@cep", TxtCep.Text)
             ds.ReadXml(xml)
 
-            TxtEndereco.Text = ds.Tables(0).Rows(0)("tipo_logradouro").ToString() & " " & ds.Tables(0).Rows(0)("logradouro").ToString()
-            TxtBairro.Text = ds.Tables(0).Rows(0)("bairro").ToString()
-            TxtCidade.Text = ds.Tables(0).Rows(0)("cidade").ToString()
-            TxtEstado.Text = ds.Tables(0).Rows(0)("uf").ToString()
+            LblEndereco.Text = ds.Tables(0).Rows(0)("tipo_logradouro").ToString() & " " & ds.Tables(0).Rows(0)("logradouro").ToString()
+            LblBairro.Text = ds.Tables(0).Rows(0)("bairro").ToString()
+            LblCidade.Text = ds.Tables(0).Rows(0)("cidade").ToString()
+            LblEstado.Text = ds.Tables(0).Rows(0)("uf").ToString()
 
             TxtNumero.Enabled = True
+            TxtNumero.Focus()
 
         Else
 
-            TxtEndereco.Enabled = False
+            LblEndereco.Enabled = False
             TxtNumero.Enabled = False
             TxtComplemento.Enabled = False
-            TxtBairro.Enabled = False
-            TxtCidade.Enabled = False
-            TxtEstado.Enabled = False
-            TxtPais.Enabled = False
+            LblBairro.Enabled = False
+            LblCidade.Enabled = False
+            LblEstado.Enabled = False
+            LblPais.Enabled = False
 
-            TxtEndereco.Text = ""
+            LblEndereco.Text = ""
             TxtNumero.Text = ""
             TxtComplemento.Text = ""
-            TxtBairro.Text = ""
-            TxtCidade.Text = ""
-            TxtEstado.Text = ""
-            TxtPais.Text = ""
+            LblBairro.Text = ""
+            LblCidade.Text = ""
+            LblEstado.Text = ""
 
         End If
 
@@ -231,34 +222,19 @@ Public Class FrmClientes
 
             TxtComplemento.Enabled = True
 
-            TxtTelefone.Enabled = True
+            BttSetores.Enabled = True
+            BttFunções.Enabled = True
+            BttColaboradores.Enabled = True
 
         Else
 
             TxtComplemento.Enabled = False
-            TxtTelefone.Enabled = False
+
+            BttSetores.Enabled = False
+            BttFunções.Enabled = False
+            BttColaboradores.Enabled = False
 
             TxtComplemento.Text = ""
-            TxtTelefone.Text = ""
-
-        End If
-
-    End Sub
-    Private Sub TxtEmail_TextChanged(sender As Object, e As EventArgs) Handles TxtEmail.TextChanged
-
-        If TxtTelefone.Text <> "" And TxtEmail.Text <> "" Then
-
-            BttSalvarColaborador.Enabled = True
-
-            BttFunções.Enabled = True
-            BttSetores.Enabled = True
-
-        ElseIf TxtTelefone.Text = "" Or TxtEmail.Text = "" Then
-
-            BttSalvarColaborador.Enabled = False
-
-            BttFunções.Enabled = False
-            BttSetores.Enabled = False
 
         End If
 
@@ -268,12 +244,31 @@ Public Class FrmClientes
     Private Sub TxtCPF_TextChanged(sender As Object, e As EventArgs) Handles TxtCPF.TextChanged
 
         If TxtCPF.Enabled = True Then
+            Dim LqTrabalhista As New LqTrabalhistaDataContext
+            LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
 
             If RdbFisica.Checked = True Then
 
-                If TxtCPF.Text.Length <= 11 Then
-                    TxtIE.Enabled = True
-                Else
+                If TxtCPF.Text.Length = 11 Then
+                    If Leitura = True Then
+                        'busca se chave é valida
+                        Dim BuscaDOC = From doc In LqTrabalhista.ColaboradoresCliente
+                                       Where doc.DocColaborador Like TxtCPF.Text And doc.IdCliente = IdCliente
+                                       Select doc.NomeColaborador
+
+                        If BuscaDOC.Count = 0 Then
+                            TxtIE.Enabled = True
+                            TxtIE.Focus()
+                        Else
+                            MsgBox("Este documento já esta cadastrado no banco de dados", MsgBoxStyle.OkOnly)
+                            TxtCPF.Text = ""
+                        End If
+                    Else
+                        TxtIE.Enabled = True
+                        TxtIE.Focus()
+                    End If
+
+                ElseIf TxtCPF.Text.Length < 11 Then
                     TxtIE.Text = ""
                     TxtIE.Enabled = False
                 End If
@@ -281,11 +276,26 @@ Public Class FrmClientes
             Else
 
                 If TxtCPF.Text.Length = 14 Then
+                    If Leitura = True Then
+                        'busca se chave é valida
+                        Dim BuscaDOC = From doc In LqTrabalhista.ColaboradoresCliente
+                                       Where doc.DocColaborador Like TxtCPF.Text And doc.IdCliente = IdCliente
+                                       Select doc.NomeColaborador
 
-                    TxtIE.Enabled = True
-                    Ckisento.Checked = False
-                    Ckisento.Enabled = True
-                    Ckisento.Visible = True
+                        If BuscaDOC.Count = 0 Then
+                            TxtIE.Enabled = True
+                            Ckisento.Checked = False
+                            Ckisento.Enabled = True
+                            Ckisento.Visible = True
+                            TxtIE.Focus()
+                        Else
+                            MsgBox("Este documento já esta cadastrado no banco de dados", MsgBoxStyle.OkOnly)
+                            TxtCPF.Text = ""
+                        End If
+                    Else
+                        TxtIE.Enabled = True
+                        TxtIE.Focus()
+                    End If
 
                 ElseIf TxtCPF.Text.Length < 12 Then
 
@@ -309,11 +319,19 @@ Public Class FrmClientes
     End Sub
     Private Sub BttFechar_Click(sender As Object, e As EventArgs) Handles BttFechar.Click
 
+        'atualiza dados
+
+        If Application.OpenForms.OfType(Of FrmListaClientes)().Count() > 0 Then
+
+            FrmListaClientes.CarregaInicio()
+
+        End If
+
         Me.Close()
 
     End Sub
 
-    Private Sub TxtPais_TextChanged(sender As Object, e As EventArgs) Handles TxtPais.TextChanged
+    Private Sub TxtPais_TextChanged(sender As Object, e As EventArgs)
 
 
 
@@ -343,7 +361,7 @@ Public Class FrmClientes
 
             'salva colaborador
 
-            LqCadastros.InsereCliente(TxtNomeCompleto.Text, Documento, TxtIE.Text, RdbJuridica.Checked, TxtCep.Text, 0, TxtEndereco.Text, TxtNumero.Text, TxtComplemento.Text, TxtBairro.Text, TxtCidade.Text, TxtEstado.Text, TxtPais.Text, TxtTelefone.Text, TxtCelular.Text, TxtEmail.Text, 0, TxtApelido.Text)
+            LqCadastros.InsereCliente(TxtNomeCompleto.Text, Documento, TxtIE.Text, RdbJuridica.Checked, TxtCep.Text, 0, LblEndereco.Text, TxtNumero.Text, TxtComplemento.Text, LblBairro.Text, LblCidade.Text, LblEstado.Text, "Brasil", 0, 0, "", 0, TxtApelido.Text)
 
             'pega ultimo Id
 
@@ -363,7 +381,7 @@ Public Class FrmClientes
 
             'insere na base on-line
 
-            Dim baseUrl As String = "http://www.iarasoftware.com.br/create_cliente_local.php?ChaveOficina=" & FrmPrincipal.LblChaveEnc.Text & "&Doc=" & Documento & "&NomeCliente=" & TxtNomeCompleto.Text & "&email=" & TxtEmail.Text & "&celular=" & TxtCelular.Text & "&cep=" & TxtCep.Text & "&endereco=" & TxtEndereco.Text & "&bairro=" & TxtBairro.Text & "&cidade=" & TxtCidade.Text & "&estado=" & TxtEstado.Text & "&pais=" & TxtPais.Text & "&numero=" & TxtNumero.Text & "&complemento=" & TxtComplemento.Text
+            Dim baseUrl As String = "http://www.iarasoftware.com.br/create_cliente_local.php?ChaveOficina=" & FrmPrincipal.LblChaveEnc.Text & "&Doc=" & Documento & "&NomeCliente=" & TxtNomeCompleto.Text & "&email=ND&celular=ND&cep=" & TxtCep.Text & "&endereco=" & LblEndereco.Text & "&bairro=" & LblBairro.Text & "&cidade=" & LblCidade.Text & "&estado=" & LblEstado.Text & "&pais=Brasil&numero=" & TxtNumero.Text & "&complemento=" & TxtComplemento.Text
 
             'carrega informações no site
 
@@ -421,6 +439,8 @@ Public Class FrmClientes
 
     End Sub
 
+    Public Leitura As Boolean = False
+
     Private Sub FrmClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'verifica a origem do form
@@ -443,6 +463,28 @@ Public Class FrmClientes
 
         End If
 
+        CarregaInicio()
+
+    End Sub
+    Public Sub CarregaInicio()
+
+        DtFornecedores.Rows.Clear()
+
+        'busca colaboradores para o cliente
+
+        Dim LqTrabalhista As New LqTrabalhistaDataContext
+        LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
+
+        Dim BuscaTrabalhista = From trab In LqTrabalhista.ColaboradoresCliente
+                               Where trab.IdCliente = IdCliente
+                               Select trab.IdColaboradorCliente, trab.DescricaoFuncao, trab.NomeColaborador
+
+        For Each row In BuscaTrabalhista.ToList
+
+            DtFornecedores.Rows.Add(row.IdColaboradorCliente, row.NomeColaborador, row.DescricaoFuncao, "", ImgLstIco.Images(1), ImgLstIco.Images(0), ImgLstIco.Images(8), ImgLstIco.Images(7))
+
+        Next
+
     End Sub
 
     Private Sub TxtApelido_TextChanged(sender As Object, e As EventArgs) Handles TxtApelido.TextChanged
@@ -455,53 +497,68 @@ Public Class FrmClientes
 
     End Sub
 
-    Private Sub TxtCPF_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles TxtCPF.MaskInputRejected
-
-    End Sub
-
-    Private Sub TxtTelefone_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles TxtTelefone.MaskInputRejected
-
-    End Sub
-
-    Private Sub TxtTelefone_TextChanged(sender As Object, e As EventArgs) Handles TxtTelefone.TextChanged
-
-        If TxtTelefone.Text.Length < 11 Then
-            TxtTelefone.Mask = "(00) 0000-00000"
-        ElseIf TxtTelefone.Text.Length = 11 Then
-            TxtTelefone.Mask = "(00) 0 0000-00000"
-        ElseIf TxtTelefone.Text.Length = 12 Then
-            TxtTelefone.Mask = "(00) 00 0000-00000"
-        ElseIf TxtTelefone.Text.Length = 13 Then
-            TxtTelefone.Mask = "(00) 000 0000-00000"
-        End If
-
-        If TxtTelefone.Text.Length = 10 Then
-            TxtCelular.Enabled = True
-            TxtEmail.Enabled = True
-        Else
-            TxtCelular.Enabled = False
-            TxtEmail.Enabled = False
-            TxtCelular.Text = ""
-            TxtEmail.Text = ""
-        End If
-
-    End Sub
-
-    Private Sub TxtCelular_TextChanged(sender As Object, e As EventArgs) Handles TxtCelular.TextChanged
-
-        If TxtCelular.Text.Length < 11 Then
-            TxtCelular.Mask = "(00) 0000-00000"
-        ElseIf TxtCelular.Text.Length = 11 Then
-            TxtCelular.Mask = "(00) 0 0000-00000"
-        ElseIf TxtCelular.Text.Length = 12 Then
-            TxtCelular.Mask = "(00) 00 0000-00000"
-        ElseIf TxtCelular.Text.Length = 13 Then
-            TxtCelular.Mask = "(00) 000 0000-00000"
-        End If
-
-    End Sub
-
     Private Sub BttSetores_Click(sender As Object, e As EventArgs) Handles BttSetores.Click
+        If IdCliente = 0 Then
+
+            LqCadastros.Connection.ConnectionString = FrmPrincipal.ConnectionStringBase
+
+            Dim Documento As String = ""
+
+            If TxtCPF.Text.Length = 11 Then
+
+                TxtCPF.TextMaskFormat = MaskFormat.IncludePromptAndLiterals
+
+                Documento = TxtCPF.Text.Replace(" ", "")
+
+            Else
+
+                TxtCPF.TextMaskFormat = MaskFormat.IncludePromptAndLiterals
+
+                Documento = TxtCPF.Text
+
+            End If
+
+            'salva colaborador
+
+            LqCadastros.InsereCliente(TxtNomeCompleto.Text, Documento, TxtIE.Text, RdbJuridica.Checked, TxtCep.Text, 0, LblEndereco.Text, TxtNumero.Text, TxtComplemento.Text, LblBairro.Text, LblCidade.Text, LblEstado.Text, "Brasil", 0, 0, "", 0, TxtApelido.Text)
+
+            'pega ultimo Id
+
+            Dim BuscaUltimoID = From ult In LqBase.Clientes
+                                Where ult.IdCliente Like "*"
+                                Select ult.IdCliente
+                                Order By IdCliente Descending
+
+            Dim UltimID As Integer = BuscaUltimoID.First
+
+            IdCliente = UltimID
+
+            'atualiza id do cliente 
+
+            Dim LqTrabalhista As New LqTrabalhistaDataContext
+            LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
+
+            LqTrabalhista.AtualizaSetorIdClientetodos(IdCliente)
+
+            'insere na base on-line
+
+            Dim baseUrl As String = "http://www.iarasoftware.com.br/create_cliente_local.php?ChaveOficina=" & FrmPrincipal.LblChaveEnc.Text & "&Doc=" & Documento & "&NomeCliente=" & TxtNomeCompleto.Text & "&email=ND&celular=ND&cep=" & TxtCep.Text & "&endereco=" & LblEndereco.Text & "&bairro=" & LblBairro.Text & "&cidade=" & LblCidade.Text & "&estado=" & LblEstado.Text & "&pais=Brasil&numero=" & TxtNumero.Text & "&complemento=" & TxtComplemento.Text
+
+            'carrega informações no site
+
+            ' Chamada sincrona
+            Dim syncClient = New WebClient()
+            Dim content = syncClient.DownloadString(baseUrl)
+            Dim read = JsonConvert.DeserializeObject(Of List(Of Classe_Veiculos_Oficina.Create))("[" & content & "]")
+
+            If read.Count > 0 Then
+
+                LqCadastros.AtualizaIdVinculoExtCliente(UltimID, read.Item(0).Id)
+
+            End If
+            'carrega colaboradores
+
+        End If
 
         Me.Cursor = Cursors.WaitCursor
 
@@ -513,6 +570,67 @@ Public Class FrmClientes
     End Sub
 
     Private Sub BttFunções_Click(sender As Object, e As EventArgs) Handles BttFunções.Click
+        If IdCliente = 0 Then
+
+            LqCadastros.Connection.ConnectionString = FrmPrincipal.ConnectionStringBase
+
+            Dim Documento As String = ""
+
+            If TxtCPF.Text.Length = 11 Then
+
+                TxtCPF.TextMaskFormat = MaskFormat.IncludePromptAndLiterals
+
+                Documento = TxtCPF.Text.Replace(" ", "")
+
+            Else
+
+                TxtCPF.TextMaskFormat = MaskFormat.IncludePromptAndLiterals
+
+                Documento = TxtCPF.Text
+
+            End If
+
+            'salva colaborador
+
+            LqCadastros.InsereCliente(TxtNomeCompleto.Text, Documento, TxtIE.Text, RdbJuridica.Checked, TxtCep.Text, 0, LblEndereco.Text, TxtNumero.Text, TxtComplemento.Text, LblBairro.Text, LblCidade.Text, LblEstado.Text, "Brasil", 0, 0, "", 0, TxtApelido.Text)
+
+            'pega ultimo Id
+
+            Dim BuscaUltimoID = From ult In LqBase.Clientes
+                                Where ult.IdCliente Like "*"
+                                Select ult.IdCliente
+                                Order By IdCliente Descending
+
+            Dim UltimID As Integer = BuscaUltimoID.First
+
+            IdCliente = UltimID
+
+            'atualiza id do cliente 
+
+            Dim LqTrabalhista As New LqTrabalhistaDataContext
+            LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
+
+            LqTrabalhista.AtualizaSetorIdClientetodos(IdCliente)
+
+            'insere na base on-line
+
+            Dim baseUrl As String = "http://www.iarasoftware.com.br/create_cliente_local.php?ChaveOficina=" & FrmPrincipal.LblChaveEnc.Text & "&Doc=" & Documento & "&NomeCliente=" & TxtNomeCompleto.Text & "&email=ND&celular=ND&cep=" & TxtCep.Text & "&endereco=" & LblEndereco.Text & "&bairro=" & LblBairro.Text & "&cidade=" & LblCidade.Text & "&estado=" & LblEstado.Text & "&pais=Brasil&numero=" & TxtNumero.Text & "&complemento=" & TxtComplemento.Text
+
+            'carrega informações no site
+
+            ' Chamada sincrona
+            Dim syncClient = New WebClient()
+            Dim content = syncClient.DownloadString(baseUrl)
+            Dim read = JsonConvert.DeserializeObject(Of List(Of Classe_Veiculos_Oficina.Create))("[" & content & "]")
+
+            If read.Count > 0 Then
+
+                LqCadastros.AtualizaIdVinculoExtCliente(UltimID, read.Item(0).Id)
+
+            End If
+            'carrega colaboradores
+
+        End If
 
         Me.Cursor = Cursors.WaitCursor
 
@@ -524,15 +642,196 @@ Public Class FrmClientes
     End Sub
 
     Private Sub BttColaboradores_Click(sender As Object, e As EventArgs) Handles BttColaboradores.Click
+        If IdCliente = 0 Then
+
+            LqCadastros.Connection.ConnectionString = FrmPrincipal.ConnectionStringBase
+
+            Dim Documento As String = ""
+
+            If TxtCPF.Text.Length = 11 Then
+
+                TxtCPF.TextMaskFormat = MaskFormat.IncludePromptAndLiterals
+
+                Documento = TxtCPF.Text.Replace(" ", "")
+
+            Else
+
+                TxtCPF.TextMaskFormat = MaskFormat.IncludePromptAndLiterals
+
+                Documento = TxtCPF.Text
+
+            End If
+
+            'salva colaborador
+
+            LqCadastros.InsereCliente(TxtNomeCompleto.Text, Documento, TxtIE.Text, RdbJuridica.Checked, TxtCep.Text, 0, LblEndereco.Text, TxtNumero.Text, TxtComplemento.Text, LblBairro.Text, LblCidade.Text, LblEstado.Text, "Brasil", 0, 0, "", 0, TxtApelido.Text)
+
+            'pega ultimo Id
+
+            Dim BuscaUltimoID = From ult In LqBase.Clientes
+                                Where ult.IdCliente Like "*"
+                                Select ult.IdCliente
+                                Order By IdCliente Descending
+
+            Dim UltimID As Integer = BuscaUltimoID.First
+
+            IdCliente = UltimID
+
+            'atualiza id do cliente 
+
+            Dim LqTrabalhista As New LqTrabalhistaDataContext
+            LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
+
+            LqTrabalhista.AtualizaSetorIdClientetodos(IdCliente)
+
+            'insere na base on-line
+
+            Dim baseUrl As String = "http://www.iarasoftware.com.br/create_cliente_local.php?ChaveOficina=" & FrmPrincipal.LblChaveEnc.Text & "&Doc=" & Documento & "&NomeCliente=" & TxtNomeCompleto.Text & "&email=ND&celular=ND&cep=" & TxtCep.Text & "&endereco=" & LblEndereco.Text & "&bairro=" & LblBairro.Text & "&cidade=" & LblCidade.Text & "&estado=" & LblEstado.Text & "&pais=Brasil&numero=" & TxtNumero.Text & "&complemento=" & TxtComplemento.Text
+
+            'carrega informações no site
+
+            ' Chamada sincrona
+            Dim syncClient = New WebClient()
+            Dim content = syncClient.DownloadString(baseUrl)
+            Dim read = JsonConvert.DeserializeObject(Of List(Of Classe_Veiculos_Oficina.Create))("[" & content & "]")
+
+            If read.Count > 0 Then
+
+                LqCadastros.AtualizaIdVinculoExtCliente(UltimID, read.Item(0).Id)
+
+            End If
+            'carrega colaboradores
+
+        End If
 
         Me.Cursor = Cursors.WaitCursor
 
-        FrmColaboradoresClientes.IdCliente = IdCliente
+        FrmNovoColaboradorCliente.IdCliente = IdCliente
 
-        FrmColaboradoresClientes.Show(Me)
+        FrmNovoColaboradorCliente.Show(Me)
 
         Me.Cursor = Cursors.Arrow
 
     End Sub
 
+    Private Sub DtFornecedores_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DtFornecedores.CellContentClick
+
+        Me.Cursor = Cursors.WaitCursor
+
+        If DtFornecedores.Columns(e.ColumnIndex).Name = "ClmExcluirCliente" Then
+
+            If MsgBox("Deseja realmente excluir o colaborador " & DtFornecedores.Rows(e.RowIndex).Cells(1).Value, MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+
+                Dim LqTrabalhista As New LqTrabalhistaDataContext
+                LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
+
+                LqTrabalhista.DeletaColaboradorCliente(DtFornecedores.Rows(e.RowIndex).Cells(0).Value)
+                Me.Cursor = Cursors.Arrow
+
+            End If
+
+        ElseIf DtFornecedores.Columns(e.ColumnIndex).Name = "ClmEditarCliente" Then
+
+            FrmNovoColaboradorCliente.IdCliente = IdCliente
+            FrmNovoColaboradorCliente.IdColaboradorCliente = DtFornecedores.Rows(e.RowIndex).Cells(0).Value
+            FrmNovoColaboradorCliente.Show(Me)
+            Me.Cursor = Cursors.Arrow
+
+        ElseIf DtFornecedores.Columns(e.ColumnIndex).Name = "ClmCAT" Then
+
+            Form2210.Show(Me)
+
+            Form2210.TxtDodCliente.Text = TxtCPF.Text
+            Form2210.TxtDodCliente.Text &= TxtCPF.Text.ToCharArray(12, 2)
+            Form2210.TxtDodCliente.Enabled = False
+            Form2210.CmbTodosClientes.Enabled = False
+
+            'busca doc do colaborador
+            Dim LqTrabalhista As New LqTrabalhistaDataContext
+            LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
+
+            Dim IdColaborador As Integer = DtFornecedores.Rows(e.RowIndex).Cells(0).Value
+
+            Dim BuscaColaborador = From col In LqTrabalhista.ColaboradoresCliente
+                                   Where col.IdCliente = IdCliente And col.IdColaboradorCliente = IdColaborador
+                                   Select col.IdColaboradorCliente, col.NomeColaborador, col.DocColaborador, col.CatTrab, col.GrupoTrab
+
+            Form2210.LStDoColab.Items.Clear()
+            Form2210.CmbColaboradores.Items.Clear()
+            Form2210.LstIdColaborador.Items.Clear()
+
+            For Each row In BuscaColaborador.ToList
+                Form2210.LStDoColab.Items.Add(row.DocColaborador)
+                Form2210.CmbColaboradores.Items.Add(row.NomeColaborador)
+                Form2210.LstIdColaborador.Items.Add(row.IdColaboradorCliente)
+
+                If row.GrupoTrab = "" Then
+                    Form2210.LstMatricula.Items.Add(row.CatTrab)
+                    Form2210.LstGrupoTrab.Items.Add("")
+                Else
+                    Form2210.LstGrupoTrab.Items.Add(row.CatTrab.ToCharArray(0, 3))
+                    Form2210.LstMatricula.Items.Add("")
+                End If
+            Next
+
+            Form2210.TxtDocColaborador.Text = BuscaColaborador.First.DocColaborador
+            Form2210.TxtDocColaborador.Enabled = False
+
+            Form2210.CmbColaboradores.SelectedItem = DtFornecedores.Rows(e.RowIndex).Cells(1).Value
+            Form2210.CmbColaboradores.Enabled = False
+
+            Me.Cursor = Cursors.Arrow
+
+        ElseIf DtFornecedores.Columns(e.ColumnIndex).Name = "ClmASO" Then
+
+            Frm2220.Show(Me)
+
+            Frm2220.TxtDodCliente.Text = TxtCPF.Text
+            Frm2220.TxtDodCliente.Text &= TxtCPF.Text.ToCharArray(12, 2)
+            Frm2220.TxtDodCliente.Enabled = False
+            Frm2220.CmbTodosClientes.Enabled = False
+
+            'busca doc do colaborador
+            Dim LqTrabalhista As New LqTrabalhistaDataContext
+            LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
+
+            Dim IdColaborador As Integer = DtFornecedores.Rows(e.RowIndex).Cells(0).Value
+
+            Dim BuscaColaborador = From col In LqTrabalhista.ColaboradoresCliente
+                                   Where col.IdCliente = IdCliente And col.IdColaboradorCliente = IdColaborador
+                                   Select col.IdColaboradorCliente, col.NomeColaborador, col.DocColaborador, col.CatTrab, col.GrupoTrab
+
+            Frm2220.LStDoColab.Items.Clear()
+            Frm2220.CmbColaboradores.Items.Clear()
+            Frm2220.LstIdColaborador.Items.Clear()
+
+            For Each row In BuscaColaborador.ToList
+                Frm2220.LStDoColab.Items.Add(row.DocColaborador)
+                Frm2220.CmbColaboradores.Items.Add(row.NomeColaborador)
+                Frm2220.LstIdColaborador.Items.Add(row.IdColaboradorCliente)
+
+                If row.GrupoTrab = "" Then
+                    Frm2220.LstMatricula.Items.Add(row.CatTrab)
+                    Frm2220.LstGrupoTrab.Items.Add("")
+                Else
+                    Frm2220.LstGrupoTrab.Items.Add(row.CatTrab.ToCharArray(0, 3))
+                    Frm2220.LstMatricula.Items.Add("")
+                End If
+            Next
+
+            Frm2220.TxtDocColaborador.Text = BuscaColaborador.First.DocColaborador
+            Frm2220.TxtDocColaborador.Enabled = False
+
+            Frm2220.CmbColaboradores.SelectedItem = DtFornecedores.Rows(e.RowIndex).Cells(1).Value
+            Frm2220.CmbColaboradores.Enabled = False
+
+            Me.Cursor = Cursors.Arrow
+
+        End If
+
+    End Sub
+
+    Private Sub TxtCPF_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles TxtCPF.MaskInputRejected
+
+    End Sub
 End Class

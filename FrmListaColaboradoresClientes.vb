@@ -3,4 +3,9 @@
 
 
     End Sub
+
+    Private Sub DtFornecedores_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DtFornecedores.CellContentClick
+
+
+    End Sub
 End Class

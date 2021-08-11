@@ -137,6 +137,8 @@ Partial Class FrmPrincipal
         Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator23 = New System.Windows.Forms.ToolStripSeparator()
         Me.ESocialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.S2240CondiçõesAmbientaisDoTrabalhoFatoresDeRiscoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.S2220MonitoramentoDaSaúdeDoTrabalhadorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator28 = New System.Windows.Forms.ToolStripSeparator()
         Me.AbrirPainelEmissorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -305,6 +307,7 @@ Partial Class FrmPrincipal
         Me.BtnFinanceiro = New System.Windows.Forms.ToolStripButton()
         Me.BtnCompras = New System.Windows.Forms.ToolStripButton()
         Me.BtnOnline = New System.Windows.Forms.ToolStripButton()
+        Me.BtnEsocial = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.Label80 = New System.Windows.Forms.Label()
         Me.Panel56 = New System.Windows.Forms.Panel()
@@ -340,7 +343,6 @@ Partial Class FrmPrincipal
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.BtnEsocial = New System.Windows.Forms.ToolStripButton()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.PnnRH.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
@@ -1190,7 +1192,7 @@ Partial Class FrmPrincipal
         '
         Me.ToolStripMenuItem6.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RiscosToolStripMenuItem, Me.ExamesToolStripMenuItem, Me.TreinamentosToolStripMenuItem, Me.ToolStripSeparator27, Me.CategoriasToolStripMenuItem})
         Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(174, 26)
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(224, 26)
         Me.ToolStripMenuItem6.Text = "E-social SST"
         Me.ToolStripMenuItem6.Visible = False
         '
@@ -1226,82 +1228,95 @@ Partial Class FrmPrincipal
         'ToolStripSeparator24
         '
         Me.ToolStripSeparator24.Name = "ToolStripSeparator24"
-        Me.ToolStripSeparator24.Size = New System.Drawing.Size(171, 6)
+        Me.ToolStripSeparator24.Size = New System.Drawing.Size(221, 6)
         '
         'ToolStripMenuItem9
         '
         Me.ToolStripMenuItem9.Name = "ToolStripMenuItem9"
-        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(174, 26)
+        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(224, 26)
         Me.ToolStripMenuItem9.Text = "Mapas"
         '
         'ToolStripSeparator22
         '
         Me.ToolStripSeparator22.Name = "ToolStripSeparator22"
-        Me.ToolStripSeparator22.Size = New System.Drawing.Size(171, 6)
+        Me.ToolStripSeparator22.Size = New System.Drawing.Size(221, 6)
         '
         'ClientesToolStripMenuItem
         '
         Me.ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
-        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(174, 26)
+        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
         Me.ClientesToolStripMenuItem.Text = "Clientes"
         '
         'ToolStripSeparator26
         '
         Me.ToolStripSeparator26.Name = "ToolStripSeparator26"
-        Me.ToolStripSeparator26.Size = New System.Drawing.Size(171, 6)
+        Me.ToolStripSeparator26.Size = New System.Drawing.Size(221, 6)
         '
         'ToolStripMenuItem8
         '
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(174, 26)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(224, 26)
         Me.ToolStripMenuItem8.Text = "Riscos"
         Me.ToolStripMenuItem8.Visible = False
         '
         'ToolStripMenuItem7
         '
         Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
-        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(174, 26)
+        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(224, 26)
         Me.ToolStripMenuItem7.Text = "Exames"
         Me.ToolStripMenuItem7.Visible = False
         '
         'ToolStripSeparator23
         '
         Me.ToolStripSeparator23.Name = "ToolStripSeparator23"
-        Me.ToolStripSeparator23.Size = New System.Drawing.Size(171, 6)
+        Me.ToolStripSeparator23.Size = New System.Drawing.Size(221, 6)
         '
         'ESocialToolStripMenuItem
         '
-        Me.ESocialToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem, Me.ToolStripSeparator28, Me.AbrirPainelEmissorToolStripMenuItem})
+        Me.ESocialToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.S2240CondiçõesAmbientaisDoTrabalhoFatoresDeRiscoToolStripMenuItem, Me.S2220MonitoramentoDaSaúdeDoTrabalhadorToolStripMenuItem, Me.S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem, Me.ToolStripSeparator28, Me.AbrirPainelEmissorToolStripMenuItem})
         Me.ESocialToolStripMenuItem.Name = "ESocialToolStripMenuItem"
-        Me.ESocialToolStripMenuItem.Size = New System.Drawing.Size(174, 26)
+        Me.ESocialToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
         Me.ESocialToolStripMenuItem.Text = "E-Social"
+        '
+        'S2240CondiçõesAmbientaisDoTrabalhoFatoresDeRiscoToolStripMenuItem
+        '
+        Me.S2240CondiçõesAmbientaisDoTrabalhoFatoresDeRiscoToolStripMenuItem.Enabled = False
+        Me.S2240CondiçõesAmbientaisDoTrabalhoFatoresDeRiscoToolStripMenuItem.Name = "S2240CondiçõesAmbientaisDoTrabalhoFatoresDeRiscoToolStripMenuItem"
+        Me.S2240CondiçõesAmbientaisDoTrabalhoFatoresDeRiscoToolStripMenuItem.Size = New System.Drawing.Size(528, 26)
+        Me.S2240CondiçõesAmbientaisDoTrabalhoFatoresDeRiscoToolStripMenuItem.Text = "S-2240 – Condições Ambientais do Trabalho – Fatores de Risco"
+        '
+        'S2220MonitoramentoDaSaúdeDoTrabalhadorToolStripMenuItem
+        '
+        Me.S2220MonitoramentoDaSaúdeDoTrabalhadorToolStripMenuItem.Name = "S2220MonitoramentoDaSaúdeDoTrabalhadorToolStripMenuItem"
+        Me.S2220MonitoramentoDaSaúdeDoTrabalhadorToolStripMenuItem.Size = New System.Drawing.Size(528, 26)
+        Me.S2220MonitoramentoDaSaúdeDoTrabalhadorToolStripMenuItem.Text = "S-2220 – Monitoramento da Saúde do Trabalhador"
         '
         'S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem
         '
         Me.S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem.Name = "S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem"
-        Me.S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem.Size = New System.Drawing.Size(417, 26)
+        Me.S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem.Size = New System.Drawing.Size(528, 26)
         Me.S22010ComunicaçãoDeAcidenteDeTrabalhoToolStripMenuItem.Text = "S-2210 - Comunicação de acidente de trabalho"
         '
         'ToolStripSeparator28
         '
         Me.ToolStripSeparator28.Name = "ToolStripSeparator28"
-        Me.ToolStripSeparator28.Size = New System.Drawing.Size(414, 6)
+        Me.ToolStripSeparator28.Size = New System.Drawing.Size(525, 6)
         '
         'AbrirPainelEmissorToolStripMenuItem
         '
         Me.AbrirPainelEmissorToolStripMenuItem.Name = "AbrirPainelEmissorToolStripMenuItem"
-        Me.AbrirPainelEmissorToolStripMenuItem.Size = New System.Drawing.Size(417, 26)
+        Me.AbrirPainelEmissorToolStripMenuItem.Size = New System.Drawing.Size(528, 26)
         Me.AbrirPainelEmissorToolStripMenuItem.Text = "Abrir painel emissor"
         '
         'ToolStripSeparator25
         '
         Me.ToolStripSeparator25.Name = "ToolStripSeparator25"
-        Me.ToolStripSeparator25.Size = New System.Drawing.Size(171, 6)
+        Me.ToolStripSeparator25.Size = New System.Drawing.Size(221, 6)
         '
         'RelatóriosToolStripMenuItem
         '
         Me.RelatóriosToolStripMenuItem.Name = "RelatóriosToolStripMenuItem"
-        Me.RelatóriosToolStripMenuItem.Size = New System.Drawing.Size(174, 26)
+        Me.RelatóriosToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
         Me.RelatóriosToolStripMenuItem.Text = "Relatórios"
         Me.RelatóriosToolStripMenuItem.Visible = False
         '
@@ -3138,6 +3153,17 @@ Partial Class FrmPrincipal
         Me.BtnOnline.Size = New System.Drawing.Size(749, 100)
         Me.BtnOnline.Text = "Loja on-line"
         '
+        'BtnEsocial
+        '
+        Me.BtnEsocial.AutoSize = False
+        Me.BtnEsocial.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.BtnEsocial.Font = New System.Drawing.Font("Georgia", 8.25!)
+        Me.BtnEsocial.Image = CType(resources.GetObject("BtnEsocial.Image"), System.Drawing.Image)
+        Me.BtnEsocial.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnEsocial.Name = "BtnEsocial"
+        Me.BtnEsocial.Size = New System.Drawing.Size(749, 100)
+        Me.BtnEsocial.Text = "E-Social"
+        '
         'ToolStripButton1
         '
         Me.ToolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
@@ -3515,17 +3541,6 @@ Partial Class FrmPrincipal
         'Timer2
         '
         Me.Timer2.Interval = 1000
-        '
-        'BtnEsocial
-        '
-        Me.BtnEsocial.AutoSize = False
-        Me.BtnEsocial.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.BtnEsocial.Font = New System.Drawing.Font("Georgia", 8.25!)
-        Me.BtnEsocial.Image = CType(resources.GetObject("BtnEsocial.Image"), System.Drawing.Image)
-        Me.BtnEsocial.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnEsocial.Name = "BtnEsocial"
-        Me.BtnEsocial.Size = New System.Drawing.Size(749, 100)
-        Me.BtnEsocial.Text = "E-Social"
         '
         'FrmPrincipal
         '
@@ -3933,4 +3948,6 @@ Partial Class FrmPrincipal
     Friend WithEvents CertificadosDigitaisToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator29 As ToolStripSeparator
     Friend WithEvents BtnEsocial As ToolStripButton
+    Friend WithEvents S2240CondiçõesAmbientaisDoTrabalhoFatoresDeRiscoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents S2220MonitoramentoDaSaúdeDoTrabalhadorToolStripMenuItem As ToolStripMenuItem
 End Class

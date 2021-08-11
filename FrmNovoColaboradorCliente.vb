@@ -169,11 +169,11 @@ Public Class FrmNovoColaboradorCliente
 
         TxtCPF.Text = ""
         TxtIE.Text = ""
-        TxtEndereco.Text = ""
-        TxtBairro.Text = ""
-        TxtCidade.Text = ""
-        TxtEstado.Text = ""
-        TxtPais.Text = ""
+        LblEndereco.Text = ""
+        LblBairro.Text = ""
+        LblCidade.Text = ""
+        LblEstado.Text = ""
+        LblPais.Text = ""
         TxtNumero.Text = ""
         TxtNumero.Enabled = False
         TxtComplemento.Enabled = False
@@ -256,10 +256,10 @@ Public Class FrmNovoColaboradorCliente
             Dim xml As String = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml".Replace("@cep", TxtCep.Text)
             ds.ReadXml(xml)
 
-            TxtEndereco.Text = ds.Tables(0).Rows(0)("tipo_logradouro").ToString() & " " & ds.Tables(0).Rows(0)("logradouro").ToString()
-            TxtBairro.Text = ds.Tables(0).Rows(0)("bairro").ToString()
-            TxtCidade.Text = ds.Tables(0).Rows(0)("cidade").ToString()
-            TxtEstado.Text = ds.Tables(0).Rows(0)("uf").ToString()
+            LblEndereco.Text = ds.Tables(0).Rows(0)("tipo_logradouro").ToString() & " " & ds.Tables(0).Rows(0)("logradouro").ToString()
+            LblBairro.Text = ds.Tables(0).Rows(0)("bairro").ToString()
+            LblCidade.Text = ds.Tables(0).Rows(0)("cidade").ToString()
+            LblEstado.Text = ds.Tables(0).Rows(0)("uf").ToString()
 
             TxtNumero.Enabled = True
 
@@ -267,21 +267,19 @@ Public Class FrmNovoColaboradorCliente
 
         Else
 
-            TxtEndereco.Enabled = False
+            LblEndereco.Enabled = False
             TxtNumero.Enabled = False
             TxtComplemento.Enabled = False
-            TxtBairro.Enabled = False
-            TxtCidade.Enabled = False
-            TxtEstado.Enabled = False
-            TxtPais.Enabled = False
+            LblBairro.Enabled = False
+            LblCidade.Enabled = False
+            LblEstado.Enabled = False
 
-            TxtEndereco.Text = ""
+            LblEndereco.Text = ""
             TxtNumero.Text = ""
             TxtComplemento.Text = ""
-            TxtBairro.Text = ""
-            TxtCidade.Text = ""
-            TxtEstado.Text = ""
-            TxtPais.Text = ""
+            LblBairro.Text = ""
+            LblCidade.Text = ""
+            LblEstado.Text = ""
 
         End If
 
@@ -320,12 +318,30 @@ Public Class FrmNovoColaboradorCliente
     Private Sub TxtCPF_TextChanged(sender As Object, e As EventArgs) Handles TxtCPF.TextChanged
 
         If TxtCPF.Enabled = True Then
+            Dim LqTrabalhista As New LqTrabalhistaDataContext
+            LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
 
             If RdbFisica.Checked = True Then
 
                 If TxtCPF.Text.Length = 11 Then
-                    TxtIE.Enabled = True
-                    TxtIE.Focus()
+                    If Leitura = True Then
+                        'busca se chave é valida
+                        Dim BuscaDOC = From doc In LqTrabalhista.ColaboradoresCliente
+                                       Where doc.DocColaborador Like TxtCPF.Text And doc.IdCliente = IdCliente
+                                       Select doc.NomeColaborador
+
+                        If BuscaDOC.Count = 0 Then
+                            TxtIE.Enabled = True
+                            TxtIE.Focus()
+                        Else
+                            MsgBox("Este documento já esta cadastrado no banco de dados", MsgBoxStyle.OkOnly)
+                            TxtCPF.Text = ""
+                        End If
+                    Else
+                        TxtIE.Enabled = True
+                        TxtIE.Focus()
+                    End If
+
                 ElseIf TxtCPF.Text.Length < 11 Then
                     TxtIE.Text = ""
                     TxtIE.Enabled = False
@@ -334,26 +350,40 @@ Public Class FrmNovoColaboradorCliente
             Else
 
                 If TxtCPF.Text.Length = 14 Then
+                    If Leitura = True Then
+                        'busca se chave é valida
+                        Dim BuscaDOC = From doc In LqTrabalhista.ColaboradoresCliente
+                                       Where doc.DocColaborador Like TxtCPF.Text And doc.IdCliente = IdCliente
+                                       Select doc.NomeColaborador
 
-                    TxtIE.Enabled = True
-                    Ckisento.Checked = False
-                    Ckisento.Enabled = True
-                    Ckisento.Visible = True
-                    TxtIE.Focus()
+                        If BuscaDOC.Count = 0 Then
+                            TxtIE.Enabled = True
+                            Ckisento.Checked = False
+                            Ckisento.Enabled = True
+                            Ckisento.Visible = True
+                            TxtIE.Focus()
+                        Else
+                            MsgBox("Este documento já esta cadastrado no banco de dados", MsgBoxStyle.OkOnly)
+                            TxtCPF.Text = ""
+                        End If
+                    Else
+                        TxtIE.Enabled = True
+                        TxtIE.Focus()
+                    End If
 
                 ElseIf TxtCPF.Text.Length < 12 Then
 
-                    TxtIE.Text = ""
-                    TxtIE.Enabled = False
-                    Ckisento.Checked = False
-                    Ckisento.Checked = False
-                    Ckisento.Visible = False
+                        TxtIE.Text = ""
+                        TxtIE.Enabled = False
+                        Ckisento.Checked = False
+                        Ckisento.Checked = False
+                        Ckisento.Visible = False
 
-                    TxtCPF.Mask = "000,000,000-000"
+                        TxtCPF.Mask = "000,000,000-000"
 
-                ElseIf TxtCPF.Text.Length > 11 Then
+                    ElseIf TxtCPF.Text.Length > 11 Then
 
-                    TxtCPF.Mask = "00,000,000/0000-00"
+                        TxtCPF.Mask = "00,000,000/0000-00"
 
                 End If
 
@@ -472,7 +502,17 @@ Public Class FrmNovoColaboradorCliente
 
             If IdColaboradorCliente = 0 Then
 
-                LqTrabalhista.InsereColaboradorCliente(IdCliente, TxtNomeCompleto.Text, TxtApelido.Text, Persona, TxtCPF.Text, TxtIE.Text, TxtCep.Text, TxtNumero.Text, TxtComplemento.Text, TxtTelefone.Text, TxtCelular.Text, TxtEmail.Text, LstIdFuncao.Items(CmbFuncao.SelectedIndex).ToString, CmbFuncao.Text, TxtRemuneracao.Text, TxttAdmissao.Value, "1111-11-11", CmbGrupo.Text, CmbCategoriaTrabalhador.Text)
+                Dim TipoDocN As Integer = 0
+
+                If RdbNIT.Checked = True Then
+                    TipoDocN = 1
+                ElseIf RdbPIS.Checked = True Then
+                    TipoDocN = 2
+                ElseIf RdbPIS.Checked = True Then
+                    TipoDocN = 3
+                End If
+
+                LqTrabalhista.InsereColaboradorCliente(IdCliente, TxtNomeCompleto.Text, TxtApelido.Text, Persona, TxtCPF.Text, TxtIE.Text, TxtCep.Text, TxtNumero.Text, TxtComplemento.Text, TxtTelefone.Text, TxtCelular.Text, TxtEmail.Text, LstIdFuncao.Items(CmbFuncao.SelectedIndex).ToString, CmbFuncao.Text, TxtRemuneracao.Text, TxttAdmissao.Value, "1111-11-11", CmbGrupo.Text, CmbCategoriaTrabalhador.Text, TipoDocN, TxtNDocEsocial.Text)
                 IdColaboradorCliente = LqTrabalhista.ESocial.ToList.Last.IdColaborador
                 'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2190", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
                 'EmiteDocumento("S-2190")
@@ -481,13 +521,23 @@ Public Class FrmNovoColaboradorCliente
 
             Else
 
+                Dim TipoDocN As Integer = 0
+
+                If RdbNIT.Checked = True Then
+                    TipoDocN = 1
+                ElseIf RdbPIS.Checked = True Then
+                    TipoDocN = 2
+                ElseIf RdbPIS.Checked = True Then
+                    TipoDocN = 3
+                End If
+
                 Dim DtDesligamento As Date = "1111-11-11"
 
                 If CkDsligamento.Checked = True Then
                     DtDesligamento = TxtDemissao.Value
                 End If
 
-                LqTrabalhista.EditaColaboradorCliente(IdColaboradorCliente, TxtNomeCompleto.Text, TxtApelido.Text, Persona, TxtCPF.Text, TxtIE.Text, TxtCep.Text, TxtNumero.Text, TxtComplemento.Text, TxtTelefone.Text, TxtCelular.Text, TxtEmail.Text, LstIdFuncao.Items(CmbFuncao.SelectedIndex).ToString, CmbFuncao.Text, TxtRemuneracao.Text, TxttAdmissao.Value, DtDesligamento, CmbGrupo.Text, CmbCategoriaTrabalhador.Text)
+                LqTrabalhista.EditaColaboradorCliente(IdColaboradorCliente, TxtNomeCompleto.Text, TxtApelido.Text, Persona, TxtCPF.Text, TxtIE.Text, TxtCep.Text, TxtNumero.Text, TxtComplemento.Text, TxtTelefone.Text, TxtCelular.Text, TxtEmail.Text, LstIdFuncao.Items(CmbFuncao.SelectedIndex).ToString, CmbFuncao.Text, TxtRemuneracao.Text, TxttAdmissao.Value, DtDesligamento, CmbGrupo.Text, CmbCategoriaTrabalhador.Text, TipoDocN, TxtNDocEsocial.Text)
 
                 'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2205", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
                 'EmiteDocumento("S-2205")
@@ -513,6 +563,10 @@ Public Class FrmNovoColaboradorCliente
 
             End If
 
+            FrmClientes.CarregaInicio()
+
+            Me.Close()
+
         Else
             'transmite alteraçoes
 
@@ -531,7 +585,17 @@ Public Class FrmNovoColaboradorCliente
 
             If IdColaboradorCliente = 0 Then
 
-                LqTrabalhista.InsereColaboradorCliente(IdCliente, TxtNomeCompleto.Text, TxtApelido.Text, Persona, TxtCPF.Text, TxtIE.Text, TxtCep.Text, TxtNumero.Text, TxtComplemento.Text, TxtTelefone.Text, TxtCelular.Text, TxtEmail.Text, LstIdFuncao.Items(CmbFuncao.SelectedIndex).ToString, CmbFuncao.Text, TxtRemuneracao.Text, TxttAdmissao.Value, "1111-11-11", CmbGrupo.Text, CmbCategoriaTrabalhador.Text)
+                Dim TipoDocN As Integer = 0
+
+                If RdbNIT.Checked = True Then
+                    TipoDocN = 1
+                ElseIf RdbPIS.Checked = True Then
+                    TipoDocN = 2
+                ElseIf RdbPIS.Checked = True Then
+                    TipoDocN = 3
+                End If
+
+                LqTrabalhista.InsereColaboradorCliente(IdCliente, TxtNomeCompleto.Text, TxtApelido.Text, Persona, TxtCPF.Text, TxtIE.Text, TxtCep.Text, TxtNumero.Text, TxtComplemento.Text, TxtTelefone.Text, TxtCelular.Text, TxtEmail.Text, LstIdFuncao.Items(CmbFuncao.SelectedIndex).ToString, CmbFuncao.Text, TxtRemuneracao.Text, TxttAdmissao.Value, "1111-11-11", CmbGrupo.Text, CmbCategoriaTrabalhador.Text, TipoDocN, TxtNDocEsocial.Text)
                 IdColaboradorCliente = LqTrabalhista.ColaboradoresCliente.ToList.Last.IdColaboradorCliente
                 'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2190", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
                 'EmiteDocumento("S-2190")
@@ -540,13 +604,23 @@ Public Class FrmNovoColaboradorCliente
 
             Else
 
+                Dim TipoDocN As Integer = 0
+
+                If RdbNIT.Checked = True Then
+                    TipoDocN = 1
+                ElseIf RdbPIS.Checked = True Then
+                    TipoDocN = 2
+                ElseIf RdbPIS.Checked = True Then
+                    TipoDocN = 3
+                End If
+
                 Dim DtDesligamento As Date = "1111-11-11"
 
                 If CkDsligamento.Checked = True Then
                     DtDesligamento = TxtDemissao.Value
                 End If
 
-                LqTrabalhista.EditaColaboradorCliente(IdColaboradorCliente, TxtNomeCompleto.Text, TxtApelido.Text, Persona, TxtCPF.Text, TxtIE.Text, TxtCep.Text, TxtNumero.Text, TxtComplemento.Text, TxtTelefone.Text, TxtCelular.Text, TxtEmail.Text, LstIdFuncao.Items(CmbFuncao.SelectedIndex).ToString, CmbFuncao.Text, TxtRemuneracao.Text, TxttAdmissao.Value, DtDesligamento, CmbGrupo.Text, CmbCategoriaTrabalhador.Text)
+                LqTrabalhista.EditaColaboradorCliente(IdColaboradorCliente, TxtNomeCompleto.Text, TxtApelido.Text, Persona, TxtCPF.Text, TxtIE.Text, TxtCep.Text, TxtNumero.Text, TxtComplemento.Text, TxtTelefone.Text, TxtCelular.Text, TxtEmail.Text, LstIdFuncao.Items(CmbFuncao.SelectedIndex).ToString, CmbFuncao.Text, TxtRemuneracao.Text, TxttAdmissao.Value, DtDesligamento, CmbGrupo.Text, CmbCategoriaTrabalhador.Text, TipoDocN, TxtNDocEsocial.Text)
 
                 'LqTrabalhista.InsereESocial(IdCliente, IdColaboradorCliente, "S-2205", Today.Date, Now.TimeOfDay, "1111-11-11", Today.TimeOfDay)
                 'EmiteDocumento("S-2205")
@@ -571,7 +645,7 @@ Public Class FrmNovoColaboradorCliente
 
             End If
 
-            FrmColaboradoresClientes.CarregaInicio()
+            FrmClientes.CarregaInicio()
 
             Me.Close()
 
@@ -899,11 +973,17 @@ Public Class FrmNovoColaboradorCliente
                 CkDsligamento.Enabled = True
             End If
 
+            TxtNumeroMatricula.Enabled = True
+            TxtNumeroMatricula.Text = ""
+
         Else
 
             TxttAdmissao.Enabled = False
 
             CkVinculo.Enabled = False
+
+            TxtNumeroMatricula.Enabled = False
+            TxtNumeroMatricula.Text = ""
 
         End If
 
@@ -922,13 +1002,14 @@ Public Class FrmNovoColaboradorCliente
     End Sub
 
     Dim Remun As Decimal = 0
+    Dim Leitura As Boolean = False
 
     Private Sub FrmNovoColaboradorCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        'busca funções
-
         Dim LqTrabalhista As New LqTrabalhistaDataContext
         LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
+
+        'busca funções
 
         Dim BuscaFuncao = From func In LqTrabalhista.FuncoesClientes
                           Where func.IdCliente = IdCliente
@@ -964,7 +1045,80 @@ Public Class FrmNovoColaboradorCliente
 
         Next
 
-        TxtNomeCompleto.Focus()
+        If IdColaboradorCliente > 0 Then
+
+            Dim BuscaColaboradorCliente = From cl In LqTrabalhista.ColaboradoresCliente
+                                          Where cl.IdColaboradorCliente = IdColaboradorCliente
+                                          Select cl.Email, cl.DocColaborador, cl.NomeColaborador, cl.NomeFantasia, cl.IdFuncao, cl.DescricaoFuncao, cl.Cmpl, cl.CEP, cl.Celular, cl.CatTrab, cl.DataAdmissao, cl.DataDesligamento, cl.GrupoTrab, cl.Num, cl.NumDocCatTrab, cl.Personalidade, cl.Remuneracao, cl.RG_IE, cl.Telefone, cl.TipoDocCatTrab
+
+            TxtNomeCompleto.Text = BuscaColaboradorCliente.First.NomeColaborador
+            TxtApelido.Text = BuscaColaboradorCliente.First.NomeFantasia
+            If BuscaColaboradorCliente.First.Personalidade = False Then
+                RdbJuridica.Checked = True
+                TxtCPF.Text = BuscaColaboradorCliente.First.DocColaborador
+            Else
+                RdbFisica.Checked = True
+                TxtCPF.Text = BuscaColaboradorCliente.First.DocColaborador
+            End If
+            If BuscaColaboradorCliente.First.RG_IE = "Isento" Then
+                Ckisento.Checked = True
+            End If
+            Leitura = True
+            TxtCPF.Enabled = False
+
+            TxtIE.Text = BuscaColaboradorCliente.First.RG_IE
+            TxtCep.Text = BuscaColaboradorCliente.First.CEP
+            TxtIE.Enabled = False
+
+            TxtNumero.Text = BuscaColaboradorCliente.First.Num
+            TxtComplemento.Text = BuscaColaboradorCliente.First.Cmpl
+
+            '
+
+            TxtTelefone.Text = BuscaColaboradorCliente.First.Telefone
+            TxtCelular.Text = BuscaColaboradorCliente.First.Celular
+            TxtEmail.Text = BuscaColaboradorCliente.First.Email
+
+            '
+
+            TxtRemuneracao.Text = FormatCurrency(BuscaColaboradorCliente.First.Remuneracao, NumDigitsAfterDecimal:=2)
+            CmbFuncao.SelectedItem = BuscaColaboradorCliente.First.DescricaoFuncao
+            TxttAdmissao.Value = BuscaColaboradorCliente.First.DataAdmissao
+
+            Dim DtTermino As Date = "1111-11-11"
+            If BuscaColaboradorCliente.First.DataDesligamento <> DtTermino Then
+                CkDsligamento.Checked = True
+                TxtDemissao.Value = BuscaColaboradorCliente.First.DataDesligamento
+            End If
+
+            '
+
+            If BuscaColaboradorCliente.First.GrupoTrab <> "" Then
+                CkVinculo.Checked = True
+                CmbGrupo.SelectedItem = BuscaColaboradorCliente.First.GrupoTrab
+                CmbCategoriaTrabalhador.SelectedItem = BuscaColaboradorCliente.First.CatTrab
+
+                If BuscaColaboradorCliente.First.TipoDocCatTrab = 1 Then
+                    RdbNIT.Checked = True
+                ElseIf BuscaColaboradorCliente.First.TipoDocCatTrab = 2 Then
+                    RdbPIS.Checked = True
+                ElseIf BuscaColaboradorCliente.First.TipoDocCatTrab = 3 Then
+                    RdbPASEP.Checked = True
+                End If
+
+                TxtNDocEsocial.Text = BuscaColaboradorCliente.First.NumDocCatTrab
+
+            Else
+                TxtNumeroMatricula.Text = BuscaColaboradorCliente.First.CatTrab
+            End If
+
+        Else
+
+            Leitura = True
+
+        End If
+
+            TxtNomeCompleto.Focus()
 
     End Sub
 
@@ -1097,6 +1251,59 @@ Public Class FrmNovoColaboradorCliente
         If CmbGrupo.Text = "" Then
             CmbCategoriaTrabalhador.Enabled = False
             CmbCategoriaTrabalhador.Text = ""
+        End If
+
+    End Sub
+
+    Private Sub TxtNumeroMatricula_TextChanged(sender As Object, e As EventArgs) Handles TxtNumeroMatricula.TextChanged
+
+        If TxtNumeroMatricula.Text <> "" Then
+
+            BtnSalvar.Enabled = True
+
+        Else
+
+            BtnSalvar.Enabled = False
+
+        End If
+
+    End Sub
+
+    Private Sub CmbCategoriaTrabalhador_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbCategoriaTrabalhador.SelectedIndexChanged
+
+        If CmbCategoriaTrabalhador.Items.Contains(CmbCategoriaTrabalhador.Text) Then
+
+            RdbNIT.Enabled = True
+            RdbPASEP.Enabled = True
+            RdbPIS.Enabled = True
+
+        Else
+
+            RdbNIT.Enabled = False
+            RdbPASEP.Enabled = False
+            RdbPIS.Enabled = False
+
+            RdbNIT.Checked = False
+            RdbPASEP.Checked = False
+            RdbPIS.Checked = False
+
+            TxtNDocEsocial.Enabled = False
+            TxtNDocEsocial.Text = ""
+
+        End If
+
+    End Sub
+
+    Private Sub TxtNDocEsocial_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles TxtNDocEsocial.MaskInputRejected
+
+    End Sub
+
+    Private Sub TxtNDocEsocial_TextChanged(sender As Object, e As EventArgs) Handles TxtNDocEsocial.TextChanged
+
+        If TxtNDocEsocial.Text.Length = TxtNDocEsocial.Mask.Replace(",", "").Replace("/", "").Replace("-", "").Length Then
+            BtnSalvar.Enabled = True
+        Else
+            BtnSalvar.Enabled = True
         End If
 
     End Sub

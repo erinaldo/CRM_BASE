@@ -33,7 +33,7 @@ Namespace SignVerify
             End Try
         End Sub
 
-        Public Shared Sub SignXmlFile(ByVal FileName As String, ByVal SignedFileName As String, ByVal KeyX509 As X509Certificate2, ByVal ID As String)
+        Public Shared Sub SignXmlFile(ByVal FileName As String, ByVal SignedFileName As String, ByVal KeyX509 As X509Certificate2, ByVal ID As String, ByVal QuemAciona As String)
             Dim doc As XmlDocument = New XmlDocument()
             doc.PreserveWhitespace = False
             doc.Load(New XmlTextReader(FileName))
@@ -70,8 +70,15 @@ Namespace SignVerify
             xmlSignature.AppendChild(xmlSignatureValue)
             xmlSignature.AppendChild(doc.ImportNode(xmlKeyInfo, True))
 
-            Dim evento = doc.GetElementsByTagName("eSocial", "http://www.esocial.gov.br/schema/evt/evtCAT/v_S_01_00_00")
-            evento(0).AppendChild(xmlSignature)
+            'verifica quem acionou o evento
+
+            If QuemAciona = "S2210" Then
+                Dim evento = doc.GetElementsByTagName("eSocial", "http://www.esocial.gov.br/schema/evt/evtCAT/v_S_01_00_00")
+                evento(0).AppendChild(xmlSignature)
+            ElseIf QuemAciona = "S2220" Then
+                Dim evento = doc.GetElementsByTagName("eSocial", "http://www.esocial.gov.br/schema/evt/evtMonit/v_S_01_00_00")
+                evento(0).AppendChild(xmlSignature)
+            End If
 
             doc.RemoveChild(doc.FirstChild)
 

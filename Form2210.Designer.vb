@@ -31,8 +31,6 @@ Partial Class Form2210
         Me.LblIdmarca = New System.Windows.Forms.Label()
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.Panel12 = New System.Windows.Forms.Panel()
-        Me.BttFechar = New System.Windows.Forms.Button()
-        Me.BttTransmitirCAT = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -46,17 +44,11 @@ Partial Class Form2210
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.ImgValLateralidade = New System.Windows.Forms.PictureBox()
-        Me.ImgValParteCorpo = New System.Windows.Forms.PictureBox()
-        Me.ImgValSitGer = New System.Windows.Forms.PictureBox()
         Me.LblDescricaoSitGera = New System.Windows.Forms.Label()
         Me.LblDescricaoParteCorpo = New System.Windows.Forms.Label()
         Me.TxtCodParteCorpo = New System.Windows.Forms.TextBox()
         Me.Label58 = New System.Windows.Forms.Label()
         Me.TxtCodSitGeradora = New System.Windows.Forms.TextBox()
-        Me.ImgValidSelTipo = New System.Windows.Forms.PictureBox()
         Me.TxtInicioExp = New System.Windows.Forms.MaskedTextBox()
         Me.CmbLateralidade = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -67,7 +59,6 @@ Partial Class Form2210
         Me.TxtObservacao = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.ImgValResponsável = New System.Windows.Forms.PictureBox()
         Me.RdbFiscalizador = New System.Windows.Forms.RadioButton()
         Me.RdbOrdemJud = New System.Windows.Forms.RadioButton()
         Me.RdbEmpregador = New System.Windows.Forms.RadioButton()
@@ -102,7 +93,6 @@ Partial Class Form2210
         Me.Label45 = New System.Windows.Forms.Label()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.ImgTipoInscr = New System.Windows.Forms.PictureBox()
         Me.RdbCNO = New System.Windows.Forms.RadioButton()
         Me.RdbCAEPF = New System.Windows.Forms.RadioButton()
         Me.RdbCNPJ = New System.Windows.Forms.RadioButton()
@@ -128,15 +118,6 @@ Partial Class Form2210
         Me.Label20 = New System.Windows.Forms.Label()
         Me.TxtCep = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.ImgValNDocumento = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ImgValNumEndereco = New System.Windows.Forms.PictureBox()
-        Me.ImgValCepLocal = New System.Windows.Forms.PictureBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.ImgValAgenteCausador = New System.Windows.Forms.PictureBox()
-        Me.ImgValDescricaoLocal = New System.Windows.Forms.PictureBox()
-        Me.ImgValTpLocal = New System.Windows.Forms.PictureBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.LblDescricaoLesao = New System.Windows.Forms.Label()
         Me.TxtCodLesao = New System.Windows.Forms.TextBox()
@@ -158,16 +139,8 @@ Partial Class Form2210
         Me.Label36 = New System.Windows.Forms.Label()
         Me.Label37 = New System.Windows.Forms.Label()
         Me.CkAtestadoMedico = New System.Windows.Forms.CheckBox()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.ImgValLesao = New System.Windows.Forms.PictureBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.TxtNumDocumento = New System.Windows.Forms.MaskedTextBox()
-        Me.ImgValCid = New System.Windows.Forms.PictureBox()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.ImgValEstadoEmitente = New System.Windows.Forms.PictureBox()
-        Me.ImgvalNumDocMedico = New System.Windows.Forms.PictureBox()
-        Me.ImgValDocMedico = New System.Windows.Forms.PictureBox()
-        Me.ImgValNomeMEdico = New System.Windows.Forms.PictureBox()
         Me.CmbEstadoEmitente = New System.Windows.Forms.ComboBox()
         Me.Label55 = New System.Windows.Forms.Label()
         Me.Label54 = New System.Windows.Forms.Label()
@@ -188,19 +161,52 @@ Partial Class Form2210
         Me.Label57 = New System.Windows.Forms.Label()
         Me.ImgValColab = New System.Windows.Forms.PictureBox()
         Me.ImgValCliente = New System.Windows.Forms.PictureBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ImgValLateralidade = New System.Windows.Forms.PictureBox()
+        Me.ImgValParteCorpo = New System.Windows.Forms.PictureBox()
+        Me.ImgValSitGer = New System.Windows.Forms.PictureBox()
+        Me.ImgValidSelTipo = New System.Windows.Forms.PictureBox()
+        Me.ImgValResponsável = New System.Windows.Forms.PictureBox()
+        Me.ImgTipoInscr = New System.Windows.Forms.PictureBox()
+        Me.ImgValNDocumento = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ImgValNumEndereco = New System.Windows.Forms.PictureBox()
+        Me.ImgValCepLocal = New System.Windows.Forms.PictureBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.ImgValAgenteCausador = New System.Windows.Forms.PictureBox()
+        Me.ImgValDescricaoLocal = New System.Windows.Forms.PictureBox()
+        Me.ImgValTpLocal = New System.Windows.Forms.PictureBox()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.ImgValLesao = New System.Windows.Forms.PictureBox()
+        Me.ImgValCid = New System.Windows.Forms.PictureBox()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.ImgValEstadoEmitente = New System.Windows.Forms.PictureBox()
+        Me.ImgvalNumDocMedico = New System.Windows.Forms.PictureBox()
+        Me.ImgValDocMedico = New System.Windows.Forms.PictureBox()
+        Me.ImgValNomeMEdico = New System.Windows.Forms.PictureBox()
+        Me.BttFechar = New System.Windows.Forms.Button()
+        Me.BttTransmitirCAT = New System.Windows.Forms.Button()
         Me.PnnInferior.SuspendLayout()
         Me.Panel12.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.Panel6.SuspendLayout()
+        Me.Panel5.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        Me.Panel7.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
+        CType(Me.NmDurTrat, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage4.SuspendLayout()
+        Me.Panel8.SuspendLayout()
+        CType(Me.ImgValColab, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImgValCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImgValLateralidade, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImgValParteCorpo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImgValSitGer, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImgValidSelTipo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel6.SuspendLayout()
         CType(Me.ImgValResponsável, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel5.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
-        Me.Panel7.SuspendLayout()
         CType(Me.ImgTipoInscr, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImgValNDocumento, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -210,18 +216,12 @@ Partial Class Form2210
         CType(Me.ImgValAgenteCausador, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImgValDescricaoLocal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImgValTpLocal, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage3.SuspendLayout()
-        CType(Me.NmDurTrat, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImgValLesao, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage4.SuspendLayout()
         CType(Me.ImgValCid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImgValEstadoEmitente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImgvalNumDocMedico, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImgValDocMedico, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImgValNomeMEdico, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel8.SuspendLayout()
-        CType(Me.ImgValColab, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ImgValCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -307,38 +307,6 @@ Partial Class Form2210
         Me.Panel12.Name = "Panel12"
         Me.Panel12.Size = New System.Drawing.Size(50, 41)
         Me.Panel12.TabIndex = 28
-        '
-        'BttFechar
-        '
-        Me.BttFechar.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.Delete_80_icon_icons_com_57340
-        Me.BttFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BttFechar.FlatAppearance.BorderSize = 0
-        Me.BttFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BttFechar.Location = New System.Drawing.Point(16, 9)
-        Me.BttFechar.Name = "BttFechar"
-        Me.BttFechar.Size = New System.Drawing.Size(18, 22)
-        Me.BttFechar.TabIndex = 28
-        Me.BttFechar.UseVisualStyleBackColor = True
-        '
-        'BttTransmitirCAT
-        '
-        Me.BttTransmitirCAT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BttTransmitirCAT.Dock = System.Windows.Forms.DockStyle.Left
-        Me.BttTransmitirCAT.Enabled = False
-        Me.BttTransmitirCAT.FlatAppearance.BorderColor = System.Drawing.Color.DimGray
-        Me.BttTransmitirCAT.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BttTransmitirCAT.Font = New System.Drawing.Font("Calibri", 8.25!)
-        Me.BttTransmitirCAT.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.BttTransmitirCAT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BttTransmitirCAT.ImageKey = "PngItem_2399176.png"
-        Me.BttTransmitirCAT.ImageList = Me.ImageList1
-        Me.BttTransmitirCAT.Location = New System.Drawing.Point(0, 0)
-        Me.BttTransmitirCAT.Name = "BttTransmitirCAT"
-        Me.BttTransmitirCAT.Size = New System.Drawing.Size(136, 41)
-        Me.BttTransmitirCAT.TabIndex = 51
-        Me.BttTransmitirCAT.Text = "Transmitir CAT"
-        Me.BttTransmitirCAT.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BttTransmitirCAT.UseVisualStyleBackColor = True
         '
         'ImageList1
         '
@@ -511,62 +479,6 @@ Partial Class Form2210
         Me.TabPage1.Text = "Dados da CAT"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'Button2
-        '
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.ImageIndex = 2
-        Me.Button2.ImageList = Me.ImageList1
-        Me.Button2.Location = New System.Drawing.Point(305, 329)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(18, 21)
-        Me.Button2.TabIndex = 272
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.ImageIndex = 2
-        Me.Button1.ImageList = Me.ImageList1
-        Me.Button1.Location = New System.Drawing.Point(305, 264)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(18, 21)
-        Me.Button1.TabIndex = 271
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'ImgValLateralidade
-        '
-        Me.ImgValLateralidade.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValLateralidade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValLateralidade.Location = New System.Drawing.Point(541, 398)
-        Me.ImgValLateralidade.Name = "ImgValLateralidade"
-        Me.ImgValLateralidade.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValLateralidade.TabIndex = 270
-        Me.ImgValLateralidade.TabStop = False
-        '
-        'ImgValParteCorpo
-        '
-        Me.ImgValParteCorpo.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValParteCorpo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValParteCorpo.Location = New System.Drawing.Point(339, 333)
-        Me.ImgValParteCorpo.Name = "ImgValParteCorpo"
-        Me.ImgValParteCorpo.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValParteCorpo.TabIndex = 269
-        Me.ImgValParteCorpo.TabStop = False
-        '
-        'ImgValSitGer
-        '
-        Me.ImgValSitGer.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValSitGer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValSitGer.Location = New System.Drawing.Point(339, 268)
-        Me.ImgValSitGer.Name = "ImgValSitGer"
-        Me.ImgValSitGer.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValSitGer.TabIndex = 268
-        Me.ImgValSitGer.TabStop = False
-        '
         'LblDescricaoSitGera
         '
         Me.LblDescricaoSitGera.ForeColor = System.Drawing.Color.DarkOrange
@@ -612,16 +524,6 @@ Partial Class Form2210
         Me.TxtCodSitGeradora.Name = "TxtCodSitGeradora"
         Me.TxtCodSitGeradora.Size = New System.Drawing.Size(118, 21)
         Me.TxtCodSitGeradora.TabIndex = 263
-        '
-        'ImgValidSelTipo
-        '
-        Me.ImgValidSelTipo.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValidSelTipo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValidSelTipo.Location = New System.Drawing.Point(431, 56)
-        Me.ImgValidSelTipo.Name = "ImgValidSelTipo"
-        Me.ImgValidSelTipo.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValidSelTipo.TabIndex = 262
-        Me.ImgValidSelTipo.TabStop = False
         '
         'TxtInicioExp
         '
@@ -742,16 +644,6 @@ Partial Class Form2210
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(529, 69)
         Me.Panel6.TabIndex = 255
-        '
-        'ImgValResponsável
-        '
-        Me.ImgValResponsável.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValResponsável.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValResponsável.Location = New System.Drawing.Point(477, 42)
-        Me.ImgValResponsável.Name = "ImgValResponsável"
-        Me.ImgValResponsável.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValResponsável.TabIndex = 271
-        Me.ImgValResponsável.TabStop = False
         '
         'RdbFiscalizador
         '
@@ -1166,16 +1058,6 @@ Partial Class Form2210
         Me.Panel7.Size = New System.Drawing.Size(480, 42)
         Me.Panel7.TabIndex = 256
         '
-        'ImgTipoInscr
-        '
-        Me.ImgTipoInscr.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgTipoInscr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgTipoInscr.Location = New System.Drawing.Point(411, 15)
-        Me.ImgTipoInscr.Name = "ImgTipoInscr"
-        Me.ImgTipoInscr.Size = New System.Drawing.Size(15, 15)
-        Me.ImgTipoInscr.TabIndex = 288
-        Me.ImgTipoInscr.TabStop = False
-        '
         'RdbCNO
         '
         Me.RdbCNO.AutoSize = True
@@ -1452,99 +1334,6 @@ Partial Class Form2210
         Me.Label18.TabIndex = 173
         Me.Label18.Text = "CEP local do acidente"
         '
-        'ImgValNDocumento
-        '
-        Me.ImgValNDocumento.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValNDocumento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValNDocumento.Location = New System.Drawing.Point(882, 500)
-        Me.ImgValNDocumento.Name = "ImgValNDocumento"
-        Me.ImgValNDocumento.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValNDocumento.TabIndex = 287
-        Me.ImgValNDocumento.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox2.Location = New System.Drawing.Point(607, 427)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(15, 15)
-        Me.PictureBox2.TabIndex = 286
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(882, 427)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(15, 15)
-        Me.PictureBox1.TabIndex = 285
-        Me.PictureBox1.TabStop = False
-        '
-        'ImgValNumEndereco
-        '
-        Me.ImgValNumEndereco.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValNumEndereco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValNumEndereco.Location = New System.Drawing.Point(271, 353)
-        Me.ImgValNumEndereco.Name = "ImgValNumEndereco"
-        Me.ImgValNumEndereco.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValNumEndereco.TabIndex = 283
-        Me.ImgValNumEndereco.TabStop = False
-        '
-        'ImgValCepLocal
-        '
-        Me.ImgValCepLocal.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValCepLocal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValCepLocal.Location = New System.Drawing.Point(440, 230)
-        Me.ImgValCepLocal.Name = "ImgValCepLocal"
-        Me.ImgValCepLocal.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValCepLocal.TabIndex = 276
-        Me.ImgValCepLocal.TabStop = False
-        '
-        'Button3
-        '
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.ImageIndex = 2
-        Me.Button3.ImageList = Me.ImageList1
-        Me.Button3.Location = New System.Drawing.Point(406, 83)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(18, 21)
-        Me.Button3.TabIndex = 275
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'ImgValAgenteCausador
-        '
-        Me.ImgValAgenteCausador.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValAgenteCausador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValAgenteCausador.Location = New System.Drawing.Point(440, 87)
-        Me.ImgValAgenteCausador.Name = "ImgValAgenteCausador"
-        Me.ImgValAgenteCausador.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValAgenteCausador.TabIndex = 274
-        Me.ImgValAgenteCausador.TabStop = False
-        '
-        'ImgValDescricaoLocal
-        '
-        Me.ImgValDescricaoLocal.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValDescricaoLocal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValDescricaoLocal.Location = New System.Drawing.Point(882, 53)
-        Me.ImgValDescricaoLocal.Name = "ImgValDescricaoLocal"
-        Me.ImgValDescricaoLocal.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValDescricaoLocal.TabIndex = 263
-        Me.ImgValDescricaoLocal.TabStop = False
-        '
-        'ImgValTpLocal
-        '
-        Me.ImgValTpLocal.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValTpLocal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValTpLocal.Location = New System.Drawing.Point(607, 53)
-        Me.ImgValTpLocal.Name = "ImgValTpLocal"
-        Me.ImgValTpLocal.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValTpLocal.TabIndex = 262
-        Me.ImgValTpLocal.TabStop = False
-        '
         'TabPage3
         '
         Me.TabPage3.Controls.Add(Me.LblDescricaoLesao)
@@ -1785,38 +1574,9 @@ Partial Class Form2210
         Me.CkAtestadoMedico.Text = "Atestado médico"
         Me.CkAtestadoMedico.UseVisualStyleBackColor = True
         '
-        'Button5
-        '
-        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.ImageIndex = 2
-        Me.Button5.ImageList = Me.ImageList1
-        Me.Button5.Location = New System.Drawing.Point(375, 271)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(18, 21)
-        Me.Button5.TabIndex = 288
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'ImgValLesao
-        '
-        Me.ImgValLesao.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValLesao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValLesao.Location = New System.Drawing.Point(409, 275)
-        Me.ImgValLesao.Name = "ImgValLesao"
-        Me.ImgValLesao.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValLesao.TabIndex = 287
-        Me.ImgValLesao.TabStop = False
-        '
         'TabPage4
         '
         Me.TabPage4.Controls.Add(Me.TxtNumDocumento)
-        Me.TabPage4.Controls.Add(Me.ImgValCid)
-        Me.TabPage4.Controls.Add(Me.Button6)
-        Me.TabPage4.Controls.Add(Me.ImgValEstadoEmitente)
-        Me.TabPage4.Controls.Add(Me.ImgvalNumDocMedico)
-        Me.TabPage4.Controls.Add(Me.ImgValDocMedico)
-        Me.TabPage4.Controls.Add(Me.ImgValNomeMEdico)
         Me.TabPage4.Controls.Add(Me.CmbEstadoEmitente)
         Me.TabPage4.Controls.Add(Me.Label55)
         Me.TabPage4.Controls.Add(Me.Label54)
@@ -1828,6 +1588,12 @@ Partial Class Form2210
         Me.TabPage4.Controls.Add(Me.Label47)
         Me.TabPage4.Controls.Add(Me.TxtCodCid)
         Me.TabPage4.Controls.Add(Me.Label46)
+        Me.TabPage4.Controls.Add(Me.ImgValCid)
+        Me.TabPage4.Controls.Add(Me.Button6)
+        Me.TabPage4.Controls.Add(Me.ImgValEstadoEmitente)
+        Me.TabPage4.Controls.Add(Me.ImgvalNumDocMedico)
+        Me.TabPage4.Controls.Add(Me.ImgValDocMedico)
+        Me.TabPage4.Controls.Add(Me.ImgValNomeMEdico)
         Me.TabPage4.Location = New System.Drawing.Point(4, 29)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
@@ -1842,75 +1608,12 @@ Partial Class Form2210
         Me.TxtNumDocumento.Enabled = False
         Me.TxtNumDocumento.Font = New System.Drawing.Font("Calibri", 10.0!)
         Me.TxtNumDocumento.Location = New System.Drawing.Point(168, 272)
-        Me.TxtNumDocumento.Mask = "000,000,000-00"
+        Me.TxtNumDocumento.Mask = "00000000-0"
         Me.TxtNumDocumento.Name = "TxtNumDocumento"
         Me.TxtNumDocumento.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
         Me.TxtNumDocumento.Size = New System.Drawing.Size(178, 21)
         Me.TxtNumDocumento.TabIndex = 291
         Me.TxtNumDocumento.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
-        '
-        'ImgValCid
-        '
-        Me.ImgValCid.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValCid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValCid.Location = New System.Drawing.Point(352, 51)
-        Me.ImgValCid.Name = "ImgValCid"
-        Me.ImgValCid.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValCid.TabIndex = 290
-        Me.ImgValCid.TabStop = False
-        '
-        'Button6
-        '
-        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button6.FlatAppearance.BorderSize = 0
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.ImageIndex = 2
-        Me.Button6.ImageList = Me.ImageList1
-        Me.Button6.Location = New System.Drawing.Point(324, 49)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(18, 21)
-        Me.Button6.TabIndex = 289
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'ImgValEstadoEmitente
-        '
-        Me.ImgValEstadoEmitente.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValEstadoEmitente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValEstadoEmitente.Location = New System.Drawing.Point(352, 309)
-        Me.ImgValEstadoEmitente.Name = "ImgValEstadoEmitente"
-        Me.ImgValEstadoEmitente.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValEstadoEmitente.TabIndex = 267
-        Me.ImgValEstadoEmitente.TabStop = False
-        '
-        'ImgvalNumDocMedico
-        '
-        Me.ImgvalNumDocMedico.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgvalNumDocMedico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgvalNumDocMedico.Location = New System.Drawing.Point(352, 275)
-        Me.ImgvalNumDocMedico.Name = "ImgvalNumDocMedico"
-        Me.ImgvalNumDocMedico.Size = New System.Drawing.Size(15, 15)
-        Me.ImgvalNumDocMedico.TabIndex = 266
-        Me.ImgvalNumDocMedico.TabStop = False
-        '
-        'ImgValDocMedico
-        '
-        Me.ImgValDocMedico.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValDocMedico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValDocMedico.Location = New System.Drawing.Point(882, 225)
-        Me.ImgValDocMedico.Name = "ImgValDocMedico"
-        Me.ImgValDocMedico.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValDocMedico.TabIndex = 250
-        Me.ImgValDocMedico.TabStop = False
-        '
-        'ImgValNomeMEdico
-        '
-        Me.ImgValNomeMEdico.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
-        Me.ImgValNomeMEdico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ImgValNomeMEdico.Location = New System.Drawing.Point(882, 174)
-        Me.ImgValNomeMEdico.Name = "ImgValNomeMEdico"
-        Me.ImgValNomeMEdico.Size = New System.Drawing.Size(15, 15)
-        Me.ImgValNomeMEdico.TabIndex = 251
-        Me.ImgValNomeMEdico.TabStop = False
         '
         'CmbEstadoEmitente
         '
@@ -2128,6 +1831,303 @@ Partial Class Form2210
         Me.ImgValCliente.TabIndex = 246
         Me.ImgValCliente.TabStop = False
         '
+        'Button2
+        '
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.ImageIndex = 2
+        Me.Button2.ImageList = Me.ImageList1
+        Me.Button2.Location = New System.Drawing.Point(305, 329)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(18, 21)
+        Me.Button2.TabIndex = 272
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.ImageIndex = 2
+        Me.Button1.ImageList = Me.ImageList1
+        Me.Button1.Location = New System.Drawing.Point(305, 264)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(18, 21)
+        Me.Button1.TabIndex = 271
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'ImgValLateralidade
+        '
+        Me.ImgValLateralidade.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValLateralidade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValLateralidade.Location = New System.Drawing.Point(541, 398)
+        Me.ImgValLateralidade.Name = "ImgValLateralidade"
+        Me.ImgValLateralidade.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValLateralidade.TabIndex = 270
+        Me.ImgValLateralidade.TabStop = False
+        '
+        'ImgValParteCorpo
+        '
+        Me.ImgValParteCorpo.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValParteCorpo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValParteCorpo.Location = New System.Drawing.Point(339, 333)
+        Me.ImgValParteCorpo.Name = "ImgValParteCorpo"
+        Me.ImgValParteCorpo.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValParteCorpo.TabIndex = 269
+        Me.ImgValParteCorpo.TabStop = False
+        '
+        'ImgValSitGer
+        '
+        Me.ImgValSitGer.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValSitGer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValSitGer.Location = New System.Drawing.Point(339, 268)
+        Me.ImgValSitGer.Name = "ImgValSitGer"
+        Me.ImgValSitGer.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValSitGer.TabIndex = 268
+        Me.ImgValSitGer.TabStop = False
+        '
+        'ImgValidSelTipo
+        '
+        Me.ImgValidSelTipo.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValidSelTipo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValidSelTipo.Location = New System.Drawing.Point(431, 56)
+        Me.ImgValidSelTipo.Name = "ImgValidSelTipo"
+        Me.ImgValidSelTipo.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValidSelTipo.TabIndex = 262
+        Me.ImgValidSelTipo.TabStop = False
+        '
+        'ImgValResponsável
+        '
+        Me.ImgValResponsável.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValResponsável.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValResponsável.Location = New System.Drawing.Point(477, 42)
+        Me.ImgValResponsável.Name = "ImgValResponsável"
+        Me.ImgValResponsável.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValResponsável.TabIndex = 271
+        Me.ImgValResponsável.TabStop = False
+        '
+        'ImgTipoInscr
+        '
+        Me.ImgTipoInscr.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgTipoInscr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgTipoInscr.Location = New System.Drawing.Point(411, 15)
+        Me.ImgTipoInscr.Name = "ImgTipoInscr"
+        Me.ImgTipoInscr.Size = New System.Drawing.Size(15, 15)
+        Me.ImgTipoInscr.TabIndex = 288
+        Me.ImgTipoInscr.TabStop = False
+        '
+        'ImgValNDocumento
+        '
+        Me.ImgValNDocumento.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValNDocumento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValNDocumento.Location = New System.Drawing.Point(882, 500)
+        Me.ImgValNDocumento.Name = "ImgValNDocumento"
+        Me.ImgValNDocumento.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValNDocumento.TabIndex = 287
+        Me.ImgValNDocumento.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox2.Location = New System.Drawing.Point(607, 427)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(15, 15)
+        Me.PictureBox2.TabIndex = 286
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(882, 427)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(15, 15)
+        Me.PictureBox1.TabIndex = 285
+        Me.PictureBox1.TabStop = False
+        '
+        'ImgValNumEndereco
+        '
+        Me.ImgValNumEndereco.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValNumEndereco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValNumEndereco.Location = New System.Drawing.Point(271, 353)
+        Me.ImgValNumEndereco.Name = "ImgValNumEndereco"
+        Me.ImgValNumEndereco.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValNumEndereco.TabIndex = 283
+        Me.ImgValNumEndereco.TabStop = False
+        '
+        'ImgValCepLocal
+        '
+        Me.ImgValCepLocal.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValCepLocal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValCepLocal.Location = New System.Drawing.Point(440, 230)
+        Me.ImgValCepLocal.Name = "ImgValCepLocal"
+        Me.ImgValCepLocal.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValCepLocal.TabIndex = 276
+        Me.ImgValCepLocal.TabStop = False
+        '
+        'Button3
+        '
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.ImageIndex = 2
+        Me.Button3.ImageList = Me.ImageList1
+        Me.Button3.Location = New System.Drawing.Point(406, 83)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(18, 21)
+        Me.Button3.TabIndex = 275
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'ImgValAgenteCausador
+        '
+        Me.ImgValAgenteCausador.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValAgenteCausador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValAgenteCausador.Location = New System.Drawing.Point(440, 87)
+        Me.ImgValAgenteCausador.Name = "ImgValAgenteCausador"
+        Me.ImgValAgenteCausador.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValAgenteCausador.TabIndex = 274
+        Me.ImgValAgenteCausador.TabStop = False
+        '
+        'ImgValDescricaoLocal
+        '
+        Me.ImgValDescricaoLocal.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValDescricaoLocal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValDescricaoLocal.Location = New System.Drawing.Point(882, 53)
+        Me.ImgValDescricaoLocal.Name = "ImgValDescricaoLocal"
+        Me.ImgValDescricaoLocal.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValDescricaoLocal.TabIndex = 263
+        Me.ImgValDescricaoLocal.TabStop = False
+        '
+        'ImgValTpLocal
+        '
+        Me.ImgValTpLocal.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValTpLocal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValTpLocal.Location = New System.Drawing.Point(607, 53)
+        Me.ImgValTpLocal.Name = "ImgValTpLocal"
+        Me.ImgValTpLocal.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValTpLocal.TabIndex = 262
+        Me.ImgValTpLocal.TabStop = False
+        '
+        'Button5
+        '
+        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.ImageIndex = 2
+        Me.Button5.ImageList = Me.ImageList1
+        Me.Button5.Location = New System.Drawing.Point(375, 271)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(18, 21)
+        Me.Button5.TabIndex = 288
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'ImgValLesao
+        '
+        Me.ImgValLesao.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValLesao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValLesao.Location = New System.Drawing.Point(409, 275)
+        Me.ImgValLesao.Name = "ImgValLesao"
+        Me.ImgValLesao.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValLesao.TabIndex = 287
+        Me.ImgValLesao.TabStop = False
+        '
+        'ImgValCid
+        '
+        Me.ImgValCid.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValCid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValCid.Location = New System.Drawing.Point(352, 51)
+        Me.ImgValCid.Name = "ImgValCid"
+        Me.ImgValCid.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValCid.TabIndex = 290
+        Me.ImgValCid.TabStop = False
+        '
+        'Button6
+        '
+        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button6.FlatAppearance.BorderSize = 0
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.ImageIndex = 2
+        Me.Button6.ImageList = Me.ImageList1
+        Me.Button6.Location = New System.Drawing.Point(324, 49)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(18, 21)
+        Me.Button6.TabIndex = 289
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'ImgValEstadoEmitente
+        '
+        Me.ImgValEstadoEmitente.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValEstadoEmitente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValEstadoEmitente.Location = New System.Drawing.Point(352, 309)
+        Me.ImgValEstadoEmitente.Name = "ImgValEstadoEmitente"
+        Me.ImgValEstadoEmitente.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValEstadoEmitente.TabIndex = 267
+        Me.ImgValEstadoEmitente.TabStop = False
+        '
+        'ImgvalNumDocMedico
+        '
+        Me.ImgvalNumDocMedico.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgvalNumDocMedico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgvalNumDocMedico.Location = New System.Drawing.Point(352, 275)
+        Me.ImgvalNumDocMedico.Name = "ImgvalNumDocMedico"
+        Me.ImgvalNumDocMedico.Size = New System.Drawing.Size(15, 15)
+        Me.ImgvalNumDocMedico.TabIndex = 266
+        Me.ImgvalNumDocMedico.TabStop = False
+        '
+        'ImgValDocMedico
+        '
+        Me.ImgValDocMedico.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValDocMedico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValDocMedico.Location = New System.Drawing.Point(882, 225)
+        Me.ImgValDocMedico.Name = "ImgValDocMedico"
+        Me.ImgValDocMedico.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValDocMedico.TabIndex = 250
+        Me.ImgValDocMedico.TabStop = False
+        '
+        'ImgValNomeMEdico
+        '
+        Me.ImgValNomeMEdico.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.alertar_obg
+        Me.ImgValNomeMEdico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ImgValNomeMEdico.Location = New System.Drawing.Point(882, 174)
+        Me.ImgValNomeMEdico.Name = "ImgValNomeMEdico"
+        Me.ImgValNomeMEdico.Size = New System.Drawing.Size(15, 15)
+        Me.ImgValNomeMEdico.TabIndex = 251
+        Me.ImgValNomeMEdico.TabStop = False
+        '
+        'BttFechar
+        '
+        Me.BttFechar.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.Delete_80_icon_icons_com_57340
+        Me.BttFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BttFechar.FlatAppearance.BorderSize = 0
+        Me.BttFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BttFechar.Location = New System.Drawing.Point(16, 9)
+        Me.BttFechar.Name = "BttFechar"
+        Me.BttFechar.Size = New System.Drawing.Size(18, 22)
+        Me.BttFechar.TabIndex = 28
+        Me.BttFechar.UseVisualStyleBackColor = True
+        '
+        'BttTransmitirCAT
+        '
+        Me.BttTransmitirCAT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BttTransmitirCAT.Dock = System.Windows.Forms.DockStyle.Left
+        Me.BttTransmitirCAT.Enabled = False
+        Me.BttTransmitirCAT.FlatAppearance.BorderColor = System.Drawing.Color.DimGray
+        Me.BttTransmitirCAT.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BttTransmitirCAT.Font = New System.Drawing.Font("Calibri", 8.25!)
+        Me.BttTransmitirCAT.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.BttTransmitirCAT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BttTransmitirCAT.ImageKey = "PngItem_2399176.png"
+        Me.BttTransmitirCAT.ImageList = Me.ImageList1
+        Me.BttTransmitirCAT.Location = New System.Drawing.Point(0, 0)
+        Me.BttTransmitirCAT.Name = "BttTransmitirCAT"
+        Me.BttTransmitirCAT.Size = New System.Drawing.Size(136, 41)
+        Me.BttTransmitirCAT.TabIndex = 51
+        Me.BttTransmitirCAT.Text = "Transmitir CAT"
+        Me.BttTransmitirCAT.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BttTransmitirCAT.UseVisualStyleBackColor = True
+        '
         'Form2210
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -2165,19 +2165,28 @@ Partial Class Form2210
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
-        CType(Me.ImgValLateralidade, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ImgValParteCorpo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ImgValSitGer, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ImgValidSelTipo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
-        CType(Me.ImgValResponsável, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
+        Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
+        CType(Me.NmDurTrat, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel8.PerformLayout()
+        CType(Me.ImgValColab, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValCliente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValLateralidade, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValParteCorpo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValSitGer, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValidSelTipo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImgValResponsável, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImgTipoInscr, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImgValNDocumento, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2187,21 +2196,12 @@ Partial Class Form2210
         CType(Me.ImgValAgenteCausador, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImgValDescricaoLocal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImgValTpLocal, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage3.ResumeLayout(False)
-        Me.TabPage3.PerformLayout()
-        CType(Me.NmDurTrat, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImgValLesao, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage4.ResumeLayout(False)
-        Me.TabPage4.PerformLayout()
         CType(Me.ImgValCid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImgValEstadoEmitente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImgvalNumDocMedico, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImgValDocMedico, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImgValNomeMEdico, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel8.ResumeLayout(False)
-        Me.Panel8.PerformLayout()
-        CType(Me.ImgValColab, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ImgValCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

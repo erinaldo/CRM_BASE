@@ -61,17 +61,17 @@ Partial Public Class LqTrabalhistaDataContext
     End Sub
   Partial Private Sub DeleteEventos_ESocial(instance As Eventos_ESocial)
     End Sub
-  Partial Private Sub InsertColaboradoresCliente(instance As ColaboradoresCliente)
-    End Sub
-  Partial Private Sub UpdateColaboradoresCliente(instance As ColaboradoresCliente)
-    End Sub
-  Partial Private Sub DeleteColaboradoresCliente(instance As ColaboradoresCliente)
-    End Sub
   Partial Private Sub InsertESocial(instance As ESocial)
     End Sub
   Partial Private Sub UpdateESocial(instance As ESocial)
     End Sub
   Partial Private Sub DeleteESocial(instance As ESocial)
+    End Sub
+  Partial Private Sub InsertColaboradoresCliente(instance As ColaboradoresCliente)
+    End Sub
+  Partial Private Sub UpdateColaboradoresCliente(instance As ColaboradoresCliente)
+    End Sub
+  Partial Private Sub DeleteColaboradoresCliente(instance As ColaboradoresCliente)
     End Sub
   #End Region
 	
@@ -139,12 +139,6 @@ Partial Public Class LqTrabalhistaDataContext
 	Public ReadOnly Property CategoriasTrabalhadores() As System.Data.Linq.Table(Of CategoriasTrabalhadores)
 		Get
 			Return Me.GetTable(Of CategoriasTrabalhadores)
-		End Get
-	End Property
-	
-	Public ReadOnly Property ColaboradoresCliente() As System.Data.Linq.Table(Of ColaboradoresCliente)
-		Get
-			Return Me.GetTable(Of ColaboradoresCliente)
 		End Get
 	End Property
 	
@@ -322,6 +316,12 @@ Partial Public Class LqTrabalhistaDataContext
 		End Get
 	End Property
 	
+	Public ReadOnly Property ColaboradoresCliente() As System.Data.Linq.Table(Of ColaboradoresCliente)
+		Get
+			Return Me.GetTable(Of ColaboradoresCliente)
+		End Get
+	End Property
+	
 	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.AtualizaSetorCliente")>  _
 	Public Function AtualizaSetorCliente(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdSetorCliente", DbType:="Int")> ByVal idSetorCliente As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="NomeSetor", DbType:="NText")> ByVal nomeSetor As String) As Integer
 		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), idSetorCliente, nomeSetor)
@@ -388,28 +388,21 @@ Partial Public Class LqTrabalhistaDataContext
 		Return CType(result.ReturnValue,Integer)
 	End Function
 	
-	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.EditaColaboradorCliente")>  _
-	Public Function EditaColaboradorCliente( _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdColaboradorCliente", DbType:="Int")> ByVal idColaboradorCliente As System.Nullable(Of Integer),  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="NomeColaborador", DbType:="NText")> ByVal nomeColaborador As String,  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="NomeFantasia", DbType:="NText")> ByVal nomeFantasia As String,  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Personalidade", DbType:="Bit")> ByVal personalidade As System.Nullable(Of Boolean),  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DocColaborador", DbType:="NText")> ByVal docColaborador As String,  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="RG_IE", DbType:="NText")> ByVal rG_IE As String,  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="CEP", DbType:="NText")> ByVal cEP As String,  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Num", DbType:="Int")> ByVal num As System.Nullable(Of Integer),  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Cmpl", DbType:="NText")> ByVal cmpl As String,  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Telefone", DbType:="NText")> ByVal telefone As String,  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Celular", DbType:="NText")> ByVal celular As String,  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Email", DbType:="NText")> ByVal email As String,  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdFuncao", DbType:="Int")> ByVal idFuncao As System.Nullable(Of Integer),  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DescricaoFuncao", DbType:="NText")> ByVal descricaoFuncao As String,  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Remuneracao", DbType:="Money")> ByVal remuneracao As System.Nullable(Of Decimal),  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataAdmissao", DbType:="Date")> ByVal dataAdmissao As System.Nullable(Of Date),  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataDesligamento", DbType:="Date")> ByVal dataDesligamento As System.Nullable(Of Date),  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="GrupoTrab", DbType:="NText")> ByVal grupoTrab As String,  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="CatTrab", DbType:="NText")> ByVal catTrab As String) As Integer
-		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), idColaboradorCliente, nomeColaborador, nomeFantasia, personalidade, docColaborador, rG_IE, cEP, num, cmpl, telefone, celular, email, idFuncao, descricaoFuncao, remuneracao, dataAdmissao, dataDesligamento, grupoTrab, catTrab)
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.InsereESocial")>  _
+	Public Function InsereESocial(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdCliente", DbType:="Int")> ByVal idCliente As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdColaborador", DbType:="Int")> ByVal idColaborador As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Evento", DbType:="NText")> ByVal evento As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataSolicitacao", DbType:="Date")> ByVal dataSolicitacao As System.Nullable(Of Date), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="HoraSolicitacao", DbType:="Time")> ByVal horaSolicitacao As System.Nullable(Of System.TimeSpan), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataResposta", DbType:="Date")> ByVal dataResposta As System.Nullable(Of Date), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="HoraResposta", DbType:="Time")> ByVal horaResposta As System.Nullable(Of System.TimeSpan), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Arquivo", DbType:="NText")> ByVal arquivo As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IDEVENTO", DbType:="NChar(36)")> ByVal iDEVENTO As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Protocolo", DbType:="NText")> ByVal protocolo As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Recibo", DbType:="NText")> ByVal recibo As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Status", DbType:="Int")> ByVal status As System.Nullable(Of Integer)) As Integer
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), idCliente, idColaborador, evento, dataSolicitacao, horaSolicitacao, dataResposta, horaResposta, arquivo, iDEVENTO, protocolo, recibo, status)
+		Return CType(result.ReturnValue,Integer)
+	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.AtualizaProtocoloESocial")>  _
+	Public Function AtualizaProtocoloESocial(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Identificacao", DbType:="NChar(36)")> ByVal identificacao As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Protocolo", DbType:="NText")> ByVal protocolo As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Arq", DbType:="NText")> ByVal arq As String) As Integer
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), identificacao, protocolo, arq)
+		Return CType(result.ReturnValue,Integer)
+	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.atualizaStatusReciboEsocial")>  _
+	Public Function atualizaStatusReciboEsocial(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IDENTIFICACAO", DbType:="VarChar(36)")> ByVal iDENTIFICACAO As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="RES_JSON", DbType:="NText")> ByVal rES_JSON As String) As Integer
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), iDENTIFICACAO, rES_JSON)
 		Return CType(result.ReturnValue,Integer)
 	End Function
 	
@@ -433,27 +426,44 @@ Partial Public Class LqTrabalhistaDataContext
 				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataAdmissao", DbType:="Date")> ByVal dataAdmissao As System.Nullable(Of Date),  _
 				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataDesligamento", DbType:="Date")> ByVal dataDesligamento As System.Nullable(Of Date),  _
 				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="GrupoTrab", DbType:="NText")> ByVal grupoTrab As String,  _
-				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="CatTrab", DbType:="NText")> ByVal catTrab As String) As Integer
-		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), idCliente, nomeColaborador, nomeFantasia, personalidade, docColaborador, rG_IE, cEP, num, cmpl, telefone, celular, email, idFuncao, descricaoFuncao, remuneracao, dataAdmissao, dataDesligamento, grupoTrab, catTrab)
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="CatTrab", DbType:="NText")> ByVal catTrab As String,  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="TipoDocCatTrab", DbType:="Int")> ByVal tipoDocCatTrab As System.Nullable(Of Integer),  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="NumDocCatTrab", DbType:="VarChar(30)")> ByVal numDocCatTrab As String) As Integer
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), idCliente, nomeColaborador, nomeFantasia, personalidade, docColaborador, rG_IE, cEP, num, cmpl, telefone, celular, email, idFuncao, descricaoFuncao, remuneracao, dataAdmissao, dataDesligamento, grupoTrab, catTrab, tipoDocCatTrab, numDocCatTrab)
 		Return CType(result.ReturnValue,Integer)
 	End Function
 	
-	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.InsereESocial")>  _
-	Public Function InsereESocial(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdCliente", DbType:="Int")> ByVal idCliente As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdColaborador", DbType:="Int")> ByVal idColaborador As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Evento", DbType:="NText")> ByVal evento As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataSolicitacao", DbType:="Date")> ByVal dataSolicitacao As System.Nullable(Of Date), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="HoraSolicitacao", DbType:="Time")> ByVal horaSolicitacao As System.Nullable(Of System.TimeSpan), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataResposta", DbType:="Date")> ByVal dataResposta As System.Nullable(Of Date), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="HoraResposta", DbType:="Time")> ByVal horaResposta As System.Nullable(Of System.TimeSpan), <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Arquivo", DbType:="NText")> ByVal arquivo As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IDEVENTO", DbType:="NChar(36)")> ByVal iDEVENTO As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Protocolo", DbType:="NText")> ByVal protocolo As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Recibo", DbType:="NText")> ByVal recibo As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Status", DbType:="Int")> ByVal status As System.Nullable(Of Integer)) As Integer
-		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), idCliente, idColaborador, evento, dataSolicitacao, horaSolicitacao, dataResposta, horaResposta, arquivo, iDEVENTO, protocolo, recibo, status)
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.EditaColaboradorCliente")>  _
+	Public Function EditaColaboradorCliente( _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdColaboradorCliente", DbType:="Int")> ByVal idColaboradorCliente As System.Nullable(Of Integer),  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="NomeColaborador", DbType:="NText")> ByVal nomeColaborador As String,  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="NomeFantasia", DbType:="NText")> ByVal nomeFantasia As String,  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Personalidade", DbType:="Bit")> ByVal personalidade As System.Nullable(Of Boolean),  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DocColaborador", DbType:="NText")> ByVal docColaborador As String,  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="RG_IE", DbType:="NText")> ByVal rG_IE As String,  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="CEP", DbType:="NText")> ByVal cEP As String,  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Num", DbType:="Int")> ByVal num As System.Nullable(Of Integer),  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Cmpl", DbType:="NText")> ByVal cmpl As String,  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Telefone", DbType:="NText")> ByVal telefone As String,  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Celular", DbType:="NText")> ByVal celular As String,  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Email", DbType:="NText")> ByVal email As String,  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IdFuncao", DbType:="Int")> ByVal idFuncao As System.Nullable(Of Integer),  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DescricaoFuncao", DbType:="NText")> ByVal descricaoFuncao As String,  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Remuneracao", DbType:="Money")> ByVal remuneracao As System.Nullable(Of Decimal),  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataAdmissao", DbType:="Date")> ByVal dataAdmissao As System.Nullable(Of Date),  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="DataDesligamento", DbType:="Date")> ByVal dataDesligamento As System.Nullable(Of Date),  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="GrupoTrab", DbType:="NText")> ByVal grupoTrab As String,  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="CatTrab", DbType:="NText")> ByVal catTrab As String,  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="TipoDocCatTrab", DbType:="Int")> ByVal tipoDocCatTrab As System.Nullable(Of Integer),  _
+				<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="NumDocCatTrab", DbType:="VarChar(30)")> ByVal numDocCatTrab As String) As Integer
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), idColaboradorCliente, nomeColaborador, nomeFantasia, personalidade, docColaborador, rG_IE, cEP, num, cmpl, telefone, celular, email, idFuncao, descricaoFuncao, remuneracao, dataAdmissao, dataDesligamento, grupoTrab, catTrab, tipoDocCatTrab, numDocCatTrab)
 		Return CType(result.ReturnValue,Integer)
 	End Function
 	
-	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.AtualizaProtocoloESocial")>  _
-	Public Function AtualizaProtocoloESocial(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Identificacao", DbType:="NChar(36)")> ByVal identificacao As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Protocolo", DbType:="NText")> ByVal protocolo As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="Arq", DbType:="NText")> ByVal arq As String) As Integer
-		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), identificacao, protocolo, arq)
-		Return CType(result.ReturnValue,Integer)
-	End Function
-	
-	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.atualizaStatusReciboEsocial")>  _
-	Public Function atualizaStatusReciboEsocial(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="IDENTIFICACAO", DbType:="VarChar(36)")> ByVal iDENTIFICACAO As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="RES_JSON", DbType:="NText")> ByVal rES_JSON As String) As Integer
-		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), iDENTIFICACAO, rES_JSON)
-		Return CType(result.ReturnValue,Integer)
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.Seleciona_COLABORADORES")>  _
+	Public Function Seleciona_COLABORADORES(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="ID_CLIENTE", DbType:="Int")> ByVal iD_CLIENTE As System.Nullable(Of Integer)) As ISingleResult(Of Seleciona_COLABORADORESResult)
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), iD_CLIENTE)
+		Return CType(result.ReturnValue,ISingleResult(Of Seleciona_COLABORADORESResult))
 	End Function
 End Class
 
@@ -1413,486 +1423,6 @@ Partial Public Class CategoriasTrabalhadores
 			End If
 		End Set
 	End Property
-End Class
-
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.ColaboradoresCliente")>  _
-Partial Public Class ColaboradoresCliente
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _IdColaboradorCliente As Integer
-	
-	Private _IdCliente As System.Nullable(Of Integer)
-	
-	Private _NomeColaborador As String
-	
-	Private _NomeFantasia As String
-	
-	Private _Personalidade As System.Nullable(Of Boolean)
-	
-	Private _DocColaborador As String
-	
-	Private _RG_IE As String
-	
-	Private _CEP As String
-	
-	Private _Num As System.Nullable(Of Integer)
-	
-	Private _Cmpl As String
-	
-	Private _Telefone As String
-	
-	Private _Celular As String
-	
-	Private _Email As String
-	
-	Private _IdFuncao As System.Nullable(Of Integer)
-	
-	Private _DescricaoFuncao As String
-	
-	Private _Remuneracao As System.Nullable(Of Decimal)
-	
-	Private _DataAdmissao As System.Nullable(Of Date)
-	
-	Private _DataDesligamento As System.Nullable(Of Date)
-	
-	Private _GrupoTrab As String
-	
-	Private _CatTrab As String
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnIdColaboradorClienteChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnIdColaboradorClienteChanged()
-    End Sub
-    Partial Private Sub OnIdClienteChanging(value As System.Nullable(Of Integer))
-    End Sub
-    Partial Private Sub OnIdClienteChanged()
-    End Sub
-    Partial Private Sub OnNomeColaboradorChanging(value As String)
-    End Sub
-    Partial Private Sub OnNomeColaboradorChanged()
-    End Sub
-    Partial Private Sub OnNomeFantasiaChanging(value As String)
-    End Sub
-    Partial Private Sub OnNomeFantasiaChanged()
-    End Sub
-    Partial Private Sub OnPersonalidadeChanging(value As System.Nullable(Of Boolean))
-    End Sub
-    Partial Private Sub OnPersonalidadeChanged()
-    End Sub
-    Partial Private Sub OnDocColaboradorChanging(value As String)
-    End Sub
-    Partial Private Sub OnDocColaboradorChanged()
-    End Sub
-    Partial Private Sub OnRG_IEChanging(value As String)
-    End Sub
-    Partial Private Sub OnRG_IEChanged()
-    End Sub
-    Partial Private Sub OnCEPChanging(value As String)
-    End Sub
-    Partial Private Sub OnCEPChanged()
-    End Sub
-    Partial Private Sub OnNumChanging(value As System.Nullable(Of Integer))
-    End Sub
-    Partial Private Sub OnNumChanged()
-    End Sub
-    Partial Private Sub OnCmplChanging(value As String)
-    End Sub
-    Partial Private Sub OnCmplChanged()
-    End Sub
-    Partial Private Sub OnTelefoneChanging(value As String)
-    End Sub
-    Partial Private Sub OnTelefoneChanged()
-    End Sub
-    Partial Private Sub OnCelularChanging(value As String)
-    End Sub
-    Partial Private Sub OnCelularChanged()
-    End Sub
-    Partial Private Sub OnEmailChanging(value As String)
-    End Sub
-    Partial Private Sub OnEmailChanged()
-    End Sub
-    Partial Private Sub OnIdFuncaoChanging(value As System.Nullable(Of Integer))
-    End Sub
-    Partial Private Sub OnIdFuncaoChanged()
-    End Sub
-    Partial Private Sub OnDescricaoFuncaoChanging(value As String)
-    End Sub
-    Partial Private Sub OnDescricaoFuncaoChanged()
-    End Sub
-    Partial Private Sub OnRemuneracaoChanging(value As System.Nullable(Of Decimal))
-    End Sub
-    Partial Private Sub OnRemuneracaoChanged()
-    End Sub
-    Partial Private Sub OnDataAdmissaoChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub OnDataAdmissaoChanged()
-    End Sub
-    Partial Private Sub OnDataDesligamentoChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub OnDataDesligamentoChanged()
-    End Sub
-    Partial Private Sub OnGrupoTrabChanging(value As String)
-    End Sub
-    Partial Private Sub OnGrupoTrabChanged()
-    End Sub
-    Partial Private Sub OnCatTrabChanging(value As String)
-    End Sub
-    Partial Private Sub OnCatTrabChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_IdColaboradorCliente", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
-	Public Property IdColaboradorCliente() As Integer
-		Get
-			Return Me._IdColaboradorCliente
-		End Get
-		Set
-			If ((Me._IdColaboradorCliente = value)  _
-						= false) Then
-				Me.OnIdColaboradorClienteChanging(value)
-				Me.SendPropertyChanging
-				Me._IdColaboradorCliente = value
-				Me.SendPropertyChanged("IdColaboradorCliente")
-				Me.OnIdColaboradorClienteChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_IdCliente", DbType:="Int")>  _
-	Public Property IdCliente() As System.Nullable(Of Integer)
-		Get
-			Return Me._IdCliente
-		End Get
-		Set
-			If (Me._IdCliente.Equals(value) = false) Then
-				Me.OnIdClienteChanging(value)
-				Me.SendPropertyChanging
-				Me._IdCliente = value
-				Me.SendPropertyChanged("IdCliente")
-				Me.OnIdClienteChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_NomeColaborador", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property NomeColaborador() As String
-		Get
-			Return Me._NomeColaborador
-		End Get
-		Set
-			If (String.Equals(Me._NomeColaborador, value) = false) Then
-				Me.OnNomeColaboradorChanging(value)
-				Me.SendPropertyChanging
-				Me._NomeColaborador = value
-				Me.SendPropertyChanged("NomeColaborador")
-				Me.OnNomeColaboradorChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_NomeFantasia", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property NomeFantasia() As String
-		Get
-			Return Me._NomeFantasia
-		End Get
-		Set
-			If (String.Equals(Me._NomeFantasia, value) = false) Then
-				Me.OnNomeFantasiaChanging(value)
-				Me.SendPropertyChanging
-				Me._NomeFantasia = value
-				Me.SendPropertyChanged("NomeFantasia")
-				Me.OnNomeFantasiaChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Personalidade", DbType:="Bit")>  _
-	Public Property Personalidade() As System.Nullable(Of Boolean)
-		Get
-			Return Me._Personalidade
-		End Get
-		Set
-			If (Me._Personalidade.Equals(value) = false) Then
-				Me.OnPersonalidadeChanging(value)
-				Me.SendPropertyChanging
-				Me._Personalidade = value
-				Me.SendPropertyChanged("Personalidade")
-				Me.OnPersonalidadeChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DocColaborador", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property DocColaborador() As String
-		Get
-			Return Me._DocColaborador
-		End Get
-		Set
-			If (String.Equals(Me._DocColaborador, value) = false) Then
-				Me.OnDocColaboradorChanging(value)
-				Me.SendPropertyChanging
-				Me._DocColaborador = value
-				Me.SendPropertyChanged("DocColaborador")
-				Me.OnDocColaboradorChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_RG_IE", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property RG_IE() As String
-		Get
-			Return Me._RG_IE
-		End Get
-		Set
-			If (String.Equals(Me._RG_IE, value) = false) Then
-				Me.OnRG_IEChanging(value)
-				Me.SendPropertyChanging
-				Me._RG_IE = value
-				Me.SendPropertyChanged("RG_IE")
-				Me.OnRG_IEChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CEP", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property CEP() As String
-		Get
-			Return Me._CEP
-		End Get
-		Set
-			If (String.Equals(Me._CEP, value) = false) Then
-				Me.OnCEPChanging(value)
-				Me.SendPropertyChanging
-				Me._CEP = value
-				Me.SendPropertyChanged("CEP")
-				Me.OnCEPChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Num", DbType:="Int")>  _
-	Public Property Num() As System.Nullable(Of Integer)
-		Get
-			Return Me._Num
-		End Get
-		Set
-			If (Me._Num.Equals(value) = false) Then
-				Me.OnNumChanging(value)
-				Me.SendPropertyChanging
-				Me._Num = value
-				Me.SendPropertyChanged("Num")
-				Me.OnNumChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Cmpl", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property Cmpl() As String
-		Get
-			Return Me._Cmpl
-		End Get
-		Set
-			If (String.Equals(Me._Cmpl, value) = false) Then
-				Me.OnCmplChanging(value)
-				Me.SendPropertyChanging
-				Me._Cmpl = value
-				Me.SendPropertyChanged("Cmpl")
-				Me.OnCmplChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Telefone", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property Telefone() As String
-		Get
-			Return Me._Telefone
-		End Get
-		Set
-			If (String.Equals(Me._Telefone, value) = false) Then
-				Me.OnTelefoneChanging(value)
-				Me.SendPropertyChanging
-				Me._Telefone = value
-				Me.SendPropertyChanged("Telefone")
-				Me.OnTelefoneChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Celular", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property Celular() As String
-		Get
-			Return Me._Celular
-		End Get
-		Set
-			If (String.Equals(Me._Celular, value) = false) Then
-				Me.OnCelularChanging(value)
-				Me.SendPropertyChanging
-				Me._Celular = value
-				Me.SendPropertyChanged("Celular")
-				Me.OnCelularChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Email", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property Email() As String
-		Get
-			Return Me._Email
-		End Get
-		Set
-			If (String.Equals(Me._Email, value) = false) Then
-				Me.OnEmailChanging(value)
-				Me.SendPropertyChanging
-				Me._Email = value
-				Me.SendPropertyChanged("Email")
-				Me.OnEmailChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_IdFuncao", DbType:="Int")>  _
-	Public Property IdFuncao() As System.Nullable(Of Integer)
-		Get
-			Return Me._IdFuncao
-		End Get
-		Set
-			If (Me._IdFuncao.Equals(value) = false) Then
-				Me.OnIdFuncaoChanging(value)
-				Me.SendPropertyChanging
-				Me._IdFuncao = value
-				Me.SendPropertyChanged("IdFuncao")
-				Me.OnIdFuncaoChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DescricaoFuncao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property DescricaoFuncao() As String
-		Get
-			Return Me._DescricaoFuncao
-		End Get
-		Set
-			If (String.Equals(Me._DescricaoFuncao, value) = false) Then
-				Me.OnDescricaoFuncaoChanging(value)
-				Me.SendPropertyChanging
-				Me._DescricaoFuncao = value
-				Me.SendPropertyChanged("DescricaoFuncao")
-				Me.OnDescricaoFuncaoChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Remuneracao", DbType:="Money")>  _
-	Public Property Remuneracao() As System.Nullable(Of Decimal)
-		Get
-			Return Me._Remuneracao
-		End Get
-		Set
-			If (Me._Remuneracao.Equals(value) = false) Then
-				Me.OnRemuneracaoChanging(value)
-				Me.SendPropertyChanging
-				Me._Remuneracao = value
-				Me.SendPropertyChanged("Remuneracao")
-				Me.OnRemuneracaoChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DataAdmissao", DbType:="Date")>  _
-	Public Property DataAdmissao() As System.Nullable(Of Date)
-		Get
-			Return Me._DataAdmissao
-		End Get
-		Set
-			If (Me._DataAdmissao.Equals(value) = false) Then
-				Me.OnDataAdmissaoChanging(value)
-				Me.SendPropertyChanging
-				Me._DataAdmissao = value
-				Me.SendPropertyChanged("DataAdmissao")
-				Me.OnDataAdmissaoChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DataDesligamento", DbType:="Date")>  _
-	Public Property DataDesligamento() As System.Nullable(Of Date)
-		Get
-			Return Me._DataDesligamento
-		End Get
-		Set
-			If (Me._DataDesligamento.Equals(value) = false) Then
-				Me.OnDataDesligamentoChanging(value)
-				Me.SendPropertyChanging
-				Me._DataDesligamento = value
-				Me.SendPropertyChanged("DataDesligamento")
-				Me.OnDataDesligamentoChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_GrupoTrab", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property GrupoTrab() As String
-		Get
-			Return Me._GrupoTrab
-		End Get
-		Set
-			If (String.Equals(Me._GrupoTrab, value) = false) Then
-				Me.OnGrupoTrabChanging(value)
-				Me.SendPropertyChanging
-				Me._GrupoTrab = value
-				Me.SendPropertyChanged("GrupoTrab")
-				Me.OnGrupoTrabChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CatTrab", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
-	Public Property CatTrab() As String
-		Get
-			Return Me._CatTrab
-		End Get
-		Set
-			If (String.Equals(Me._CatTrab, value) = false) Then
-				Me.OnCatTrabChanging(value)
-				Me.SendPropertyChanging
-				Me._CatTrab = value
-				Me.SendPropertyChanged("CatTrab")
-				Me.OnCatTrabChanged
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
 End Class
 
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Tabela02")>  _
@@ -4276,6 +3806,636 @@ Partial Public Class CID_FIND
 		Set
 			If (String.Equals(Me._DESCRICAO, value) = false) Then
 				Me._DESCRICAO = value
+			End If
+		End Set
+	End Property
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.ColaboradoresCliente")>  _
+Partial Public Class ColaboradoresCliente
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _IdColaboradorCliente As Integer
+	
+	Private _IdCliente As System.Nullable(Of Integer)
+	
+	Private _NomeColaborador As String
+	
+	Private _NomeFantasia As String
+	
+	Private _Personalidade As System.Nullable(Of Boolean)
+	
+	Private _DocColaborador As String
+	
+	Private _RG_IE As String
+	
+	Private _CEP As String
+	
+	Private _Num As System.Nullable(Of Integer)
+	
+	Private _Cmpl As String
+	
+	Private _Telefone As String
+	
+	Private _Celular As String
+	
+	Private _Email As String
+	
+	Private _IdFuncao As System.Nullable(Of Integer)
+	
+	Private _DescricaoFuncao As String
+	
+	Private _Remuneracao As System.Nullable(Of Decimal)
+	
+	Private _DataAdmissao As System.Nullable(Of Date)
+	
+	Private _DataDesligamento As System.Nullable(Of Date)
+	
+	Private _GrupoTrab As String
+	
+	Private _CatTrab As String
+	
+	Private _TipoDocCatTrab As System.Nullable(Of Integer)
+	
+	Private _NumDocCatTrab As String
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnIdColaboradorClienteChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnIdColaboradorClienteChanged()
+    End Sub
+    Partial Private Sub OnIdClienteChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnIdClienteChanged()
+    End Sub
+    Partial Private Sub OnNomeColaboradorChanging(value As String)
+    End Sub
+    Partial Private Sub OnNomeColaboradorChanged()
+    End Sub
+    Partial Private Sub OnNomeFantasiaChanging(value As String)
+    End Sub
+    Partial Private Sub OnNomeFantasiaChanged()
+    End Sub
+    Partial Private Sub OnPersonalidadeChanging(value As System.Nullable(Of Boolean))
+    End Sub
+    Partial Private Sub OnPersonalidadeChanged()
+    End Sub
+    Partial Private Sub OnDocColaboradorChanging(value As String)
+    End Sub
+    Partial Private Sub OnDocColaboradorChanged()
+    End Sub
+    Partial Private Sub OnRG_IEChanging(value As String)
+    End Sub
+    Partial Private Sub OnRG_IEChanged()
+    End Sub
+    Partial Private Sub OnCEPChanging(value As String)
+    End Sub
+    Partial Private Sub OnCEPChanged()
+    End Sub
+    Partial Private Sub OnNumChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnNumChanged()
+    End Sub
+    Partial Private Sub OnCmplChanging(value As String)
+    End Sub
+    Partial Private Sub OnCmplChanged()
+    End Sub
+    Partial Private Sub OnTelefoneChanging(value As String)
+    End Sub
+    Partial Private Sub OnTelefoneChanged()
+    End Sub
+    Partial Private Sub OnCelularChanging(value As String)
+    End Sub
+    Partial Private Sub OnCelularChanged()
+    End Sub
+    Partial Private Sub OnEmailChanging(value As String)
+    End Sub
+    Partial Private Sub OnEmailChanged()
+    End Sub
+    Partial Private Sub OnIdFuncaoChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnIdFuncaoChanged()
+    End Sub
+    Partial Private Sub OnDescricaoFuncaoChanging(value As String)
+    End Sub
+    Partial Private Sub OnDescricaoFuncaoChanged()
+    End Sub
+    Partial Private Sub OnRemuneracaoChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub OnRemuneracaoChanged()
+    End Sub
+    Partial Private Sub OnDataAdmissaoChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnDataAdmissaoChanged()
+    End Sub
+    Partial Private Sub OnDataDesligamentoChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnDataDesligamentoChanged()
+    End Sub
+    Partial Private Sub OnGrupoTrabChanging(value As String)
+    End Sub
+    Partial Private Sub OnGrupoTrabChanged()
+    End Sub
+    Partial Private Sub OnCatTrabChanging(value As String)
+    End Sub
+    Partial Private Sub OnCatTrabChanged()
+    End Sub
+    Partial Private Sub OnTipoDocCatTrabChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnTipoDocCatTrabChanged()
+    End Sub
+    Partial Private Sub OnNumDocCatTrabChanging(value As String)
+    End Sub
+    Partial Private Sub OnNumDocCatTrabChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_IdColaboradorCliente", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
+	Public Property IdColaboradorCliente() As Integer
+		Get
+			Return Me._IdColaboradorCliente
+		End Get
+		Set
+			If ((Me._IdColaboradorCliente = value)  _
+						= false) Then
+				Me.OnIdColaboradorClienteChanging(value)
+				Me.SendPropertyChanging
+				Me._IdColaboradorCliente = value
+				Me.SendPropertyChanged("IdColaboradorCliente")
+				Me.OnIdColaboradorClienteChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_IdCliente", DbType:="Int")>  _
+	Public Property IdCliente() As System.Nullable(Of Integer)
+		Get
+			Return Me._IdCliente
+		End Get
+		Set
+			If (Me._IdCliente.Equals(value) = false) Then
+				Me.OnIdClienteChanging(value)
+				Me.SendPropertyChanging
+				Me._IdCliente = value
+				Me.SendPropertyChanged("IdCliente")
+				Me.OnIdClienteChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_NomeColaborador", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property NomeColaborador() As String
+		Get
+			Return Me._NomeColaborador
+		End Get
+		Set
+			If (String.Equals(Me._NomeColaborador, value) = false) Then
+				Me.OnNomeColaboradorChanging(value)
+				Me.SendPropertyChanging
+				Me._NomeColaborador = value
+				Me.SendPropertyChanged("NomeColaborador")
+				Me.OnNomeColaboradorChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_NomeFantasia", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property NomeFantasia() As String
+		Get
+			Return Me._NomeFantasia
+		End Get
+		Set
+			If (String.Equals(Me._NomeFantasia, value) = false) Then
+				Me.OnNomeFantasiaChanging(value)
+				Me.SendPropertyChanging
+				Me._NomeFantasia = value
+				Me.SendPropertyChanged("NomeFantasia")
+				Me.OnNomeFantasiaChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Personalidade", DbType:="Bit")>  _
+	Public Property Personalidade() As System.Nullable(Of Boolean)
+		Get
+			Return Me._Personalidade
+		End Get
+		Set
+			If (Me._Personalidade.Equals(value) = false) Then
+				Me.OnPersonalidadeChanging(value)
+				Me.SendPropertyChanging
+				Me._Personalidade = value
+				Me.SendPropertyChanged("Personalidade")
+				Me.OnPersonalidadeChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DocColaborador", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property DocColaborador() As String
+		Get
+			Return Me._DocColaborador
+		End Get
+		Set
+			If (String.Equals(Me._DocColaborador, value) = false) Then
+				Me.OnDocColaboradorChanging(value)
+				Me.SendPropertyChanging
+				Me._DocColaborador = value
+				Me.SendPropertyChanged("DocColaborador")
+				Me.OnDocColaboradorChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_RG_IE", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property RG_IE() As String
+		Get
+			Return Me._RG_IE
+		End Get
+		Set
+			If (String.Equals(Me._RG_IE, value) = false) Then
+				Me.OnRG_IEChanging(value)
+				Me.SendPropertyChanging
+				Me._RG_IE = value
+				Me.SendPropertyChanged("RG_IE")
+				Me.OnRG_IEChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CEP", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property CEP() As String
+		Get
+			Return Me._CEP
+		End Get
+		Set
+			If (String.Equals(Me._CEP, value) = false) Then
+				Me.OnCEPChanging(value)
+				Me.SendPropertyChanging
+				Me._CEP = value
+				Me.SendPropertyChanged("CEP")
+				Me.OnCEPChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Num", DbType:="Int")>  _
+	Public Property Num() As System.Nullable(Of Integer)
+		Get
+			Return Me._Num
+		End Get
+		Set
+			If (Me._Num.Equals(value) = false) Then
+				Me.OnNumChanging(value)
+				Me.SendPropertyChanging
+				Me._Num = value
+				Me.SendPropertyChanged("Num")
+				Me.OnNumChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Cmpl", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Cmpl() As String
+		Get
+			Return Me._Cmpl
+		End Get
+		Set
+			If (String.Equals(Me._Cmpl, value) = false) Then
+				Me.OnCmplChanging(value)
+				Me.SendPropertyChanging
+				Me._Cmpl = value
+				Me.SendPropertyChanged("Cmpl")
+				Me.OnCmplChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Telefone", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Telefone() As String
+		Get
+			Return Me._Telefone
+		End Get
+		Set
+			If (String.Equals(Me._Telefone, value) = false) Then
+				Me.OnTelefoneChanging(value)
+				Me.SendPropertyChanging
+				Me._Telefone = value
+				Me.SendPropertyChanged("Telefone")
+				Me.OnTelefoneChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Celular", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Celular() As String
+		Get
+			Return Me._Celular
+		End Get
+		Set
+			If (String.Equals(Me._Celular, value) = false) Then
+				Me.OnCelularChanging(value)
+				Me.SendPropertyChanging
+				Me._Celular = value
+				Me.SendPropertyChanged("Celular")
+				Me.OnCelularChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Email", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property Email() As String
+		Get
+			Return Me._Email
+		End Get
+		Set
+			If (String.Equals(Me._Email, value) = false) Then
+				Me.OnEmailChanging(value)
+				Me.SendPropertyChanging
+				Me._Email = value
+				Me.SendPropertyChanged("Email")
+				Me.OnEmailChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_IdFuncao", DbType:="Int")>  _
+	Public Property IdFuncao() As System.Nullable(Of Integer)
+		Get
+			Return Me._IdFuncao
+		End Get
+		Set
+			If (Me._IdFuncao.Equals(value) = false) Then
+				Me.OnIdFuncaoChanging(value)
+				Me.SendPropertyChanging
+				Me._IdFuncao = value
+				Me.SendPropertyChanged("IdFuncao")
+				Me.OnIdFuncaoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DescricaoFuncao", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property DescricaoFuncao() As String
+		Get
+			Return Me._DescricaoFuncao
+		End Get
+		Set
+			If (String.Equals(Me._DescricaoFuncao, value) = false) Then
+				Me.OnDescricaoFuncaoChanging(value)
+				Me.SendPropertyChanging
+				Me._DescricaoFuncao = value
+				Me.SendPropertyChanged("DescricaoFuncao")
+				Me.OnDescricaoFuncaoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Remuneracao", DbType:="Money")>  _
+	Public Property Remuneracao() As System.Nullable(Of Decimal)
+		Get
+			Return Me._Remuneracao
+		End Get
+		Set
+			If (Me._Remuneracao.Equals(value) = false) Then
+				Me.OnRemuneracaoChanging(value)
+				Me.SendPropertyChanging
+				Me._Remuneracao = value
+				Me.SendPropertyChanged("Remuneracao")
+				Me.OnRemuneracaoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DataAdmissao", DbType:="Date")>  _
+	Public Property DataAdmissao() As System.Nullable(Of Date)
+		Get
+			Return Me._DataAdmissao
+		End Get
+		Set
+			If (Me._DataAdmissao.Equals(value) = false) Then
+				Me.OnDataAdmissaoChanging(value)
+				Me.SendPropertyChanging
+				Me._DataAdmissao = value
+				Me.SendPropertyChanged("DataAdmissao")
+				Me.OnDataAdmissaoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DataDesligamento", DbType:="Date")>  _
+	Public Property DataDesligamento() As System.Nullable(Of Date)
+		Get
+			Return Me._DataDesligamento
+		End Get
+		Set
+			If (Me._DataDesligamento.Equals(value) = false) Then
+				Me.OnDataDesligamentoChanging(value)
+				Me.SendPropertyChanging
+				Me._DataDesligamento = value
+				Me.SendPropertyChanged("DataDesligamento")
+				Me.OnDataDesligamentoChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_GrupoTrab", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property GrupoTrab() As String
+		Get
+			Return Me._GrupoTrab
+		End Get
+		Set
+			If (String.Equals(Me._GrupoTrab, value) = false) Then
+				Me.OnGrupoTrabChanging(value)
+				Me.SendPropertyChanging
+				Me._GrupoTrab = value
+				Me.SendPropertyChanged("GrupoTrab")
+				Me.OnGrupoTrabChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CatTrab", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property CatTrab() As String
+		Get
+			Return Me._CatTrab
+		End Get
+		Set
+			If (String.Equals(Me._CatTrab, value) = false) Then
+				Me.OnCatTrabChanging(value)
+				Me.SendPropertyChanging
+				Me._CatTrab = value
+				Me.SendPropertyChanged("CatTrab")
+				Me.OnCatTrabChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoDocCatTrab", DbType:="Int")>  _
+	Public Property TipoDocCatTrab() As System.Nullable(Of Integer)
+		Get
+			Return Me._TipoDocCatTrab
+		End Get
+		Set
+			If (Me._TipoDocCatTrab.Equals(value) = false) Then
+				Me.OnTipoDocCatTrabChanging(value)
+				Me.SendPropertyChanging
+				Me._TipoDocCatTrab = value
+				Me.SendPropertyChanged("TipoDocCatTrab")
+				Me.OnTipoDocCatTrabChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_NumDocCatTrab", DbType:="VarChar(30)")>  _
+	Public Property NumDocCatTrab() As String
+		Get
+			Return Me._NumDocCatTrab
+		End Get
+		Set
+			If (String.Equals(Me._NumDocCatTrab, value) = false) Then
+				Me.OnNumDocCatTrabChanging(value)
+				Me.SendPropertyChanging
+				Me._NumDocCatTrab = value
+				Me.SendPropertyChanged("NumDocCatTrab")
+				Me.OnNumDocCatTrabChanged
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+Partial Public Class Seleciona_COLABORADORESResult
+	
+	Private _TipoDocCatTrab As String
+	
+	Private _NumDocCatTrab As String
+	
+	Private _IdColaboradorCliente As Integer
+	
+	Private _NomeColaborador As String
+	
+	Private _DocColaborador As String
+	
+	Private _CatTrab As String
+	
+	Private _GrupoTrab As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TipoDocCatTrab", DbType:="Char(100)")>  _
+	Public Property TipoDocCatTrab() As String
+		Get
+			Return Me._TipoDocCatTrab
+		End Get
+		Set
+			If (String.Equals(Me._TipoDocCatTrab, value) = false) Then
+				Me._TipoDocCatTrab = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_NumDocCatTrab", DbType:="Char(100)")>  _
+	Public Property NumDocCatTrab() As String
+		Get
+			Return Me._NumDocCatTrab
+		End Get
+		Set
+			If (String.Equals(Me._NumDocCatTrab, value) = false) Then
+				Me._NumDocCatTrab = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_IdColaboradorCliente", DbType:="Int NOT NULL")>  _
+	Public Property IdColaboradorCliente() As Integer
+		Get
+			Return Me._IdColaboradorCliente
+		End Get
+		Set
+			If ((Me._IdColaboradorCliente = value)  _
+						= false) Then
+				Me._IdColaboradorCliente = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_NomeColaborador", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property NomeColaborador() As String
+		Get
+			Return Me._NomeColaborador
+		End Get
+		Set
+			If (String.Equals(Me._NomeColaborador, value) = false) Then
+				Me._NomeColaborador = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_DocColaborador", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property DocColaborador() As String
+		Get
+			Return Me._DocColaborador
+		End Get
+		Set
+			If (String.Equals(Me._DocColaborador, value) = false) Then
+				Me._DocColaborador = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_CatTrab", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property CatTrab() As String
+		Get
+			Return Me._CatTrab
+		End Get
+		Set
+			If (String.Equals(Me._CatTrab, value) = false) Then
+				Me._CatTrab = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_GrupoTrab", DbType:="NText", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property GrupoTrab() As String
+		Get
+			Return Me._GrupoTrab
+		End Get
+		Set
+			If (String.Equals(Me._GrupoTrab, value) = false) Then
+				Me._GrupoTrab = value
 			End If
 		End Set
 	End Property

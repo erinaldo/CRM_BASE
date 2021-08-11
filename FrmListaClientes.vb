@@ -57,6 +57,8 @@ Public Class FrmListaClientes
 
         Me.Cursor = Cursors.WaitCursor
 
+        FrmClientes.Leitura = True
+
         FrmClientes.Show(Me)
 
         Me.Cursor = Cursors.Arrow
@@ -134,13 +136,14 @@ Public Class FrmListaClientes
                 FrmClientes.Ckisento.Checked = True
             End If
 
+            FrmClientes.TxtCPF.Enabled = False
+            FrmClientes.TxtIE.Enabled = False
+
+            FrmClientes.Leitura = True
+
             FrmClientes.TxtCep.Text = ConsultaBase.First.CEP
             FrmClientes.TxtNumero.Text = ConsultaBase.First.Numero
             FrmClientes.TxtComplemento.Text = ConsultaBase.First.Complemento
-
-            FrmClientes.TxtTelefone.Text = ConsultaBase.First.Telefone
-            FrmClientes.TxtCelular.Text = ConsultaBase.First.Celular
-            FrmClientes.TxtEmail.Text = ConsultaBase.First.Email
 
             'seta indicador para atualizar
 

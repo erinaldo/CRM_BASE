@@ -17,9 +17,9 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <PublishUrl>\\DESKTOP-K3M64OB\Bakucp Donw\WebSite\Instalador\</PublishUrl>
+    <PublishUrl>D:\Public IARA\IARA_INST\INSTALADOR\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Unc</InstallFrom>
+    <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -28,7 +28,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -282,6 +282,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmAtualizar.Designer.vb">
+      <DependentUpon>FrmAtualizar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAtualizar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmCadCNPJ.Designer.vb">
       <DependentUpon>FrmCadCNPJ.vb</DependentUpon>
     </Compile>
@@ -304,6 +310,12 @@
       <DependentUpon>FrmSolicitaPrimeiroAcesso.vb</DependentUpon>
     </Compile>
     <Compile Include="FrmSolicitaPrimeiroAcesso.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStatusErro.Designer.vb">
+      <DependentUpon>FrmStatusErro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStatusErro.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LqBase.designer.vb">
@@ -338,6 +350,9 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAtualizar.resx">
+      <DependentUpon>FrmAtualizar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCadCNPJ.resx">
       <DependentUpon>FrmCadCNPJ.vb</DependentUpon>
     </EmbeddedResource>
@@ -349,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSolicitaPrimeiroAcesso.resx">
       <DependentUpon>FrmSolicitaPrimeiroAcesso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStatusErro.resx">
+      <DependentUpon>FrmStatusErro.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

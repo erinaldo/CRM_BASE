@@ -5879,5 +5879,17 @@ Public Class FrmPrincipal
         Me.Cursor = Cursors.Arrow
 
     End Sub
+
+    Private Sub S2220MonitoramentoDaSaúdeDoTrabalhadorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles S2220MonitoramentoDaSaúdeDoTrabalhadorToolStripMenuItem.Click
+
+        Me.Cursor = Cursors.WaitCursor
+
+        Timer1.Enabled = False
+
+        Frm2220.Show(Me)
+
+        Me.Cursor = Cursors.Arrow
+
+    End Sub
 End Class
 

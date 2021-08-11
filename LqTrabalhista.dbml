@@ -67,30 +67,6 @@
       <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.ColaboradoresCliente" Member="ColaboradoresCliente">
-    <Type Name="ColaboradoresCliente">
-      <Column Name="IdColaboradorCliente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IdCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NomeColaborador" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NomeFantasia" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Personalidade" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="DocColaborador" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RG_IE" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CEP" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Num" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Cmpl" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Telefone" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Celular" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Email" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="IdFuncao" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DescricaoFuncao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Remuneracao" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="DataAdmissao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DataDesligamento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="GrupoTrab" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CatTrab" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-    </Type>
-  </Table>
   <Table Name="dbo.Tabela02" Member="Tabela02">
     <Type Name="Tabela02">
       <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -350,6 +326,32 @@
       <Column Name="DESCRICAO" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.ColaboradoresCliente" Member="ColaboradoresCliente">
+    <Type Name="ColaboradoresCliente">
+      <Column Name="IdColaboradorCliente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdCliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomeColaborador" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NomeFantasia" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Personalidade" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DocColaborador" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RG_IE" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CEP" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cmpl" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Telefone" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Celular" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Email" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IdFuncao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DescricaoFuncao" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Remuneracao" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DataAdmissao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DataDesligamento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GrupoTrab" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CatTrab" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TipoDocCatTrab" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumDocCatTrab" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.AtualizaSetorCliente" Method="AtualizaSetorCliente">
     <Parameter Name="IdSetorCliente" Parameter="idSetorCliente" Type="System.Int32" DbType="Int" />
     <Parameter Name="NomeSetor" Parameter="nomeSetor" Type="System.String" DbType="NText" />
@@ -405,50 +407,6 @@
     <Parameter Name="IdColaborador" Parameter="idColaborador" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.EditaColaboradorCliente" Method="EditaColaboradorCliente">
-    <Parameter Name="IdColaboradorCliente" Parameter="idColaboradorCliente" Type="System.Int32" DbType="Int" />
-    <Parameter Name="NomeColaborador" Parameter="nomeColaborador" Type="System.String" DbType="NText" />
-    <Parameter Name="NomeFantasia" Parameter="nomeFantasia" Type="System.String" DbType="NText" />
-    <Parameter Name="Personalidade" Parameter="personalidade" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="DocColaborador" Parameter="docColaborador" Type="System.String" DbType="NText" />
-    <Parameter Name="RG_IE" Parameter="rG_IE" Type="System.String" DbType="NText" />
-    <Parameter Name="CEP" Parameter="cEP" Type="System.String" DbType="NText" />
-    <Parameter Name="Num" Parameter="num" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Cmpl" Parameter="cmpl" Type="System.String" DbType="NText" />
-    <Parameter Name="Telefone" Parameter="telefone" Type="System.String" DbType="NText" />
-    <Parameter Name="Celular" Parameter="celular" Type="System.String" DbType="NText" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NText" />
-    <Parameter Name="IdFuncao" Parameter="idFuncao" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DescricaoFuncao" Parameter="descricaoFuncao" Type="System.String" DbType="NText" />
-    <Parameter Name="Remuneracao" Parameter="remuneracao" Type="System.Decimal" DbType="Money" />
-    <Parameter Name="DataAdmissao" Parameter="dataAdmissao" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="DataDesligamento" Parameter="dataDesligamento" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="GrupoTrab" Parameter="grupoTrab" Type="System.String" DbType="NText" />
-    <Parameter Name="CatTrab" Parameter="catTrab" Type="System.String" DbType="NText" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.InsereColaboradorCliente" Method="InsereColaboradorCliente">
-    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
-    <Parameter Name="NomeColaborador" Parameter="nomeColaborador" Type="System.String" DbType="NText" />
-    <Parameter Name="NomeFantasia" Parameter="nomeFantasia" Type="System.String" DbType="NText" />
-    <Parameter Name="Personalidade" Parameter="personalidade" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="DocColaborador" Parameter="docColaborador" Type="System.String" DbType="NText" />
-    <Parameter Name="RG_IE" Parameter="rG_IE" Type="System.String" DbType="NText" />
-    <Parameter Name="CEP" Parameter="cEP" Type="System.String" DbType="NText" />
-    <Parameter Name="Num" Parameter="num" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Cmpl" Parameter="cmpl" Type="System.String" DbType="NText" />
-    <Parameter Name="Telefone" Parameter="telefone" Type="System.String" DbType="NText" />
-    <Parameter Name="Celular" Parameter="celular" Type="System.String" DbType="NText" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NText" />
-    <Parameter Name="IdFuncao" Parameter="idFuncao" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DescricaoFuncao" Parameter="descricaoFuncao" Type="System.String" DbType="NText" />
-    <Parameter Name="Remuneracao" Parameter="remuneracao" Type="System.Decimal" DbType="Money" />
-    <Parameter Name="DataAdmissao" Parameter="dataAdmissao" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="DataDesligamento" Parameter="dataDesligamento" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="GrupoTrab" Parameter="grupoTrab" Type="System.String" DbType="NText" />
-    <Parameter Name="CatTrab" Parameter="catTrab" Type="System.String" DbType="NText" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.InsereESocial" Method="InsereESocial">
     <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
     <Parameter Name="IdColaborador" Parameter="idColaborador" Type="System.Int32" DbType="Int" />
@@ -474,5 +432,65 @@
     <Parameter Name="IDENTIFICACAO" Parameter="iDENTIFICACAO" Type="System.String" DbType="VarChar(36)" />
     <Parameter Name="RES_JSON" Parameter="rES_JSON" Type="System.String" DbType="NText" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsereColaboradorCliente" Method="InsereColaboradorCliente">
+    <Parameter Name="IdCliente" Parameter="idCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeColaborador" Parameter="nomeColaborador" Type="System.String" DbType="NText" />
+    <Parameter Name="NomeFantasia" Parameter="nomeFantasia" Type="System.String" DbType="NText" />
+    <Parameter Name="Personalidade" Parameter="personalidade" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DocColaborador" Parameter="docColaborador" Type="System.String" DbType="NText" />
+    <Parameter Name="RG_IE" Parameter="rG_IE" Type="System.String" DbType="NText" />
+    <Parameter Name="CEP" Parameter="cEP" Type="System.String" DbType="NText" />
+    <Parameter Name="Num" Parameter="num" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cmpl" Parameter="cmpl" Type="System.String" DbType="NText" />
+    <Parameter Name="Telefone" Parameter="telefone" Type="System.String" DbType="NText" />
+    <Parameter Name="Celular" Parameter="celular" Type="System.String" DbType="NText" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NText" />
+    <Parameter Name="IdFuncao" Parameter="idFuncao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DescricaoFuncao" Parameter="descricaoFuncao" Type="System.String" DbType="NText" />
+    <Parameter Name="Remuneracao" Parameter="remuneracao" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="DataAdmissao" Parameter="dataAdmissao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="DataDesligamento" Parameter="dataDesligamento" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="GrupoTrab" Parameter="grupoTrab" Type="System.String" DbType="NText" />
+    <Parameter Name="CatTrab" Parameter="catTrab" Type="System.String" DbType="NText" />
+    <Parameter Name="TipoDocCatTrab" Parameter="tipoDocCatTrab" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumDocCatTrab" Parameter="numDocCatTrab" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EditaColaboradorCliente" Method="EditaColaboradorCliente">
+    <Parameter Name="IdColaboradorCliente" Parameter="idColaboradorCliente" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomeColaborador" Parameter="nomeColaborador" Type="System.String" DbType="NText" />
+    <Parameter Name="NomeFantasia" Parameter="nomeFantasia" Type="System.String" DbType="NText" />
+    <Parameter Name="Personalidade" Parameter="personalidade" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DocColaborador" Parameter="docColaborador" Type="System.String" DbType="NText" />
+    <Parameter Name="RG_IE" Parameter="rG_IE" Type="System.String" DbType="NText" />
+    <Parameter Name="CEP" Parameter="cEP" Type="System.String" DbType="NText" />
+    <Parameter Name="Num" Parameter="num" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cmpl" Parameter="cmpl" Type="System.String" DbType="NText" />
+    <Parameter Name="Telefone" Parameter="telefone" Type="System.String" DbType="NText" />
+    <Parameter Name="Celular" Parameter="celular" Type="System.String" DbType="NText" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NText" />
+    <Parameter Name="IdFuncao" Parameter="idFuncao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DescricaoFuncao" Parameter="descricaoFuncao" Type="System.String" DbType="NText" />
+    <Parameter Name="Remuneracao" Parameter="remuneracao" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="DataAdmissao" Parameter="dataAdmissao" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="DataDesligamento" Parameter="dataDesligamento" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="GrupoTrab" Parameter="grupoTrab" Type="System.String" DbType="NText" />
+    <Parameter Name="CatTrab" Parameter="catTrab" Type="System.String" DbType="NText" />
+    <Parameter Name="TipoDocCatTrab" Parameter="tipoDocCatTrab" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumDocCatTrab" Parameter="numDocCatTrab" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Seleciona_COLABORADORES" Method="Seleciona_COLABORADORES">
+    <Parameter Name="ID_CLIENTE" Parameter="iD_CLIENTE" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Seleciona_COLABORADORESResult">
+      <Column Name="TipoDocCatTrab" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="NumDocCatTrab" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="IdColaboradorCliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NomeColaborador" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DocColaborador" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CatTrab" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GrupoTrab" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
   </Function>
 </Database>

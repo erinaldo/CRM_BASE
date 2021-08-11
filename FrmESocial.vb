@@ -113,86 +113,22 @@ Public Class FrmESocial
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
+        Me.Cursor = Cursors.WaitCursor
+
+        FrmPrincipal.CarregaDashboard()
+
         Me.Close()
 
     End Sub
 
     Private Sub FrmESocial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Dim LqTrabalhista As New LqTrabalhistaDataContext
-        LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
-
-        Dim BuscaTrab = From trab In LqTrabalhista.ESocial
-                        Where trab.IdESocial Like "*"
-                        Select trab.Protocolo, trab.Arquivo, trab.Status, trab.IdColaborador, trab.IdCliente, trab.HoraResposta, trab.DataResposta, trab.HoraSolicitacao, trab.DataSolicitacao, trab.Evento, trab.IdESocial, trab.IDEVENTO, trab.Recibo
-
-        For Each rw In BuscaTrab.ToList
-
-            If rw.Protocolo <> "" Then
-                Dim DtFinal As String = FormatDateTime(rw.DataResposta, DateFormat.ShortDate)
-                Dim HrFinal As String = FormatDateTime(rw.HoraResposta.ToString, DateFormat.ShortTime)
-
-                If DtFinal.StartsWith("11/11/1111") Then
-                    DtFinal = ""
-                    HrFinal = ""
-                End If
-
-                Dim BuscaColaborador = From col In LqTrabalhista.ColaboradoresCliente
-                                       Where col.IdColaboradorCliente = rw.IdColaborador
-                                       Select col.NomeColaborador, col.DocColaborador
-
-                Dim _NomeColaborador As String = ""
-                Dim _DocColaborador As String = ""
-
-                If BuscaColaborador.Count > 0 Then
-
-                    _NomeColaborador = BuscaColaborador.First.NomeColaborador
-                    _DocColaborador = BuscaColaborador.First.DocColaborador
-
-                End If
-
-                Dim Stt As String
-
-                Dim LqBase As New DtCadastroDataContext
-                LqBase.Connection.ConnectionString = FrmPrincipal.ConnectionStringBase
-
-                Dim BuscaCliente = From cliente In LqBase.Clientes
-                                   Where cliente.IdCliente = rw.IdCliente
-                                   Select cliente.Apelido
-
-                If rw.Status = 1 Then
-                    'verifica resposta do servidor
-
-                    Try
-
-                        DtProdutos.Rows.Add(rw.Status, rw.IdESocial, _DocColaborador, BuscaCliente.First & " - " & _NomeColaborador, rw.Evento, FormatDateTime(rw.DataSolicitacao, DateFormat.ShortDate), FormatDateTime(rw.HoraSolicitacao.ToString, DateFormat.ShortTime), DtFinal, HrFinal, ImageList1.Images(1), ImageList1.Images(0), rw.Arquivo, rw.IdESocial, rw.Protocolo, Stt, "", rw.IDEVENTO)
-
-                        VerificaServidor()
-
-                    Catch ex As Exception
-
-                        Stt = ex.Message
-
-                    End Try
-
-                ElseIf rw.Status = 2 Then
-
-                    DtTransacoesconcluidas.Rows.Add(rw.Status, rw.IdESocial, _DocColaborador, BuscaCliente.First & " - " & _NomeColaborador, rw.Evento, FormatDateTime(rw.DataSolicitacao, DateFormat.ShortDate), FormatDateTime(rw.HoraSolicitacao.ToString, DateFormat.ShortTime), DtFinal, HrFinal, ImageList1.Images(3), ImageList1.Images(3), rw.Arquivo, rw.IdESocial, rw.Protocolo, Stt, rw.Recibo, rw.IDEVENTO)
-
-                End If
-
-            End If
-
-        Next
+        VerificaServidor()
 
     End Sub
 
     Dim Chave As String
-    Private Sub DtProdutos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DtProdutos.CellContentClick
 
-
-
-    End Sub
     Private isValid As Boolean = True
     Public Sub MyValidationEventHandler(ByVal sender As Object, ByVal args As ValidationEventArgs)
         isValid = False
@@ -225,9 +161,15 @@ Public Class FrmESocial
 
     End Sub
 
-    Dim RefreshConsulta As Integer = (30)
+    Dim RefreshConsulta As Integer = (5)
 
     Private Sub VerificaServidor()
+
+        Dim Lst_Marca_delete As New ListBox
+
+        Dim LqTrabalhista As New LqTrabalhistaDataContext
+        LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
+
         For Each row As DataGridViewRow In DtProdutos.Rows
             If row.Cells(0).Value = 1 Then
 
@@ -400,10 +342,9 @@ Public Class FrmESocial
                                 row.Cells(0).Value = 2
                                 'atualiza recibo
 
-                                Dim LqTrabalhista As New LqTrabalhistaDataContext
-                                LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
-
                                 LqTrabalhista.atualizaStatusReciboEsocial(row.Cells(16).Value, json)
+
+                                Lst_Marca_delete.Items.Add(row.Index)
 
                             Catch ex As Exception
 
@@ -416,10 +357,9 @@ Public Class FrmESocial
                                 row.Cells(10).Value = ImageList1.Images(1)
                                 row.Cells(0).Value = 2
 
-                                Dim LqTrabalhista As New LqTrabalhistaDataContext
-                                LqTrabalhista.Connection.ConnectionString = FrmPrincipal.ConnectionStringTrabalhista
-
                                 LqTrabalhista.atualizaStatusReciboEsocial(row.Cells(16).Value, ex.Message)
+
+                                Lst_Marca_delete.Items.Add(row.Index)
 
                             End Try
 
@@ -434,8 +374,79 @@ Public Class FrmESocial
             End If
 
         Next
-    End Sub
 
+        For i As Integer = 0 To Lst_Marca_delete.Items.Count - 1
+            DtProdutos.Rows.RemoveAt(Lst_Marca_delete.Items(i).ToString)
+        Next
+
+        'apaga as duas listas
+
+        DtProdutos.Rows.Clear()
+        DtTransacoesconcluidas.Rows.Clear()
+
+        Dim BuscaTrab = From trab In LqTrabalhista.ESocial
+                        Where trab.IdESocial Like "*"
+                        Select trab.Protocolo, trab.Arquivo, trab.Status, trab.IdColaborador, trab.IdCliente, trab.HoraResposta, trab.DataResposta, trab.HoraSolicitacao, trab.DataSolicitacao, trab.Evento, trab.IdESocial, trab.IDEVENTO, trab.Recibo
+
+        For Each rw In BuscaTrab.ToList
+
+            If rw.Protocolo <> "" Then
+                Dim DtFinal As String = FormatDateTime(rw.DataResposta, DateFormat.ShortDate)
+                Dim HrFinal As String = FormatDateTime(rw.HoraResposta.ToString, DateFormat.ShortTime)
+
+                If DtFinal.StartsWith("11/11/1111") Then
+                    DtFinal = ""
+                    HrFinal = ""
+                End If
+
+                Dim BuscaColaborador = From col In LqTrabalhista.ColaboradoresCliente
+                                       Where col.IdColaboradorCliente = rw.IdColaborador
+                                       Select col.NomeColaborador, col.DocColaborador
+
+                Dim _NomeColaborador As String = ""
+                Dim _DocColaborador As String = ""
+
+                If BuscaColaborador.Count > 0 Then
+
+                    _NomeColaborador = BuscaColaborador.First.NomeColaborador
+                    _DocColaborador = BuscaColaborador.First.DocColaborador
+
+                End If
+
+                Dim Stt As String
+
+                Dim LqBase As New DtCadastroDataContext
+                LqBase.Connection.ConnectionString = FrmPrincipal.ConnectionStringBase
+
+                Dim BuscaCliente = From cliente In LqBase.Clientes
+                                   Where cliente.IdCliente = rw.IdCliente
+                                   Select cliente.Apelido
+
+                If rw.Status = 1 Then
+                    'verifica resposta do servidor
+
+                    Try
+
+                        DtProdutos.Rows.Add(rw.Status, rw.IdESocial, _DocColaborador, BuscaCliente.First & " - " & _NomeColaborador, rw.Evento, FormatDateTime(rw.DataSolicitacao, DateFormat.ShortDate), FormatDateTime(rw.HoraSolicitacao.ToString, DateFormat.ShortTime), DtFinal, HrFinal, ImageList1.Images(1), ImageList1.Images(0), rw.Arquivo, rw.IdESocial, rw.Protocolo, Stt, "", rw.IDEVENTO)
+
+                        VerificaServidor()
+
+                    Catch ex As Exception
+
+                        Stt = ex.Message
+
+                    End Try
+
+                ElseIf rw.Status = 2 Then
+
+                    DtTransacoesconcluidas.Rows.Add(rw.Status, rw.IdESocial, _DocColaborador, BuscaCliente.First & " - " & _NomeColaborador, rw.Evento, FormatDateTime(rw.DataSolicitacao, DateFormat.ShortDate), FormatDateTime(rw.HoraSolicitacao.ToString, DateFormat.ShortTime), DtFinal, HrFinal, ImageList1.Images(3), ImageList1.Images(3), rw.Arquivo, rw.IdESocial, rw.Protocolo, Stt, rw.Recibo, rw.IDEVENTO)
+
+                End If
+
+            End If
+
+        Next
+    End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
 

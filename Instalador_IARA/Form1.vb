@@ -17,6 +17,10 @@ Public Class Form1
 
         Pnn2.Visible = False
 
+        'carrega versao atual do programa
+
+        LblVersao.Text = "Versão. " & My.Application.Info.Version.ToString
+
         BtnAvançar.Focus()
 
     End Sub
@@ -149,11 +153,17 @@ Public Class Form1
 
                                     If _IP.EndsWith("U") Then
 
-                                        _IP = _IP.Remove(_IP.Length - 1, 1)
+                                        '_IP = _IP.Remove(_IP.Length - 1, 1)
+
+                                        CkEsteComputador.Checked = True
+                                        BuscaIP()
+
+                                    Else
+
+                                        TxtIp.Text = _IP
 
                                     End If
 
-                                    TxtIp.Text = _IP
                                     TxtPortaSQL.Text = _PortaSql
                                     TxtNomeInstancia.Text = _INstancia
 
@@ -205,7 +215,7 @@ Public Class Form1
 
                 Stagio = 1
 
-                'BtnAvançar.PerformClick()
+                BtnAvançar.PerformClick()
 
             ElseIf Stagio = 1 Then
 
@@ -235,7 +245,7 @@ Public Class Form1
                     End If
 
                     Dim Porta As String = ""
-                    If TxtPortaSQL.Text <> "" Then
+                    If TxtPortaSQL.Text <> "" Or TxtPortaSQL.Text = 0 Then
 
                         Porta = "," & TxtPortaSQL.Text
 
@@ -510,7 +520,7 @@ Public Class Form1
 
                     BttBuscarLicensas.PerformClick()
 
-                    'BtnAvançar.PerformClick()
+                    BtnAvançar.PerformClick()
 
                 Else
 
@@ -1123,7 +1133,7 @@ Public Class Form1
 
                         End If
 
-                        End
+                        FrmAtualizar.Show(Me)
 
                         'FrmFinalizar.ShowDialog()
 
@@ -1274,7 +1284,7 @@ Public Class Form1
                             Next
                         End If
 
-                        End
+                        FrmAtualizar.Show(Me)
 
                         'FrmFinalizar.ShowDialog()
 
@@ -2584,31 +2594,18 @@ Public Class Form1
 
         If RdbAtualizar.Checked = True Then
 
-            If IO.Directory.Exists("C:\Iara\Uteis\ATT\Bancos") Then
+            If MsgBox("Deseja atualizar os bancos de dados?" & Chr(13) &
+                      "Após a atualização o instalador fechará automáticamente." & Chr(13) & Chr(13) &
+                      "Deseja prosseguir?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
 
-                For Each itens In IO.Directory.GetFiles("C:\Iara\Uteis\ATT\Bancos").ToList
-
-                    DtDataBases.Rows.Add(ImageList1.Images(3), itens.ToString, "Aguardando rotina")
-
-                    'copia este arquivo
-
-                    'verifica se banco já existia
-
-
-                Next
-
-            End If
-
-            If DtDataBases.Rows.Count = 0 Then
-
-                BtnAvançar.PerformClick()
+                FrmAtualizar.Show(Me)
 
             End If
 
         Else
 
 
-        End If
+            End If
 
     End Sub
 
@@ -2933,6 +2930,10 @@ Public Class Form1
             End If
 
         End If
+
+    End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
 
     End Sub
 End Class

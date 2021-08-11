@@ -67,7 +67,7 @@ Public Class FrmLogin
     Private Sub FrmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         LblStatus.Text = "Conectando"
-
+        LblVersão.Text = "Versão. " & My.Application.Info.Version.ToString
 
     End Sub
 
@@ -267,8 +267,6 @@ Public Class FrmLogin
                     LqIara.Connection.ConnectionString = FrmPrincipal.ConnectionStringIARA
 
                     FrmPrincipal.Visible = False
-
-                    LblVersão.Text = "V." & My.Application.UICulture.CompareInfo.Version.ToString
 
                     Try
 

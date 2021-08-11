@@ -61,7 +61,7 @@ Partial Class LogResurltadoEsocial
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(1, 36)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(884, 635)
+        Me.Panel1.Size = New System.Drawing.Size(1272, 605)
         Me.Panel1.TabIndex = 1
         '
         'Label1
@@ -72,7 +72,7 @@ Partial Class LogResurltadoEsocial
         Me.Label1.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.Label1.Location = New System.Drawing.Point(1, 26)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(884, 10)
+        Me.Label1.Size = New System.Drawing.Size(1272, 10)
         Me.Label1.TabIndex = 31
         Me.Label1.Text = "Configuração do certificado digital"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -85,7 +85,7 @@ Partial Class LogResurltadoEsocial
         Me.Label2.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.Label2.Location = New System.Drawing.Point(1, 1)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(884, 25)
+        Me.Label2.Size = New System.Drawing.Size(1272, 25)
         Me.Label2.TabIndex = 32
         Me.Label2.Text = "Resposta do servidor SERPRO"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -101,7 +101,7 @@ Partial Class LogResurltadoEsocial
         Me.PnnInferior.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PnnInferior.Location = New System.Drawing.Point(1, 641)
         Me.PnnInferior.Name = "PnnInferior"
-        Me.PnnInferior.Size = New System.Drawing.Size(884, 30)
+        Me.PnnInferior.Size = New System.Drawing.Size(1272, 30)
         Me.PnnInferior.TabIndex = 246
         '
         'LblIdVistoria
@@ -146,7 +146,7 @@ Partial Class LogResurltadoEsocial
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel5.Location = New System.Drawing.Point(0, 0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(827, 5)
+        Me.Panel5.Size = New System.Drawing.Size(1215, 5)
         Me.Panel5.TabIndex = 27
         '
         'Panel12
@@ -155,7 +155,7 @@ Partial Class LogResurltadoEsocial
         Me.Panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel12.Controls.Add(Me.Button1)
         Me.Panel12.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel12.Location = New System.Drawing.Point(827, 0)
+        Me.Panel12.Location = New System.Drawing.Point(1215, 0)
         Me.Panel12.Name = "Panel12"
         Me.Panel12.Size = New System.Drawing.Size(57, 30)
         Me.Panel12.TabIndex = 49
@@ -185,7 +185,7 @@ Partial Class LogResurltadoEsocial
         '
         Me.Panel3.BackColor = System.Drawing.Color.DarkSlateGray
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(885, 1)
+        Me.Panel3.Location = New System.Drawing.Point(1273, 1)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1, 670)
         Me.Panel3.TabIndex = 248
@@ -196,7 +196,7 @@ Partial Class LogResurltadoEsocial
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(886, 1)
+        Me.Panel4.Size = New System.Drawing.Size(1274, 1)
         Me.Panel4.TabIndex = 249
         '
         'Panel6
@@ -205,16 +205,16 @@ Partial Class LogResurltadoEsocial
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel6.Location = New System.Drawing.Point(0, 671)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(886, 1)
+        Me.Panel6.Size = New System.Drawing.Size(1274, 1)
         Me.Panel6.TabIndex = 250
         '
         'LogResurltadoEsocial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(886, 672)
-        Me.Controls.Add(Me.PnnInferior)
+        Me.ClientSize = New System.Drawing.Size(1274, 672)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.PnnInferior)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel2)

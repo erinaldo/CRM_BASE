@@ -173,7 +173,7 @@ Public Class Form2210
 
         writer.WriteElementString("tpAmb", "2")
         writer.WriteElementString("procEmi", "1")
-        writer.WriteElementString("verProc", "1.0.0")
+        writer.WriteElementString("verProc", My.Application.Info.Version.ToString)
 
         'encerra ideEvento
 
@@ -446,8 +446,8 @@ Public Class Form2210
 
                 If item_c.SerialNumber = (BuscaCertificado.First.SERIAL_CERT) Then
 
-                    SignVerify.SignVerifyEnvelope.SignXmlFile("C:\Iara\ESocial\Eventos\" & Identificacao & ".xml", "C:\Iara\ESocial\Eventos\Signed" & Identificacao & ".xml", objColecaoCertificadosX509.Item(0), Identificacao)
-                    criaEventoEnviaLote("C:\Iara\ESocial\Eventos\Signed" & Identificacao & ".xml", Identificacao, Doc, _ANO, _MES, _DIA, HrStr, MinStr, SgStr)
+                    SignVerify.SignVerifyEnvelope.SignXmlFile("C:\Iara\ESocial\Eventos\" & Identificacao & ".xml", "C:\Iara\ESocial\Eventos\Signed" & Identificacao & ".xml", item_c, Identificacao, "S2210")
+                    criaEventoEnviaLote("C:\Iara\ESocial\Eventos\Signed" & Identificacao & ".xml", Identificacao, Doc, Today.Year, MStr, DStr, HrStr, MinStr, SgStr)
 
                 End If
 
@@ -482,7 +482,7 @@ Public Class Form2210
 
             If objColecaoCertificadosX509.Count > 0 Then
 
-            SignVerify.SignVerifyEnvelope.SignXmlFile(ArqXmlAssinar, "C:\Iara\ESocial\" & StrIdentificacao & ".xml", objColecaoCertificadosX509.Item(0), StrIdentificacao)
+            SignVerify.SignVerifyEnvelope.SignXmlFile(ArqXmlAssinar, "C:\Iara\ESocial\" & StrIdentificacao & ".xml", objColecaoCertificadosX509.Item(0), StrIdentificacao, "S2210")
 
             'AssinarDocumentoXML(ArqXmlAssinar, "Signature", objColecaoCertificadosX509.Item(0).SerialNumber.ToString, StrIdentificacao, IDSOCIAL)
 
@@ -523,7 +523,7 @@ Public Class Form2210
 
             'FrmESocial.Show(FrmPrincipal)
 
-            'Me.Close()
+            Me.Close()
 
         Catch ex As Exception
 
@@ -534,9 +534,9 @@ Public Class Form2210
 
     End Sub
 
-    Dim LstDoc As New ListBox
-    Dim LstIDCliente As New ListBox
-    Dim LStDoColab As New ListBox
+    Public LstDoc As New ListBox
+    Public LstIDCliente As New ListBox
+    Public LStDoColab As New ListBox
     Private Sub Form2210_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'busca clientes
@@ -556,9 +556,9 @@ Public Class Form2210
 
     End Sub
 
-    Dim LstMatricula As New ListBox
-    Dim LstGrupoTrab As New ListBox
-    Dim LstIdColaborador As New ListBox
+    Public LstMatricula As New ListBox
+    Public LstGrupoTrab As New ListBox
+    Public LstIdColaborador As New ListBox
 
     Private Sub CmbTodosClientes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbTodosClientes.SelectedIndexChanged
 
@@ -1914,7 +1914,7 @@ Public Class Form2210
         End Try
 
         If RdbCRM.Checked = True Then
-            TxtNumDocumento.Mask = "00000000-0"
+            TxtNumDocumento.Mask = "0000000-0"
         ElseIf RdbCRO.Checked = True Then
             TxtNumDocumento.Mask = "000,000-0"
         ElseIf RdbRMS.Checked = True Then
@@ -2316,7 +2316,36 @@ Public Class Form2210
         If TxtNumDocumento.Text.Length = TxtNumDocumento.Mask.Replace(",", "").Replace("-", "").Replace("/", "").Length Then
 
             CmbEstadoEmitente.Enabled = True
-            ImgvalNumDocMedico.BackgroundImage = My.Resources.check_ok
+
+            ImgValDocMedico.BackgroundImage = My.Resources.check_ok
+
+            'limpa e insere todos os estados de acordo com o IBGE
+
+            Dim baseUrlImagemUsuario As String = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/"
+
+            'carrega informações no site
+
+            Try
+
+                ' Chamada sincrona
+                Dim syncClientImagemUsuario = New WebClient()
+                Dim contentImagemUsuario = syncClientImagemUsuario.DownloadString(baseUrlImagemUsuario)
+
+                Dim readImagemUsuario = JsonConvert.DeserializeObject(Of List(Of Classe_Veiculos_Oficina.UFEMIT))(contentImagemUsuario)
+
+                CmbEstadoEmitente.Items.Clear()
+
+                For Each i In readImagemUsuario.ToList
+
+                    CmbEstadoEmitente.Items.Add(i.sigla)
+
+                Next
+
+            Catch ex As Exception
+
+                CmbEstadoEmitente.Items.Add("SP")
+
+            End Try
 
         Else
 

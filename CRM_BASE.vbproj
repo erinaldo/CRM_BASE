@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>CRM_BASE.My.MyApplication</StartupObject>
     <RootNamespace>CRM_BASE</RootNamespace>
-    <AssemblyName>CRM_BASE</AssemblyName>
+    <AssemblyName>I.A.R.A</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -16,7 +16,7 @@
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>D:\Public IARA\</PublishUrl>
+    <PublishUrl>D:\Public IARA\IARA_INST\PROGRAM\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,8 +26,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>38</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -40,7 +40,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>CRM_BASE.xml</DocumentationFile>
+    <DocumentationFile>I.A.R.A.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -50,7 +50,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>CRM_BASE.xml</DocumentationFile>
+    <DocumentationFile>I.A.R.A.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -242,6 +242,12 @@
       <DependentUpon>FormFinalizarSolicitaçãoCotação.vb</DependentUpon>
     </Compile>
     <Compile Include="FormFinalizarSolicitaçãoCotação.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm2220.Designer.vb">
+      <DependentUpon>Frm2220.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frm2220.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmAcessoriaTrabalhista.Designer.vb">
@@ -1366,6 +1372,12 @@
     <Compile Include="FrmTabela17.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmTabela27.Designer.vb">
+      <DependentUpon>FrmTabela27.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTabela27.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmTodosProdutos.Designer.vb">
       <DependentUpon>FrmTodosProdutos.vb</DependentUpon>
     </Compile>
@@ -1570,6 +1582,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2210.resx">
       <DependentUpon>Form2210.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm2220.resx">
+      <DependentUpon>Frm2220.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAcessoriaTrabalhista.resx">
       <DependentUpon>FrmAcessoriaTrabalhista.vb</DependentUpon>
@@ -2115,6 +2130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTabela17.resx">
       <DependentUpon>FrmTabela17.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTabela27.resx">
+      <DependentUpon>FrmTabela27.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTodosProdutos.resx">
       <DependentUpon>FrmTodosProdutos.vb</DependentUpon>

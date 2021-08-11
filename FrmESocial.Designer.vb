@@ -256,7 +256,7 @@ Partial Class FrmESocial
         Me.DtProdutos.RowHeadersVisible = False
         Me.DtProdutos.RowHeadersWidth = 51
         Me.DtProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DtProdutos.Size = New System.Drawing.Size(1071, 256)
+        Me.DtProdutos.Size = New System.Drawing.Size(1071, 120)
         Me.DtProdutos.TabIndex = 178
         '
         'Column9
@@ -443,7 +443,7 @@ Partial Class FrmESocial
         Me.Label2.BackColor = System.Drawing.Color.Gainsboro
         Me.Label2.Font = New System.Drawing.Font("Calibri", 8.25!)
         Me.Label2.ForeColor = System.Drawing.Color.DarkSlateGray
-        Me.Label2.Location = New System.Drawing.Point(9, 313)
+        Me.Label2.Location = New System.Drawing.Point(8, 177)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(1074, 18)
         Me.Label2.TabIndex = 179
@@ -480,14 +480,14 @@ Partial Class FrmESocial
         Me.DtTransacoesconcluidas.DefaultCellStyle = DataGridViewCellStyle14
         Me.DtTransacoesconcluidas.EnableHeadersVisualStyles = False
         Me.DtTransacoesconcluidas.GridColor = System.Drawing.Color.Gainsboro
-        Me.DtTransacoesconcluidas.Location = New System.Drawing.Point(10, 334)
+        Me.DtTransacoesconcluidas.Location = New System.Drawing.Point(10, 198)
         Me.DtTransacoesconcluidas.MultiSelect = False
         Me.DtTransacoesconcluidas.Name = "DtTransacoesconcluidas"
         Me.DtTransacoesconcluidas.ReadOnly = True
         Me.DtTransacoesconcluidas.RowHeadersVisible = False
         Me.DtTransacoesconcluidas.RowHeadersWidth = 51
         Me.DtTransacoesconcluidas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DtTransacoesconcluidas.Size = New System.Drawing.Size(1071, 272)
+        Me.DtTransacoesconcluidas.Size = New System.Drawing.Size(1071, 408)
         Me.DtTransacoesconcluidas.TabIndex = 180
         '
         'DataGridViewTextBoxColumn1

@@ -49,20 +49,10 @@ Partial Class FrmNovoColaboradorCliente
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TxtPais = New System.Windows.Forms.TextBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.TxtEstado = New System.Windows.Forms.TextBox()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.TxtCidade = New System.Windows.Forms.TextBox()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.TxtBairro = New System.Windows.Forms.TextBox()
-        Me.Label23 = New System.Windows.Forms.Label()
         Me.TxtComplemento = New System.Windows.Forms.TextBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.TxtNumero = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.TxtEndereco = New System.Windows.Forms.TextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
         Me.TxtCep = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Ckisento = New System.Windows.Forms.CheckBox()
@@ -84,7 +74,6 @@ Partial Class FrmNovoColaboradorCliente
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TxtDemissao = New System.Windows.Forms.DateTimePicker()
         Me.CkDsligamento = New System.Windows.Forms.CheckBox()
-        Me.BttAddProduto = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.CmbCategoriaTrabalhador = New System.Windows.Forms.ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -94,9 +83,26 @@ Partial Class FrmNovoColaboradorCliente
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.BttAddProduto = New System.Windows.Forms.Button()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.TxtNDocEsocial = New System.Windows.Forms.MaskedTextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.RdbNIT = New System.Windows.Forms.RadioButton()
+        Me.RdbPASEP = New System.Windows.Forms.RadioButton()
+        Me.RdbPIS = New System.Windows.Forms.RadioButton()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.TxtNumeroMatricula = New System.Windows.Forms.TextBox()
+        Me.LblPais = New System.Windows.Forms.Label()
+        Me.LblEstado = New System.Windows.Forms.Label()
+        Me.LblCidade = New System.Windows.Forms.Label()
+        Me.LblBairro = New System.Windows.Forms.Label()
+        Me.LblEndereco = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Panel6 = New System.Windows.Forms.Panel()
         Me.PnnInferior.SuspendLayout()
         Me.Panel12.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -127,7 +133,7 @@ Partial Class FrmNovoColaboradorCliente
         Me.PnnInferior.Controls.Add(Me.Panel5)
         Me.PnnInferior.Controls.Add(Me.Panel12)
         Me.PnnInferior.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PnnInferior.Location = New System.Drawing.Point(1, 648)
+        Me.PnnInferior.Location = New System.Drawing.Point(1, 603)
         Me.PnnInferior.Name = "PnnInferior"
         Me.PnnInferior.Size = New System.Drawing.Size(823, 32)
         Me.PnnInferior.TabIndex = 45
@@ -205,6 +211,7 @@ Partial Class FrmNovoColaboradorCliente
         '
         Me.BtnSalvar.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.check_ok_accept_apply_1582
         Me.BtnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BtnSalvar.Enabled = False
         Me.BtnSalvar.FlatAppearance.BorderSize = 0
         Me.BtnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnSalvar.Location = New System.Drawing.Point(9, 8)
@@ -227,7 +234,7 @@ Partial Class FrmNovoColaboradorCliente
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 1)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1, 679)
+        Me.Panel1.Size = New System.Drawing.Size(1, 634)
         Me.Panel1.TabIndex = 46
         '
         'Panel2
@@ -236,7 +243,7 @@ Partial Class FrmNovoColaboradorCliente
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel2.Location = New System.Drawing.Point(824, 1)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1, 679)
+        Me.Panel2.Size = New System.Drawing.Size(1, 634)
         Me.Panel2.TabIndex = 47
         '
         'Panel3
@@ -252,7 +259,7 @@ Partial Class FrmNovoColaboradorCliente
         '
         Me.Panel4.BackColor = System.Drawing.Color.DarkSlateGray
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel4.Location = New System.Drawing.Point(0, 680)
+        Me.Panel4.Location = New System.Drawing.Point(0, 635)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(825, 1)
         Me.Panel4.TabIndex = 49
@@ -300,7 +307,7 @@ Partial Class FrmNovoColaboradorCliente
         Me.TxtCPF.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtCPF.Enabled = False
         Me.TxtCPF.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtCPF.Location = New System.Drawing.Point(185, 131)
+        Me.TxtCPF.Location = New System.Drawing.Point(135, 131)
         Me.TxtCPF.Mask = "000,000,000-000"
         Me.TxtCPF.Name = "TxtCPF"
         Me.TxtCPF.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
@@ -313,7 +320,7 @@ Partial Class FrmNovoColaboradorCliente
         Me.TxtApelido.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtApelido.Enabled = False
         Me.TxtApelido.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtApelido.Location = New System.Drawing.Point(185, 104)
+        Me.TxtApelido.Location = New System.Drawing.Point(135, 104)
         Me.TxtApelido.Name = "TxtApelido"
         Me.TxtApelido.Size = New System.Drawing.Size(318, 21)
         Me.TxtApelido.TabIndex = 218
@@ -376,88 +383,12 @@ Partial Class FrmNovoColaboradorCliente
         Me.Label5.Text = "Contatos"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'TxtPais
-        '
-        Me.TxtPais.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtPais.Enabled = False
-        Me.TxtPais.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtPais.Location = New System.Drawing.Point(516, 239)
-        Me.TxtPais.Name = "TxtPais"
-        Me.TxtPais.Size = New System.Drawing.Size(279, 21)
-        Me.TxtPais.TabIndex = 211
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(428, 240)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(30, 17)
-        Me.Label25.TabIndex = 210
-        Me.Label25.Text = "País"
-        '
-        'TxtEstado
-        '
-        Me.TxtEstado.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtEstado.Enabled = False
-        Me.TxtEstado.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtEstado.Location = New System.Drawing.Point(185, 239)
-        Me.TxtEstado.Name = "TxtEstado"
-        Me.TxtEstado.Size = New System.Drawing.Size(237, 21)
-        Me.TxtEstado.TabIndex = 209
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(31, 242)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(46, 17)
-        Me.Label26.TabIndex = 208
-        Me.Label26.Text = "Estado"
-        '
-        'TxtCidade
-        '
-        Me.TxtCidade.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtCidade.Enabled = False
-        Me.TxtCidade.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtCidade.Location = New System.Drawing.Point(516, 212)
-        Me.TxtCidade.Name = "TxtCidade"
-        Me.TxtCidade.Size = New System.Drawing.Size(279, 21)
-        Me.TxtCidade.TabIndex = 207
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(428, 213)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(46, 17)
-        Me.Label24.TabIndex = 206
-        Me.Label24.Text = "Cidade"
-        '
-        'TxtBairro
-        '
-        Me.TxtBairro.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtBairro.Enabled = False
-        Me.TxtBairro.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtBairro.Location = New System.Drawing.Point(185, 212)
-        Me.TxtBairro.Name = "TxtBairro"
-        Me.TxtBairro.Size = New System.Drawing.Size(237, 21)
-        Me.TxtBairro.TabIndex = 205
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(31, 215)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(43, 17)
-        Me.Label23.TabIndex = 204
-        Me.Label23.Text = "Bairro"
-        '
         'TxtComplemento
         '
         Me.TxtComplemento.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtComplemento.Enabled = False
         Me.TxtComplemento.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtComplemento.Location = New System.Drawing.Point(730, 184)
+        Me.TxtComplemento.Location = New System.Drawing.Point(258, 266)
         Me.TxtComplemento.Name = "TxtComplemento"
         Me.TxtComplemento.Size = New System.Drawing.Size(65, 21)
         Me.TxtComplemento.TabIndex = 203
@@ -465,7 +396,7 @@ Partial Class FrmNovoColaboradorCliente
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(684, 188)
+        Me.Label22.Location = New System.Drawing.Point(205, 268)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(47, 17)
         Me.Label22.TabIndex = 202
@@ -476,7 +407,7 @@ Partial Class FrmNovoColaboradorCliente
         Me.TxtNumero.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtNumero.Enabled = False
         Me.TxtNumero.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtNumero.Location = New System.Drawing.Point(614, 186)
+        Me.TxtNumero.Location = New System.Drawing.Point(135, 266)
         Me.TxtNumero.Name = "TxtNumero"
         Me.TxtNumero.Size = New System.Drawing.Size(64, 21)
         Me.TxtNumero.TabIndex = 201
@@ -484,37 +415,18 @@ Partial Class FrmNovoColaboradorCliente
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(556, 186)
+        Me.Label21.Location = New System.Drawing.Point(31, 270)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(23, 17)
         Me.Label21.TabIndex = 200
         Me.Label21.Text = "Nº"
-        '
-        'TxtEndereco
-        '
-        Me.TxtEndereco.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtEndereco.Enabled = False
-        Me.TxtEndereco.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtEndereco.Location = New System.Drawing.Point(185, 185)
-        Me.TxtEndereco.Name = "TxtEndereco"
-        Me.TxtEndereco.Size = New System.Drawing.Size(360, 21)
-        Me.TxtEndereco.TabIndex = 199
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(31, 188)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(61, 17)
-        Me.Label20.TabIndex = 198
-        Me.Label20.Text = "Endereço"
         '
         'TxtCep
         '
         Me.TxtCep.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtCep.Enabled = False
         Me.TxtCep.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtCep.Location = New System.Drawing.Point(185, 158)
+        Me.TxtCep.Location = New System.Drawing.Point(135, 158)
         Me.TxtCep.Name = "TxtCep"
         Me.TxtCep.Size = New System.Drawing.Size(134, 21)
         Me.TxtCep.TabIndex = 197
@@ -533,7 +445,7 @@ Partial Class FrmNovoColaboradorCliente
         Me.Ckisento.AutoSize = True
         Me.Ckisento.Enabled = False
         Me.Ckisento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Ckisento.Location = New System.Drawing.Point(512, 131)
+        Me.Ckisento.Location = New System.Drawing.Point(462, 131)
         Me.Ckisento.Name = "Ckisento"
         Me.Ckisento.Size = New System.Drawing.Size(61, 21)
         Me.Ckisento.TabIndex = 195
@@ -545,7 +457,7 @@ Partial Class FrmNovoColaboradorCliente
         '
         Me.RdbFisica.Enabled = False
         Me.RdbFisica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RdbFisica.Location = New System.Drawing.Point(698, 78)
+        Me.RdbFisica.Location = New System.Drawing.Point(648, 78)
         Me.RdbFisica.Name = "RdbFisica"
         Me.RdbFisica.Size = New System.Drawing.Size(76, 17)
         Me.RdbFisica.TabIndex = 194
@@ -557,7 +469,7 @@ Partial Class FrmNovoColaboradorCliente
         '
         Me.RdbJuridica.Enabled = False
         Me.RdbJuridica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RdbJuridica.Location = New System.Drawing.Point(614, 78)
+        Me.RdbJuridica.Location = New System.Drawing.Point(564, 78)
         Me.RdbJuridica.Name = "RdbJuridica"
         Me.RdbJuridica.Size = New System.Drawing.Size(75, 17)
         Me.RdbJuridica.TabIndex = 193
@@ -568,7 +480,7 @@ Partial Class FrmNovoColaboradorCliente
         'LblRG_IE
         '
         Me.LblRG_IE.AutoSize = True
-        Me.LblRG_IE.Location = New System.Drawing.Point(325, 134)
+        Me.LblRG_IE.Location = New System.Drawing.Point(275, 134)
         Me.LblRG_IE.Name = "LblRG_IE"
         Me.LblRG_IE.Size = New System.Drawing.Size(25, 17)
         Me.LblRG_IE.TabIndex = 192
@@ -579,7 +491,7 @@ Partial Class FrmNovoColaboradorCliente
         Me.TxtIE.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtIE.Enabled = False
         Me.TxtIE.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtIE.Location = New System.Drawing.Point(368, 131)
+        Me.TxtIE.Location = New System.Drawing.Point(318, 131)
         Me.TxtIE.Name = "TxtIE"
         Me.TxtIE.Size = New System.Drawing.Size(135, 21)
         Me.TxtIE.TabIndex = 191
@@ -596,7 +508,7 @@ Partial Class FrmNovoColaboradorCliente
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(509, 78)
+        Me.Label3.Location = New System.Drawing.Point(459, 78)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(87, 17)
         Me.Label3.TabIndex = 189
@@ -606,7 +518,7 @@ Partial Class FrmNovoColaboradorCliente
         '
         Me.TxtNomeCompleto.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtNomeCompleto.Font = New System.Drawing.Font("Calibri", 10.0!)
-        Me.TxtNomeCompleto.Location = New System.Drawing.Point(185, 75)
+        Me.TxtNomeCompleto.Location = New System.Drawing.Point(135, 75)
         Me.TxtNomeCompleto.Name = "TxtNomeCompleto"
         Me.TxtNomeCompleto.Size = New System.Drawing.Size(318, 21)
         Me.TxtNomeCompleto.TabIndex = 0
@@ -720,20 +632,6 @@ Partial Class FrmNovoColaboradorCliente
         Me.CkDsligamento.Text = "Habilitar desligamento"
         Me.CkDsligamento.UseVisualStyleBackColor = True
         '
-        'BttAddProduto
-        '
-        Me.BttAddProduto.BackColor = System.Drawing.SystemColors.Control
-        Me.BttAddProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BttAddProduto.FlatAppearance.BorderSize = 0
-        Me.BttAddProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BttAddProduto.ImageKey = "add-1-icon.png"
-        Me.BttAddProduto.ImageList = Me.ImageList1
-        Me.BttAddProduto.Location = New System.Drawing.Point(730, 50)
-        Me.BttAddProduto.Name = "BttAddProduto"
-        Me.BttAddProduto.Size = New System.Drawing.Size(36, 23)
-        Me.BttAddProduto.TabIndex = 234
-        Me.BttAddProduto.UseVisualStyleBackColor = False
-        '
         'Label12
         '
         Me.Label12.BackColor = System.Drawing.Color.Gainsboro
@@ -802,13 +700,14 @@ Partial Class FrmNovoColaboradorCliente
         '
         'TabControl1
         '
+        Me.TabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Location = New System.Drawing.Point(15, 266)
+        Me.TabControl1.Location = New System.Drawing.Point(15, 305)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(797, 376)
+        Me.TabControl1.Size = New System.Drawing.Size(797, 288)
         Me.TabControl1.TabIndex = 241
         '
         'TabPage1
@@ -821,10 +720,10 @@ Partial Class FrmNovoColaboradorCliente
         Me.TabPage1.Controls.Add(Me.Label8)
         Me.TabPage1.Controls.Add(Me.TxtEmail)
         Me.TabPage1.Controls.Add(Me.Label9)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 27)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(789, 348)
+        Me.TabPage1.Size = New System.Drawing.Size(789, 257)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Detalhes do cadastro"
         '
@@ -842,16 +741,36 @@ Partial Class FrmNovoColaboradorCliente
         Me.TabPage2.Controls.Add(Me.Label14)
         Me.TabPage2.Controls.Add(Me.CkDsligamento)
         Me.TabPage2.Controls.Add(Me.TxtDemissao)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 27)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(789, 348)
+        Me.TabPage2.Size = New System.Drawing.Size(789, 257)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Informações financeiras"
+        '
+        'BttAddProduto
+        '
+        Me.BttAddProduto.BackColor = System.Drawing.SystemColors.Control
+        Me.BttAddProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BttAddProduto.FlatAppearance.BorderSize = 0
+        Me.BttAddProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BttAddProduto.ImageKey = "add-1-icon.png"
+        Me.BttAddProduto.ImageList = Me.ImageList1
+        Me.BttAddProduto.Location = New System.Drawing.Point(730, 50)
+        Me.BttAddProduto.Name = "BttAddProduto"
+        Me.BttAddProduto.Size = New System.Drawing.Size(36, 23)
+        Me.BttAddProduto.TabIndex = 234
+        Me.BttAddProduto.UseVisualStyleBackColor = False
         '
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage3.Controls.Add(Me.TxtNDocEsocial)
+        Me.TabPage3.Controls.Add(Me.Label27)
+        Me.TabPage3.Controls.Add(Me.RdbNIT)
+        Me.TabPage3.Controls.Add(Me.RdbPASEP)
+        Me.TabPage3.Controls.Add(Me.RdbPIS)
+        Me.TabPage3.Controls.Add(Me.Label19)
         Me.TabPage3.Controls.Add(Me.Label17)
         Me.TabPage3.Controls.Add(Me.TxtNumeroMatricula)
         Me.TabPage3.Controls.Add(Me.Label12)
@@ -860,12 +779,79 @@ Partial Class FrmNovoColaboradorCliente
         Me.TabPage3.Controls.Add(Me.CmbGrupo)
         Me.TabPage3.Controls.Add(Me.CmbCategoriaTrabalhador)
         Me.TabPage3.Controls.Add(Me.Label16)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 27)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(789, 348)
+        Me.TabPage3.Size = New System.Drawing.Size(789, 257)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "E-Social"
+        '
+        'TxtNDocEsocial
+        '
+        Me.TxtNDocEsocial.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtNDocEsocial.Enabled = False
+        Me.TxtNDocEsocial.Font = New System.Drawing.Font("Calibri", 10.0!)
+        Me.TxtNDocEsocial.Location = New System.Drawing.Point(176, 227)
+        Me.TxtNDocEsocial.Mask = "000,000,000-000"
+        Me.TxtNDocEsocial.Name = "TxtNDocEsocial"
+        Me.TxtNDocEsocial.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.TxtNDocEsocial.Size = New System.Drawing.Size(237, 21)
+        Me.TxtNDocEsocial.TabIndex = 242
+        Me.TxtNDocEsocial.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(22, 231)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(138, 17)
+        Me.Label27.TabIndex = 247
+        Me.Label27.Text = "Número do documento"
+        '
+        'RdbNIT
+        '
+        Me.RdbNIT.Enabled = False
+        Me.RdbNIT.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.RdbNIT.Location = New System.Drawing.Point(349, 195)
+        Me.RdbNIT.Name = "RdbNIT"
+        Me.RdbNIT.Size = New System.Drawing.Size(75, 17)
+        Me.RdbNIT.TabIndex = 246
+        Me.RdbNIT.TabStop = True
+        Me.RdbNIT.Text = "NIT"
+        Me.RdbNIT.UseVisualStyleBackColor = True
+        '
+        'RdbPASEP
+        '
+        Me.RdbPASEP.Enabled = False
+        Me.RdbPASEP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.RdbPASEP.Location = New System.Drawing.Point(257, 195)
+        Me.RdbPASEP.Name = "RdbPASEP"
+        Me.RdbPASEP.Size = New System.Drawing.Size(75, 17)
+        Me.RdbPASEP.TabIndex = 245
+        Me.RdbPASEP.TabStop = True
+        Me.RdbPASEP.Text = "PASEP"
+        Me.RdbPASEP.UseVisualStyleBackColor = True
+        '
+        'RdbPIS
+        '
+        Me.RdbPIS.Enabled = False
+        Me.RdbPIS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.RdbPIS.Location = New System.Drawing.Point(176, 195)
+        Me.RdbPIS.Name = "RdbPIS"
+        Me.RdbPIS.Size = New System.Drawing.Size(75, 17)
+        Me.RdbPIS.TabIndex = 244
+        Me.RdbPIS.TabStop = True
+        Me.RdbPIS.Text = "PIS"
+        Me.RdbPIS.UseVisualStyleBackColor = True
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(22, 195)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(128, 17)
+        Me.Label19.TabIndex = 243
+        Me.Label19.Text = "Número da matrícula"
         '
         'Label17
         '
@@ -886,29 +872,124 @@ Partial Class FrmNovoColaboradorCliente
         Me.TxtNumeroMatricula.Size = New System.Drawing.Size(237, 21)
         Me.TxtNumeroMatricula.TabIndex = 242
         '
+        'LblPais
+        '
+        Me.LblPais.AutoSize = True
+        Me.LblPais.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblPais.Location = New System.Drawing.Point(592, 241)
+        Me.LblPais.Name = "LblPais"
+        Me.LblPais.Size = New System.Drawing.Size(11, 17)
+        Me.LblPais.TabIndex = 301
+        Me.LblPais.Text = " "
+        '
+        'LblEstado
+        '
+        Me.LblEstado.AutoSize = True
+        Me.LblEstado.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblEstado.Location = New System.Drawing.Point(204, 241)
+        Me.LblEstado.Name = "LblEstado"
+        Me.LblEstado.Size = New System.Drawing.Size(11, 17)
+        Me.LblEstado.TabIndex = 300
+        Me.LblEstado.Text = " "
+        '
+        'LblCidade
+        '
+        Me.LblCidade.AutoSize = True
+        Me.LblCidade.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblCidade.Location = New System.Drawing.Point(501, 214)
+        Me.LblCidade.Name = "LblCidade"
+        Me.LblCidade.Size = New System.Drawing.Size(11, 17)
+        Me.LblCidade.TabIndex = 299
+        Me.LblCidade.Text = " "
+        '
+        'LblBairro
+        '
+        Me.LblBairro.AutoSize = True
+        Me.LblBairro.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblBairro.Location = New System.Drawing.Point(204, 214)
+        Me.LblBairro.Name = "LblBairro"
+        Me.LblBairro.Size = New System.Drawing.Size(11, 17)
+        Me.LblBairro.TabIndex = 298
+        Me.LblBairro.Text = " "
+        '
+        'LblEndereco
+        '
+        Me.LblEndereco.AutoSize = True
+        Me.LblEndereco.ForeColor = System.Drawing.Color.DarkOrange
+        Me.LblEndereco.Location = New System.Drawing.Point(204, 187)
+        Me.LblEndereco.Name = "LblEndereco"
+        Me.LblEndereco.Size = New System.Drawing.Size(11, 17)
+        Me.LblEndereco.TabIndex = 297
+        Me.LblEndereco.Text = " "
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(132, 241)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(46, 17)
+        Me.Label26.TabIndex = 296
+        Me.Label26.Text = "Estado"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(449, 214)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(46, 17)
+        Me.Label24.TabIndex = 295
+        Me.Label24.Text = "Cidade"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(132, 214)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(43, 17)
+        Me.Label23.TabIndex = 294
+        Me.Label23.Text = "Bairro"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(132, 187)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(61, 17)
+        Me.Label20.TabIndex = 293
+        Me.Label20.Text = "Endereço"
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel6.Location = New System.Drawing.Point(823, 25)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(1, 578)
+        Me.Panel6.TabIndex = 292
+        '
         'FrmNovoColaboradorCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(825, 681)
+        Me.ClientSize = New System.Drawing.Size(825, 636)
+        Me.Controls.Add(Me.LblPais)
+        Me.Controls.Add(Me.LblEstado)
+        Me.Controls.Add(Me.LblCidade)
+        Me.Controls.Add(Me.LblBairro)
+        Me.Controls.Add(Me.LblEndereco)
+        Me.Controls.Add(Me.Label26)
+        Me.Controls.Add(Me.Label24)
+        Me.Controls.Add(Me.Label23)
+        Me.Controls.Add(Me.Label20)
+        Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.TxtCPF)
         Me.Controls.Add(Me.TxtApelido)
         Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.TxtPais)
-        Me.Controls.Add(Me.Label25)
-        Me.Controls.Add(Me.TxtEstado)
-        Me.Controls.Add(Me.Label26)
-        Me.Controls.Add(Me.TxtCidade)
-        Me.Controls.Add(Me.Label24)
-        Me.Controls.Add(Me.TxtBairro)
-        Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.TxtComplemento)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.TxtNumero)
         Me.Controls.Add(Me.Label21)
-        Me.Controls.Add(Me.TxtEndereco)
-        Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.TxtCep)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.Ckisento)
@@ -974,20 +1055,10 @@ Partial Class FrmNovoColaboradorCliente
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents TxtPais As TextBox
-    Friend WithEvents Label25 As Label
-    Friend WithEvents TxtEstado As TextBox
-    Friend WithEvents Label26 As Label
-    Friend WithEvents TxtCidade As TextBox
-    Friend WithEvents Label24 As Label
-    Friend WithEvents TxtBairro As TextBox
-    Friend WithEvents Label23 As Label
     Friend WithEvents TxtComplemento As TextBox
     Friend WithEvents Label22 As Label
     Friend WithEvents TxtNumero As TextBox
     Friend WithEvents Label21 As Label
-    Friend WithEvents TxtEndereco As TextBox
-    Friend WithEvents Label20 As Label
     Friend WithEvents TxtCep As TextBox
     Friend WithEvents Label18 As Label
     Friend WithEvents Ckisento As CheckBox
@@ -1022,4 +1093,20 @@ Partial Class FrmNovoColaboradorCliente
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents Label17 As Label
     Friend WithEvents TxtNumeroMatricula As TextBox
+    Friend WithEvents TxtNDocEsocial As MaskedTextBox
+    Friend WithEvents Label27 As Label
+    Friend WithEvents RdbNIT As RadioButton
+    Friend WithEvents RdbPASEP As RadioButton
+    Friend WithEvents RdbPIS As RadioButton
+    Friend WithEvents Label19 As Label
+    Friend WithEvents LblPais As Label
+    Friend WithEvents LblEstado As Label
+    Friend WithEvents LblCidade As Label
+    Friend WithEvents LblBairro As Label
+    Friend WithEvents LblEndereco As Label
+    Friend WithEvents Label26 As Label
+    Friend WithEvents Label24 As Label
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Panel6 As Panel
 End Class

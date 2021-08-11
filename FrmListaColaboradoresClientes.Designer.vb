@@ -25,16 +25,6 @@ Partial Class FrmListaColaboradoresClientes
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DtFornecedores = New System.Windows.Forms.DataGridView()
-        Me.PnnInferior = New System.Windows.Forms.Panel()
-        Me.Panel9 = New System.Windows.Forms.Panel()
-        Me.Panel12 = New System.Windows.Forms.Panel()
-        Me.BttAprovarOrc = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.BttFechar = New System.Windows.Forms.Button()
         Me.Column5 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -42,6 +32,16 @@ Partial Class FrmListaColaboradoresClientes
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.ClmExcluir = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.PnnInferior = New System.Windows.Forms.Panel()
+        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.Panel12 = New System.Windows.Forms.Panel()
+        Me.BttFechar = New System.Windows.Forms.Button()
+        Me.BttAprovarOrc = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
         CType(Me.DtFornecedores, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnnInferior.SuspendLayout()
         Me.Panel12.SuspendLayout()
@@ -91,6 +91,62 @@ Partial Class FrmListaColaboradoresClientes
         Me.DtFornecedores.Size = New System.Drawing.Size(1105, 667)
         Me.DtFornecedores.TabIndex = 114
         '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Foto"
+        Me.Column5.MinimumWidth = 6
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        Me.Column5.Width = 150
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "IdColaboradorCliente"
+        Me.Column6.MinimumWidth = 6
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        Me.Column6.Width = 125
+        '
+        'Column1
+        '
+        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column1.HeaderText = "Nome completo"
+        Me.Column1.MinimumWidth = 6
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Cargo"
+        Me.Column2.MinimumWidth = 6
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        Me.Column2.Width = 125
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Setor"
+        Me.Column3.MinimumWidth = 6
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        Me.Column3.Width = 125
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = ""
+        Me.Column4.MinimumWidth = 6
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        Me.Column4.Width = 50
+        '
+        'ClmExcluir
+        '
+        Me.ClmExcluir.HeaderText = ""
+        Me.ClmExcluir.MinimumWidth = 6
+        Me.ClmExcluir.Name = "ClmExcluir"
+        Me.ClmExcluir.ReadOnly = True
+        Me.ClmExcluir.Width = 50
+        '
         'PnnInferior
         '
         Me.PnnInferior.BackColor = System.Drawing.Color.SlateGray
@@ -122,6 +178,18 @@ Partial Class FrmListaColaboradoresClientes
         Me.Panel12.Name = "Panel12"
         Me.Panel12.Size = New System.Drawing.Size(38, 38)
         Me.Panel12.TabIndex = 28
+        '
+        'BttFechar
+        '
+        Me.BttFechar.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.Delete_80_icon_icons_com_57340
+        Me.BttFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BttFechar.FlatAppearance.BorderSize = 0
+        Me.BttFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BttFechar.Location = New System.Drawing.Point(10, 8)
+        Me.BttFechar.Name = "BttFechar"
+        Me.BttFechar.Size = New System.Drawing.Size(16, 20)
+        Me.BttFechar.TabIndex = 28
+        Me.BttFechar.UseVisualStyleBackColor = True
         '
         'BttAprovarOrc
         '
@@ -188,74 +256,6 @@ Partial Class FrmListaColaboradoresClientes
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(1107, 1)
         Me.Panel4.TabIndex = 118
-        '
-        'BttFechar
-        '
-        Me.BttFechar.BackgroundImage = Global.CRM_BASE.My.Resources.Resources.Delete_80_icon_icons_com_57340
-        Me.BttFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BttFechar.FlatAppearance.BorderSize = 0
-        Me.BttFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BttFechar.Location = New System.Drawing.Point(10, 8)
-        Me.BttFechar.Name = "BttFechar"
-        Me.BttFechar.Size = New System.Drawing.Size(16, 20)
-        Me.BttFechar.TabIndex = 28
-        Me.BttFechar.UseVisualStyleBackColor = True
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Foto"
-        Me.Column5.MinimumWidth = 6
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.Width = 150
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "IdColaboradorCliente"
-        Me.Column6.MinimumWidth = 6
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.Width = 125
-        '
-        'Column1
-        '
-        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column1.HeaderText = "Nome completo"
-        Me.Column1.MinimumWidth = 6
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Cargo"
-        Me.Column2.MinimumWidth = 6
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        Me.Column2.Width = 125
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Setor"
-        Me.Column3.MinimumWidth = 6
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        Me.Column3.Width = 125
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = ""
-        Me.Column4.MinimumWidth = 6
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.Width = 50
-        '
-        'ClmExcluir
-        '
-        Me.ClmExcluir.HeaderText = ""
-        Me.ClmExcluir.MinimumWidth = 6
-        Me.ClmExcluir.Name = "ClmExcluir"
-        Me.ClmExcluir.ReadOnly = True
-        Me.ClmExcluir.Width = 50
         '
         'FrmListaColaboradoresClientes
         '
